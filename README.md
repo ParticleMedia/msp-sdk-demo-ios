@@ -25,5 +25,5 @@ Please checkout the demo app for [sample code](https://github.com/ParticleMedia/
 
 ## Verify your integration
 If everything goes well, you should be able to get below sample Ad from Prebid.
-/Users/huanzhizhang/Desktop/Screenshot 2024-09-30 at 1.14.00 PM.png
+<img width="354" alt="Screenshot 2024-09-30 at 1 14 00 PM" src="https://github.com/user-attachments/assets/8416fb52-5073-43d4-aa0d-431b28ab127e">
 
