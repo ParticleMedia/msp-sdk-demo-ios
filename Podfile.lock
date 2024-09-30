@@ -1,0 +1,103 @@
+PODS:
+  - Google-Mobile-Ads-SDK (10.14.0):
+    - GoogleAppMeasurement (< 11.0, >= 7.0)
+    - GoogleUserMessagingPlatform (>= 1.1)
+  - GoogleAdapter (0.0.52):
+    - Google-Mobile-Ads-SDK (= 10.14.0)
+    - MSPSharedLibraries (= 0.0.47)
+  - GoogleAppMeasurement (10.29.0):
+    - GoogleAppMeasurement/AdIdSupport (= 10.29.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
+    - GoogleUtilities/MethodSwizzler (~> 7.11)
+    - GoogleUtilities/Network (~> 7.11)
+    - "GoogleUtilities/NSData+zlib (~> 7.11)"
+    - nanopb (< 2.30911.0, >= 2.30908.0)
+  - GoogleAppMeasurement/AdIdSupport (10.29.0):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 10.29.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
+    - GoogleUtilities/MethodSwizzler (~> 7.11)
+    - GoogleUtilities/Network (~> 7.11)
+    - "GoogleUtilities/NSData+zlib (~> 7.11)"
+    - nanopb (< 2.30911.0, >= 2.30908.0)
+  - GoogleAppMeasurement/WithoutAdIdSupport (10.29.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
+    - GoogleUtilities/MethodSwizzler (~> 7.11)
+    - GoogleUtilities/Network (~> 7.11)
+    - "GoogleUtilities/NSData+zlib (~> 7.11)"
+    - nanopb (< 2.30911.0, >= 2.30908.0)
+  - GoogleUserMessagingPlatform (2.6.0)
+  - GoogleUtilities/AppDelegateSwizzler (7.13.3):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Environment (7.13.3):
+    - GoogleUtilities/Privacy
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.13.3):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/MethodSwizzler (7.13.3):
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Network (7.13.3):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Privacy
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (7.13.3)":
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Privacy (7.13.3)
+  - GoogleUtilities/Reachability (7.13.3):
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Privacy
+  - MSPCore (0.0.52):
+    - MSPSharedLibraries (= 0.0.47)
+    - PrebidAdapter (= 0.0.52)
+  - MSPSharedLibraries (0.0.47)
+  - nanopb (2.30910.0):
+    - nanopb/decode (= 2.30910.0)
+    - nanopb/encode (= 2.30910.0)
+  - nanopb/decode (2.30910.0)
+  - nanopb/encode (2.30910.0)
+  - NovaAdapter (0.0.49):
+    - MSPSharedLibraries (= 0.0.47)
+  - PrebidAdapter (0.0.52):
+    - MSPSharedLibraries (= 0.0.47)
+  - PromisesObjC (2.4.0)
+
+DEPENDENCIES:
+  - GoogleAdapter (= 0.0.52)
+  - MSPCore (= 0.0.52)
+  - NovaAdapter (= 0.0.49)
+
+SPEC REPOS:
+  trunk:
+    - Google-Mobile-Ads-SDK
+    - GoogleAdapter
+    - GoogleAppMeasurement
+    - GoogleUserMessagingPlatform
+    - GoogleUtilities
+    - MSPCore
+    - MSPSharedLibraries
+    - nanopb
+    - NovaAdapter
+    - PrebidAdapter
+    - PromisesObjC
+
+SPEC CHECKSUMS:
+  Google-Mobile-Ads-SDK: 8f67a72f88d057335b1ac3f501e2b68ad054116e
+  GoogleAdapter: 5fc39379d2850c0bd4421676838cdde43e0d0d7c
+  GoogleAppMeasurement: f9de05ee17401e3355f68e8fc8b5064d429f5918
+  GoogleUserMessagingPlatform: 0c3a08353e53ce8c2feab7addd0b652cde522450
+  GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
+  MSPCore: abcc7840be5d9716782667c9403ee037b185eb1d
+  MSPSharedLibraries: 290f6d24c74d636be2019e3253c9f1e0c660339d
+  nanopb: 438bc412db1928dac798aa6fd75726007be04262
+  NovaAdapter: b46648026c9414d6ca8c5dd8518d103f59139385
+  PrebidAdapter: dcb535698ec7e526c8128552d6720712cbb79078
+  PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
+
+PODFILE CHECKSUM: d707ab4bd06c547abb5f709daea4ab2c4d468b3e
+
+COCOAPODS: 1.14.3
