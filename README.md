@@ -25,4 +25,5 @@ Please checkout the demo app for [sample code](https://github.com/ParticleMedia/
 
 ## Verify your integration
 If everything goes well, you should be able to get below sample Ad from Prebid.
-/var/folders/jr/mhn__jm50kx84qx25z7hf1tw0000gn/T/TemporaryItems/NSIRD_screencaptureui_hwkmbM/Screenshot 2024-09-30 at 1.12.36 PM.png
+/Users/huanzhizhang/Desktop/Screenshot 2024-09-30 at 1.14.00 PM.png
+
