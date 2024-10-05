@@ -12,7 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let mspInitParameters = InitializationParametersImp(prebidAPIKey: "af7ce3f9-462d-4df1-815f-09314bb87ca3",
-                                                            prebidHostUrl: "https://prebid-server.themsp.ai/openrtb2/auction",
                                                             sourceApp: "")
         
         MSP.shared.setNovaManager(novaManager: NovaManager())
@@ -21,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MSP.shared.bidLoaderProvider.googleQueryInfoFetcher = GoogleQueryInfoFetcherHelper()
         
         MSP.shared.initMSP(initParams: mspInitParameters, sdkInitListener: nil)
-        
         window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
         
