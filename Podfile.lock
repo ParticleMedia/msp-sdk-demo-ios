@@ -61,7 +61,7 @@ PODS:
     - nanopb/encode (= 2.30910.0)
   - nanopb/decode (2.30910.0)
   - nanopb/encode (2.30910.0)
-  - NovaAdapter (0.0.59):
+  - NovaAdapter (0.0.60):
     - MSPSharedLibraries (= 0.0.57)
   - PrebidAdapter (0.0.58):
     - MSPSharedLibraries (= 0.0.57)
@@ -71,7 +71,7 @@ PODS:
 DEPENDENCIES:
   - GoogleAdapter (= 0.0.58)
   - MSPCore (= 0.0.59)
-  - NovaAdapter (= 0.0.59)
+  - NovaAdapter (= 0.0.60)
 
 SPEC REPOS:
   trunk:
@@ -97,11 +97,11 @@ SPEC CHECKSUMS:
   MSPCore: 94619699445526f41bc943e8cd638a2b1ece7d6f
   MSPSharedLibraries: 3ab22c9fe8e75490abdc7373bccf1cd4f97dc1f8
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
-  NovaAdapter: 4df3ebedbde4c84b3d61382f2b050238e589641a
+  NovaAdapter: f1b6c08d9ca4cb61d2faf82fda9fa5def4cc7f7f
   PrebidAdapter: b24ca3090a40cc7bb01dea78f4d975123fa49a6f
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   SwiftProtobuf: afced68785854575756db965e9da52bbf3dc45e7
 
-PODFILE CHECKSUM: d90275f79c8be2ea6177986c9fc2a59c4c7296aa
+PODFILE CHECKSUM: c9ef7107b9073890334a6d00c787c3ce27d8ebeb
 
 COCOAPODS: 1.14.3
