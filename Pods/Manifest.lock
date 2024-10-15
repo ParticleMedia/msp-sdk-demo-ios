@@ -1,25 +1,25 @@
 PODS:
   - Google-Mobile-Ads-SDK (11.2.0):
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleAdapter (0.0.62):
+  - GoogleAdapter (0.0.65):
     - Google-Mobile-Ads-SDK (= 11.2.0)
-    - MSPSharedLibraries (= 0.0.61)
+    - MSPSharedLibraries (= 0.0.64)
   - GoogleUserMessagingPlatform (2.6.0)
-  - MSPCore (0.0.62):
-    - MSPSharedLibraries (= 0.0.61)
-    - PrebidAdapter (= 0.0.61)
+  - MSPCore (0.0.65):
+    - MSPSharedLibraries (= 0.0.64)
+    - PrebidAdapter (= 0.0.64)
     - SwiftProtobuf (= 1.21.0)
-  - MSPSharedLibraries (0.0.61)
-  - NovaAdapter (0.0.62):
-    - MSPSharedLibraries (= 0.0.61)
-  - PrebidAdapter (0.0.61):
-    - MSPSharedLibraries (= 0.0.61)
+  - MSPSharedLibraries (0.0.64)
+  - NovaAdapter (0.0.65):
+    - MSPSharedLibraries (= 0.0.64)
+  - PrebidAdapter (0.0.64):
+    - MSPSharedLibraries (= 0.0.64)
   - SwiftProtobuf (1.21.0)
 
 DEPENDENCIES:
-  - GoogleAdapter (= 0.0.62)
-  - MSPCore (= 0.0.62)
-  - NovaAdapter (= 0.0.62)
+  - GoogleAdapter (= 0.0.65)
+  - MSPCore (= 0.0.65)
+  - NovaAdapter (= 0.0.65)
 
 SPEC REPOS:
   trunk:
@@ -34,14 +34,14 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
-  GoogleAdapter: eecd74d31fe5ff9f68c96916d9a90782b5c85316
+  GoogleAdapter: 706faa84350d60d0047339dedb96f2e8383304c3
   GoogleUserMessagingPlatform: 0c3a08353e53ce8c2feab7addd0b652cde522450
-  MSPCore: 7a82bda1d5d42cdeced1bf4de29db5455b50199f
-  MSPSharedLibraries: a1f34f4c0078330a25b46871118bee538fed8219
-  NovaAdapter: e67eaf196cd862d45446e719c0dee2313f7097df
-  PrebidAdapter: 50ba78bc8d8d7e009a2217b0ae8c35859cd5777b
+  MSPCore: 2e7953623088be3c6451234bdb865e670e0bd7e9
+  MSPSharedLibraries: 5afabcfd3a685571361236d52bb63261f96e90bb
+  NovaAdapter: 14105fdb692e7ee800e73de321cc1ac41b011e96
+  PrebidAdapter: 9eb0fa13a4a9a9f433c7b7452734debed5b1c893
   SwiftProtobuf: afced68785854575756db965e9da52bbf3dc45e7
 
-PODFILE CHECKSUM: 570f672626570590081a66388e1c27eea3fe0286
+PODFILE CHECKSUM: 4714c0021d5c3cdb1266a2c0dff4298a6a2711e5
 
 COCOAPODS: 1.15.2
