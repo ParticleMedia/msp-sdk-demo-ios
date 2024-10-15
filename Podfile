@@ -13,9 +13,9 @@ target 'MSPDemoApp' do
   project 'MSPDemoApp/MSPDemoApp'
   #pod 'GoogleAdapter',  :path => 'GoogleAdapter', :modular_headers => true
   #use_frameworks!
-  pod 'MSPCore', '0.0.62', :modular_headers => true
-  pod 'NovaAdapter', '0.0.62', :modular_headers => true
-  pod 'GoogleAdapter', '0.0.62', :modular_headers => true
+  pod 'MSPCore', '0.0.65', :modular_headers => true
+  pod 'NovaAdapter', '0.0.65', :modular_headers => true
+  pod 'GoogleAdapter', '0.0.65', :modular_headers => true
  
 end
 
