@@ -23,6 +23,9 @@ Please specify the version numbers for the pods in your pod file, in case future
 
 Please checkout the demo app for [sample code](https://github.com/ParticleMedia/msp-sdk-demo-ios/blob/main/MSPDemoApp/MSPDemoApp/DemoViewControllers/DemoAdViewController.swift)
 
+## Privacy & CCPA
+Please follow Prebid's documentation to set user's IAB US Privacy signal: https://docs.prebid.org/prebid-mobile/prebid-mobile-privacy-regulation.html#notice-and-opt-out-signal 
+
 ## Verify your integration
 If everything goes well, you should be able to get below sample Ad from Prebid.
 <img width="354" alt="Screenshot 2024-09-30 at 1 14 00 PM" src="https://github.com/user-attachments/assets/8416fb52-5073-43d4-aa0d-431b28ab127e">
