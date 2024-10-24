@@ -15,7 +15,8 @@ target 'MSPDemoApp' do
   #use_frameworks!
   pod 'MSPCore', '0.0.65', :modular_headers => true
   pod 'NovaAdapter', '0.0.65', :modular_headers => true
-  pod 'GoogleAdapter', '0.0.65', :modular_headers => true
+  pod 'GoogleAdapter', '0.0.66', :modular_headers => true
+  pod 'FacebookAdapter', '0.0.68', :modular_headers => true
  
 end
 
