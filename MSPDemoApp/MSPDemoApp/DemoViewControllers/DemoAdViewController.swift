@@ -14,6 +14,7 @@ public enum AdType: String {
     case googleInterstitial
     case novaInterstitial
     case facebookNative
+    case facebookInterstitial
 }
 
 class DemoAdViewController: UIViewController {
@@ -37,7 +38,9 @@ class DemoAdViewController: UIViewController {
         case .novaInterstitial:
             return "demo-ios-launch-fullscreen"
         case .facebookNative:
-            return "msp-ios-foryou-large-native-debug_fb"
+            return "demo-ios-foryou-large"
+        case .facebookInterstitial:
+            return "demo-ios-launch-fullscreen"
         }
     }()
     
@@ -48,7 +51,7 @@ class DemoAdViewController: UIViewController {
     
         case .googleNative, .novaNative, .facebookNative:
             return .native
-        case .googleInterstitial, .novaInterstitial:
+        case .googleInterstitial, .novaInterstitial, .facebookInterstitial:
             return .interstitial
         }
     }()
@@ -75,9 +78,9 @@ class DemoAdViewController: UIViewController {
             testParams["test"] = "{\"ad_network\":\"msp_nova\",\"test_ad\":true}"
         } else if adType == .prebidBanner {
             testParams["test"] = "{\"ad_network\":\"pubmatic\",\"test_ad\":true}"
-        } else if adType == .googleBanner || adType == .googleInterstitial {
+        } else if adType == .googleBanner || adType == .googleInterstitial || adType == .googleNative {
             testParams["test"] = "{\"ad_network\":\"msp_google\",\"test_ad\":true}"
-        } else if adType == .facebookNative {
+        } else if adType == .facebookNative || adType == .facebookInterstitial {
             testParams["test"] = "{\"ad_network\":\"msp_fb\",\"test_ad\":true}"
         }
          
@@ -137,10 +140,8 @@ extension DemoAdViewController: AdListener {
                 //self.nativeAdView?.callToActionButton?.isHidden = true
                 nativeAdView.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
-                    nativeAdView.leadingAnchor.constraint(lessThanOrEqualTo: self.view.leadingAnchor, constant: 100),
-                    nativeAdView.trailingAnchor.constraint(lessThanOrEqualTo: self.view.trailingAnchor),
-                    nativeAdView.topAnchor.constraint(lessThanOrEqualTo: self.view.topAnchor, constant: 100),
-                    nativeAdView.bottomAnchor.constraint(lessThanOrEqualTo: self.view.bottomAnchor),
+                    nativeAdView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                    nativeAdView.topAnchor.constraint(lessThanOrEqualTo: self.view.topAnchor, constant: 200),
                     nativeAdView.widthAnchor.constraint(equalToConstant: 300.0)
                 ])
             }

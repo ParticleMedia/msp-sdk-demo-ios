@@ -1,7 +1,11 @@
 PODS:
+  - FacebookAdapter (0.0.68):
+    - FBAudienceNetwork (= 6.15.0)
+    - MSPSharedLibraries (= 0.0.64)
+  - FBAudienceNetwork (6.15.0)
   - Google-Mobile-Ads-SDK (11.2.0):
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleAdapter (0.0.65):
+  - GoogleAdapter (0.0.66):
     - Google-Mobile-Ads-SDK (= 11.2.0)
     - MSPSharedLibraries (= 0.0.64)
   - GoogleUserMessagingPlatform (2.6.0)
@@ -17,12 +21,15 @@ PODS:
   - SwiftProtobuf (1.21.0)
 
 DEPENDENCIES:
-  - GoogleAdapter (= 0.0.65)
+  - FacebookAdapter (= 0.0.68)
+  - GoogleAdapter (= 0.0.66)
   - MSPCore (= 0.0.65)
   - NovaAdapter (= 0.0.65)
 
 SPEC REPOS:
   trunk:
+    - FacebookAdapter
+    - FBAudienceNetwork
     - Google-Mobile-Ads-SDK
     - GoogleAdapter
     - GoogleUserMessagingPlatform
@@ -33,8 +40,10 @@ SPEC REPOS:
     - SwiftProtobuf
 
 SPEC CHECKSUMS:
+  FacebookAdapter: a96ee32547a84129f8a52dcfa32a0f2dfd936c43
+  FBAudienceNetwork: 80a035aa69cc3a71c99e44cb5c2874e4cef9909f
   Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
-  GoogleAdapter: 706faa84350d60d0047339dedb96f2e8383304c3
+  GoogleAdapter: 5ee4b015fe542d23f6eb90e0f3bfa7e20b31dbdd
   GoogleUserMessagingPlatform: 0c3a08353e53ce8c2feab7addd0b652cde522450
   MSPCore: 2e7953623088be3c6451234bdb865e670e0bd7e9
   MSPSharedLibraries: 5afabcfd3a685571361236d52bb63261f96e90bb
@@ -42,6 +51,6 @@ SPEC CHECKSUMS:
   PrebidAdapter: 9eb0fa13a4a9a9f433c7b7452734debed5b1c893
   SwiftProtobuf: afced68785854575756db965e9da52bbf3dc45e7
 
-PODFILE CHECKSUM: 4714c0021d5c3cdb1266a2c0dff4298a6a2711e5
+PODFILE CHECKSUM: 44579de08abd39bd854124f523ec27a93f420472
 
 COCOAPODS: 1.15.2
