@@ -9,7 +9,7 @@ PODS:
     - Google-Mobile-Ads-SDK (= 11.2.0)
     - MSPSharedLibraries (= 0.0.74)
   - GoogleUserMessagingPlatform (2.7.0)
-  - MSPCore (0.0.76):
+  - MSPCore (0.0.77):
     - MSPSharedLibraries (= 0.0.74)
     - PrebidAdapter (= 0.0.74)
     - SwiftProtobuf (= 1.21.0)
@@ -23,7 +23,7 @@ PODS:
 DEPENDENCIES:
   - FacebookAdapter (= 0.0.75)
   - GoogleAdapter (= 0.0.75)
-  - MSPCore (= 0.0.76)
+  - MSPCore (= 0.0.77)
   - NovaAdapter (= 0.0.75)
 
 SPEC REPOS:
@@ -45,12 +45,12 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
   GoogleAdapter: 952db4161e383d24d81b72044c7358b8e5b0822b
   GoogleUserMessagingPlatform: a8b56893477f67212fbc8411c139e61d463349f5
-  MSPCore: 1bd9707a018a258cd7862d1576e29e153b114cf3
+  MSPCore: 497cb425a51c5acb3e8fcbdc5152cdaa20b83075
   MSPSharedLibraries: 7c30ae5a90286801672b39025b9e34427588ed80
   NovaAdapter: 600d9caa9d0fd622effd7609360b4cc4593bf6a9
   PrebidAdapter: cc6de120c4680b3d3d35b064b339a8d77bd649fe
   SwiftProtobuf: afced68785854575756db965e9da52bbf3dc45e7
 
-PODFILE CHECKSUM: f7338d31e68c1b956aa860be02c799c345896ac8
+PODFILE CHECKSUM: e800d4661e0344d24a7cd28f641483577a0eb236
 
 COCOAPODS: 1.15.2
