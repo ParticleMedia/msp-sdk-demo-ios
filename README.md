@@ -9,7 +9,7 @@ For now MSP SDK is distributed as Cocoapods, you can introduce MSP SDKs with the
 ```
 pod 'MSPCore', '0.0.83', :modular_headers => true
 # if you want Nova Ads 
-pod 'NovaAdapter', '0.0.86', :modular_headers => true
+pod 'NovaAdapter', '0.0.87', :modular_headers => true
 # if you want Google Ads
 pod 'GoogleAdapter', '0.0.83', :modular_headers => true
 # if you want Facebook Ads
