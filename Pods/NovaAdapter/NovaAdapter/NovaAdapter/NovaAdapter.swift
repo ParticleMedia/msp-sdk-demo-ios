@@ -92,7 +92,7 @@ public class NovaAdapter: AdNetworkAdapter {
                 novaNativeAdView.callToActionButton = nativeAdView.nativeAdViewBinder?.callToActionButton
                 novaNativeAdView.prepareViewForInteraction(nativeAd: novaNativeAdItem)
                 
-                let novaSubViews = [novaNativeAdView.titleLabel, novaNativeAdView.bodyLabel, novaNativeAdView.advertiserLabel, novaNativeAdView.callToActionButton, mediaView]
+                let novaSubViews: [UIView?] = [novaNativeAdView.titleLabel, novaNativeAdView.bodyLabel, novaNativeAdView.advertiserLabel, novaNativeAdView.callToActionButton, mediaView]
                 novaNativeAdView.tappableViews = [UIView]()
                 for view in novaSubViews {
                     if let view = view {
@@ -126,6 +126,9 @@ public class NovaAdapter: AdNetworkAdapter {
                 novaNativeAdView.tappableViews = [UIView]()
                 novaNativeAdView.tappableViews?.append(mediaView)
                 novaNativeAdView.tappableViews?.append(nativeAdContainer)
+                if let button = novaNativeAdView.callToActionButton {
+                    novaNativeAdView.tappableViews?.append(button)
+                }
                 novaNativeAdView.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
                     //novaNativeAdView.centerYAnchor.constraint(equalTo: nativeAdView.centerYAnchor),
@@ -216,8 +219,19 @@ public class NovaAdapter: AdNetworkAdapter {
                 
                     if let adListener = self.adListener,
                        let adRequest = self.adRequest {
-                        handleAdLoaded(ad: novaInterstitialAd, listener: adListener, adRequest: adRequest)
-                        self.adMetricReporter?.logAdResult(placementId: adRequest.placementId, ad: novaInterstitialAd, fill: true, isFromCache: false)
+                        if appOpenAd?.creativeType == .nativeImage {
+                            appOpenAd?.preloadAdImage() { image in
+                                DispatchQueue.main.async {
+                                    if let image = image {
+                                        handleAdLoaded(ad: novaInterstitialAd, listener: adListener, adRequest: adRequest)
+                                        self.adMetricReporter?.logAdResult(placementId: adRequest.placementId, ad: novaInterstitialAd, fill: true, isFromCache: false)
+                                    } else {
+                                        self.adListener?.onError(msg: "fail to load ad media")
+                                        self.adMetricReporter?.logAdResult(placementId: adRequest.placementId ?? "", ad: nil, fill: false, isFromCache: false)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 
