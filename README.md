@@ -7,11 +7,11 @@ Publisher App developers need to pass an *placement id* provisioned by Particles
 ## Dependencies
 For now MSP SDK is distributed as Cocoapods, you can introduce MSP SDKs with the following code in your Podfile:
 ```
-pod 'MSPCore', '0.0.83', :modular_headers => true
+pod 'MSPCore', '0.0.90', :modular_headers => true
 # if you want Nova Ads 
 pod 'NovaAdapter', '0.0.88', :modular_headers => true
 # if you want Google Ads
-pod 'GoogleAdapter', '0.0.83', :modular_headers => true
+pod 'GoogleAdapter', '0.0.89', :modular_headers => true
 # if you want Facebook Ads
 pod 'FacebookAdapter', '0.0.86', :modular_headers => true
 ```
