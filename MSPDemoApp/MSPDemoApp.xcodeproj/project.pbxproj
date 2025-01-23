@@ -19,6 +19,7 @@
 		668ACA922CD58A8800F45803 /* DemoNativeAdContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668ACA912CD58A8800F45803 /* DemoNativeAdContainer.swift */; };
 		66CC4E562C8FB6AE0005CCF6 /* DemoAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC4E552C8FB6AE0005CCF6 /* DemoAdViewController.swift */; };
 		66E5334E2C1BC1E700255D15 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5334D2C1BC1E700255D15 /* Colors.swift */; };
+		66EBE1492D43072900AF18FA /* UnityAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBE1482D43072400AF18FA /* UnityAdapter.swift */; };
 		E0D4098C6B103253761A220B /* libPods-MSPDemoApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 865DA71BB2BB723F7DC9E210 /* libPods-MSPDemoApp.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		66CC4E552C8FB6AE0005CCF6 /* DemoAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAdViewController.swift; sourceTree = "<group>"; };
 		66E5334D2C1BC1E700255D15 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		66E534E62C24D51800255D15 /* NovaCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = NovaCore.xcframework; sourceTree = "<group>"; };
+		66EBE1482D43072400AF18FA /* UnityAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnityAdapter.swift; sourceTree = "<group>"; };
 		66F4F0C22BE054800026CAB8 /* MSPUtility.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MSPUtility.xcframework; path = ../outputMSPUtility/xcframework/MSPUtility.xcframework; sourceTree = "<group>"; };
 		66F4F0C72BE0550E0026CAB8 /* PrebidAdapter.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PrebidAdapter.xcframework; path = ../output/xcframework/PrebidAdapter.xcframework; sourceTree = "<group>"; };
 		66F4F0CA2BE055360026CAB8 /* PrebidMobile.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PrebidMobile.xcframework; path = ../MSPUtility/PrebidMobile.xcframework; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		668480612BE03D7D0025018B /* MSPDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				66EBE1482D43072400AF18FA /* UnityAdapter.swift */,
 				66CC4E542C8FB68D0005CCF6 /* DemoViewControllers */,
 				66E5334A2C1BA8AD00255D15 /* Native */,
 				668480622BE03D7D0025018B /* AppDelegate.swift */,
@@ -388,6 +391,7 @@
 				668480652BE03D7D0025018B /* SceneDelegate.swift in Sources */,
 				668ACA922CD58A8800F45803 /* DemoNativeAdContainer.swift in Sources */,
 				664F334B2C49B2970014E1BA /* DemoNativeAdViewBinder.swift in Sources */,
+				66EBE1492D43072900AF18FA /* UnityAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@ target 'MSPDemoApp' do
   pod 'NovaAdapter', '0.0.95', :modular_headers => true
   pod 'GoogleAdapter', '0.0.92', :modular_headers => true
   pod 'FacebookAdapter', '0.0.92', :modular_headers => true
+  pod 'IronSourceSDK','8.6.0.0', :modular_headers => true
  
 end
 

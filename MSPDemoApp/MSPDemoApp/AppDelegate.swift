@@ -3,6 +3,7 @@ import MSPCore
 import GoogleAdapter
 import NovaAdapter
 import AppTrackingTransparency
+import IronSource
 
 import FacebookAdapter
 
@@ -27,6 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MSP.shared.bidLoaderProvider.facebookBidTokenProvider = FacebookBidTokenProviderHelper()
         
         MSP.shared.initMSP(initParams: mspInitParameters, sdkInitListener: nil)
+        
+        let requestBuilder = LPMInitRequestBuilder(appKey: "8545d445")
+            .withLegacyAdFormats([IS_REWARDED_VIDEO, IS_NATIVE_AD])
+            .withUserId(UserDefaults.standard.string(forKey: "msp_user_id") ?? "")
+        // Build the initial request
+        let initRequest = requestBuilder.build()
+        // Initialize LevelPlay with the prepared request
+        LevelPlay.initWith(initRequest)
+        { config, error in
+            
+        }
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
         

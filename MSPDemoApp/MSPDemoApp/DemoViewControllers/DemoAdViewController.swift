@@ -7,14 +7,8 @@ import AppTrackingTransparency
 import PrebidMobile
 
 public enum AdType: String {
-    case prebidBanner
-    case googleBanner
-    case googleNative
-    case novaNative
-    case googleInterstitial
-    case novaInterstitial
-    case facebookNative
-    case facebookInterstitial
+    case Banner
+    
 }
 
 class DemoAdViewController: UIViewController {
@@ -23,36 +17,19 @@ class DemoAdViewController: UIViewController {
     public var nativeAdView: NativeAdView?
     public var isCtaShown = false
     
+    public var adapter: AdNetworkAdapter?
+    
     private lazy var placementId = {
         switch adType {
-        case .prebidBanner:
-            return "demo-ios-article-top"
-        case .googleBanner:
-            return "demo-ios-article-top"
-        case .googleNative:
-            return "demo-ios-foryou-large"
-        case .novaNative:
-            return "demo-ios-foryou-large"
-        case .googleInterstitial:
-            return "demo-ios-article-top"
-        case .novaInterstitial:
-            return "demo-ios-launch-fullscreen"
-        case .facebookNative:
-            return "demo-ios-foryou-large"
-        case .facebookInterstitial:
-            return "demo-ios-launch-fullscreen"
+        case .Banner:
+            return "0jks9qnqpi7e1t6i"
         }
     }()
     
     private lazy var adFormat: MSPiOSCore.AdFormat = {
         switch adType {
-        case .prebidBanner, .googleBanner :
+        case .Banner:
             return .banner
-    
-        case .googleNative, .novaNative, .facebookNative:
-            return .native
-        case .googleInterstitial, .novaInterstitial, .facebookInterstitial:
-            return .interstitial
         }
     }()
     
@@ -73,15 +50,7 @@ class DemoAdViewController: UIViewController {
         self.adLoader = adLoader
         var customParams = [String: String]()
         var testParams = [String: String]()
-        if adType == .novaNative || adType == .novaInterstitial {
-            testParams["test"] = "{\"ad_network\":\"msp_nova\",\"test_ad\":true}"
-        } else if adType == .prebidBanner {
-            testParams["test"] = "{\"ad_network\":\"pubmatic\",\"test_ad\":true}"
-        } else if adType == .googleBanner || adType == .googleInterstitial || adType == .googleNative {
-            testParams["test"] = "{\"ad_network\":\"msp_google\",\"test_ad\":true}"
-        } else if adType == .facebookNative || adType == .facebookInterstitial {
-            testParams["test"] = "{\"ad_network\":\"msp_fb\",\"test_ad\":true}"
-        }
+
          
         
         let adRequest = AdRequest(customParams: customParams,
@@ -93,9 +62,13 @@ class DemoAdViewController: UIViewController {
                                   adFormat: adFormat,
                                   isCacheSupported: true,
                                   testParams: testParams)
-        adLoader.loadAd(placementId: placementId,
-                        adListener: self,
-                        adRequest: adRequest)
+        
+        adapter = UnityAdapter()
+        adapter?.loadAdCreative(bidResponse: self, adListener: self, context: self, adRequest: adRequest)
+        
+        //adLoader.loadAd(placementId: placementId,
+        //                adListener: self,
+        //                adRequest: adRequest)
     }
 
 }
