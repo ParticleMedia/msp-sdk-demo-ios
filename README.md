@@ -11,9 +11,9 @@ pod 'MSPCore', '0.0.93', :modular_headers => true
 # if you want Nova Ads 
 pod 'NovaAdapter', '0.0.95', :modular_headers => true
 # if you want Google Ads
-pod 'GoogleAdapter', '0.0.103', :modular_headers => true
+pod 'GoogleAdapter', '0.0.106', :modular_headers => true
 # if you want Facebook Ads
-pod 'FacebookAdapter', '0.0.103', :modular_headers => true
+pod 'FacebookAdapter', '0.0.106', :modular_headers => true
 ```
 Please specify the version numbers for the pods in your pod file, in case future updates bringing compatible issues. For the exact version number to choose, please refer to the [Podfile](https://github.com/ParticleMedia/msp-sdk-demo-ios/blob/main/Podfile) in this repo to use the latest versions which are compatible with the demo code. 
 
