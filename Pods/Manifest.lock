@@ -1,30 +1,30 @@
 PODS:
-  - FacebookAdapter (0.0.106):
+  - FacebookAdapter (0.0.109):
     - FBAudienceNetwork (~> 6.15)
-    - MSPSharedLibraries (= 0.0.91)
+    - MSPSharedLibraries (= 0.0.109)
   - FBAudienceNetwork (6.17.1)
-  - Google-Mobile-Ads-SDK (12.2.0):
+  - Google-Mobile-Ads-SDK (12.3.0):
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleAdapter (0.0.106):
+  - GoogleAdapter (0.0.109):
     - Google-Mobile-Ads-SDK (~> 12.0)
-    - MSPSharedLibraries (= 0.0.91)
+    - MSPSharedLibraries (= 0.0.109)
   - GoogleUserMessagingPlatform (3.0.0)
-  - MSPCore (0.0.93):
-    - MSPSharedLibraries (= 0.0.91)
-    - PrebidAdapter (= 0.0.92)
+  - MSPCore (0.0.109):
+    - MSPSharedLibraries (= 0.0.109)
+    - PrebidAdapter (= 0.0.109)
     - SwiftProtobuf (= 1.21.0)
-  - MSPSharedLibraries (0.0.91)
-  - NovaAdapter (0.0.95):
-    - MSPSharedLibraries (= 0.0.91)
-  - PrebidAdapter (0.0.92):
-    - MSPSharedLibraries (= 0.0.91)
+  - MSPSharedLibraries (0.0.109)
+  - NovaAdapter (0.0.113):
+    - MSPSharedLibraries (= 0.0.109)
+  - PrebidAdapter (0.0.109):
+    - MSPSharedLibraries (= 0.0.109)
   - SwiftProtobuf (1.21.0)
 
 DEPENDENCIES:
-  - FacebookAdapter (= 0.0.106)
-  - GoogleAdapter (= 0.0.106)
-  - MSPCore (= 0.0.93)
-  - NovaAdapter (= 0.0.95)
+  - FacebookAdapter (= 0.0.109)
+  - GoogleAdapter (= 0.0.109)
+  - MSPCore (= 0.0.109)
+  - NovaAdapter (= 0.0.113)
 
 SPEC REPOS:
   trunk:
@@ -40,17 +40,17 @@ SPEC REPOS:
     - SwiftProtobuf
 
 SPEC CHECKSUMS:
-  FacebookAdapter: 3f6fc2e7f3c091b7de8c537b68632d5a9d853d6d
+  FacebookAdapter: 86ebe43dff8b1b1159ff35f4f8c5fcdda6fa2a77
   FBAudienceNetwork: eb3ffbf2b35df25e21e163657044ffef66616a40
-  Google-Mobile-Ads-SDK: 1dfb0c3cb46c7e2b00b0f4de74a1e06d9ea25d67
-  GoogleAdapter: a7f8cf8a88af8b9da02b378ea54fb7c55d6aa658
+  Google-Mobile-Ads-SDK: 01b1b77e0bdba8b4027ae62e9bd52e5a95d930aa
+  GoogleAdapter: 3f7e89a29ff5eafb489193b5d776ff956a2cbc8a
   GoogleUserMessagingPlatform: f8d0cdad3ca835406755d0a69aa634f00e76d576
-  MSPCore: d4509d0f11b06c1934e5e5e151b77264b9988f5f
-  MSPSharedLibraries: 45598e3d4212dcc69100c948c9456e836404a6b8
-  NovaAdapter: 4885ed2d6a1fef6f97d45769cd566c1920d82684
-  PrebidAdapter: 01366ecf88ab19af81f4b6b08eab0ddf7a8ba827
+  MSPCore: acb759fc4c3aa4019d7455a5a89d6acb26206985
+  MSPSharedLibraries: f595cebc1deff5c8554c3e6801b3e85339ae7f97
+  NovaAdapter: b68a73782809d70ce548ad1a2d965a4fbf7e0891
+  PrebidAdapter: d710e6a90ed5910205ad028d7db97b6015272712
   SwiftProtobuf: afced68785854575756db965e9da52bbf3dc45e7
 
-PODFILE CHECKSUM: cec4a209ca87c477f86bd2da35cf9522f174c656
+PODFILE CHECKSUM: bf817200567f6a30d8ef6fb024ce19e64174556a
 
 COCOAPODS: 1.15.2
