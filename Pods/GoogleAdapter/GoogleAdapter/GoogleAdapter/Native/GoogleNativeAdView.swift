@@ -15,7 +15,7 @@ open class GoogleNativeAdView: UIView {
     public var callToActionButton: UIButton?
     
     public let gadMediaView: GoogleMobileAds.MediaView = {
-        let mediaView = GoogleMobileAds.MediaView()
+        let mediaView =  GoogleMobileAds.MediaView()
         mediaView.translatesAutoresizingMaskIntoConstraints = false
         mediaView.contentMode = .scaleAspectFill
         return mediaView

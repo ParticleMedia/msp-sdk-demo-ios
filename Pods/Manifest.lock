@@ -1,30 +1,32 @@
 PODS:
-  - FacebookAdapter (0.0.109):
+  - FacebookAdapter (2.2.0):
     - FBAudienceNetwork (~> 6.15)
-    - MSPSharedLibraries (= 0.0.109)
-  - FBAudienceNetwork (6.17.1)
-  - Google-Mobile-Ads-SDK (12.3.0):
+    - MSPSharedLibraries (= 2.2.0)
+  - FBAudienceNetwork (6.20.0)
+  - Google-Mobile-Ads-SDK (12.7.0):
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleAdapter (0.0.109):
+  - GoogleAdapter (2.2.0):
     - Google-Mobile-Ads-SDK (~> 12.0)
-    - MSPSharedLibraries (= 0.0.109)
+    - MSPSharedLibraries (= 2.2.0)
   - GoogleUserMessagingPlatform (3.0.0)
-  - MSPCore (0.0.109):
-    - MSPSharedLibraries (= 0.0.109)
-    - PrebidAdapter (= 0.0.109)
-    - SwiftProtobuf (= 1.21.0)
-  - MSPSharedLibraries (0.0.109)
-  - NovaAdapter (0.0.113):
-    - MSPSharedLibraries (= 0.0.109)
-  - PrebidAdapter (0.0.109):
-    - MSPSharedLibraries (= 0.0.109)
-  - SwiftProtobuf (1.21.0)
+  - MSPCore (2.2.0):
+    - MSPSharedLibraries (= 2.2.0)
+    - PrebidAdapter (= 2.2.0)
+    - SnapKit
+    - SwiftProtobuf
+  - MSPSharedLibraries (2.2.0)
+  - NovaAdapter (2.2.0):
+    - MSPSharedLibraries (= 2.2.0)
+  - PrebidAdapter (2.2.0):
+    - MSPSharedLibraries (= 2.2.0)
+  - SnapKit (5.7.1)
+  - SwiftProtobuf (1.30.0)
 
 DEPENDENCIES:
-  - FacebookAdapter (= 0.0.109)
-  - GoogleAdapter (= 0.0.109)
-  - MSPCore (= 0.0.109)
-  - NovaAdapter (= 0.0.113)
+  - FacebookAdapter (= 2.2.0)
+  - GoogleAdapter (= 2.2.0)
+  - MSPCore (= 2.2.0)
+  - NovaAdapter (= 2.2.0)
 
 SPEC REPOS:
   trunk:
@@ -37,20 +39,22 @@ SPEC REPOS:
     - MSPSharedLibraries
     - NovaAdapter
     - PrebidAdapter
+    - SnapKit
     - SwiftProtobuf
 
 SPEC CHECKSUMS:
-  FacebookAdapter: 86ebe43dff8b1b1159ff35f4f8c5fcdda6fa2a77
-  FBAudienceNetwork: eb3ffbf2b35df25e21e163657044ffef66616a40
-  Google-Mobile-Ads-SDK: 01b1b77e0bdba8b4027ae62e9bd52e5a95d930aa
-  GoogleAdapter: 3f7e89a29ff5eafb489193b5d776ff956a2cbc8a
+  FacebookAdapter: ea63273b8008a6ac4d851f93e1192fe61edce720
+  FBAudienceNetwork: 51d3681e66c00ee36811c0d96e9fa39d5673eba8
+  Google-Mobile-Ads-SDK: 90a3936b11fcb1a9a69b2a33fb608e793666ce73
+  GoogleAdapter: b63cf25de4b905400a0fa0eb0a8074586bc2bb0a
   GoogleUserMessagingPlatform: f8d0cdad3ca835406755d0a69aa634f00e76d576
-  MSPCore: acb759fc4c3aa4019d7455a5a89d6acb26206985
-  MSPSharedLibraries: f595cebc1deff5c8554c3e6801b3e85339ae7f97
-  NovaAdapter: b68a73782809d70ce548ad1a2d965a4fbf7e0891
-  PrebidAdapter: d710e6a90ed5910205ad028d7db97b6015272712
-  SwiftProtobuf: afced68785854575756db965e9da52bbf3dc45e7
+  MSPCore: 57743aed01ae479f842ada9fca71174332277062
+  MSPSharedLibraries: 2eccaad3e0266cbe6f9a666095767ac42b16b2cf
+  NovaAdapter: b795883c8f33661582d7395741855d3440bad2cc
+  PrebidAdapter: b391c0f18f26e62e110be26b8d712de30f4604ba
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SwiftProtobuf: 3697407f0d5b23bedeba9c2eaaf3ec6fdff69349
 
-PODFILE CHECKSUM: bf817200567f6a30d8ef6fb024ce19e64174556a
+PODFILE CHECKSUM: 6502f9ef752072917904c33175ecc8b25cf604ee
 
 COCOAPODS: 1.15.2

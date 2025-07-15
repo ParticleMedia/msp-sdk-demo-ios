@@ -10,10 +10,15 @@ import AppTrackingTransparency
 import SwiftProtobuf
 
 public class MSP {
+    public let version = "2.2.0" // please config version number in release branch
     
     public static let shared = MSP()
     public var numInitWaitingForCallbacks = 0;
     public weak var sdkInitListener: MSPInitListener?
+    public var initStartTime: Double?
+    public var adNetworkInitStartTime: [String: Double] = [:]
+    public var adNetworkInitLatencyInMs: [String: Int32] = [:]
+    public var blockLatencyInMs: Int32?
     
     public var adNetworkAdapterProvider = MSPAdNetworkAdapterProvider()
     public var bidLoaderProvider = MSPBidLoaderProvider()
@@ -28,10 +33,10 @@ public class MSP {
     public var ppid: String?
     public var email: String?
     public var prebidAPIKey: String?
-    
-    public func initMSP(initParams: InitializationParameters, sdkInitListener: MSPInitListener?) {
+    public func initMSP(initParams: InitializationParameters, sdkInitListener: MSPInitListener?, adNetworkManagers: [AdNetworkManager]) {
         // This is a temporary solution to replace MSPManager class in kotlin to solve the Kotlin singleton issue
-        MESMetricReporter.shared.logSDKInit()
+        let initStartTime = Date().timeIntervalSince1970
+        self.initStartTime = initStartTime
         AdCache.shared.adMetricReporter = AdMetricReporterImp()
         if initParams is InitializationParametersImp {
             let params = initParams as? InitializationParametersImp
@@ -50,44 +55,24 @@ public class MSP {
             fetchMSPUserId()
         }
         
-        let managers: [AdNetworkManager?] = [adNetworkAdapterProvider.googleManager, adNetworkAdapterProvider.metaManager, adNetworkAdapterProvider.novaManager]
         numInitWaitingForCallbacks = 1 //default vaule is 1 for prebid sdk is alwasys in the dependency
-        for adManager in managers {
-            if let manager = adManager {
+        for manager in adNetworkManagers {
+            if let adNetworkAdapter = manager.getAdNetworkAdapter() {
+                adNetworkAdapterProvider.adNetworkManagerDict[adNetworkAdapter.getAdNetwork()] = manager
                 numInitWaitingForCallbacks += 1
             }
+            
         }
         self.sdkInitListener = sdkInitListener
         var adapterInitListener = MSPAdapterInitListener()
-        /*
-        fetchServerConfigData { result in
-            switch result {
-            case .success(let configData):
-                if let prebidHost = configData["prebid_host"] {
-                    self.prebidHost = prebidHost
-                }
-
-                if let mesHost = configData["mes_host"] {
-                    self.mesHost = mesHost
-                }
-
-                if let novaEventHost = configData["nova_event_host"] {
-                    self.novaEventHost = novaEventHost
-                }
-                
-            case .failure(let error):
-                print("Error fetching data: \(error)")
+        
+        MSPAdConfigManager.shared.initAdConfig()
+        for manager in adNetworkManagers {
+            if let adNetworkAdapter = manager.getAdNetworkAdapter() {
+                self.adNetworkInitStartTime[adNetworkAdapter.getAdNetwork().rawValue] = Date().timeIntervalSince1970
+                adNetworkAdapter.initialize(initParams: initParams, adapterInitListener: adapterInitListener, context: nil)
             }
-            
-            self.adNetworkAdapterProvider.googleManager?.getAdNetworkAdapter()?.initialize(initParams: initParams, adapterInitListener: adapterInitListener, context: nil)
-            self.adNetworkAdapterProvider.metaManager?.getAdNetworkAdapter()?.initialize(initParams: initParams, adapterInitListener: adapterInitListener, context: nil)
-            self.adNetworkAdapterProvider.novaManager?.getAdNetworkAdapter()?.initialize(initParams: initParams, adapterInitListener: adapterInitListener, context: nil)
-            PrebidAdapter().initialize(initParams: initParams, adapterInitListener: adapterInitListener, context: nil)
         }
-         */
-        adNetworkAdapterProvider.googleManager?.getAdNetworkAdapter()?.initialize(initParams: initParams, adapterInitListener: adapterInitListener, context: nil)
-        adNetworkAdapterProvider.metaManager?.getAdNetworkAdapter()?.initialize(initParams: initParams, adapterInitListener: adapterInitListener, context: nil)
-        adNetworkAdapterProvider.novaManager?.getAdNetworkAdapter()?.initialize(initParams: initParams, adapterInitListener: adapterInitListener, context: nil)
         PrebidAdapter.initializePrebid(initParams: initParams, adapterInitListener: adapterInitListener, context: nil)
        
         if let initParamsImp = initParams as? InitializationParametersImp,
@@ -97,27 +82,25 @@ public class MSP {
         Prebid.shared.shareGeoLocation = true
         
         UserDefaults.standard.setValue(String(Date().timeIntervalSince1970 * 1000), forKey: "FirstLaunchTime")
+        self.blockLatencyInMs = Int32((Date().timeIntervalSince1970 - initStartTime) * 1000)
     }
     
     public class MSPAdapterInitListener: NSObject, AdapterInitListener {
         public func onComplete(adNetwork: AdNetwork, adapterInitStatus: AdapterInitStatus, message: String) {
             MSP.shared.numInitWaitingForCallbacks = MSP.shared.numInitWaitingForCallbacks - 1
+            if let startTime = MSP.shared.adNetworkInitStartTime[adNetwork.rawValue] {
+                MSP.shared.adNetworkInitLatencyInMs[adNetwork.rawValue] = Int32((Date().timeIntervalSince1970 - startTime) * 1000)
+            }
             if MSP.shared.numInitWaitingForCallbacks == 0 {
+                MSPLogger.shared.info(message: "MSP SDK is initialized successfully")
+                var totalCompleteTimeInMs: Int32?
+                if let initStartTime = MSP.shared.initStartTime {
+                    totalCompleteTimeInMs = Int32((Date().timeIntervalSince1970 - initStartTime) * 1000)
+                }
+                MESMetricReporter.shared.logSDKInit(totalCompleteTimeInMs: totalCompleteTimeInMs, blockLatencyInMs: MSP.shared.blockLatencyInMs, adNetworkCompleteTimeInMs: MSP.shared.adNetworkInitLatencyInMs)
                 MSP.shared.sdkInitListener?.onComplete(status: .SUCCESS, message: "")
             }
         }
-    }
-    
-    public func setGoogleManager(googleManager: AdNetworkManager) {
-        adNetworkAdapterProvider.googleManager = googleManager
-    }
-    
-    public func setNovaManager(novaManager: AdNetworkManager) {
-        adNetworkAdapterProvider.novaManager = novaManager
-    }
-    
-    public func setMetaManager(metaManager: AdNetworkManager) {
-        adNetworkAdapterProvider.metaManager = metaManager
     }
     
     func fetchServerConfigData(completion: @escaping (Result<[String: String], Error>) -> Void) {
@@ -208,6 +191,69 @@ public class MSP {
 
     }
     
+    /// Shows the mediation debugger interface as a modal presentation.
+    /// This method automatically finds the top-most view controller and presents the debugger modally.
+    /// 
+    /// - Note: This method can be called from anywhere in your app, regardless of the current view controller hierarchy.
+    /// - Warning: The debugger will be presented modally and can be dismissed by the user.
+    /// 
+    /// ## Usage Example:
+    /// ```swift
+    /// MSP.shared.showMediationDebugger()
+    /// ```
+    public func showMediationDebugger() {
+        DispatchQueue.main.async {
+            if let topViewController = self.getTopViewController() {
+                let debugViewController = DebugAdLoadViewController()
+                let navigationController = UINavigationController(rootViewController: debugViewController)
+                topViewController.present(navigationController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    /// Shows the mediation debugger interface by pushing it onto the navigation stack.
+    /// This method requires the caller to be embedded in a navigation controller.
+    /// 
+    /// - Parameter rootViewController: The view controller from which to push the debugger. 
+    ///   This view controller must be embedded in a UINavigationController.
+    /// - Note: If the rootViewController is not embedded in a navigation controller, this method will have no effect.
+    /// - Warning: The debugger will be pushed onto the navigation stack and can be popped back by the user.
+    /// 
+    /// ## Usage Example:
+    /// ```swift
+    /// // From within a view controller that's embedded in a navigation controller
+    /// MSP.shared.showMediationDebugger(from: self)
+    /// ```
+    public func showMediationDebugger(from rootViewController: UIViewController) {
+        let debugViewController = DebugAdLoadViewController()
+        rootViewController.navigationController?.pushViewController(debugViewController, animated: true)
+    }
+    
+    /// Helper method to find the top-most view controller in the app's view hierarchy.
+    /// This method traverses through presented view controllers, navigation controllers, and tab bar controllers.
+    /// 
+    /// - Returns: The top-most view controller, or nil if no view controller is found.
+    private func getTopViewController() -> UIViewController? {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first else {
+            return nil
+        }
+        
+        var topViewController = window.rootViewController
+        while let presentedViewController = topViewController?.presentedViewController {
+            topViewController = presentedViewController
+        }
+        
+        if let navigationController = topViewController as? UINavigationController {
+            topViewController = navigationController.visibleViewController
+        }
+        
+        if let tabBarController = topViewController as? UITabBarController {
+            topViewController = tabBarController.selectedViewController
+        }
+        
+        return topViewController
+    }
 }
 
 public class InitializationParametersImp: InitializationParameters {
@@ -219,6 +265,8 @@ public class InitializationParametersImp: InitializationParameters {
     
     public var orgId: Int64?
     public var appId: Int64?
+    
+    public var params: [String: Any]?
     
     public init(prebidAPIKey: String, prebidHostUrl: String, sourceApp: String? = nil) {
         self.prebidAPIKey = prebidAPIKey
@@ -265,7 +313,7 @@ public class InitializationParametersImp: InitializationParameters {
     }
     
     public func getParameters() -> [String : Any]? {
-        return [String : Any]()
+        return params
     }
     
     public func hasUserConsent() -> Bool {
@@ -282,51 +330,5 @@ public class InitializationParametersImp: InitializationParameters {
     
     public func isInTestMode() -> Bool {
         return false
-    }
-}
-
-public class MSPAdLoader: NSObject, BidListener {
-    weak var adListener: AdListener?
-    var adRequest: AdRequest?
-    
-    var bidLoader: BidLoader?
-    var adNetworkAdapter: AdNetworkAdapter?
-
-    
-    
-    public override init() {}
-    
-    public func loadAd(placementId: String, adListener: AdListener, adRequest: AdRequest) {
-        MESMetricReporter.shared.logAdRequest(adRequest: adRequest)
-        self.adListener = adListener
-        self.adRequest = adRequest
-        
-        if adRequest.isCacheSupported, let ad = AdCache.shared.peakAd(placementId: placementId) {
-            MESMetricReporter.shared.logAdResult(placementId: placementId, ad: ad, fill: true, isFromCache: true)
-            adListener.onAdLoaded(placementId: placementId)
-            return
-        }
-        
-        self.bidLoader = MSP.shared.bidLoaderProvider.getBidLoader()
-        bidLoader?.loadBid(placementId: placementId, adParams: adRequest.customParams, bidListener: self, adRequest: adRequest)
-    }
-    
-    public func onBidResponse(bidResponse: Any, adNetwork: AdNetwork) {
-        if let adListener = self.adListener,
-           let adRequest = self.adRequest {
-            if let adNetworkAdapter = MSP.shared.adNetworkAdapterProvider.getAdNetworkAdapter(adNetwork: adNetwork) {
-                self.adNetworkAdapter = adNetworkAdapter
-                adNetworkAdapter.setAdMetricReporter(adMetricReporter: AdMetricReporterImp())
-                adNetworkAdapter.loadAdCreative(bidResponse: bidResponse, adListener: adListener, context: self, adRequest: adRequest)
-            } else {
-                adListener.onError(msg: "Ad network is not supported")
-            }
-        } else {
-            adListener?.onError(msg: "Invalid request")
-        }
-    }
-    
-    public func onError(msg: String) {
-        adListener?.onError(msg: msg)
     }
 }
