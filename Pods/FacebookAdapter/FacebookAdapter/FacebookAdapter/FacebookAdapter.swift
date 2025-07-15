@@ -8,6 +8,10 @@ import PrebidMobile
 import Foundation
 
 @objc public class FacebookAdapter : NSObject, AdNetworkAdapter {
+    public func getSDKVersion() -> String {
+        return "6.15.0"
+    }
+    
     public func setAdMetricReporter(adMetricReporter: any MSPiOSCore.AdMetricReporter) {
         self.adMetricReporter = adMetricReporter
     }
@@ -49,6 +53,12 @@ import Foundation
                 ])
             }
             
+            if let iconView = nativeAdContainer.getIcon(),
+               let image = fbNativeAdItem.iconImage {
+                //gadNativeAdView.iconView = iconView
+                iconView.image = image
+            }
+            
             NSLayoutConstraint.activate([
                 //novaNativeAdView.centerYAnchor.constraint(equalTo: nativeAdView.centerYAnchor),
                 nativeAdContainer.leadingAnchor.constraint(equalTo: nativeAdView.leadingAnchor),
@@ -59,10 +69,10 @@ import Foundation
                 nativeAdContainer.heightAnchor.constraint(lessThanOrEqualTo: nativeAdView.heightAnchor),
             ])
             
-            let fbSubViews = [nativeAdContainer.getTitle(), nativeAdContainer.getbody(), nativeAdContainer.getAdvertiser(), nativeAdContainer.getCallToAction(), mediaView]
+            let fbSubViews = [nativeAdContainer.getTitle(), nativeAdContainer.getbody(), nativeAdContainer.getAdvertiser(), nativeAdContainer.getCallToAction(), nativeAdContainer.getIcon(), mediaView]
             fbNativeAdItem.registerView(forInteraction: nativeAdView,
                                         mediaView: mediaView,
-                                        iconImageView: nil,
+                                        iconImageView: nativeAdContainer.getIcon(),
                                         viewController: nil,
                                         clickableViews: fbSubViews.compactMap{ $0 })
         }
@@ -85,11 +95,14 @@ import Foundation
     public var priceInDollar: Double?
     
     private var nativeAdItem: FBNativeAd?
-    private var facebookNativeAd: FacebookNativeAd?
+    private weak var facebookNativeAd: FacebookNativeAd?
     private var adRequest: AdRequest?
     private var bidResponse: BidResponse?
     
-    private var facebookInterstitialAd: FacebookInterstitialAd?
+    public weak var auctionBidListener: AuctionBidListener?
+    public var bidderPlacementId: String?
+    
+    private weak var facebookInterstitialAd: FacebookInterstitialAd?
     private var interstitialAdItem: FBInterstitialAd?
     
     private var adMetricReporter: AdMetricReporter?
@@ -105,9 +118,11 @@ import Foundation
         })
     }
     
-    public func loadAdCreative(bidResponse: Any, adListener: any AdListener, context: Any, adRequest: AdRequest) {
+    public func loadAdCreative(bidResponse: Any, auctionBidListener: AuctionBidListener, adListener: any AdListener, context: Any, adRequest: AdRequest, bidderPlacementId: String, bidderFormat: MSPiOSCore.AdFormat?, params: [String:String]?) {
         self.adListener = adListener
         self.adRequest = adRequest
+        self.auctionBidListener = auctionBidListener
+        self.bidderPlacementId = bidderPlacementId
         
         guard bidResponse is BidResponse,
               let mBidResponse = bidResponse as? BidResponse else {
@@ -206,11 +221,41 @@ import Foundation
             return nil
         }
     }
+    
+    public func handleAdLoaded(ad: MSPAd, auctionBidListener: AuctionBidListener, bidderPlacementId: String) {
+        // to do: move this to ios core
+        AdCache.shared.saveAd(placementId: bidderPlacementId, ad: ad)
+        let auctionBid = AuctionBid(bidderName: "msp", bidderPlacementId: bidderPlacementId, ecpm: ad.adInfo["price"] as? Double ?? 0.0)
+        auctionBidListener.onSuccess(bid: auctionBid)
+        if let adRequest = self.adRequest {
+            self.adMetricReporter?.logAdResponse(ad: ad, adRequest: adRequest, errorCode: .ERROR_CODE_SUCCESS, errorMessage: nil)
+        }
+    }
+    
+    public func getAdNetwork() -> MSPiOSCore.AdNetwork {
+        return .facebook
+    }
+    
+    public func sendHideAdEvent(reason: String, adScreenShot: Data?, fullScreenShot: Data?)
+    {
+        if let adRequest = self.adRequest,
+           let ad = self.facebookNativeAd ?? self.facebookInterstitialAd {
+            self.adMetricReporter?.logAdHide(ad: ad, adRequest: adRequest, bidResponse: self, reason: reason, adScreenShot: adScreenShot, fullScreenShot: fullScreenShot)
+        }
+    }
+    
+    public func sendReportAdEvent(reason: String, description: String?, adScreenShot: Data?, fullScreenShot: Data?) {
+        if let adRequest = self.adRequest,
+           let ad = self.facebookNativeAd ?? self.facebookInterstitialAd {
+            self.adMetricReporter?.logAdReport(ad: ad, adRequest: adRequest, bidResponse: self, reason: reason, description: description, adScreenShot: adScreenShot, fullScreenShot: fullScreenShot)
+        }
+    }
 }
 
 
 extension FacebookAdapter: FBNativeAdDelegate {
     public func nativeAdDidLoad(_ nativeAd: FBNativeAd) {
+        MSPLogger.shared.info(message: "[Adapter: Facebook] successfully loaded Facebook Native ad")
         DispatchQueue.main.async {
             let mediaView = FBMediaView(frame: .zero)
             mediaView.translatesAutoresizingMaskIntoConstraints = false
@@ -224,20 +269,27 @@ extension FacebookAdapter: FBNativeAdDelegate {
             facebookNativeAd.priceInDollar = self.priceInDollar
             facebookNativeAd.nativeAdItem = nativeAd
             facebookNativeAd.mediaView = mediaView
+            facebookNativeAd.icon = nativeAd.iconImage
             facebookNativeAd.adInfo[MSPConstants.AD_INFO_PRICE] = self.priceInDollar
             facebookNativeAd.adInfo[MSPConstants.AD_INFO_NETWORK_NAME] = AdNetwork.facebook.rawValue
             facebookNativeAd.adInfo[MSPConstants.AD_INFO_NETWORK_AD_UNIT_ID] = nativeAd.placementID
             facebookNativeAd.adInfo[MSPConstants.AD_INFO_NETWORK_CREATIVE_ID] = self.bidResponse?.winningBid?.bid.crid
             self.nativeAdItem = nativeAd
             if let adListener = self.adListener,
-               let adRequest = self.adRequest {
-                handleAdLoaded(ad: facebookNativeAd, listener: adListener, adRequest: adRequest)
+               let adRequest = self.adRequest,
+               let auctionBidListener = self.auctionBidListener {
+                //handleAdLoaded(ad: facebookNativeAd, listener: adListener, adRequest: adRequest)
+                self.handleAdLoaded(ad: facebookNativeAd, auctionBidListener: auctionBidListener, bidderPlacementId: self.bidderPlacementId ?? adRequest.placementId)
             }
         }
     }
     
     public func nativeAd(_ nativeAd: FBNativeAd, didFailWithError error: Error) {
+        MSPLogger.shared.info(message: "[Adapter: Facebook] Fail to load Facebook Native ad")
         self.adListener?.onError(msg: error.localizedDescription)
+        if let adRequest = self.adRequest {
+            self.adMetricReporter?.logAdResponse(ad: nil, adRequest: adRequest, errorCode: .ERROR_CODE_INTERNAL_ERROR, errorMessage: error.localizedDescription)
+        }
     }
     
     public func nativeAdWillLogImpression(_ nativeAd: FBNativeAd) {
@@ -261,6 +313,7 @@ extension FacebookAdapter: FBNativeAdDelegate {
 extension FacebookAdapter: FBInterstitialAdDelegate {
     public func interstitialAdDidLoad(_ interstitialAd: FBInterstitialAd) {
         DispatchQueue.main.async {
+            MSPLogger.shared.info(message: "[Adapter: Facebook] successfully loaded Facebook Interstitial ad")
             var facebookInterstitialAd = FacebookInterstitialAd(adNetworkAdapter: self)
             facebookInterstitialAd.interstitialAdItem = interstitialAd
             interstitialAd.delegate = self
@@ -274,16 +327,22 @@ extension FacebookAdapter: FBInterstitialAdDelegate {
             facebookInterstitialAd.adInfo[MSPConstants.AD_INFO_NETWORK_CREATIVE_ID] = self.bidResponse?.winningBid?.bid.crid
             
             if let adListener = self.adListener,
-               let adRequest = self.adRequest {
-                handleAdLoaded(ad: facebookInterstitialAd, listener: adListener, adRequest: adRequest)
+               let adRequest = self.adRequest,
+               let auctionBidListener = self.auctionBidListener {
+                //handleAdLoaded(ad: facebookInterstitialAd, listener: adListener, adRequest: adRequest)
+                self.handleAdLoaded(ad: facebookInterstitialAd, auctionBidListener: auctionBidListener, bidderPlacementId: self.bidderPlacementId ?? adRequest.placementId)
                 self.adMetricReporter?.logAdResult(placementId: adRequest.placementId, ad: facebookInterstitialAd, fill: true, isFromCache: false)
             }
         }
     }
     
     public func interstitialAd(_ interstitialAd: FBInterstitialAd, didFailWithError error: Error) {
+        MSPLogger.shared.info(message: "[Adapter: Facebook] Fail to load Facebook Interstitial ad")
         self.adListener?.onError(msg: error.localizedDescription)
         self.adMetricReporter?.logAdResult(placementId: adRequest?.placementId ?? "", ad: nil, fill: false, isFromCache: false)
+        if let adRequest = self.adRequest {
+            self.adMetricReporter?.logAdResponse(ad: nil, adRequest: adRequest, errorCode: .ERROR_CODE_INTERNAL_ERROR, errorMessage: error.localizedDescription)
+        }
     }
     
     public func interstitialAdDidClick(_ interstitialAd: FBInterstitialAd) {

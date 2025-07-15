@@ -3,6 +3,7 @@ import MSPCore
 import GoogleAdapter
 import NovaAdapter
 import AppTrackingTransparency
+import MSPiOSCore
 
 import FacebookAdapter
 
@@ -18,15 +19,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                             sourceApp: "0000000000", // Your App's numeric ID on App Store
                                                             orgId: 1061,
                                                             appId: 1)
-        MSP.shared.setNovaManager(novaManager: NovaManager())
+        mspInitParameters.params = [:]
+        //Note: for pubmatic ad you may need to config your NSAllowsArbitraryLoads key in App's Info.list to get a full experience, see details in https://help.pubmatic.com/openwrap/docs/home-get-started-with-ios-openwrap-sdk-as-primary-ad-sdk#app-transport-security-ats
+        var adNetworkManagers = [NovaManager(), GoogleManager(), FacebookManager()]
+        //MSP.shared.setNovaManager(novaManager: NovaManager())
         
-        MSP.shared.setGoogleManager(googleManager: GoogleManager())
+        //MSP.shared.setGoogleManager(googleManager: GoogleManager())
         MSP.shared.bidLoaderProvider.googleQueryInfoFetcher = GoogleQueryInfoFetcherHelper()
         
-        MSP.shared.setMetaManager(metaManager: FacebookManager())
+        //MSP.shared.setMetaManager(metaManager: FacebookManager())
         MSP.shared.bidLoaderProvider.facebookBidTokenProvider = FacebookBidTokenProviderHelper()
         
-        MSP.shared.initMSP(initParams: mspInitParameters, sdkInitListener: nil)
+        //MSP.shared.setUnityManager(unityManager: UnityManager())
+        MSPLogger.shared.setLogLevel(level: MSPLogger.DEBUG)
+        MSP.shared.initMSP(initParams: mspInitParameters, sdkInitListener: nil, adNetworkManagers: adNetworkManagers)
+        window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.makeKeyAndVisible()
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {

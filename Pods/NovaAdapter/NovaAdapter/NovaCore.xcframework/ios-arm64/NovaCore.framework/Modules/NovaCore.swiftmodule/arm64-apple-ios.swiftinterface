@@ -9,6 +9,7 @@ import CoreMedia
 import DeveloperToolsSupport
 import Foundation
 @_exported import NovaCore
+import OMSDK_Newsbreak1
 import SafariServices
 import StoreKit
 import Swift
@@ -52,6 +53,14 @@ public enum NovaAppOpenAdViewActionKey : Swift.String {
   }
 }
 @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor @preconcurrency final public class NovaNativeAdMediaViewV2 : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency final public var imageView: UIKit.UIImageView {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency final public var videoView: NovaCore.NovaNativeAdVideoView {
+    get
+    set
+  }
   @_Concurrency.MainActor @preconcurrency @objc dynamic public init()
   @objc deinit
 }
@@ -201,6 +210,9 @@ public enum AdsMediaConstants {
   @_Concurrency.MainActor @preconcurrency public func changeLeftButtonVisibility(isHidden: Swift.Bool)
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor @preconcurrency public class NovaAppOpenAdEndCardView : UIKit.UIView {
+  @objc deinit
+}
 public protocol NovaJSBridgeHandling : AnyObject {
 }
 public enum NovaCreativeType : Swift.String {
@@ -290,6 +302,22 @@ public enum NovaAppOpenAdLayout : Swift.String, Swift.Codable {
   case vertical
   case horizontalCancelTopRight
   case verticalCancelTopRight
+  case endCard
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum NovaAppOpenAdClickableComponent : Swift.String {
+  case title
+  case body
+  case media
+  case advertiserName
+  case adTag
+  case cta
+  case icon
+  case all
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -658,7 +686,8 @@ extension NovaCore.NovaUnifiedWebViewNavigationDelegate {
   public func webViewDidGoBackToInitialLoad(_ webView: WebKit.WKWebView)
 }
 @objc public protocol NovaNativeAdVideoDelegate {
-  @objc func playerCurrentTimeDidChange(currentTime: Swift.Double, durationTime: Swift.Double)
+  @objc optional func playerCurrentTimeDidChange(currentTime: Swift.Double, durationTime: Swift.Double)
+  @objc optional func playerDidPlayToEndTime()
 }
 @_hasMissingDesignatedInitializers final public class NovaNativeAdVideoInfo : Swift.Codable {
   final public let cacheKey: Swift.String
@@ -699,6 +728,7 @@ extension NovaCore.ActionModel : Swift.Equatable {
   @_Concurrency.MainActor @preconcurrency public var bodyLabel: UIKit.UILabel?
   @_Concurrency.MainActor @preconcurrency public var advertiserLabel: UIKit.UILabel?
   @_Concurrency.MainActor @preconcurrency public var callToActionButton: UIKit.UIButton?
+  @_Concurrency.MainActor @preconcurrency public var icon: UIKit.UIImageView?
   @_Concurrency.MainActor @preconcurrency final public let mediaView: NovaCore.NovaNativeAdMediaView
   @_Concurrency.MainActor @preconcurrency public var novaNativeAdVideoDelegate: (any NovaCore.NovaNativeAdVideoDelegate)?
   @objc @_Concurrency.MainActor @preconcurrency public var tappableViews: [UIKit.UIView]? {
@@ -719,6 +749,7 @@ extension NovaCore.ActionModel : Swift.Equatable {
 extension NovaCore.NovaNativeAdView {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func register(_ nativeAd: NovaCore.NovaNativeAdItem)
   @_Concurrency.MainActor @preconcurrency public func unregisterAd()
+  @_Concurrency.MainActor @preconcurrency public func seTappableView(view: UIKit.UIView)
 }
 @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor @preconcurrency public class NovaAppOpenAdViewV3 : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency final public let mediaView: NovaCore.NovaNativeAdMediaViewV2
@@ -733,7 +764,9 @@ extension NovaCore.NovaAppOpenAdViewV3 {
   @_Concurrency.MainActor @preconcurrency final public var didTapCloseButtonCallback: (() -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency final public var inInterstitial: Swift.Bool
   @_Concurrency.MainActor @preconcurrency final public var videoPlayer: NovaCore.NovaVideoPlayer?
+  @_Concurrency.MainActor @preconcurrency final public var userPausedAd: Swift.Bool
   @_Concurrency.MainActor @preconcurrency final public var novaNativeAdVideoDelegate: (any NovaCore.NovaNativeAdVideoDelegate)?
+  @_Concurrency.MainActor @preconcurrency final public var popOverCtaController: NovaCore.NovaAdPopOverCtaController?
   @_Concurrency.MainActor @preconcurrency public init(inLandingPage: Swift.Bool = false)
   @objc deinit
 }
@@ -746,6 +779,7 @@ extension NovaCore.NovaNativeAdVideoView {
   @_Concurrency.MainActor @preconcurrency final public func handleVideoOffScreen()
 }
 extension NovaCore.NovaNativeAdVideoView {
+  @objc @_Concurrency.MainActor @preconcurrency final public func didTapPlayButton()
   @objc @_Concurrency.MainActor @preconcurrency final public func didTabMuteButton()
 }
 extension NovaCore.NovaNativeAdVideoView : NovaCore.NovaVideoPlayerDelegate {
@@ -755,6 +789,7 @@ extension NovaCore.NovaNativeAdVideoView : NovaCore.NovaVideoPlayerDelegate {
   @_Concurrency.MainActor @preconcurrency final public func playerCurrentTimeDidChange(_ player: NovaCore.NovaPlayer)
   @_Concurrency.MainActor @preconcurrency final public func playerTimePassed60sAfterPlay(_ player: NovaCore.NovaPlayer)
   @_Concurrency.MainActor @preconcurrency final public func player(_ player: NovaCore.NovaPlayer, didFailWithError error: (any Swift.Error)?)
+  @_Concurrency.MainActor @preconcurrency final public func playerDidPlayToEndTime(_ player: NovaCore.NovaPlayer)
   @_Concurrency.MainActor @preconcurrency final public func playerPlaybackWillLoop(_ player: NovaCore.NovaPlayer)
   @_Concurrency.MainActor @preconcurrency final public func playerPlaybackDidLoop(_ player: NovaCore.NovaPlayer)
 }
@@ -1086,6 +1121,26 @@ extension NovaCore.MetricEvent {
     get
   }
 }
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class NovaAdPopOverCtaController : UIKit.UIViewController {
+  @_Concurrency.MainActor @preconcurrency public init(passthroughViews: [UIKit.UIView])
+  @_Concurrency.MainActor @preconcurrency public var rootViewController: UIKit.UIViewController?
+  public enum State {
+    case hide
+    case pop(source: (UIKit.UIView, CoreFoundation.CGRect))
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency public func config(with title: Swift.String)
+  @_Concurrency.MainActor @preconcurrency public func changeState(to state: NovaCore.NovaAdPopOverCtaController.State)
+  @_Concurrency.MainActor @preconcurrency public var tappableView: UIKit.UIView {
+    get
+  }
+  @objc deinit
+}
+extension NovaCore.NovaAdPopOverCtaController : UIKit.UIPopoverPresentationControllerDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func adaptivePresentationStyle(for controller: UIKit.UIPresentationController) -> UIKit.UIModalPresentationStyle
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIKit.UIPopoverPresentationController) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func presentationController(_ controller: UIKit.UIPresentationController, willPresentWithAdaptiveStyle style: UIKit.UIModalPresentationStyle, transitionCoordinator: (any UIKit.UIViewControllerTransitionCoordinator)?)
+}
 public enum InteractiveBannerType : Swift.String {
   case displayCard
   public init?(rawValue: Swift.String)
@@ -1166,6 +1221,9 @@ extension NovaCore.NovaUnifiedWebViewHost : WebKit.WKUIDelegate {
   @_Concurrency.MainActor @preconcurrency final public let topRightCloseButtonArea: UIKit.UIView
   @objc deinit
 }
+extension NovaCore.NovaAppOpenVerticalVideoAdView : NovaCore.NovaNativeAdVideoDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func playerDidPlayToEndTime()
+}
 extension SwiftUICore.Image {
   public static let NovaEmoji: SwiftUICore.Image.NovaImageEmoji
   @_hasMissingDesignatedInitializers public class NovaImageEmoji {
@@ -1209,6 +1267,7 @@ public enum NovaNativeAdMedia {
 }
 @objc @_inheritsConvenienceInitializers public class NovaVideoPlayer : ObjectiveC.NSObject {
   weak public var delegate: (any NovaCore.NovaVideoPlayerDelegate)?
+  final public let player: NovaCore.NovaPlayer
   @objc override dynamic public init()
   public func configDisplay(_ display: Swift.Bool)
   public func currentTime() -> CoreMedia.CMTime
@@ -1253,6 +1312,7 @@ extension NovaCore.NovaVideoPlayer : NovaCore.NovaPlayerPlaybackDelegate {
   public func playerPlaybackDidEnd(_ player: NovaCore.NovaPlayer)
   public func playerPlaybackWillLoop(_ player: NovaCore.NovaPlayer)
   public func playerPlaybackDidLoop(_ player: NovaCore.NovaPlayer)
+  public func playerDidPlayToEndTime(_ player: NovaCore.NovaPlayer)
 }
 @_hasMissingDesignatedInitializers public class NovaUIUtils {
   public static func setImage(from url: Foundation.URL, to imageView: UIKit.UIImageView, completion: @escaping () -> Swift.Void)
@@ -1299,6 +1359,7 @@ public protocol NovaPlayerPlaybackDelegate : AnyObject {
   func playerPlaybackDidEnd(_ player: NovaCore.NovaPlayer)
   func playerPlaybackWillLoop(_ player: NovaCore.NovaPlayer)
   func playerPlaybackDidLoop(_ player: NovaCore.NovaPlayer)
+  func playerDidPlayToEndTime(_ player: NovaCore.NovaPlayer)
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency open class NovaPlayer : UIKit.UIViewController {
   public typealias FillMode = AVFoundation.AVLayerVideoGravity
@@ -1922,6 +1983,7 @@ public protocol NovaVideoPlayerDelegate : ObjectiveC.NSObjectProtocol {
   func player(_ player: NovaCore.NovaPlayer, didFailWithError error: (any Swift.Error)?)
   func playerPlaybackWillLoop(_ player: NovaCore.NovaPlayer)
   func playerPlaybackDidLoop(_ player: NovaCore.NovaPlayer)
+  func playerDidPlayToEndTime(_ player: NovaCore.NovaPlayer)
 }
 public enum NovaVideoEndKind : Swift.String {
   case none
@@ -1975,6 +2037,7 @@ extension NovaCore.NovaVideoPlayerController : NovaCore.NovaPlayerDelegate {
   public func player(_ player: NovaCore.NovaPlayer, didFailWithError error: (any Swift.Error)?)
 }
 extension NovaCore.NovaVideoPlayerController : NovaCore.NovaPlayerPlaybackDelegate {
+  public func playerDidPlayToEndTime(_ player: NovaCore.NovaPlayer)
   public func playerCurrentTimeDidChange(_ player: NovaCore.NovaPlayer)
   public func playerPlaybackWillStartFromBeginning(_ player: NovaCore.NovaPlayer)
   public func playerPlaybackDidEnd(_ player: NovaCore.NovaPlayer)
@@ -2070,6 +2133,7 @@ final public class NovaJSBridgeHandlerMaster {
   final public let isVerticalImage: Swift.Bool?
   final public let isImageClickable: Swift.Bool?
   final public let closeCountDownTimeSecond: Swift.Int?
+  final public let clickableComponents: [Swift.String]?
   final public let iconUrl: Swift.String?
   final public var image: UIKit.UIImage?
   final public let appStoreId: Swift.String?
@@ -2218,6 +2282,9 @@ extension NovaCore.NovaCreativeType : Swift.RawRepresentable {}
 extension NovaCore.NovaAppOpenAdLayout : Swift.Equatable {}
 extension NovaCore.NovaAppOpenAdLayout : Swift.Hashable {}
 extension NovaCore.NovaAppOpenAdLayout : Swift.RawRepresentable {}
+extension NovaCore.NovaAppOpenAdClickableComponent : Swift.Equatable {}
+extension NovaCore.NovaAppOpenAdClickableComponent : Swift.Hashable {}
+extension NovaCore.NovaAppOpenAdClickableComponent : Swift.RawRepresentable {}
 extension NovaCore.NovaAdType : Swift.Equatable {}
 extension NovaCore.NovaAdType : Swift.Hashable {}
 extension NovaCore.NovaAdType : Swift.RawRepresentable {}

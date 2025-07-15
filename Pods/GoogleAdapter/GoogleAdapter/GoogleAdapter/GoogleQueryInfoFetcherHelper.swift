@@ -20,7 +20,9 @@ public class GoogleQueryInfoFetcherHelper: GoogleQueryInfoFetcher {
         // Specify the "query_info_type" as "requester_type_8" to
         // denote that the usage of QueryInfo is for Ad Manager S2S.
         let extras = getExtras(adRequest: adRequest)
-        //extras.additionalParameters = ["query_info_type" : "requester_type_8"]
+        if let contentUrls = adRequest.customParams[MSPConstants.GOOGLE_AD_MULTI_CONTENT_URLS] as? [String] {
+            request.neighboringContentURLs = contentUrls
+        }
         request.register(extras)
         let googleAdFormat: GoogleMobileAds.AdFormat
         switch adRequest.adFormat {
@@ -33,7 +35,7 @@ public class GoogleQueryInfoFetcherHelper: GoogleQueryInfoFetcher {
         default:
             googleAdFormat = GoogleMobileAds.AdFormat.native
         }
-        //= adRequest.adFormat == .banner ? GADAdFormat.banner : GADAdFormat.native
+        
         QueryInfo.createQueryInfo(with: request, adFormat: googleAdFormat) { [weak self] queryInfo, error in
             guard let self = self else {
                 completeListener.onComplete(queryInfo: "")

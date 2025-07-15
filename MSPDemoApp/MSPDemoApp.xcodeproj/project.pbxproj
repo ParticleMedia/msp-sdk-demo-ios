@@ -17,6 +17,7 @@
 		668480842BE03D800025018B /* MSPDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668480832BE03D800025018B /* MSPDemoAppUITests.swift */; };
 		668480862BE03D800025018B /* MSPDemoAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668480852BE03D800025018B /* MSPDemoAppUITestsLaunchTests.swift */; };
 		668ACA922CD58A8800F45803 /* DemoNativeAdContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668ACA912CD58A8800F45803 /* DemoNativeAdContainer.swift */; };
+		66C79B942DDD36C90012F57F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66C79B932DDD36C90012F57F /* Assets.xcassets */; };
 		66CC4E562C8FB6AE0005CCF6 /* DemoAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC4E552C8FB6AE0005CCF6 /* DemoAdViewController.swift */; };
 		66E5334E2C1BC1E700255D15 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5334D2C1BC1E700255D15 /* Colors.swift */; };
 		E0D4098C6B103253761A220B /* libPods-MSPDemoApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 865DA71BB2BB723F7DC9E210 /* libPods-MSPDemoApp.a */; };
@@ -47,7 +48,6 @@
 		668480662BE03D7D0025018B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		668480692BE03D7D0025018B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6684806B2BE03D800025018B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6684806E2BE03D800025018B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		668480702BE03D800025018B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		668480752BE03D800025018B /* MSPDemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSPDemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		668480792BE03D800025018B /* MSPDemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPDemoAppTests.swift; sourceTree = "<group>"; };
@@ -55,6 +55,7 @@
 		668480832BE03D800025018B /* MSPDemoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPDemoAppUITests.swift; sourceTree = "<group>"; };
 		668480852BE03D800025018B /* MSPDemoAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPDemoAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		668ACA912CD58A8800F45803 /* DemoNativeAdContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoNativeAdContainer.swift; sourceTree = "<group>"; };
+		66C79B932DDD36C90012F57F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66CC4E552C8FB6AE0005CCF6 /* DemoAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAdViewController.swift; sourceTree = "<group>"; };
 		66E5334D2C1BC1E700255D15 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		66E534E62C24D51800255D15 /* NovaCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = NovaCore.xcframework; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		04C52D41A26178099ABC1C12 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				6684806B2BE03D800025018B /* Assets.xcassets */,
 				7D28AF188F67939620E30F42 /* Pods-MSPDemoApp.debug.xcconfig */,
 				E28AB29591E557D754243851 /* Pods-MSPDemoApp.release.xcconfig */,
 			);
@@ -133,9 +135,8 @@
 				668480622BE03D7D0025018B /* AppDelegate.swift */,
 				668480642BE03D7D0025018B /* SceneDelegate.swift */,
 				668480662BE03D7D0025018B /* ViewController.swift */,
+				66C79B932DDD36C90012F57F /* Assets.xcassets */,
 				668480682BE03D7D0025018B /* Main.storyboard */,
-				6684806B2BE03D800025018B /* Assets.xcassets */,
-				6684806D2BE03D800025018B /* LaunchScreen.storyboard */,
 				668480702BE03D800025018B /* Info.plist */,
 				66E5334D2C1BC1E700255D15 /* Colors.swift */,
 			);
@@ -200,8 +201,8 @@
 				6684805B2BE03D7D0025018B /* Sources */,
 				6684805C2BE03D7D0025018B /* Frameworks */,
 				6684805D2BE03D7D0025018B /* Resources */,
-				1BBD7FC0E4E233D3AA7D0FD9 /* [CP] Embed Pods Frameworks */,
-				9DBD8F2B9156F2A60BFDCD1F /* [CP] Copy Pods Resources */,
+				EA3FA77C9BFF509C8562FCED /* [CP] Embed Pods Frameworks */,
+				86CDF00B2340694C8D2BC517 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6684806C2BE03D800025018B /* Assets.xcassets in Resources */,
+				66C79B942DDD36C90012F57F /* Assets.xcassets in Resources */,
 				6684806A2BE03D7D0025018B /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,23 +320,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1BBD7FC0E4E233D3AA7D0FD9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		73572960A518AB9766EA2250 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -357,7 +342,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9DBD8F2B9156F2A60BFDCD1F /* [CP] Copy Pods Resources */ = {
+		86CDF00B2340694C8D2BC517 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -372,6 +357,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA3FA77C9BFF509C8562FCED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -432,14 +434,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		6684806D2BE03D800025018B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6684806E2BE03D800025018B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -495,7 +489,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -552,7 +546,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -583,7 +577,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 24.30.0;
+				MARKETING_VERSION = 0.0.117;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = MSPDemoApp.MSPDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -614,7 +608,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 24.30.0;
+				MARKETING_VERSION = 0.0.117;
 				PRODUCT_BUNDLE_IDENTIFIER = MSPDemoApp.MSPDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

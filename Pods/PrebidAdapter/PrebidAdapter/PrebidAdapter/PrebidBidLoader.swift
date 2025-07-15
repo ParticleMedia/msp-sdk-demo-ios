@@ -14,6 +14,7 @@ public class PrebidBidLoader : BidLoader {
     public var googleQueryInfo: String?
     public var facebookBidToken: String?
     private let dispatchGroup = DispatchGroup()
+    public var adMetricReporter: AdMetricReporter?
     
     public override init(googleQueryInfoFetcher: GoogleQueryInfoFetcher, facebookBidTokenProvider: FacebookBidTokenProvider) {
         
@@ -55,7 +56,7 @@ public class PrebidBidLoader : BidLoader {
         var adUnitConfig = getAdUnitConfig(configId: configId ?? "demo-ios-article-top",
                                            gadQueryInfo: googleQueryInfo,
                                            facebookBidToken: facebookBidToken,
-                                           requestUUID: UUID().uuidString,
+                                           requestUUID: adRequest.requestId,
                                            prebidBannerAdSize: adSize,
                                            adRequest: adRequest)
         
@@ -74,7 +75,12 @@ public class PrebidBidLoader : BidLoader {
             }
             
             if let bidResponse = bidResponse {
-                let seat = bidResponse.winningBidSeat
+                guard let seat = bidResponse.winningBidSeat else {
+                    var errorMessage = "no fill"
+                    bidListener?.onError(msg: errorMessage)
+                    adMetricReporter?.logAdResponse(ad: nil, adRequest: adRequest, errorCode: .ERROR_CODE_NO_FILL, errorMessage: errorMessage)
+                    return
+                }
                 if self.bidListener == nil {
                 }
                 if seat == "msp_google" {
@@ -83,11 +89,13 @@ public class PrebidBidLoader : BidLoader {
                     self.bidListener?.onBidResponse(bidResponse: bidResponse, adNetwork: AdNetwork.facebook)
                 } else if seat == "msp_nova" {
                     self.bidListener?.onBidResponse(bidResponse: bidResponse, adNetwork: AdNetwork.nova)
-                }else {
+                } else {
                     self.bidListener?.onBidResponse(bidResponse: bidResponse, adNetwork: AdNetwork.prebid)
                 }
             } else {
-                bidListener?.onError(msg: "missing response")
+                var errorMessage = "missing response"
+                bidListener?.onError(msg: errorMessage)
+                adMetricReporter?.logAdResponse(ad: nil, adRequest: adRequest, errorCode: .ERROR_CODE_NETWORK_ERROR, errorMessage: errorMessage)
             }
         }
     }
@@ -125,7 +133,7 @@ public class PrebidBidLoader : BidLoader {
         Targeting.shared.userExt = userExt
         
         if let userId = UserDefaults.standard.string(forKey: "msp_user_id") {
-            adUnitConfig.addContextData(key: "user_id", value: userId)
+            adUnitConfig.addContextData(key: MSPConstants.USER_ID, value: userId)
         }
         
         let customParams = adRequest.customParams
@@ -133,6 +141,10 @@ public class PrebidBidLoader : BidLoader {
             if value is String {
                 adUnitConfig.removeContextData(for: key)
                 adUnitConfig.addContextData(key: key, value: value as? String ?? "")
+                if key == MSPConstants.USER_ID,
+                   let appUserId = value as? String {
+                    UserDefaults.standard.setValue(appUserId, forKey: "msp_user_id")
+                }
             }
         }
         

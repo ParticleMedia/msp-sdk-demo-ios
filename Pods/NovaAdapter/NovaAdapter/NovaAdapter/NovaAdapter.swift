@@ -6,19 +6,25 @@ import NovaCore
 import UIKit
 
 public class NovaAdapter: AdNetworkAdapter {
+    public func getSDKVersion() -> String {
+        return "2.2.0"
+    }
+    
     public func setAdMetricReporter(adMetricReporter: any MSPiOSCore.AdMetricReporter) {
         self.adMetricReporter = adMetricReporter
     }
     
     
     public weak var adListener: AdListener?
+    public weak var auctionBidListener: AuctionBidListener?
+    public var bidderPlacementId: String?
     public var priceInDollar: Double?
     public var adUnitId: String?
     
-    public var nativeAd: MSPAd?
+    public weak var nativeAd: MSPAd?
     public var nativeAdItem: NovaNativeAdItem?
     
-    public var interstitialAd: InterstitialAd?
+    public weak var interstitialAd: InterstitialAd?
     
     public var nativeAdView: NativeAdView?
     public var novaNativeAdView: NovaNativeAdView?
@@ -36,7 +42,7 @@ public class NovaAdapter: AdNetworkAdapter {
         adapterInitListener.onComplete(adNetwork: .nova, adapterInitStatus: .SUCCESS, message: "")
     }
     
-    public func loadAdCreative(bidResponse: Any, adListener: any AdListener, context: Any, adRequest: AdRequest) {
+    public func loadAdCreative(bidResponse: Any, auctionBidListener: AuctionBidListener, adListener: any AdListener, context: Any, adRequest: AdRequest, bidderPlacementId: String, bidderFormat: MSPiOSCore.AdFormat?, params: [String:String]?) {
         guard bidResponse is BidResponse,
               let mBidResponse = bidResponse as? BidResponse else {
             self.adListener?.onError(msg: "no valid response")
@@ -45,6 +51,8 @@ public class NovaAdapter: AdNetworkAdapter {
         }
  
         self.adListener = adListener
+        self.auctionBidListener = auctionBidListener
+        self.bidderPlacementId = bidderPlacementId
         self.adRequest = adRequest
         self.bidResponse = mBidResponse
         
@@ -109,6 +117,7 @@ public class NovaAdapter: AdNetworkAdapter {
                 novaNativeAdView.bodyLabel = nativeAdContainer.getbody()
                 novaNativeAdView.advertiserLabel = nativeAdContainer.getAdvertiser()
                 novaNativeAdView.callToActionButton = nativeAdContainer.getCallToAction()
+                novaNativeAdView.icon = nativeAdContainer.getIcon()
                 novaNativeAdView.prepareViewForInteraction(nativeAd: novaNativeAdItem)
                 
                 if let mediaContainer = nativeAdContainer.getMedia() {
@@ -122,11 +131,24 @@ public class NovaAdapter: AdNetworkAdapter {
                     ])
                 }
                 
+                if let iconView = nativeAdContainer.getIcon(),
+                   let imageUrlStr = novaNativeAdItem.iconUrlStr,
+                   let url = URL(string: imageUrlStr) {
+                    NovaUIUtils.setImage(from: url, to: iconView) {
+                        
+                    }
+                }
+                
                 nativeAdContainer.translatesAutoresizingMaskIntoConstraints = false
                 
                 novaNativeAdView.addSubview(nativeAdContainer)
                 novaNativeAdView.tappableViews = [UIView]()
-                novaNativeAdView.tappableViews?.append(mediaView)
+                let novaSubViews = [novaNativeAdView.titleLabel, novaNativeAdView.bodyLabel, novaNativeAdView.advertiserLabel, novaNativeAdView.callToActionButton, novaNativeAdView.icon, mediaView]
+                for view in novaSubViews {
+                    if let view = view {
+                        novaNativeAdView.tappableViews?.append(view)
+                    }
+                }
                 novaNativeAdView.tappableViews?.append(nativeAdContainer)
                 if let button = novaNativeAdView.callToActionButton {
                     novaNativeAdView.tappableViews?.append(button)
@@ -177,6 +199,7 @@ public class NovaAdapter: AdNetworkAdapter {
                 
 
             case "native":
+                MSPLogger.shared.info(message: "[Adapter: Nova] successfully loaded Nova Native ad")
                 let nativeAdItem = NovaAdBuilder.buildNativeAd(adItem: adItem, adUnitId: adUnitId, eCPMInDollar: eCPMInDollar)
                 let nativeAd = NovaNativeAd(adNetworkAdapter: self,
                                             title: nativeAdItem.headline ?? "",
@@ -191,6 +214,7 @@ public class NovaAdapter: AdNetworkAdapter {
                         return view
                     }()
                     nativeAd.mediaView = mediaView
+                    nativeAd.icon = nativeAdItem.iconUrlStr
                     nativeAd.priceInDollar = self.priceInDollar
                     nativeAd.adInfo[MSPConstants.AD_INFO_PRICE] = self.priceInDollar
                     nativeAd.adInfo["isVideo"] = (nativeAdItem.creativeType == .nativeVideo)
@@ -202,13 +226,15 @@ public class NovaAdapter: AdNetworkAdapter {
                     self.nativeAd = nativeAd
                     nativeAdItem.delegate = self
                     if let adListener = self.adListener,
-                       let adRequest = self.adRequest {
-                        handleAdLoaded(ad: nativeAd, listener: adListener, adRequest: adRequest)
+                       let adRequest = self.adRequest,
+                       let auctionBidListener = self.auctionBidListener {
+                        self.handleAdLoaded(ad: nativeAd, auctionBidListener: auctionBidListener, bidderPlacementId: self.bidderPlacementId  ?? adRequest.placementId)
                         self.adMetricReporter?.logAdResult(placementId: adRequest.placementId, ad: nativeAd, fill: true, isFromCache: false)
                     }
                 }
                 
             case "app_open":
+                MSPLogger.shared.info(message: "[Adapter: Nova] successfully loaded Nova Interstitial ad")
                 let appOpenAds = NovaAdBuilder.buildAppOpenAds(adItems: ads, adUnitId: adUnitId)
                 let appOpenAd = appOpenAds.first
                 
@@ -226,12 +252,14 @@ public class NovaAdapter: AdNetworkAdapter {
                     appOpenAd?.delegate = self
                 
                     if let adListener = self.adListener,
-                       let adRequest = self.adRequest {
+                       let adRequest = self.adRequest,
+                       let auctionBidListener = self.auctionBidListener {
                         if appOpenAd?.creativeType == .nativeImage {
                             appOpenAd?.preloadAdImage() { image in
                                 DispatchQueue.main.async {
                                     if let image = image {
-                                        handleAdLoaded(ad: novaInterstitialAd, listener: adListener, adRequest: adRequest)
+                                       
+                                        self.handleAdLoaded(ad: novaInterstitialAd, auctionBidListener: auctionBidListener, bidderPlacementId: self.bidderPlacementId  ?? adRequest.placementId)
                                         self.adMetricReporter?.logAdResult(placementId: adRequest.placementId, ad: novaInterstitialAd, fill: true, isFromCache: false)
                                     } else {
                                         self.adListener?.onError(msg: "fail to load ad media")
@@ -241,19 +269,29 @@ public class NovaAdapter: AdNetworkAdapter {
                             }
                         } else {
                             DispatchQueue.main.async {
-                                handleAdLoaded(ad: novaInterstitialAd, listener: adListener, adRequest: adRequest)
+                                self.handleAdLoaded(ad: novaInterstitialAd, auctionBidListener: auctionBidListener, bidderPlacementId: self.bidderPlacementId  ?? adRequest.placementId)
                             }
                         }
                     }
                 }
                 
             default:
-                self.adListener?.onError(msg: "unknown adType")
+                MSPLogger.shared.info(message: "[Adapter: Nova] Fail to load Nova ad")
+                let errorMessage = "unknown adType"
+                self.adListener?.onError(msg: errorMessage)
                 self.adMetricReporter?.logAdResult(placementId: adRequest?.placementId ?? "", ad: nil, fill: false, isFromCache: false)
+                if let adRequest = self.adRequest {
+                    self.adMetricReporter?.logAdResponse(ad: nil, adRequest: adRequest, errorCode: .ERROR_CODE_INTERNAL_ERROR, errorMessage: errorMessage)
+                }
             }
         } catch {
-            self.adListener?.onError(msg: "error decode nova ad string")
+            MSPLogger.shared.info(message: "[Adapter: Nova] Fail to load Nova ad")
+            let errorMessage = "error decode nova ad string"
+            self.adListener?.onError(msg: errorMessage)
             self.adMetricReporter?.logAdResult(placementId: adRequest?.placementId ?? "", ad: nil, fill: false, isFromCache: false)
+            if let adRequest = self.adRequest {
+                self.adMetricReporter?.logAdResponse(ad: nil, adRequest: adRequest, errorCode: .ERROR_CODE_INTERNAL_ERROR, errorMessage: errorMessage)
+            }
         }
         
     }
@@ -280,6 +318,35 @@ public class NovaAdapter: AdNetworkAdapter {
         let adType = adRequest.adFormat == .interstitial ? "app_open" : "native"
         parseNovaAdString(adString: adString, adType: adType, adUnitId: "dummy_id", eCPMInDollar: eCPMInDollar)
     }
+    
+    public func handleAdLoaded(ad: MSPAd, auctionBidListener: AuctionBidListener, bidderPlacementId: String) {
+        // to do: move this to ios core
+        AdCache.shared.saveAd(placementId: bidderPlacementId, ad: ad)
+        let auctionBid = AuctionBid(bidderName: "msp", bidderPlacementId: bidderPlacementId, ecpm: ad.adInfo["price"] as? Double ?? 0.0)
+        auctionBidListener.onSuccess(bid: auctionBid)
+        if let adRequest = self.adRequest {
+            self.adMetricReporter?.logAdResponse(ad: ad, adRequest: adRequest, errorCode: .ERROR_CODE_SUCCESS, errorMessage: nil)
+        }
+    }
+    
+    public func getAdNetwork() -> MSPiOSCore.AdNetwork {
+        return .nova
+    }
+    
+    public func sendHideAdEvent(reason: String, adScreenShot: Data?, fullScreenShot: Data?)
+    {
+        if let adRequest = self.adRequest,
+           let ad = self.nativeAd ?? self.interstitialAd {
+            self.adMetricReporter?.logAdHide(ad: ad, adRequest: adRequest, bidResponse: self, reason: reason, adScreenShot: adScreenShot, fullScreenShot: fullScreenShot)
+        }
+    }
+    
+    public func sendReportAdEvent(reason: String, description: String?, adScreenShot: Data?, fullScreenShot: Data?) {
+        if let adRequest = self.adRequest,
+           let ad = self.nativeAd ?? self.interstitialAd {
+            self.adMetricReporter?.logAdReport(ad: ad, adRequest: adRequest, bidResponse: self, reason: reason, description: description, adScreenShot: adScreenShot, fullScreenShot: fullScreenShot)
+        }
+    }
 }
 
 extension NovaAdapter: NovaNativeAdDelegate {
@@ -288,7 +355,11 @@ extension NovaAdapter: NovaNativeAdDelegate {
             self.adListener?.onAdImpression(ad: nativeAd)
             if let adRequest = adRequest,
                let bidResponse = bidResponse {
-                self.adMetricReporter?.logAdImpression(ad: nativeAd, adRequest: adRequest, bidResponse: bidResponse, params: nil)
+                var params = [String:Any?]()
+                if let adUnitId = self.adUnitId {
+                    params["adUnitId"] = adUnitId
+                }
+                self.adMetricReporter?.logAdImpression(ad: nativeAd, adRequest: adRequest, bidResponse: bidResponse, params: params)
             }
         }
     }
@@ -327,7 +398,11 @@ extension NovaAdapter: NovaAppOpenAdDelegate {
             self.adListener?.onAdImpression(ad: interstitialAd)
             if let adRequest = adRequest,
                let bidResponse = bidResponse {
-                self.adMetricReporter?.logAdImpression(ad: interstitialAd, adRequest: adRequest, bidResponse: bidResponse, params: nil)
+                var params = [String:Any?]()
+                if let adUnitId = self.adUnitId {
+                    params["adUnitId"] = adUnitId
+                }
+                self.adMetricReporter?.logAdImpression(ad: interstitialAd, adRequest: adRequest, bidResponse: bidResponse, params: params)
             }
         }
     }
@@ -338,3 +413,4 @@ extension NovaAdapter: NovaAppOpenAdDelegate {
         }
     }
 }
+
