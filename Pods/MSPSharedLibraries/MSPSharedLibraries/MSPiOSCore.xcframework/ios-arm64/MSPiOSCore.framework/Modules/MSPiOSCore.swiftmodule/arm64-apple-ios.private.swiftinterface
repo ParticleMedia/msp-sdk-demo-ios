@@ -95,7 +95,8 @@ public protocol FacebookBidTokenListener : AnyObject {
   func onComplete(bidToken: Swift.String)
 }
 public protocol AdMetricReporter : AnyObject {
-  func logAdImpression(ad: MSPiOSCore.MSPAd, adRequest: MSPiOSCore.AdRequest, bidResponse: Any, params: [Swift.String : Any?]?)
+  func logAdImpression(ad: MSPiOSCore.MSPAd, adRequest: MSPiOSCore.AdRequest, bidResponse: Any)
+  func logAdClick(ad: MSPiOSCore.MSPAd, adRequest: MSPiOSCore.AdRequest, bidResponse: Any?)
   func logGetAdFromCache(cacheKey: Swift.String, fill: Swift.Bool, ad: MSPiOSCore.MSPAd?)
   func logAdResult(placementId: Swift.String, ad: MSPiOSCore.MSPAd?, fill: Swift.Bool, isFromCache: Swift.Bool)
   func logAdHide(ad: MSPiOSCore.MSPAd, adRequest: MSPiOSCore.AdRequest, bidResponse: Any, reason: Swift.String, adScreenShot: Foundation.Data?, fullScreenShot: Foundation.Data?)
@@ -286,6 +287,9 @@ public struct MSPConstants {
   public static let AD_INFO_NETWORK_NAME: Swift.String
   public static let AD_INFO_NETWORK_AD_UNIT_ID: Swift.String
   public static let AD_INFO_NETWORK_CREATIVE_ID: Swift.String
+  public static let USER_SIGNAL_APP_INSTALL_TIME: Swift.String
+  public static let USER_SIGNAL_IS_FIRST_INSTALL: Swift.String
+  public static let USER_SIGNAL_PPID: Swift.String
 }
 public protocol InitializationParameters : MSPiOSCore.AdapterParameters {
   func getPrebidAPIKey() -> Swift.String

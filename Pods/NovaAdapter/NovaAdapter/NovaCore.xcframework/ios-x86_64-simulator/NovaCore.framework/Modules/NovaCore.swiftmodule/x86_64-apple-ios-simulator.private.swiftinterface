@@ -333,8 +333,8 @@ public enum NovaAppOpenAdClickableComponent : Swift.String {
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc public class NovaAdMetricReporter : ObjectiveC.NSObject {
-  public static func logAdImpression(thirdPartyImpressionTrackingUrls: [Swift.String], encryptedAdToken: Swift.String, startTimeInMs: Swift.Double? = nil, expirationTimeInMs: Swift.Double? = nil)
-  public static func logAdClick(thirdPartyClickTrackingUrls: [Swift.String], encryptedAdToken: Swift.String, durationInMs: Swift.Int? = nil, clickArea: Swift.String? = nil)
+  public static func logAdImpression(thirdPartyImpressionTrackingUrls: [Swift.String], encryptedAdToken: Swift.String, adUnitId: Swift.String, startTimeInMs: Swift.Double? = nil, expirationTimeInMs: Swift.Double? = nil)
+  public static func logAdClick(thirdPartyClickTrackingUrls: [Swift.String], encryptedAdToken: Swift.String, adUnitId: Swift.String, durationInMs: Swift.Int? = nil, clickArea: NovaCore.ClickableAdArea? = nil)
   public static func logAdSkip(reason: NovaCore.NovaAdSkipReason, encryptedAdToken: Swift.String, durationInMs: Swift.Int)
   @objc public static func logAdHide(reason: Swift.String, encryptedAdToken: Swift.String)
   @objc public static func logAdUnhide(encryptedAdToken: Swift.String)
@@ -343,6 +343,28 @@ public enum NovaAppOpenAdClickableComponent : Swift.String {
 }
 extension NovaCore.NovaAdMetricReporter {
   public static func convertNovaClickAreaNameToMetric(clickArea: Swift.String?) -> Swift.String?
+}
+public struct NovaAdMetricKeys {
+  public static let START_MS: Swift.String
+  public static let EXPIRATION_MS: Swift.String
+  public static let CURRENT_MS: Swift.String
+  public static let DURATION_MS: Swift.String
+  public static let LATENCY_MS: Swift.String
+  public static let VIDEO_LENGTH_MS: Swift.String
+  public static let POSITION_MS: Swift.String
+  public static let LOOP_COUNT: Swift.String
+  public static let IS_PLAY_AUTOMATICALLY: Swift.String
+  public static let IS_MUTE: Swift.String
+  public static let IS_LOOP: Swift.String
+  public static let AD_UNIT_ID: Swift.String
+  public static let USER_ID: Swift.String
+  public static let CLICK_AREA_NAME: Swift.String
+  public static let ACTION: Swift.String
+  public static let REASON: Swift.String
+  public static let ERROR: Swift.String
+  public static let OFFSET: Swift.String
+  public static let EVENT_TYPE: Swift.String
+  public static let ENCRYPTED_AD_TOKEN: Swift.String
 }
 extension SwiftUICore.Image {
   public static let Nova: SwiftUICore.Image.NovaImage
@@ -844,6 +866,10 @@ extension UIKit.UIView {
   }
 }
 extension UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public var adClickArea: NovaCore.ClickableAdArea? {
+    get
+    set
+  }
   @_Concurrency.MainActor @preconcurrency public var nova_isFullyVisibleOnScreen: Swift.Bool {
     get
   }
@@ -858,6 +884,34 @@ extension UIKit.UIView {
 extension UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency public func novapinConstraints() -> [UIKit.NSLayoutConstraint]
   @_Concurrency.MainActor @preconcurrency public func novapinToSuperView()
+}
+public enum ClickableAdArea : Swift.String {
+  case icon
+  case advertiser
+  case sponsor
+  case headline
+  case body
+  case cta
+  case media
+  case badge
+  case shadow
+  case like
+  case comment
+  case share
+  case advertiser_endcard
+  case body_endcard
+  case cta_endcard
+  case icon_endcard
+  case blank_endcard
+  case tap_to_try
+  case playable
+  case auto_jump
+  case cta_popover
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
 }
 extension UIKit.UIColor {
   @_hasMissingDesignatedInitializers public class NovaUIColor {
@@ -1161,6 +1215,15 @@ public struct NovaNativeAdVideoState {
   public let isMute: Swift.Bool
 }
 @_hasMissingDesignatedInitializers public class NovaAdVideoMetricReporter {
+  public enum NovaAdEventPauseReason : Swift.String {
+    case manual
+    case auto
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
   public struct ProgressPercentagePoint {
   }
   public struct ProgressDurationPoint {
@@ -1170,10 +1233,10 @@ public struct NovaNativeAdVideoState {
   }
   public static func makeRecord(encryptedAdToken: Swift.String)
   public static func logVideoError(encryptedAdToken: Swift.String, error: Swift.String, duration: Swift.Double)
-  public static func logVideoStart(encryptedAdToken: Swift.String, isAuto: Swift.Bool, isMute: Swift.Bool, isLoop: Swift.Bool, videoLength: Swift.Double, latency: Swift.Double, duration: Swift.Double)
+  public static func logVideoStart(encryptedAdToken: Swift.String, videoInfo: NovaCore.NovaNativeAdVideoInfo?, startTime: Swift.Double?, configTime: Swift.Double?, novaVideoPlayer: NovaCore.NovaVideoPlayer?)
   public static func logVideoProgress(encryptedAdToken: Swift.String, percentage: Swift.Double, duration: Swift.Double)
-  public static func logVideoPause(encryptedAdToken: Swift.String, duration: Swift.Double)
-  public static func logVideoResume(encryptedAdToken: Swift.String, duration: Swift.Double)
+  public static func logVideoPause(encryptedAdToken: Swift.String, duration: Swift.Double, reason: NovaCore.NovaAdVideoMetricReporter.NovaAdEventPauseReason, videoInfo: NovaCore.NovaNativeAdVideoInfo?, startTime: Swift.Double?, configTime: Swift.Double?, novaVideoPlayer: NovaCore.NovaVideoPlayer?)
+  public static func logVideoResume(encryptedAdToken: Swift.String, duration: Swift.Double, videoInfo: NovaCore.NovaNativeAdVideoInfo?, startTime: Swift.Double?, configTime: Swift.Double?, novaVideoPlayer: NovaCore.NovaVideoPlayer?)
   public static func logVideoMute(encryptedAdToken: Swift.String, isMute: Swift.Bool)
   @objc deinit
 }
@@ -1424,6 +1487,7 @@ public protocol NovaPlayerPlaybackDelegate : AnyObject {
     get
     set
   }
+  @_Concurrency.MainActor @preconcurrency open var loopCount: Swift.Int
   @_Concurrency.MainActor @preconcurrency open var playbackFreezesAtEnd: Swift.Bool
   @_Concurrency.MainActor @preconcurrency open var playbackState: NovaCore.NovaPlayer.PlaybackState {
     get
@@ -2288,12 +2352,18 @@ extension NovaCore.NovaAppOpenAdClickableComponent : Swift.RawRepresentable {}
 extension NovaCore.NovaAdType : Swift.Equatable {}
 extension NovaCore.NovaAdType : Swift.Hashable {}
 extension NovaCore.NovaAdType : Swift.RawRepresentable {}
+extension NovaCore.ClickableAdArea : Swift.Equatable {}
+extension NovaCore.ClickableAdArea : Swift.Hashable {}
+extension NovaCore.ClickableAdArea : Swift.RawRepresentable {}
 extension NovaCore.MetricEvent : Swift.Equatable {}
 extension NovaCore.MetricEvent : Swift.Hashable {}
 extension NovaCore.MetricEvent : Swift.RawRepresentable {}
 extension NovaCore.InteractiveBannerType : Swift.Equatable {}
 extension NovaCore.InteractiveBannerType : Swift.Hashable {}
 extension NovaCore.InteractiveBannerType : Swift.RawRepresentable {}
+extension NovaCore.NovaAdVideoMetricReporter.NovaAdEventPauseReason : Swift.Equatable {}
+extension NovaCore.NovaAdVideoMetricReporter.NovaAdEventPauseReason : Swift.Hashable {}
+extension NovaCore.NovaAdVideoMetricReporter.NovaAdEventPauseReason : Swift.RawRepresentable {}
 extension NovaCore.NovaAdLaunchOption : Swift.Equatable {}
 extension NovaCore.NovaAdLaunchOption : Swift.Hashable {}
 extension NovaCore.NovaAdLaunchOption : Swift.RawRepresentable {}

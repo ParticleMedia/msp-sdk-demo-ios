@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/FBANAdVideoRenderer.h</key>
-		<data>
-		NovoZE9CNnAVzH4luAR63zYcNH4=
-		</data>
 		<key>Headers/FBAdBridgeCommon.h</key>
 		<data>
 		weoDHibCa4s4syVQpeZwBg4uY+g=
@@ -78,7 +74,7 @@
 		</data>
 		<key>Headers/FBAudienceNetwork.h</key>
 		<data>
-		CAxX4s5Ps5jSSrll2vJJ+NGlREw=
+		5FboW/P05ZWuiOUmrrecyBvEUOs=
 		</data>
 		<key>Headers/FBAudienceNetworkAds.h</key>
 		<data>
@@ -174,7 +170,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ri/3SrhPlG+zy/VwlB4vVc81VvQ=
+		yYRPlRtI3wrh4llRngR/kuqvZLw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -191,17 +187,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/FBANAdVideoRenderer.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			NovoZE9CNnAVzH4luAR63zYcNH4=
-			</data>
-			<key>hash2</key>
-			<data>
-			yHdCUqAXm/+3ukcOExjIWFxXIusztXIAcFjLJ1dU79s=
-			</data>
-		</dict>
 		<key>Headers/FBAdBridgeCommon.h</key>
 		<dict>
 			<key>hash</key>
@@ -393,11 +378,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CAxX4s5Ps5jSSrll2vJJ+NGlREw=
+			5FboW/P05ZWuiOUmrrecyBvEUOs=
 			</data>
 			<key>hash2</key>
 			<data>
-			aESJTBRo/ByZS1Sw+X3ZMV1yaUFLYXZtbOv03fXMRfo=
+			b82UwYwKUqgBuOggm2pT9NfOlxmEipPuvDJJXI7/NFM=
 			</data>
 		</dict>
 		<key>Headers/FBAudienceNetworkAds.h</key>
