@@ -3564,7 +3564,7 @@
           {
             "kind": "Function",
             "name": "logAdImpression",
-            "printedName": "logAdImpression(ad:adRequest:bidResponse:params:)",
+            "printedName": "logAdImpression(ad:adRequest:bidResponse:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -3587,46 +3587,57 @@
                 "kind": "TypeNominal",
                 "name": "ProtocolComposition",
                 "printedName": "Any"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10MSPiOSCore16AdMetricReporterP03logC10Impression2ad0H7Request11bidResponseyAA5MSPAdC_AA0cI0CyptF",
+            "mangledName": "$s10MSPiOSCore16AdMetricReporterP03logC10Impression2ad0H7Request11bidResponseyAA5MSPAdC_AA0cI0CyptF",
+            "moduleName": "MSPiOSCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : MSPiOSCore.AdMetricReporter>",
+            "sugared_genericSig": "<Self where Self : MSPiOSCore.AdMetricReporter>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "logAdClick",
+            "printedName": "logAdClick(ad:adRequest:bidResponse:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MSPAd",
+                "printedName": "MSPiOSCore.MSPAd",
+                "usr": "s:10MSPiOSCore5MSPAdC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdRequest",
+                "printedName": "MSPiOSCore.AdRequest",
+                "usr": "s:10MSPiOSCore9AdRequestC"
               },
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String : Any?]?",
+                "printedName": "Any?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Dictionary",
-                    "printedName": "[Swift.String : Any?]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Optional",
-                        "printedName": "Any?",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "ProtocolComposition",
-                            "printedName": "Any"
-                          }
-                        ],
-                        "usr": "s:Sq"
-                      }
-                    ],
-                    "usr": "s:SD"
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:10MSPiOSCore16AdMetricReporterP03logC10Impression2ad0H7Request11bidResponse6paramsyAA5MSPAdC_AA0cI0CypSDySSypSgGSgtF",
-            "mangledName": "$s10MSPiOSCore16AdMetricReporterP03logC10Impression2ad0H7Request11bidResponse6paramsyAA5MSPAdC_AA0cI0CypSDySSypSgGSgtF",
+            "usr": "s:10MSPiOSCore16AdMetricReporterP03logC5Click2ad0H7Request11bidResponseyAA5MSPAdC_AA0cI0CypSgtF",
+            "mangledName": "$s10MSPiOSCore16AdMetricReporterP03logC5Click2ad0H7Request11bidResponseyAA5MSPAdC_AA0cI0CypSgtF",
             "moduleName": "MSPiOSCore",
             "genericSig": "<τ_0_0 where τ_0_0 : MSPiOSCore.AdMetricReporter>",
             "sugared_genericSig": "<Self where Self : MSPiOSCore.AdMetricReporter>",
@@ -11338,6 +11349,147 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "USER_SIGNAL_APP_INSTALL_TIME",
+            "printedName": "USER_SIGNAL_APP_INSTALL_TIME",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10MSPiOSCore12MSPConstantsV28USER_SIGNAL_APP_INSTALL_TIMESSvpZ",
+            "mangledName": "$s10MSPiOSCore12MSPConstantsV28USER_SIGNAL_APP_INSTALL_TIMESSvpZ",
+            "moduleName": "MSPiOSCore",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10MSPiOSCore12MSPConstantsV28USER_SIGNAL_APP_INSTALL_TIMESSvgZ",
+                "mangledName": "$s10MSPiOSCore12MSPConstantsV28USER_SIGNAL_APP_INSTALL_TIMESSvgZ",
+                "moduleName": "MSPiOSCore",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "USER_SIGNAL_IS_FIRST_INSTALL",
+            "printedName": "USER_SIGNAL_IS_FIRST_INSTALL",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10MSPiOSCore12MSPConstantsV28USER_SIGNAL_IS_FIRST_INSTALLSSvpZ",
+            "mangledName": "$s10MSPiOSCore12MSPConstantsV28USER_SIGNAL_IS_FIRST_INSTALLSSvpZ",
+            "moduleName": "MSPiOSCore",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10MSPiOSCore12MSPConstantsV28USER_SIGNAL_IS_FIRST_INSTALLSSvgZ",
+                "mangledName": "$s10MSPiOSCore12MSPConstantsV28USER_SIGNAL_IS_FIRST_INSTALLSSvgZ",
+                "moduleName": "MSPiOSCore",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "USER_SIGNAL_PPID",
+            "printedName": "USER_SIGNAL_PPID",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10MSPiOSCore12MSPConstantsV16USER_SIGNAL_PPIDSSvpZ",
+            "mangledName": "$s10MSPiOSCore12MSPConstantsV16USER_SIGNAL_PPIDSSvpZ",
+            "moduleName": "MSPiOSCore",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10MSPiOSCore12MSPConstantsV16USER_SIGNAL_PPIDSSvgZ",
+                "mangledName": "$s10MSPiOSCore12MSPConstantsV16USER_SIGNAL_PPIDSSvgZ",
+                "moduleName": "MSPiOSCore",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Struct",
@@ -14974,42 +15126,42 @@
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/MSPiOSCore\/MSPiOSCore\/api\/AdMetricReporter.swift",
       "kind": "IntegerLiteral",
-      "offset": 929,
+      "offset": 981,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/MSPiOSCore\/MSPiOSCore\/api\/AdMetricReporter.swift",
       "kind": "IntegerLiteral",
-      "offset": 961,
+      "offset": 1013,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/MSPiOSCore\/MSPiOSCore\/api\/AdMetricReporter.swift",
       "kind": "IntegerLiteral",
-      "offset": 993,
+      "offset": 1045,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/MSPiOSCore\/MSPiOSCore\/api\/AdMetricReporter.swift",
       "kind": "IntegerLiteral",
-      "offset": 1033,
+      "offset": 1085,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/MSPiOSCore\/MSPiOSCore\/api\/AdMetricReporter.swift",
       "kind": "IntegerLiteral",
-      "offset": 1072,
+      "offset": 1124,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/MSPiOSCore\/MSPiOSCore\/api\/AdMetricReporter.swift",
       "kind": "IntegerLiteral",
-      "offset": 1110,
+      "offset": 1162,
       "length": 1,
       "value": "5"
     },
@@ -15096,6 +15248,27 @@
       "offset": 581,
       "length": 19,
       "value": "\"networkCreativeId\""
+    },
+    {
+      "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/MSPiOSCore\/MSPiOSCore\/api\/MSPConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 659,
+      "length": 18,
+      "value": "\"app_install_time\""
+    },
+    {
+      "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/MSPiOSCore\/MSPiOSCore\/api\/MSPConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 731,
+      "length": 18,
+      "value": "\"is_first_install\""
+    },
+    {
+      "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/MSPiOSCore\/MSPiOSCore\/api\/MSPConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 791,
+      "length": 6,
+      "value": "\"ppid\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/MSPiOSCore\/MSPiOSCore\/adapter\/InitializationParameters.swift",
