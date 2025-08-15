@@ -9,7 +9,6 @@ import CoreMedia
 import DeveloperToolsSupport
 import Foundation
 @_exported import NovaCore
-import OMSDK_Newsbreak1
 import SafariServices
 import StoreKit
 import Swift
@@ -365,6 +364,7 @@ public struct NovaAdMetricKeys {
   public static let OFFSET: Swift.String
   public static let EVENT_TYPE: Swift.String
   public static let ENCRYPTED_AD_TOKEN: Swift.String
+  public static let EVENT_TIME: Swift.String
 }
 extension SwiftUICore.Image {
   public static let Nova: SwiftUICore.Image.NovaImage
