@@ -197,6 +197,7 @@ import PrebidMobile
     }
     
     public func logAdResponse(ad: MSPiOSCore.MSPAd?, adRequest: MSPiOSCore.AdRequest, errorCode: MSPErrorCode, errorMessage: String?) {
+        /*
         var eventModel = Com_Newsbreak_Mes_Events_AdResponse()
         eventModel.clientTsMs = UInt64(Date().timeIntervalSince1970 * 1000)
         eventModel.os = .ios
@@ -235,6 +236,7 @@ import PrebidMobile
         } catch {
             
         }
+         */
     }
     
     public func logAdRequest(adRequest: AdRequest) {
