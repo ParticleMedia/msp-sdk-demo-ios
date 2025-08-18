@@ -1,21 +1,21 @@
 PODS:
-  - FacebookAdapter (2.3.2):
+  - FacebookAdapter (2.3.3):
     - FBAudienceNetwork (~> 6.15)
     - MSPSharedLibraries (= 2.3.0)
   - FBAudienceNetwork (6.20.1)
   - Google-Mobile-Ads-SDK (12.9.0):
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleAdapter (2.3.2):
+  - GoogleAdapter (2.3.3):
     - Google-Mobile-Ads-SDK (~> 12.0)
     - MSPSharedLibraries (= 2.3.0)
   - GoogleUserMessagingPlatform (3.0.0)
-  - MSPCore (2.3.2):
+  - MSPCore (2.3.3):
     - MSPSharedLibraries (= 2.3.0)
     - PrebidAdapter (= 2.3.0)
     - SnapKit
     - SwiftProtobuf
   - MSPSharedLibraries (2.3.0)
-  - NovaAdapter (2.3.2):
+  - NovaAdapter (2.3.3):
     - MSPSharedLibraries (= 2.3.0)
   - PrebidAdapter (2.3.0):
     - MSPSharedLibraries (= 2.3.0)
@@ -23,10 +23,10 @@ PODS:
   - SwiftProtobuf (1.30.0)
 
 DEPENDENCIES:
-  - FacebookAdapter (= 2.3.2)
-  - GoogleAdapter (= 2.3.2)
-  - MSPCore (= 2.3.2)
-  - NovaAdapter (= 2.3.2)
+  - FacebookAdapter (= 2.3.3)
+  - GoogleAdapter (= 2.3.3)
+  - MSPCore (= 2.3.3)
+  - NovaAdapter (= 2.3.3)
 
 SPEC REPOS:
   trunk:
@@ -43,18 +43,18 @@ SPEC REPOS:
     - SwiftProtobuf
 
 SPEC CHECKSUMS:
-  FacebookAdapter: 80afde6adc841d3277e86c06f64fc3a681d39d00
+  FacebookAdapter: 41d6077deb4f2c5b66cefe1705c62545cc5584f3
   FBAudienceNetwork: 08e86d63a05b3a5a59414af12e4af8d756943c80
   Google-Mobile-Ads-SDK: 36cce7d8dc1b615145d02491c8bf5640ef854e7c
-  GoogleAdapter: faa9c46a8f35fb480752e99be568870f1b6a794e
+  GoogleAdapter: 8d5a0222e2a52c22088a15aba307c8fb9b2c5eab
   GoogleUserMessagingPlatform: f8d0cdad3ca835406755d0a69aa634f00e76d576
-  MSPCore: 221ae0cb503b2e8dae420d0ce79fb80f59dc9178
+  MSPCore: 50c805e50bd0ec283afa40189f73a503428c9932
   MSPSharedLibraries: 5bad36cfb2db2fbb75a7eccb5b0fa6e6a88912a4
-  NovaAdapter: 4acd137ecc9dd2748986593347a0e46dcdcd54d5
+  NovaAdapter: 429d5ceb2b274c92dcb4325643d790422e2e58d5
   PrebidAdapter: 15a12097056d2ed3055e73bfdba242e60dbd62a7
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SwiftProtobuf: 3697407f0d5b23bedeba9c2eaaf3ec6fdff69349
 
-PODFILE CHECKSUM: c2fe2fcf0982f54644dda2c5a4f5fa893a3bad75
+PODFILE CHECKSUM: 6dbcbe5671bc93ee3366a40658c7a706201a396e
 
 COCOAPODS: 1.15.2
