@@ -17,16 +17,16 @@ RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
 variant_for_slice()
 {
   case "$1" in
-  "PrebidMobile.xcframework/ios-arm64")
+  "OMSDK_Newsbreak1.xcframework/ios-arm64")
     echo ""
     ;;
-  "PrebidMobile.xcframework/ios-arm64_x86_64-simulator")
+  "OMSDK_Newsbreak1.xcframework/ios-arm64_x86_64-simulator")
     echo "simulator"
     ;;
-  "MSPiOSCore.xcframework/ios-arm64")
+  "OMSDK_Newsbreak1.xcframework/tvos-arm64")
     echo ""
     ;;
-  "MSPiOSCore.xcframework/ios-arm64_x86_64-simulator")
+  "OMSDK_Newsbreak1.xcframework/tvos-arm64_x86_64-simulator")
     echo "simulator"
     ;;
   esac
@@ -35,16 +35,16 @@ variant_for_slice()
 archs_for_slice()
 {
   case "$1" in
-  "PrebidMobile.xcframework/ios-arm64")
+  "OMSDK_Newsbreak1.xcframework/ios-arm64")
     echo "arm64"
     ;;
-  "PrebidMobile.xcframework/ios-arm64_x86_64-simulator")
+  "OMSDK_Newsbreak1.xcframework/ios-arm64_x86_64-simulator")
     echo "arm64 x86_64"
     ;;
-  "MSPiOSCore.xcframework/ios-arm64")
+  "OMSDK_Newsbreak1.xcframework/tvos-arm64")
     echo "arm64"
     ;;
-  "MSPiOSCore.xcframework/ios-arm64_x86_64-simulator")
+  "OMSDK_Newsbreak1.xcframework/tvos-arm64_x86_64-simulator")
     echo "arm64 x86_64"
     ;;
   esac
@@ -129,6 +129,5 @@ install_xcframework() {
   echo "Copied $source to $destination"
 }
 
-install_xcframework "${PODS_ROOT}/MSPSharedLibraries/MSPSharedLibraries/PrebidMobile.xcframework" "MSPSharedLibraries" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
-install_xcframework "${PODS_ROOT}/MSPSharedLibraries/MSPSharedLibraries/MSPiOSCore.xcframework" "MSPSharedLibraries" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/MSPOMSDK/MSPOMSDK/OMSDK_Newsbreak1.xcframework" "MSPOMSDK" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
 

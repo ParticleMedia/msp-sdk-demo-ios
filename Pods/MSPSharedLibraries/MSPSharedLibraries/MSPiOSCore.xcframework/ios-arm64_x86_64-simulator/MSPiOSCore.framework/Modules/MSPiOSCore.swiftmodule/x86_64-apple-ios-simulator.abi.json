@@ -12240,9 +12240,204 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "fromCache",
+            "printedName": "fromCache",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10MSPiOSCore10AuctionBidC9fromCacheSbvp",
+            "mangledName": "$s10MSPiOSCore10AuctionBidC9fromCacheSbvp",
+            "moduleName": "MSPiOSCore",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10MSPiOSCore10AuctionBidC9fromCacheSbvg",
+                "mangledName": "$s10MSPiOSCore10AuctionBidC9fromCacheSbvg",
+                "moduleName": "MSPiOSCore",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10MSPiOSCore10AuctionBidC9fromCacheSbvs",
+                "mangledName": "$s10MSPiOSCore10AuctionBidC9fromCacheSbvs",
+                "moduleName": "MSPiOSCore",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10MSPiOSCore10AuctionBidC9fromCacheSbvM",
+                "mangledName": "$s10MSPiOSCore10AuctionBidC9fromCacheSbvM",
+                "moduleName": "MSPiOSCore",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "ad",
+            "printedName": "ad",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "MSPiOSCore.MSPAd?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MSPAd",
+                    "printedName": "MSPiOSCore.MSPAd",
+                    "usr": "s:10MSPiOSCore5MSPAdC"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10MSPiOSCore10AuctionBidC2adAA5MSPAdCSgvp",
+            "mangledName": "$s10MSPiOSCore10AuctionBidC2adAA5MSPAdCSgvp",
+            "moduleName": "MSPiOSCore",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MSPiOSCore.MSPAd?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MSPAd",
+                        "printedName": "MSPiOSCore.MSPAd",
+                        "usr": "s:10MSPiOSCore5MSPAdC"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10MSPiOSCore10AuctionBidC2adAA5MSPAdCSgvg",
+                "mangledName": "$s10MSPiOSCore10AuctionBidC2adAA5MSPAdCSgvg",
+                "moduleName": "MSPiOSCore",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MSPiOSCore.MSPAd?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MSPAd",
+                        "printedName": "MSPiOSCore.MSPAd",
+                        "usr": "s:10MSPiOSCore5MSPAdC"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10MSPiOSCore10AuctionBidC2adAA5MSPAdCSgvs",
+                "mangledName": "$s10MSPiOSCore10AuctionBidC2adAA5MSPAdCSgvs",
+                "moduleName": "MSPiOSCore",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10MSPiOSCore10AuctionBidC2adAA5MSPAdCSgvM",
+                "mangledName": "$s10MSPiOSCore10AuctionBidC2adAA5MSPAdCSgvM",
+                "moduleName": "MSPiOSCore",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(bidderName:bidderPlacementId:ecpm:)",
+            "printedName": "init(bidderName:bidderPlacementId:ecpm:fromCache:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -12267,11 +12462,18 @@
                 "name": "Double",
                 "printedName": "Swift.Double",
                 "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:10MSPiOSCore10AuctionBidC10bidderName0E11PlacementId4ecpmACSS_SSSdtcfc",
-            "mangledName": "$s10MSPiOSCore10AuctionBidC10bidderName0E11PlacementId4ecpmACSS_SSSdtcfc",
+            "usr": "s:10MSPiOSCore10AuctionBidC10bidderName0E11PlacementId4ecpm9fromCacheACSS_SSSdSbtcfc",
+            "mangledName": "$s10MSPiOSCore10AuctionBidC10bidderName0E11PlacementId4ecpm9fromCacheACSS_SSSdSbtcfc",
             "moduleName": "MSPiOSCore",
             "declAttributes": [
               "AccessControl"
@@ -15318,6 +15520,13 @@
       "offset": 729,
       "length": 18,
       "value": "\"pubmaticStoreUrl\""
+    },
+    {
+      "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/MSPiOSCore\/MSPiOSCore\/Auction\/AuctionBid.swift",
+      "kind": "BooleanLiteral",
+      "offset": 398,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/MSPiOSCore\/MSPiOSCore\/adapter\/AdNetwork.swift",
