@@ -6,7 +6,7 @@ import UIKit
 
 @objc public class PrebidAdapter : NSObject, AdNetworkAdapter {
     public func getSDKVersion() -> String {
-        return "2.3.0"
+        return "2.5.0"
     }
     
     public func getAdNetwork() -> MSPiOSCore.AdNetwork {
@@ -188,6 +188,7 @@ extension PrebidAdapter: BannerViewDelegate {
         // to do: move this to ios core
         AdCache.shared.saveAd(placementId: bidderPlacementId, ad: ad)
         let auctionBid = AuctionBid(bidderName: "msp", bidderPlacementId: bidderPlacementId, ecpm: ad.adInfo["price"] as? Double ?? 0.0)
+        auctionBid.ad = ad
         auctionBidListener.onSuccess(bid: auctionBid)
         if let adRequest = self.adRequest {
             self.adMetricReporter?.logAdResponse(ad: ad, adRequest: adRequest, errorCode: .ERROR_CODE_SUCCESS, errorMessage: nil)
