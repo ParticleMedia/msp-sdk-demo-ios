@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -22,10 +22,9 @@
 /// This is a protocol so that developers can build their own
 /// extension handling if they need something more complex than the
 /// standard `SimpleExtensionMap` implementation.
-@preconcurrency
-public protocol ExtensionMap: Sendable {
+public protocol ExtensionMap {
     /// Returns the extension object describing an extension or nil
-    subscript(messageType: any Message.Type, fieldNumber: Int) -> (any AnyMessageExtension)? { get }
+    subscript(messageType: Message.Type, fieldNumber: Int) -> AnyMessageExtension? { get }
 
     /// Returns the field number for a message with a specific field name
     ///
@@ -35,5 +34,5 @@ public protocol ExtensionMap: Sendable {
     /// for the proto file and `message` is the name of the message in
     /// which the extension was defined. (This is different from the
     /// message that is being extended!)
-    func fieldNumberForProto(messageType: any Message.Type, protoFieldName: String) -> Int?
+    func fieldNumberForProto(messageType: Message.Type, protoFieldName: String) -> Int?
 }

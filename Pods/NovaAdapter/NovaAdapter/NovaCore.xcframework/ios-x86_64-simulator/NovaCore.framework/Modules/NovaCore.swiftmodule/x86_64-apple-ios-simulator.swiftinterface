@@ -269,6 +269,7 @@ public enum NovaAppOpenAdResource {
   case video(NovaCore.NovaNativeAdVideoInfo)
 }
 @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor @preconcurrency public class NovaAppOpenAdViewController : UIKit.UIViewController {
+  @objc deinit
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func loadView()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency public func topRightCloseButtonStartCountDown(button: UIKit.UIButton, clickableArea: UIKit.UIView)
@@ -285,7 +286,6 @@ public enum NovaAppOpenAdResource {
     @objc get
   }
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewWillTransition(to size: CoreFoundation.CGSize, with coordinator: any UIKit.UIViewControllerTransitionCoordinator)
-  @objc deinit
 }
 public struct NovaResponseDataModel : Swift.Codable {
   public let ads: [NovaCore.AdItem]?
@@ -2167,8 +2167,8 @@ extension NovaCore.NovaWebViewBottomView {
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class NovaNativeAdMediaView : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency final public let videoView: NovaCore.NovaNativeAdVideoView
   @_Concurrency.MainActor @preconcurrency final public var novaNativeAdVideoDelegate: (any NovaCore.NovaNativeAdVideoDelegate)?
-  @_Concurrency.MainActor @preconcurrency final public func setNovaNativeAdVideoDelegate(delegate: any NovaCore.NovaNativeAdVideoDelegate)
   @objc deinit
+  @_Concurrency.MainActor @preconcurrency final public func setNovaNativeAdVideoDelegate(delegate: any NovaCore.NovaNativeAdVideoDelegate)
 }
 extension NovaCore.NovaNativeAdMediaView {
   @_Concurrency.MainActor @preconcurrency final public func config(with viewModel: NovaCore.NovaNativeAdMediaViewModel, iabReporter: NovaCore.IABMetricReporter?, completion: @escaping () -> Swift.Void)

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA0CBCD9613A8E95F24D86AAD4A86E26"
-               BuildableName = "SwiftProtobuf.bundle"
-               BlueprintName = "SwiftProtobuf-SwiftProtobuf"
+               BlueprintIdentifier = "D5B7E14B8006D914FD77C3424DC70349"
+               BuildableName = "MSPOMSDK"
+               BlueprintName = "MSPOMSDK"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

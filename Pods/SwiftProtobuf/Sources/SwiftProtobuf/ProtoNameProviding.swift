@@ -4,9 +4,10 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
+
 
 /// SwiftProtobuf Internal: Common support looking up field names.
 ///
@@ -16,7 +17,7 @@
 /// (reducing bloat and minimizing leaks of field names).
 public protocol _ProtoNameProviding {
 
-    /// The mapping between field numbers and proto/JSON field names defined in
-    /// the conforming message type.
-    static var _protobuf_nameMap: _NameMap { get }
+  /// The mapping between field numbers and proto/JSON field names defined in
+  /// the conforming message type.
+  static var _protobuf_nameMap: _NameMap { get }
 }

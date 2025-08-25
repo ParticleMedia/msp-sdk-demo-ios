@@ -1,10 +1,10 @@
 // Sources/SwiftProtobuf/JSONEncoder.swift - JSON Encoding support
 //
-// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -66,18 +66,17 @@ private let hexDigits: [UInt8] = {
 internal struct JSONEncoder {
     private var data = [UInt8]()
     private var separator: UInt8?
+    private let doubleFormatter = DoubleFormatter()
 
     internal init() {}
 
-    internal var dataResult: [UInt8] { data }
+    internal var dataResult: Data { return Data(bytes: data) }
 
     internal var stringResult: String {
         get {
-            String(decoding: data, as: UTF8.self)
+            return String(bytes: data, encoding: String.Encoding.utf8)!
         }
     }
-
-    internal var bytesResult: [UInt8] { data }
 
     /// Append a `StaticString` to the JSON text.  Because
     /// `StaticString` is already UTF8 internally, this is faster
@@ -107,12 +106,7 @@ internal struct JSONEncoder {
         data.append(contentsOf: utf8Data)
     }
 
-    /// Append a raw utf8 in a `[UInt8]` to the JSON text.
-    internal mutating func append(utf8Bytes: [UInt8]) {
-        data.append(contentsOf: utf8Bytes)
-    }
-
-    /// Begin a new field whose name is given as a `_NameMap.Name`.
+    /// Begin a new field whose name is given as a `_NameMap.Name`
     internal mutating func startField(name: _NameMap.Name) {
         if let s = separator {
             data.append(s)
@@ -135,17 +129,6 @@ internal struct JSONEncoder {
         separator = asciiComma
     }
 
-    /// Begin a new extension field.
-    internal mutating func startExtensionField(name: String) {
-        if let s = separator {
-            data.append(s)
-        }
-        append(staticText: "\"[")
-        data.append(contentsOf: name.utf8)
-        append(staticText: "]\":")
-        separator = asciiComma
-    }
-
     /// Append an open square bracket `[` to the JSON.
     internal mutating func startArray() {
         data.append(asciiOpenSquareBracket)
@@ -164,17 +147,10 @@ internal struct JSONEncoder {
     }
 
     /// Append an open curly brace `{` to the JSON.
-    /// Assumes this object is part of an array of objects.
-    internal mutating func startArrayObject() {
+    internal mutating func startObject() {
         if let s = separator {
             data.append(s)
         }
-        data.append(asciiOpenCurlyBracket)
-        separator = nil
-    }
-
-    /// Append an open curly brace `{` to the JSON.
-    internal mutating func startObject() {
         data.append(asciiOpenCurlyBracket)
         separator = nil
     }
@@ -203,7 +179,12 @@ internal struct JSONEncoder {
                 append(staticText: "\"Infinity\"")
             }
         } else {
-            data.append(contentsOf: value.debugDescription.utf8)
+            if let v = Int64(exactly: Double(value)) {
+                appendInt(value: v)
+            } else {
+                let formatted = doubleFormatter.floatToUtf8(value)
+                data.append(contentsOf: formatted)
+            }
         }
     }
 
@@ -220,7 +201,12 @@ internal struct JSONEncoder {
                 append(staticText: "\"Infinity\"")
             }
         } else {
-            data.append(contentsOf: value.debugDescription.utf8)
+            if let v = Int64(exactly: value) {
+                appendInt(value: v)
+            } else {
+                let formatted = doubleFormatter.doubleToUtf8(value)
+                data.append(contentsOf: formatted)
+            }
         }
     }
 
@@ -245,20 +231,16 @@ internal struct JSONEncoder {
         }
     }
 
-    /// Write an Enum as an Int.
+    /// Write an Enum as an int.
     internal mutating func putEnumInt(value: Int) {
         appendInt(value: Int64(value))
     }
 
     /// Write an `Int64` using protobuf JSON quoting conventions.
-    internal mutating func putQuotedInt64(value: Int64) {
+    internal mutating func putInt64(value: Int64) {
         data.append(asciiDoubleQuote)
         appendInt(value: value)
         data.append(asciiDoubleQuote)
-    }
-
-    internal mutating func putNonQuotedInt64(value: Int64) {
-        appendInt(value: value)
     }
 
     /// Write an `Int32` with quoting suitable for
@@ -270,19 +252,15 @@ internal struct JSONEncoder {
     }
 
     /// Write an `Int32` in the default format.
-    internal mutating func putNonQuotedInt32(value: Int32) {
+    internal mutating func putInt32(value: Int32) {
         appendInt(value: Int64(value))
     }
 
     /// Write a `UInt64` using protobuf JSON quoting conventions.
-    internal mutating func putQuotedUInt64(value: UInt64) {
+    internal mutating func putUInt64(value: UInt64) {
         data.append(asciiDoubleQuote)
         appendUInt(value: value)
         data.append(asciiDoubleQuote)
-    }
-
-    internal mutating func putNonQuotedUInt64(value: UInt64) {
-        appendUInt(value: value)
     }
 
     /// Write a `UInt32` with quoting suitable for
@@ -294,7 +272,7 @@ internal struct JSONEncoder {
     }
 
     /// Write a `UInt32` in the default format.
-    internal mutating func putNonQuotedUInt32(value: UInt32) {
+    internal mutating func putUInt32(value: UInt32) {
         appendUInt(value: UInt64(value))
     }
 
@@ -302,12 +280,12 @@ internal struct JSONEncoder {
     /// using the value as a map key.
     internal mutating func putQuotedBoolValue(value: Bool) {
         data.append(asciiDoubleQuote)
-        putNonQuotedBoolValue(value: value)
+        putBoolValue(value: value)
         data.append(asciiDoubleQuote)
     }
 
     /// Write a `Bool` in the default format.
-    internal mutating func putNonQuotedBoolValue(value: Bool) {
+    internal mutating func putBoolValue(value: Bool) {
         if value {
             append(staticText: "true")
         } else {
@@ -328,7 +306,7 @@ internal struct JSONEncoder {
             case 13: append(staticText: "\\r")
             case 34: append(staticText: "\\\"")
             case 92: append(staticText: "\\\\")
-            case 0...31, 127...159:  // Hex form for C0 control chars
+            case 0...31, 127...159: // Hex form for C0 control chars
                 append(staticText: "\\u00")
                 data.append(hexDigits[Int(c.value / 16)])
                 data.append(hexDigits[Int(c.value & 15)])
@@ -352,49 +330,48 @@ internal struct JSONEncoder {
     }
 
     /// Append a bytes value using protobuf JSON Base-64 encoding.
-    internal mutating func putBytesValue<Bytes: SwiftProtobufContiguousBytes>(value: Bytes) {
+    internal mutating func putBytesValue(value: Data) {
         data.append(asciiDoubleQuote)
         if value.count > 0 {
-            value.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-                if let p = body.baseAddress, body.count > 0 {
-                    var t: Int = 0
-                    var bytesInGroup: Int = 0
-                    for i in 0..<body.count {
-                        if bytesInGroup == 3 {
-                            data.append(base64Digits[(t >> 18) & 63])
-                            data.append(base64Digits[(t >> 12) & 63])
-                            data.append(base64Digits[(t >> 6) & 63])
-                            data.append(base64Digits[t & 63])
-                            t = 0
-                            bytesInGroup = 0
-                        }
-                        t = (t << 8) + Int(p[i])
-                        bytesInGroup += 1
-                    }
-                    switch bytesInGroup {
-                    case 3:
+            value.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
+                var t: Int = 0
+                var bytesInGroup: Int = 0
+                for i in 0..<value.count {
+                    if bytesInGroup == 3 {
                         data.append(base64Digits[(t >> 18) & 63])
                         data.append(base64Digits[(t >> 12) & 63])
                         data.append(base64Digits[(t >> 6) & 63])
                         data.append(base64Digits[t & 63])
-                    case 2:
-                        t <<= 8
-                        data.append(base64Digits[(t >> 18) & 63])
-                        data.append(base64Digits[(t >> 12) & 63])
-                        data.append(base64Digits[(t >> 6) & 63])
-                        data.append(asciiEquals)
-                    case 1:
-                        t <<= 16
-                        data.append(base64Digits[(t >> 18) & 63])
-                        data.append(base64Digits[(t >> 12) & 63])
-                        data.append(asciiEquals)
-                        data.append(asciiEquals)
-                    default:
-                        break
+                        t = 0
+                        bytesInGroup = 0
                     }
+                    t = (t << 8) + Int(p[i])
+                    bytesInGroup += 1
+                }
+                switch bytesInGroup {
+                case 3:
+                    data.append(base64Digits[(t >> 18) & 63])
+                    data.append(base64Digits[(t >> 12) & 63])
+                    data.append(base64Digits[(t >> 6) & 63])
+                    data.append(base64Digits[t & 63])
+                case 2:
+                    t <<= 8
+                    data.append(base64Digits[(t >> 18) & 63])
+                    data.append(base64Digits[(t >> 12) & 63])
+                    data.append(base64Digits[(t >> 6) & 63])
+                    data.append(asciiEquals)
+                case 1:
+                    t <<= 16
+                    data.append(base64Digits[(t >> 18) & 63])
+                    data.append(base64Digits[(t >> 12) & 63])
+                    data.append(asciiEquals)
+                    data.append(asciiEquals)
+                default:
+                    break
                 }
             }
         }
         data.append(asciiDoubleQuote)
     }
 }
+

@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -17,8 +17,7 @@ let minutesPerHour: Int32 = 60
 let secondsPerDay: Int32 = 86400
 let secondsPerHour: Int32 = 3600
 let secondsPerMinute: Int32 = 60
-let nanosPerSecond: Int32 = 1_000_000_000
-let attosPerNanosecond: Int64 = 1_000_000_000
+let nanosPerSecond: Int32 = 1000000000
 
 internal func timeOfDayFromSecondsSince1970(seconds: Int64) -> (hh: Int32, mm: Int32, ss: Int32) {
     let secondsSinceMidnight = Int32(mod(seconds, Int64(secondsPerDay)))
@@ -32,7 +31,7 @@ internal func timeOfDayFromSecondsSince1970(seconds: Int64) -> (hh: Int32, mm: I
 internal func julianDayNumberFromSecondsSince1970(seconds: Int64) -> Int64 {
     // January 1, 1970 is Julian Day Number 2440588.
     // See http://aa.usno.navy.mil/faq/docs/JD_Formula.php
-    div(seconds + 2_440_588 * Int64(secondsPerDay), Int64(secondsPerDay))
+    return div(seconds + 2440588 * Int64(secondsPerDay), Int64(secondsPerDay))
 }
 
 internal func gregorianDateFromSecondsSince1970(seconds: Int64) -> (YY: Int32, MM: Int32, DD: Int32) {
@@ -51,16 +50,4 @@ internal func gregorianDateFromSecondsSince1970(seconds: Int64) -> (YY: Int32, M
     let YY = div(e, 1461) - 4716 + div(12 + 2 - MM, 12)
 
     return (YY: Int32(YY), MM: Int32(MM), DD: Int32(DD))
-}
-
-internal func nanosToString(nanos: Int32) -> String {
-    if nanos == 0 {
-        return ""
-    } else if nanos % 1_000_000 == 0 {
-        return ".\(threeDigit(abs(nanos) / 1_000_000))"
-    } else if nanos % 1000 == 0 {
-        return ".\(sixDigit(abs(nanos) / 1000))"
-    } else {
-        return ".\(nineDigit(abs(nanos)))"
-    }
 }

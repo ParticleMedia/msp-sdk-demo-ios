@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -12,7 +12,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-public enum JSONEncodingError: Error, Hashable {
+public enum JSONEncodingError: Error {
     /// Any fields that were decoded from binary format cannot be
     /// re-encoded into JSON unless the object they hold is a
     /// well-known type or a type registered with via
@@ -32,7 +32,4 @@ public enum JSONEncodingError: Error, Hashable {
     /// valid `kind` (that is, they represent a null value, number, boolean,
     /// string, struct, or list).
     case missingValue
-    /// google.protobuf.Value cannot encode double values for infinity or nan,
-    /// because they would be parsed as a string.
-    case valueNumberNotFinite
 }

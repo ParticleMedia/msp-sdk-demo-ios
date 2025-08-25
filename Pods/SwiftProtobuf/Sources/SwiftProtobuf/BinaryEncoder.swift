@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -15,53 +15,35 @@
 
 import Foundation
 
-/// Encoder for Binary Protocol Buffer format
+/*
+ * Encoder for Binary Protocol Buffer format
+ */
 internal struct BinaryEncoder {
-    private var pointer: UnsafeMutableRawPointer
-    private var buffer: UnsafeMutableRawBufferPointer
+    private var pointer: UnsafeMutablePointer<UInt8>
 
-    init(forWritingInto buffer: UnsafeMutableRawBufferPointer) {
-        self.buffer = buffer
-        self.pointer = buffer.baseAddress!
+    init(forWritingInto pointer: UnsafeMutablePointer<UInt8>) {
+        self.pointer = pointer
     }
 
     private mutating func append(_ byte: UInt8) {
-        pointer.storeBytes(of: byte, as: UInt8.self)
-        pointer = pointer.advanced(by: 1)
+        pointer.pointee = byte
+        pointer = pointer.successor()
     }
 
-    private mutating func append<Bytes: SwiftProtobufContiguousBytes>(contentsOf bytes: Bytes) {
-        bytes.withUnsafeBytes { dataPointer in
-            if let baseAddress = dataPointer.baseAddress, dataPointer.count > 0 {
-                pointer.copyMemory(from: baseAddress, byteCount: dataPointer.count)
-                advance(dataPointer.count)
-            }
-        }
-    }
-
-    internal var used: Int {
-        buffer.baseAddress!.distance(to: pointer)
-    }
-
-    internal var remainder: UnsafeMutableRawBufferPointer {
-        UnsafeMutableRawBufferPointer(
-            start: pointer,
-            count: buffer.count - used
-        )
-    }
-
-    internal mutating func advance(_ bytes: Int) {
-        pointer = pointer.advanced(by: bytes)
-    }
-
-    @discardableResult
-    private mutating func append(contentsOf bufferPointer: UnsafeRawBufferPointer) -> Int {
-        let count = bufferPointer.count
-        if let baseAddress = bufferPointer.baseAddress, count > 0 {
-            pointer.copyMemory(from: baseAddress, byteCount: count)
-        }
+    private mutating func append(contentsOf data: Data) {
+        let count = data.count
+        data.copyBytes(to: pointer, count: count)
         pointer = pointer.advanced(by: count)
-        return count
+    }
+
+    private mutating func append(contentsOf bufferPointer: UnsafeBufferPointer<UInt8>) {
+        let count = bufferPointer.count
+        pointer.assign(from: bufferPointer.baseAddress!, count: count)
+        pointer = pointer.advanced(by: count)
+    }
+
+    func distance(pointer: UnsafeMutablePointer<UInt8>) -> Int {
+        return pointer.distance(to: self.pointer)
     }
 
     mutating func appendUnknown(data: Data) {
@@ -105,51 +87,48 @@ internal struct BinaryEncoder {
     mutating func putFixedUInt64(value: UInt64) {
         var v = value.littleEndian
         let n = MemoryLayout<UInt64>.size
-        pointer.copyMemory(from: &v, byteCount: n)
+        memcpy(pointer, &v, n)
         pointer = pointer.advanced(by: n)
     }
 
     mutating func putFixedUInt32(value: UInt32) {
         var v = value.littleEndian
         let n = MemoryLayout<UInt32>.size
-        pointer.copyMemory(from: &v, byteCount: n)
+        memcpy(pointer, &v, n)
         pointer = pointer.advanced(by: n)
     }
 
     mutating func putFloatValue(value: Float) {
         let n = MemoryLayout<Float>.size
-        var v = value.bitPattern.littleEndian
-        pointer.copyMemory(from: &v, byteCount: n)
+        var v = value
+        var nativeBytes: UInt32 = 0
+        memcpy(&nativeBytes, &v, n)
+        var littleEndianBytes = nativeBytes.littleEndian
+        memcpy(pointer, &littleEndianBytes, n)
         pointer = pointer.advanced(by: n)
     }
 
     mutating func putDoubleValue(value: Double) {
         let n = MemoryLayout<Double>.size
-        var v = value.bitPattern.littleEndian
-        pointer.copyMemory(from: &v, byteCount: n)
+        var v = value
+        var nativeBytes: UInt64 = 0
+        memcpy(&nativeBytes, &v, n)
+        var littleEndianBytes = nativeBytes.littleEndian
+        memcpy(pointer, &littleEndianBytes, n)
         pointer = pointer.advanced(by: n)
     }
 
     // Write a string field, including the leading index/tag value.
     mutating func putStringValue(value: String) {
-        let utf8 = value.utf8
-        // If the String does not support an internal representation in a form
-        // of contiguous storage, body is not called and nil is returned.
-        let isAvailable = utf8.withContiguousStorageIfAvailable { (body: UnsafeBufferPointer<UInt8>) -> Int in
-            putVarInt(value: body.count)
-            return append(contentsOf: UnsafeRawBufferPointer(body))
-        }
-        if isAvailable == nil {
-            let count = utf8.count
-            putVarInt(value: count)
-            for b in utf8 {
-                pointer.storeBytes(of: b, as: UInt8.self)
-                pointer = pointer.advanced(by: 1)
-            }
+        let count = value.utf8.count
+        putVarInt(value: count)
+        for b in value.utf8 {
+            pointer.pointee = b
+            pointer = pointer.successor()
         }
     }
 
-    mutating func putBytesValue<Bytes: SwiftProtobufContiguousBytes>(value: Bytes) {
+    mutating func putBytesValue(value: Data) {
         putVarInt(value: value.count)
         append(contentsOf: value)
     }

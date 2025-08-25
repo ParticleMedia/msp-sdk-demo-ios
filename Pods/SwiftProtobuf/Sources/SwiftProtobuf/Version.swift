@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -16,13 +16,13 @@ import Foundation
 
 // Expose version information about the library.
 public struct Version {
-    /// Major version.
-    public static let major = 1
-    /// Minor version.
-    public static let minor = 30
-    /// Revision number.
-    public static let revision = 0
+  /// Major version.
+  public static let major = 1
+  /// Minor version.
+  public static let minor = 3
+  /// Revision number.
+  public static let revision = 0
 
-    /// String form of the version number.
-    public static let versionString = "\(major).\(minor).\(revision)"
+  /// String form of the version number.
+  public static let versionString = "\(major).\(minor).\(revision)"
 }

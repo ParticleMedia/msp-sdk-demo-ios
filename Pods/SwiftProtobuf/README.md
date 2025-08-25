@@ -5,8 +5,9 @@
 **Welcome to Swift Protobuf!**
 
 [Apple's Swift programming language](https://swift.org/) is a perfect
-complement to [Google's Protocol Buffer](https://protobuf.dev/)
-("protobuf") serialization technology.
+complement to [Google's Protocol
+Buffer](https://developers.google.com/protocol-buffers/) ("protobuf") serialization
+technology.
 They both emphasize high performance and programmer safety.
 
 This project provides both the command-line program that adds Swift
@@ -15,9 +16,6 @@ necessary for using the generated code.
 After using the protoc plugin to generate Swift code from your .proto
 files, you will need to add this library to your project.
 
-[![Build and Test](https://github.com/apple/swift-protobuf/workflows/Build%20and%20Test/badge.svg)](https://github.com/apple/swift-protobuf/actions?query=workflow%3A%22Build+and+Test%22)
-[![Check Upstream Protos](https://github.com/apple/swift-protobuf/workflows/Check%20Upstream%20Proto%20Files/badge.svg)](https://github.com/apple/swift-protobuf/actions?query=workflow%3A%22Check+Upstream+Proto+Files%22)
-[![Run Conformance Tests](https://github.com/apple/swift-protobuf/workflows/Run%20Conformance%20Tests/badge.svg)](https://github.com/apple/swift-protobuf/actions?query=workflow%3A%22Run+Conformance+Tests%22)
 
 # Features of SwiftProtobuf
 
@@ -35,12 +33,12 @@ systems:
 * Idiomatic: SwiftProtobuf takes full advantage of the Swift language.
   In particular, all generated types provide full Swift copy-on-write
   value semantics.
-* Efficient binary serialization: The `.serializedBytes()`
-  method returns a bag of bytes with a compact binary form of your data.
-  You can deserialize the data using the `init(contiguousBytes:)`
+* Efficient binary serialization: The `.serializedData()`
+  method returns a `Data` with a compact binary form of your data.
+  You can deserialize the data using the `init(serializedData:)`
   initializer.
-* Standard JSON serialization: The `.jsonUTF8Bytes()` method returns a JSON
-  form of your data that can be parsed with the `init(jsonUTF8Bytes:)`
+* Standard JSON serialization: The `.jsonUTF8Data()` method returns a JSON
+  form of your data that can be parsed with the `init(jsonUTF8Data:)`
   initializer.
 * Hashable, Equatable: The generated struct can be put into a
   `Set<>` or `Dictionary<>`.
@@ -60,7 +58,7 @@ additional effort on your part.
 
 More information is available in the associated documentation:
 
- * [Google's protobuf documentation](https://protobuf.dev/)
+ * [Google's protobuf documentation](https://developers.google.com/protocol-buffers/)
    provides general information about protocol buffers, the protoc compiler,
    and how to use protocol buffers with C++, Java, and other languages.
  * [PLUGIN.md](Documentation/PLUGIN.md) documents the `protoc-gen-swift`
@@ -68,6 +66,8 @@ More information is available in the associated documentation:
  * [API.md](Documentation/API.md) documents how to use the generated code.
    This is recommended reading for anyone using SwiftProtobuf in their
    project.
+ * [cocoadocs.org](http://cocoadocs.org/docsets/SwiftProtobuf/) has the generated
+   API documentation
  * [INTERNALS.md](Documentation/INTERNALS.md) documents the internal structure
    of the generated code and the library.  This
    should only be needed by folks interested in working on SwiftProtobuf
@@ -90,17 +90,18 @@ your project as explained below.
 
 To use Swift with Protocol buffers, you'll need:
 
-* A Swift 5.10 or later compiler (or, if building with Xcode, Xcode 15.3 or later
-  as required by the App Store). The Swift protobuf project is being developed
-  and tested against the latest release version of Swift available from
-  [Swift.org](https://swift.org)
+* A Swift 3.2 or later compiler (Xcode 9.0 or later).  Support is included
+for the Swift Package Manager; or using the included Xcode project. The Swift
+protobuf project is being developed and tested against the latest release
+version of Swift available from [Swift.org](https://swift.org)
 
-* Google's protoc compiler.  The Swift protoc plugin is being actively developed
-  and tested against the latest protobuf sources. The SwiftProtobuf tests need a
-  version of protoc which supports the `swift_prefix` option (introduced in
-  protoc 3.2.0). It may work with earlier versions of protoc. You can get recent
-  versions from
-  [Google's github repository](https://github.com/protocolbuffers/protobuf).
+* Google's protoc compiler.  The Swift protoc plugin is being actively
+developed and tested against the latest protobuf sources.
+The SwiftProtobuf tests need a version of protoc which supports the
+`swift_prefix` option (introduced in protoc 3.2.0).
+It may work with earlier versions of protoc.
+You can get recent versions from
+[Google's github repository](https://github.com/protocolbuffers/protobuf).
 
 ## Building and Installing the Code Generator Plugin
 
@@ -109,42 +110,37 @@ protoc compiler and the SwiftProtobuf code generator plugin.
 
 Building the plugin should be simple on any supported Swift platform:
 
-```bash
-git clone https://github.com/apple/swift-protobuf.git
-cd swift-protobuf
+```
+$ git clone https://github.com/apple/swift-protobuf.git
+$ cd swift-protobuf
 ```
 
 Pick what released version of SwiftProtobuf you are going to use.  You can get
 a list of tags with:
 
-```bash
-git tag -l
+```
+$ git tag -l
 ```
 
 Once you pick the version you will use, set your local state to match, and
 build the protoc plugin:
 
-```bash
-git checkout tags/[tag_name]
-swift build -c release
+```
+$ git checkout tags/[tag_name]
+$ swift build -c release -Xswiftc -static-stdlib
 ```
 
 This will create a binary called `protoc-gen-swift` in the `.build/release`
 directory.
-
 To install, just copy this one executable into a directory that is
 part of your `PATH` environment variable.
-
-NOTE: The Swift runtime support is now included with macOS. If you are
-using old Xcode versions or are on older system versions, you might need
-to use also use `--static-swift-stdlib` with `swift build`.
 
 ### Alternatively install via Homebrew
 
 If you prefer using [Homebrew](https://brew.sh):
 
-```bash
-brew install swift-protobuf
+```
+$ brew install swift-protobuf
 ```
 
 This will install `protoc` compiler and Swift code generator plugin.
@@ -154,8 +150,8 @@ This will install `protoc` compiler and Swift code generator plugin.
 To generate Swift output for your .proto files, you run the `protoc` command as
 usual, using the `--swift_out=<directory>` option:
 
-```bash
-protoc --swift_out=. my.proto
+```
+$ protoc --swift_out=. my.proto
 ```
 
 The `protoc` program will automatically look for `protoc-gen-swift` in your
@@ -182,18 +178,15 @@ After copying the `.pb.swift` files into your project, you will need to add the
 project to support the generated code.
 If you are using the Swift Package Manager, add a dependency to your
 `Package.swift` file and import the `SwiftProtobuf` library into the desired
-targets.  Adjust the `"1.27.0"` here to match the `[tag_name]` you used to build
+targets.  Adjust the `"1.2.0"` here to match the `[tag_name]` you used to build
 the plugin above:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.27.0"),
+    .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.2.0"),
 ],
 targets: [
-    .target(
-      name: "MyTarget",
-      dependencies: [.product(name: "SwiftProtobuf", package: "swift-protobuf")]
-    ),
+    .target(name: "MyTarget", dependencies: ["SwiftProtobuf"]),
 ]
 ```
 
@@ -203,8 +196,8 @@ If you are using Xcode, then you should:
 
 * Add the `.pb.swift` source files generated from your protos directly to your
   project
-* Add this SwiftPM package as dependency of your xcode project:
-  [Apple Docs](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app)
+* Add the appropriate `SwiftProtobuf_<platform>` target from the Xcode project
+  in this package to your project.
 
 ### ...using CocoaPods
 
@@ -217,7 +210,17 @@ pod 'SwiftProtobuf', '~> 1.0'
 
 And run `pod install`.
 
-NOTE: CocoaPods 1.7 or newer is required.
+(Swift 3 frameworks require CocoaPods 1.1 or newer)
+
+### ...using Carthage
+
+If you're using Carthage, add this to your `Cartfile` but adjust the tag to match the `[tag_name]` you used to build the plugin above:
+
+```ruby
+github "apple/swift-protobuf" ~> 1.0
+```
+
+Run `carthage update` and drag `SwiftProtobuf.framework` into your Xcode.project.
 
 # Quick Start
 
@@ -240,8 +243,8 @@ message BookInfo {
 ```
 
 Then generate Swift code using:
-```bash
-protoc --swift_out=. DataModel.proto
+```
+$ protoc --swift_out=. DataModel.proto
 ```
 
 The generated code will expose a Swift property for
@@ -261,33 +264,17 @@ let info2 = BookInfo.with {
     $0.author = "Jane Q. Smith"
   }
 
-// Serialize to binary protobuf format: you can choose to serialize into
-// any type conforming to `SwiftProtobufContiguousBytes`. For example:
-// Resolve the `SwiftProtobufContiguousBytes` return value to `Data`
-let binaryData: Data = try info.serializedBytes()
-// Resolve the `SwiftProtobufContiguousBytes` return value to `[UInt8]`
-let binaryDataAsBytes: [UInt8] = try info.serializedBytes()
-
-// Note that while the `serializedBytes()` spelling is generally preferred,
-// you may also use `serializedData()` to get the bytes as an instance of 
-// `Data` where required.
-// This means that the following two statements are equivalent:
-// let binaryData: Data = try info.serializedBytes()
-// let binaryData: Data = try info.serializedData()
+// Serialize to binary protobuf format:
+let binaryData: Data = try info.serializedData()
 
 // Deserialize a received Data object from `binaryData`
 let decodedInfo = try BookInfo(serializedData: binaryData)
 
-// Deserialize a received [UInt8] object from `binaryDataAsBytes`
-let decodedInfo = try BookInfo(serializedBytes: binaryDataAsBytes)
-
-// Serialize to JSON format as a Data object, or as any other type conforming to
-// SwiftProtobufContiguousBytes. For example:
+// Serialize to JSON format as a Data object
 let jsonData: Data = try info.jsonUTF8Data()
-let jsonBytes: [UInt8] = try info.jsonUTF8Bytes()
 
-// Deserialize from JSON format from `jsonBytes`
-let receivedFromJSON = try BookInfo(jsonUTF8Bytes: jsonBytes)
+// Deserialize from JSON format from `jsonData`
+let receivedFromJSON = try BookInfo(jsonUTF8Data: jsonData)
 ```
 
 You can find more information in the detailed

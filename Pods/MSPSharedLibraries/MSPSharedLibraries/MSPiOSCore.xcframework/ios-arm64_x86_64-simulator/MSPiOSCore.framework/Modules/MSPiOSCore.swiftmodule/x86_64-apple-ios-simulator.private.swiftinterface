@@ -308,7 +308,9 @@ public class AuctionBid {
   public var bidderName: Swift.String
   public var bidderPlacementId: Swift.String
   public var ecpm: Swift.Double
-  public init(bidderName: Swift.String, bidderPlacementId: Swift.String, ecpm: Swift.Double)
+  public var fromCache: Swift.Bool
+  public var ad: MSPiOSCore.MSPAd?
+  public init(bidderName: Swift.String, bidderPlacementId: Swift.String, ecpm: Swift.Double, fromCache: Swift.Bool = false)
   @objc deinit
 }
 public enum AdNetwork : Swift.String, Swift.CaseIterable {

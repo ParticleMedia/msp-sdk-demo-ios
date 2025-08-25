@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -18,6 +18,7 @@
 /// the runtime.
 ///
 // -----------------------------------------------------------------------------
+
 
 /// An empty protocol that encodes the version of the runtime library.
 ///
@@ -38,5 +39,5 @@ public protocol ProtobufAPIVersion_2 {}
 /// causing a compile-time error (with reasonable diagnostics) if they are
 /// incompatible.
 public protocol ProtobufAPIVersionCheck {
-    associatedtype Version: ProtobufAPIVersion_2
+  associatedtype Version: ProtobufAPIVersion_2
 }

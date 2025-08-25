@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -23,60 +23,66 @@ import Foundation
 internal struct TextFormatDecoder: Decoder {
     internal var scanner: TextFormatScanner
     private var fieldCount = 0
-    private let terminator: UInt8?
-    private let fieldNameMap: _NameMap
-    private let messageType: any Message.Type
+    private var terminator: UInt8?
+    private var fieldNameMap: _NameMap?
+    private var messageType: Message.Type?
 
-    internal var options: TextFormatDecodingOptions {
-        scanner.options
+    internal var complete: Bool {
+        mutating get {
+            return scanner.complete
+        }
     }
 
-    internal var complete: Bool { scanner.complete }
-
-    internal init(
-        messageType: any Message.Type,
-        utf8Pointer: UnsafeRawPointer,
-        count: Int,
-        options: TextFormatDecodingOptions,
-        extensions: (any ExtensionMap)?
-    ) throws {
-        scanner = TextFormatScanner(utf8Pointer: utf8Pointer, count: count, options: options, extensions: extensions)
-        guard let nameProviding = (messageType as? any _ProtoNameProviding.Type) else {
+    internal init(messageType: Message.Type, utf8Pointer: UnsafePointer<UInt8>, count: Int, extensions: ExtensionMap?) throws {
+        scanner = TextFormatScanner(utf8Pointer: utf8Pointer, count: count, extensions: extensions)
+        guard let nameProviding = (messageType as? _ProtoNameProviding.Type) else {
             throw TextFormatDecodingError.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_nameMap
         self.messageType = messageType
-        self.terminator = nil
     }
 
-    internal init(messageType: any Message.Type, scanner: TextFormatScanner, terminator: UInt8?) throws {
+    internal init(messageType: Message.Type, scanner: TextFormatScanner, terminator: UInt8?) throws {
         self.scanner = scanner
         self.terminator = terminator
-        guard let nameProviding = (messageType as? any _ProtoNameProviding.Type) else {
+        guard let nameProviding = (messageType as? _ProtoNameProviding.Type) else {
             throw TextFormatDecodingError.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_nameMap
         self.messageType = messageType
     }
+
 
     mutating func handleConflictingOneOf() throws {
         throw TextFormatDecodingError.conflictingOneOf
     }
 
     mutating func nextFieldNumber() throws -> Int? {
+        if let terminator = terminator {
+            if scanner.skipOptionalObjectEnd(terminator) {
+                return nil
+            }
+        }
         if fieldCount > 0 {
             scanner.skipOptionalSeparator()
         }
-        if let fieldNumber = try scanner.nextFieldNumber(
-            names: fieldNameMap,
-            messageType: messageType,
-            terminator: terminator
-        ) {
+        if let key = try scanner.nextOptionalExtensionKey() {
+            // Extension key; look up in the extension registry
+            if let fieldNumber = scanner.extensions?.fieldNumberForProto(messageType: messageType!, protoFieldName: key) {
+                fieldCount += 1
+                return fieldNumber
+            } else {
+                throw TextFormatDecodingError.unknownField
+            }
+        } else if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!) {
             fieldCount += 1
             return fieldNumber
-        } else {
+        } else if terminator == nil {
             return nil
+        } else {
+            throw TextFormatDecodingError.truncated
         }
+
     }
 
     mutating func decodeSingularFloatField(value: inout Float) throws {
@@ -484,7 +490,7 @@ internal struct TextFormatDecoder: Decoder {
             value = M()
         }
         let terminator = try scanner.skipObjectStart()
-        var subDecoder = try TextFormatDecoder(messageType: M.self, scanner: scanner, terminator: terminator)
+        var subDecoder = try TextFormatDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
         if M.self == Google_Protobuf_Any.self {
             var any = value as! Google_Protobuf_Any?
             try any!.decodeTextFormat(decoder: &subDecoder)
@@ -492,7 +498,6 @@ internal struct TextFormatDecoder: Decoder {
         } else {
             try value!.decodeMessage(decoder: &subDecoder)
         }
-        assert((scanner.recursionBudget + 1) == subDecoder.scanner.recursionBudget)
         scanner = subDecoder.scanner
     }
 
@@ -510,7 +515,7 @@ internal struct TextFormatDecoder: Decoder {
                     try scanner.skipRequiredComma()
                 }
                 let terminator = try scanner.skipObjectStart()
-                var subDecoder = try TextFormatDecoder(messageType: M.self, scanner: scanner, terminator: terminator)
+                var subDecoder = try TextFormatDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
                 if M.self == Google_Protobuf_Any.self {
                     var message = Google_Protobuf_Any()
                     try message.decodeTextFormat(decoder: &subDecoder)
@@ -520,12 +525,11 @@ internal struct TextFormatDecoder: Decoder {
                     try message.decodeMessage(decoder: &subDecoder)
                     value.append(message)
                 }
-                assert((scanner.recursionBudget + 1) == subDecoder.scanner.recursionBudget)
                 scanner = subDecoder.scanner
             }
         } else {
             let terminator = try scanner.skipObjectStart()
-            var subDecoder = try TextFormatDecoder(messageType: M.self, scanner: scanner, terminator: terminator)
+            var subDecoder = try TextFormatDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
             if M.self == Google_Protobuf_Any.self {
                 var message = Google_Protobuf_Any()
                 try message.decodeTextFormat(decoder: &subDecoder)
@@ -535,7 +539,6 @@ internal struct TextFormatDecoder: Decoder {
                 try message.decodeMessage(decoder: &subDecoder)
                 value.append(message)
             }
-            assert((scanner.recursionBudget + 1) == subDecoder.scanner.recursionBudget)
             scanner = subDecoder.scanner
         }
     }
@@ -548,14 +551,10 @@ internal struct TextFormatDecoder: Decoder {
         try decodeRepeatedMessageField(value: &value)
     }
 
-    private mutating func decodeMapEntry<KeyType, ValueType: MapValueType>(
-        mapType: _ProtobufMap<KeyType, ValueType>.Type,
-        value: inout _ProtobufMap<KeyType, ValueType>.BaseType
-    ) throws {
+    private mutating func decodeMapEntry<KeyType, ValueType: MapValueType>(mapType: _ProtobufMap<KeyType, ValueType>.Type, value: inout _ProtobufMap<KeyType, ValueType>.BaseType) throws {
         var keyField: KeyType.BaseType?
         var valueField: ValueType.BaseType?
         let terminator = try scanner.skipObjectStart()
-        let ignoreExtensionFields = options.ignoreUnknownExtensionFields
         while true {
             if scanner.skipOptionalObjectEnd(terminator) {
                 if let keyField = keyField, let valueField = valueField {
@@ -565,32 +564,21 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.malformedText
                 }
             }
-            if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
+            if let key = try scanner.nextKey() {
                 switch key {
                 case "key", "1":
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
                     try ValueType.decodeSingular(value: &valueField, from: &self)
                 default:
-                    if ignoreExtensionFields && key.hasPrefix("[") {
-                        try scanner.skipUnknownFieldValue()
-                    } else if options.ignoreUnknownFields && !key.hasPrefix("[") {
-                        try scanner.skipUnknownFieldValue()
-                    } else {
-                        throw TextFormatDecodingError.unknownField
-                    }
+                    throw TextFormatDecodingError.unknownField
                 }
                 scanner.skipOptionalSeparator()
-            } else {
-                throw TextFormatDecodingError.malformedText
             }
         }
     }
 
-    mutating func decodeMapField<KeyType, ValueType: MapValueType>(
-        fieldType: _ProtobufMap<KeyType, ValueType>.Type,
-        value: inout _ProtobufMap<KeyType, ValueType>.BaseType
-    ) throws {
+    mutating func decodeMapField<KeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: inout _ProtobufMap<KeyType, ValueType>.BaseType) throws {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true
@@ -610,14 +598,10 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    private mutating func decodeMapEntry<KeyType, ValueType>(
-        mapType: _ProtobufEnumMap<KeyType, ValueType>.Type,
-        value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType
-    ) throws where ValueType.RawValue == Int {
+    private mutating func decodeMapEntry<KeyType, ValueType>(mapType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
-        let ignoreExtensionFields = options.ignoreUnknownExtensionFields
         while true {
             if scanner.skipOptionalObjectEnd(terminator) {
                 if let keyField = keyField, let valueField = valueField {
@@ -627,32 +611,21 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.malformedText
                 }
             }
-            if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
+            if let key = try scanner.nextKey() {
                 switch key {
                 case "key", "1":
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
                     try decodeSingularEnumField(value: &valueField)
                 default:
-                    if ignoreExtensionFields && key.hasPrefix("[") {
-                        try scanner.skipUnknownFieldValue()
-                    } else if options.ignoreUnknownFields && !key.hasPrefix("[") {
-                        try scanner.skipUnknownFieldValue()
-                    } else {
-                        throw TextFormatDecodingError.unknownField
-                    }
+                    throw TextFormatDecodingError.unknownField
                 }
                 scanner.skipOptionalSeparator()
-            } else {
-                throw TextFormatDecodingError.malformedText
             }
         }
     }
 
-    mutating func decodeMapField<KeyType, ValueType>(
-        fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
-        value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType
-    ) throws where ValueType.RawValue == Int {
+    mutating func decodeMapField<KeyType, ValueType>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true
@@ -672,14 +645,10 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    private mutating func decodeMapEntry<KeyType, ValueType>(
-        mapType: _ProtobufMessageMap<KeyType, ValueType>.Type,
-        value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType
-    ) throws {
+    private mutating func decodeMapEntry<KeyType, ValueType>(mapType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
-        let ignoreExtensionFields = options.ignoreUnknownExtensionFields
         while true {
             if scanner.skipOptionalObjectEnd(terminator) {
                 if let keyField = keyField, let valueField = valueField {
@@ -689,32 +658,21 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.malformedText
                 }
             }
-            if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
+            if let key = try scanner.nextKey() {
                 switch key {
                 case "key", "1":
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
                     try decodeSingularMessageField(value: &valueField)
                 default:
-                    if ignoreExtensionFields && key.hasPrefix("[") {
-                        try scanner.skipUnknownFieldValue()
-                    } else if options.ignoreUnknownFields && !key.hasPrefix("[") {
-                        try scanner.skipUnknownFieldValue()
-                    } else {
-                        throw TextFormatDecodingError.unknownField
-                    }
+                    throw TextFormatDecodingError.unknownField
                 }
                 scanner.skipOptionalSeparator()
-            } else {
-                throw TextFormatDecodingError.malformedText
             }
         }
     }
 
-    mutating func decodeMapField<KeyType, ValueType>(
-        fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
-        value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType
-    ) throws {
+    mutating func decodeMapField<KeyType, ValueType>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true
@@ -734,24 +692,21 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    mutating func decodeExtensionField(
-        values: inout ExtensionFieldValueSet,
-        messageType: any Message.Type,
-        fieldNumber: Int
-    ) throws {
+    mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
         if let ext = scanner.extensions?[messageType, fieldNumber] {
-            try values.modify(index: fieldNumber) { fieldValue in
-                if fieldValue != nil {
-                    try fieldValue!.decodeExtensionField(decoder: &self)
-                } else {
-                    fieldValue = try ext._protobuf_newField(decoder: &self)
-                }
-                if fieldValue == nil {
-                    // Really things should never get here, for TextFormat, decoding
-                    // the value should always work or throw an error.  This specific
-                    // error result is to allow this to be more detectable.
-                    throw TextFormatDecodingError.internalExtensionError
-                }
+            var fieldValue = values[fieldNumber]
+            if fieldValue != nil {
+                try fieldValue!.decodeExtensionField(decoder: &self)
+            } else {
+                fieldValue = try ext._protobuf_newField(decoder: &self)
+            }
+            if fieldValue != nil {
+                values[fieldNumber] = fieldValue
+            } else {
+                // Really things should never get here, for TextFormat, decoding
+                // the value should always work or throw an error.  This specific
+                // error result is to allow this to be more detectable.
+                throw TextFormatDecodingError.internalExtensionError
             }
         }
     }
