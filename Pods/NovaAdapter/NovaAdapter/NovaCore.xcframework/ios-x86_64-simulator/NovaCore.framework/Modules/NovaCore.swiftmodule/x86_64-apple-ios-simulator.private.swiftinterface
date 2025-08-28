@@ -877,6 +877,7 @@ extension UIKit.UIView {
     @objc get
   }
   @_Concurrency.MainActor @preconcurrency public func novaisCheckedView() -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public func novagetVisiblePercentage() -> Swift.Double
 }
 extension UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency public func novasetShadow(x: Swift.Double, y: Swift.Double, b: Swift.Double, s: Swift.Double, color: UIKit.UIColor, alpha: Swift.Float)
@@ -1346,6 +1347,7 @@ public enum NovaNativeAdMedia {
   public func addUpLocalTimeElapsed()
   public func getVideoEndKind() -> NovaCore.NovaVideoEndKind
   public func getLoadingTimeElapsed() -> Swift.Int
+  public func isValid() -> Swift.Bool
   @objc deinit
 }
 extension NovaCore.NovaVideoPlayer {

@@ -1,22 +1,22 @@
 PODS:
-  - FacebookAdapter (2.5.0):
+  - FacebookAdapter (2.5.1):
     - FBAudienceNetwork (~> 6.15)
     - MSPSharedLibraries (= 2.5.0)
   - FBAudienceNetwork (6.20.1)
   - Google-Mobile-Ads-SDK (12.9.0):
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleAdapter (2.5.0):
+  - GoogleAdapter (2.5.1):
     - Google-Mobile-Ads-SDK (~> 12.0)
     - MSPSharedLibraries (= 2.5.0)
   - GoogleUserMessagingPlatform (3.0.0)
-  - MSPCore (2.5.0):
+  - MSPCore (2.5.1):
     - MSPSharedLibraries (= 2.5.0)
     - PrebidAdapter (= 2.5.0)
     - SnapKit
     - SwiftProtobuf
   - MSPOMSDK (2.3.0)
   - MSPSharedLibraries (2.5.0)
-  - NovaAdapter (2.5.0):
+  - NovaAdapter (2.5.1):
     - MSPOMSDK (= 2.3.0)
     - MSPSharedLibraries (= 2.5.0)
   - PrebidAdapter (2.5.0):
@@ -25,10 +25,10 @@ PODS:
   - SwiftProtobuf (1.30.0)
 
 DEPENDENCIES:
-  - FacebookAdapter (= 2.5.0)
-  - GoogleAdapter (= 2.5.0)
-  - MSPCore (= 2.5.0)
-  - NovaAdapter (= 2.5.0)
+  - FacebookAdapter (= 2.5.1)
+  - GoogleAdapter (= 2.5.1)
+  - MSPCore (= 2.5.1)
+  - NovaAdapter (= 2.5.1)
   - SwiftProtobuf (= 1.30.0)
 
 SPEC REPOS:
@@ -47,19 +47,19 @@ SPEC REPOS:
     - SwiftProtobuf
 
 SPEC CHECKSUMS:
-  FacebookAdapter: 258027495252fb791672c35619394720181694ed
+  FacebookAdapter: 7b7f2fe43a06be886732952e6ae081f9a0db00d5
   FBAudienceNetwork: 08e86d63a05b3a5a59414af12e4af8d756943c80
   Google-Mobile-Ads-SDK: 36cce7d8dc1b615145d02491c8bf5640ef854e7c
-  GoogleAdapter: 0436101653fab740528213892553f3b1fade63e3
+  GoogleAdapter: aee39b4a4d68216e61adb5fa5478e26731876e22
   GoogleUserMessagingPlatform: f8d0cdad3ca835406755d0a69aa634f00e76d576
-  MSPCore: 1b7c6ac68ebb815c2040f457e2531a42a30c0634
+  MSPCore: edb5886e7a6648b8592bd370ca243702a81799e3
   MSPOMSDK: 9d40fc095e0fd783fd24ecea4314e98d233830c7
   MSPSharedLibraries: cc3953896ff871fbf820ff92339c1e03a80e48da
-  NovaAdapter: c276821045cbabccb70fab752b71d8a1293c2f9c
+  NovaAdapter: e8f8aeb7f25a4446711946a482ec938fbcec1105
   PrebidAdapter: ccc4f5d9d8281faadba7290b6692d4fe4af3c1d4
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SwiftProtobuf: 3697407f0d5b23bedeba9c2eaaf3ec6fdff69349
 
-PODFILE CHECKSUM: 4cdfc9875a4daa3c3d8c5e3e4df9eb5f918fbe6d
+PODFILE CHECKSUM: e92565819aaa96c7b62cab5bd4ad79ea0181641d
 
 COCOAPODS: 1.15.2

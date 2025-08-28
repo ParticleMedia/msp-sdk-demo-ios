@@ -31659,6 +31659,27 @@
           },
           {
             "kind": "Function",
+            "name": "isValid",
+            "printedName": "isValid()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:8NovaCore0A11VideoPlayerC7isValidSbyF",
+            "mangledName": "$s8NovaCore0A11VideoPlayerC7isValidSbyF",
+            "moduleName": "NovaCore",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "isPlayerMuted",
             "printedName": "isPlayerMuted()",
             "children": [
@@ -88874,6 +88895,30 @@
               "Custom",
               "AccessControl",
               "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "novagetVisiblePercentage",
+            "printedName": "novagetVisiblePercentage()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So6UIViewC8NovaCoreE24novagetVisiblePercentageSdyF",
+            "mangledName": "$sSo6UIViewC8NovaCoreE24novagetVisiblePercentageSdyF",
+            "moduleName": "NovaCore",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
