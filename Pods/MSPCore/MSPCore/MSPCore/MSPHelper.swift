@@ -10,7 +10,7 @@ import AppTrackingTransparency
 import SwiftProtobuf
 
 public class MSP {
-    public let version = "2.5.1" // please config version number in release branch
+    public let version = "2.6.0" // please config version number in release branch
     
     public static let shared = MSP()
     public var numInitWaitingForCallbacks = 0;
