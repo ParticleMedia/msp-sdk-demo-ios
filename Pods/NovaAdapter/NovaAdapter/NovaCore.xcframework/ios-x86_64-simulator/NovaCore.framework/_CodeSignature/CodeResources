@@ -6,27 +6,11 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		IgD4IWzPxjByUZ17LRcNvH1qaqc=
+		j13jGsGsfiq4NzUox0KvtcKplcQ=
 		</data>
 		<key>Headers/NovaCore.h</key>
 		<data>
 		+s07ZhRZYN1RHaDKgTTbp50TNZw=
-		</data>
-		<key>IconResourceBundle.bundle/Assets.car</key>
-		<data>
-		QqgxUZKq02sera+f+b8/FBZDrKU=
-		</data>
-		<key>IconResourceBundle.bundle/Info.plist</key>
-		<data>
-		mzv/4sBEg7JcyNvX5Mka0T6F+pc=
-		</data>
-		<key>ImageResourceBundle.bundle/Assets.car</key>
-		<data>
-		017h0m2WhdTnComzIb11F1IRVJ4=
-		</data>
-		<key>ImageResourceBundle.bundle/Info.plist</key>
-		<data>
-		qeA/7kvOih8MBC/seR7+LWiXE/U=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -34,23 +18,23 @@
 		</data>
 		<key>Modules/NovaCore.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		nIkAHeZcr2RVSAnQvAEXENsS1dU=
+		3ttvgEnBYA4aDmfWpZOnB7IKS4M=
 		</data>
 		<key>Modules/NovaCore.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		dm17zX7k0Bn+gfCxDwOCf6UrhbU=
+		uP3T4D0RdO/7v7Jf2EDIlK9frs8=
 		</data>
 		<key>Modules/NovaCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		xttNEj/9kkB53zqrvzsdGm7BH68=
+		Bf1KHLxiL9RtKVBrefqB6TR3kCc=
 		</data>
 		<key>Modules/NovaCore.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		dm17zX7k0Bn+gfCxDwOCf6UrhbU=
+		uP3T4D0RdO/7v7Jf2EDIlK9frs8=
 		</data>
 		<key>Modules/NovaCore.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		zARdvQAA8oRzPhd5Q7tk/lm9e3E=
+		mTc8mNBsR76d5BMt5LqUrLINV7s=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -75,7 +59,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yBEDGKi2t+CpjiNXjozhqX61QmnrhwWFXO+sVQT+fkE=
+			s8D9/I3zv1ygoaknYZFHdvsTBO1jI29tuQMmFBUtvMo=
 			</data>
 		</dict>
 		<key>Headers/NovaCore.h</key>
@@ -85,67 +69,39 @@
 			jHbnefnHl7xLtWsQm8ASkHm8T084ziblQpKiWQTibsU=
 			</data>
 		</dict>
-		<key>IconResourceBundle.bundle/Assets.car</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			3JwaIaALebfb8quOKkeEndB4kHtkwxLhSdlTMynJEMg=
-			</data>
-		</dict>
-		<key>IconResourceBundle.bundle/Info.plist</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			cpdPf5BX2mNKZIHqVYG7hKZBCMouFYucJnzDjneu7Rg=
-			</data>
-		</dict>
-		<key>ImageResourceBundle.bundle/Assets.car</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Y82FxQaci2pNC74LDTsnPd222NL1+X8baORXdIpVRMs=
-			</data>
-		</dict>
-		<key>ImageResourceBundle.bundle/Info.plist</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			c2IMetftQUdNPq9KhRUktrSkQKuG10HOFt6vhlyvP1o=
-			</data>
-		</dict>
 		<key>Modules/NovaCore.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Sn5jCc5wDZo15llk7QhuwGCk3rYGvlfWwnDveDednis=
+			/7LMaFh0jUBvoURGmTE2lUVDtWXSVM7IfpaOJM7pNsw=
 			</data>
 		</dict>
 		<key>Modules/NovaCore.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZLdwVRxaFK8/5oYaj7AoKpEI5xRt2glLbYp4YmElYu0=
+			5X7lQqtOyARUlm7xl2uB/+Lm36T3c74+XotuUJq8W2U=
 			</data>
 		</dict>
 		<key>Modules/NovaCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UeA0OsBqwAwYXn2t+mJSOLRp7PD2Zf5ikxAbQXs6mOo=
+			HvleL05YBwFCC2MtBBcTC/300RPtJRmwB/wSHYx3J+o=
 			</data>
 		</dict>
 		<key>Modules/NovaCore.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZLdwVRxaFK8/5oYaj7AoKpEI5xRt2glLbYp4YmElYu0=
+			5X7lQqtOyARUlm7xl2uB/+Lm36T3c74+XotuUJq8W2U=
 			</data>
 		</dict>
 		<key>Modules/NovaCore.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BJEARiyOvb2V9DGfBCmauAtinG2/xojTZ5xRYz5+tsQ=
+			5oTV57qXwvMtnSflMw5VUsdBUv75EZ1RE+roUU2Zt5Y=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
