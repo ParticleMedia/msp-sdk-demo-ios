@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/GoogleMobileAds.framework/GoogleMobileAds</key>
 		<data>
-		Qj8YPseiRIpHxm2TVzAnMq5S3zw=
+		zKAonUbHu8v+3bZylpkosbtW4JM=
 		</data>
 		<key>ios-arm64/GoogleMobileAds.framework/Headers/GADAdChoicesPosition.h</key>
 		<data>
@@ -418,7 +418,7 @@
 		</data>
 		<key>ios-arm64/GoogleMobileAds.framework/Info.plist</key>
 		<data>
-		Uu+aJcpNaeoN04TkAAcA1Wginz4=
+		05YD4eAOxzM/U1uB4EPn9wy3xlY=
 		</data>
 		<key>ios-arm64/GoogleMobileAds.framework/Modules/module.modulemap</key>
 		<data>
@@ -430,7 +430,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/GoogleMobileAds.framework/GoogleMobileAds</key>
 		<data>
-		wOt9Wmp4WOW3Y1+UfEu2T/1Epvk=
+		z0kv8A7Qu6muGPouuuDLcC5haCA=
 		</data>
 		<key>ios-arm64_x86_64-simulator/GoogleMobileAds.framework/Headers/GADAdChoicesPosition.h</key>
 		<data>
@@ -842,7 +842,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/GoogleMobileAds.framework/Info.plist</key>
 		<data>
-		+kfBGnktK8s5EAPSN6qzlZ9dOlo=
+		mSkV6OzVbq0lq9wzDu87u3oeMdQ=
 		</data>
 		<key>ios-arm64_x86_64-simulator/GoogleMobileAds.framework/Modules/module.modulemap</key>
 		<data>
@@ -859,11 +859,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Qj8YPseiRIpHxm2TVzAnMq5S3zw=
+			zKAonUbHu8v+3bZylpkosbtW4JM=
 			</data>
 			<key>hash2</key>
 			<data>
-			VhtvAn1XmSx3fT59xJ/Hmh7eQhztJHkcdWp/LVixvkU=
+			dIQi4b149zO5djXvm0lLacXD55Xsn3JtiWtsWOdjigU=
 			</data>
 		</dict>
 		<key>ios-arm64/GoogleMobileAds.framework/Headers/GADAdChoicesPosition.h</key>
@@ -1992,11 +1992,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Uu+aJcpNaeoN04TkAAcA1Wginz4=
+			05YD4eAOxzM/U1uB4EPn9wy3xlY=
 			</data>
 			<key>hash2</key>
 			<data>
-			GRbSrGSjKUy2aBbwJ5aIPSbh6YXAUSWquWqu2Ly85Is=
+			28wC9K/tMXOXas22tjTQ4gk5co5AyWMSWArvxzwdJS0=
 			</data>
 		</dict>
 		<key>ios-arm64/GoogleMobileAds.framework/Modules/module.modulemap</key>
@@ -2025,11 +2025,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wOt9Wmp4WOW3Y1+UfEu2T/1Epvk=
+			z0kv8A7Qu6muGPouuuDLcC5haCA=
 			</data>
 			<key>hash2</key>
 			<data>
-			GLI+2rRnb9T+5SWuqXEUMtbhxmNqeIdqbqawEVjp6j4=
+			ADVM8fWctyS8QSISAqzkAsCv/TKeOIm6OvZTJ466uA4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/GoogleMobileAds.framework/Headers/GADAdChoicesPosition.h</key>
@@ -3158,11 +3158,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+kfBGnktK8s5EAPSN6qzlZ9dOlo=
+			mSkV6OzVbq0lq9wzDu87u3oeMdQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			UQh7rVeyBwnDSl3ALEG7p621024hJfB7BSLmDzVGOO4=
+			RFEP2s7/w05VT2s1oDPpzb90mpuKZZDA/FHN5dtJZkI=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/GoogleMobileAds.framework/Modules/module.modulemap</key>

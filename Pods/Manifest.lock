@@ -1,22 +1,22 @@
 PODS:
-  - FacebookAdapter (2.6.0):
+  - FacebookAdapter (2.7.0):
     - FBAudienceNetwork (~> 6.15)
     - MSPSharedLibraries (= 2.5.0)
   - FBAudienceNetwork (6.20.1)
-  - Google-Mobile-Ads-SDK (12.9.0):
+  - Google-Mobile-Ads-SDK (12.11.0):
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleAdapter (2.6.0):
+  - GoogleAdapter (2.7.0):
     - Google-Mobile-Ads-SDK (~> 12.0)
     - MSPSharedLibraries (= 2.5.0)
   - GoogleUserMessagingPlatform (3.0.0)
-  - MSPCore (2.6.0):
+  - MSPCore (2.7.0):
     - MSPSharedLibraries (= 2.5.0)
     - PrebidAdapter (= 2.5.0)
     - SnapKit
     - SwiftProtobuf
   - MSPOMSDK (2.3.0)
   - MSPSharedLibraries (2.5.0)
-  - NovaAdapter (2.6.0):
+  - NovaAdapter (2.7.0):
     - MSPOMSDK (= 2.3.0)
     - MSPSharedLibraries (= 2.5.0)
   - PrebidAdapter (2.5.0):
@@ -25,10 +25,10 @@ PODS:
   - SwiftProtobuf (1.30.0)
 
 DEPENDENCIES:
-  - FacebookAdapter (= 2.6.0)
-  - GoogleAdapter (= 2.6.0)
-  - MSPCore (= 2.6.0)
-  - NovaAdapter (= 2.6.0)
+  - FacebookAdapter (= 2.7.0)
+  - GoogleAdapter (= 2.7.0)
+  - MSPCore (= 2.7.0)
+  - NovaAdapter (= 2.7.0)
   - SwiftProtobuf (= 1.30.0)
 
 SPEC REPOS:
@@ -47,19 +47,19 @@ SPEC REPOS:
     - SwiftProtobuf
 
 SPEC CHECKSUMS:
-  FacebookAdapter: afb241095d6b86fe054ad2a3b4cea267ab0c87a8
+  FacebookAdapter: b466c84858f07b917cd121532ee3af3491cc02b1
   FBAudienceNetwork: 08e86d63a05b3a5a59414af12e4af8d756943c80
-  Google-Mobile-Ads-SDK: 36cce7d8dc1b615145d02491c8bf5640ef854e7c
-  GoogleAdapter: d70c2edea258794c5abf7fb3ce86895ca9e82f4d
+  Google-Mobile-Ads-SDK: b833c723759e32bbaf06edaaf2293f08ed898232
+  GoogleAdapter: 0fe7bc7093cffeded9fbac8f88c777481d5923f9
   GoogleUserMessagingPlatform: f8d0cdad3ca835406755d0a69aa634f00e76d576
-  MSPCore: b843394534aaa30fcb1062c35dd8e6f994c30a47
+  MSPCore: 16c798ac9e9972270e908be3bfc67741f94cd52c
   MSPOMSDK: 9d40fc095e0fd783fd24ecea4314e98d233830c7
   MSPSharedLibraries: cc3953896ff871fbf820ff92339c1e03a80e48da
-  NovaAdapter: 8bf25afc42a42d76c133d4ce849c8675033d8329
+  NovaAdapter: c69e02c0716360e480955ca044dd5f5c3762cb72
   PrebidAdapter: ccc4f5d9d8281faadba7290b6692d4fe4af3c1d4
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SwiftProtobuf: 3697407f0d5b23bedeba9c2eaaf3ec6fdff69349
 
-PODFILE CHECKSUM: 4f7131ecb6351f85b2074122dc60916090580feb
+PODFILE CHECKSUM: 2a525f0eec4fbb96d3827014dc516b1fcc0b817a
 
 COCOAPODS: 1.15.2
