@@ -19,6 +19,7 @@
 		668ACA922CD58A8800F45803 /* DemoNativeAdContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668ACA912CD58A8800F45803 /* DemoNativeAdContainer.swift */; };
 		66C79B942DDD36C90012F57F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66C79B932DDD36C90012F57F /* Assets.xcassets */; };
 		66CC4E562C8FB6AE0005CCF6 /* DemoAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC4E552C8FB6AE0005CCF6 /* DemoAdViewController.swift */; };
+		66D9A01C2E73452900661F96 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D9A01B2E73452900661F96 /* Launch Screen.storyboard */; };
 		66E5334E2C1BC1E700255D15 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5334D2C1BC1E700255D15 /* Colors.swift */; };
 		E0D4098C6B103253761A220B /* libPods-MSPDemoApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 865DA71BB2BB723F7DC9E210 /* libPods-MSPDemoApp.a */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		668ACA912CD58A8800F45803 /* DemoNativeAdContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoNativeAdContainer.swift; sourceTree = "<group>"; };
 		66C79B932DDD36C90012F57F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66CC4E552C8FB6AE0005CCF6 /* DemoAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAdViewController.swift; sourceTree = "<group>"; };
+		66D9A01B2E73452900661F96 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "MSPDemoApp/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		66E5334D2C1BC1E700255D15 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		66E534E62C24D51800255D15 /* NovaCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = NovaCore.xcframework; sourceTree = "<group>"; };
 		66F4F0C22BE054800026CAB8 /* MSPUtility.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MSPUtility.xcframework; path = ../outputMSPUtility/xcframework/MSPUtility.xcframework; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		668480562BE03D7D0025018B = {
 			isa = PBXGroup;
 			children = (
+				66D9A01B2E73452900661F96 /* Launch Screen.storyboard */,
 				668480612BE03D7D0025018B /* MSPDemoApp */,
 				668480782BE03D800025018B /* MSPDemoAppTests */,
 				668480822BE03D800025018B /* MSPDemoAppUITests */,
@@ -299,6 +302,7 @@
 			files = (
 				6684806C2BE03D800025018B /* Assets.xcassets in Resources */,
 				66C79B942DDD36C90012F57F /* Assets.xcassets in Resources */,
+				66D9A01C2E73452900661F96 /* Launch Screen.storyboard in Resources */,
 				6684806A2BE03D7D0025018B /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,7 +581,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.117;
+				MARKETING_VERSION = 2.7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = MSPDemoApp.MSPDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -608,7 +612,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.117;
+				MARKETING_VERSION = 2.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MSPDemoApp.MSPDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
