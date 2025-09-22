@@ -55867,147 +55867,147 @@
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5083,
+      "offset": 5090,
       "length": 10,
       "value": "\"start_ms\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5132,
+      "offset": 5139,
       "length": 15,
       "value": "\"expiration_ms\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5183,
+      "offset": 5190,
       "length": 12,
       "value": "\"current_ms\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5232,
+      "offset": 5239,
       "length": 13,
       "value": "\"duration_ms\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5281,
+      "offset": 5288,
       "length": 12,
       "value": "\"latency_ms\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5334,
+      "offset": 5341,
       "length": 17,
       "value": "\"video_length_ms\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5388,
+      "offset": 5395,
       "length": 13,
       "value": "\"position_ms\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5437,
+      "offset": 5444,
       "length": 12,
       "value": "\"loop_count\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5496,
+      "offset": 5503,
       "length": 23,
       "value": "\"is_play_automatically\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5552,
+      "offset": 5559,
       "length": 9,
       "value": "\"is_mute\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5594,
+      "offset": 5601,
       "length": 9,
       "value": "\"is_loop\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5639,
+      "offset": 5646,
       "length": 12,
       "value": "\"ad_unit_id\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5684,
+      "offset": 5691,
       "length": 9,
       "value": "\"user_id\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5734,
+      "offset": 5741,
       "length": 17,
       "value": "\"click_area_name\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5783,
+      "offset": 5790,
       "length": 8,
       "value": "\"action\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5823,
+      "offset": 5830,
       "length": 8,
       "value": "\"reason\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5862,
+      "offset": 5869,
       "length": 7,
       "value": "\"error\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5901,
+      "offset": 5908,
       "length": 8,
       "value": "\"offset\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 5950,
+      "offset": 5957,
       "length": 12,
       "value": "\"event_type\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 6006,
+      "offset": 6013,
       "length": 20,
       "value": "\"encrypted_ad_token\""
     },
     {
       "filePath": "\/Users\/huanzhizhang\/Huanzhi\/msp-ios-sdk\/NovaCore\/NovaCore\/Metrics\/NovaAdMetricReporter.swift",
       "kind": "StringLiteral",
-      "offset": 6062,
+      "offset": 6069,
       "length": 12,
       "value": "\"event_time\""
     },
