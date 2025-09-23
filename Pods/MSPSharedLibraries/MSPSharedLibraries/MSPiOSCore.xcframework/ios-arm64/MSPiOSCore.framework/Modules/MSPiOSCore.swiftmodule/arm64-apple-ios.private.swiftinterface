@@ -272,6 +272,7 @@ open class MSPAd {
   public func destroy()
   public func sendHideAdEvent(reason: Swift.String, adScreenShot: Foundation.Data? = nil, fullScreenShot: Foundation.Data? = nil)
   public func sendReportAdEvent(reason: Swift.String, description: Swift.String?, adScreenShot: Foundation.Data? = nil, fullScreenShot: Foundation.Data? = nil)
+  open func isValid() -> Swift.Bool
   @objc deinit
 }
 public protocol MediaController {
