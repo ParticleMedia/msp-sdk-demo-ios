@@ -1,11 +1,11 @@
 import UIKit
 import MSPCore
-import GoogleAdapter
+import MSPGoogleAdapter
 import NovaAdapter
 import AppTrackingTransparency
 import MSPiOSCore
 
-import FacebookAdapter
+import MSPFacebookAdapter
 
 
 @main

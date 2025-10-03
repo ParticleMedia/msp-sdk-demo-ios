@@ -1,0 +1,6 @@
+module MSPGoogleAdapter {
+  umbrella header "MSPGoogleAdapter-umbrella.h"
+
+  export *
+  module * { export * }
+}

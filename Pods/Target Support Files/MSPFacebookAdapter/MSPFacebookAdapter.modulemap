@@ -1,0 +1,6 @@
+module MSPFacebookAdapter {
+  umbrella header "MSPFacebookAdapter-umbrella.h"
+
+  export *
+  module * { export * }
+}
