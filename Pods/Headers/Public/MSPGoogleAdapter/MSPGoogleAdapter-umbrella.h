@@ -1,0 +1,1 @@
+../../../Target Support Files/MSPGoogleAdapter/MSPGoogleAdapter-umbrella.h
