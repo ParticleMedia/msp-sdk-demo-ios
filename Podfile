@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '13.0'
+ platform :ios, '15.0'
 
 workspace 'msp-ios-sdk'
 
@@ -12,10 +12,10 @@ project 'MSPDemoApp/MSPDemoApp'
 target 'MSPDemoApp' do
   project 'MSPDemoApp/MSPDemoApp'
   #use_frameworks!
-  pod 'MSPCore', '2.8.0', :modular_headers => true
-  pod 'NovaAdapter', '2.8.0', :modular_headers => true
-  pod 'MSPGoogleAdapter', '2.8.0', :modular_headers => true
-  pod 'MSPFacebookAdapter', '2.8.0', :modular_headers => true
+  pod 'MSPCore', '3.0.0', :modular_headers => true
+  pod 'NovaAdapter', '3.0.0', :modular_headers => true
+  pod 'MSPGoogleAdapter', '3.0.0', :modular_headers => true
+  pod 'MSPFacebookAdapter', '3.0.0', :modular_headers => true
   pod 'SwiftProtobuf', '1.30.0', :modular_headers => true
  
 end

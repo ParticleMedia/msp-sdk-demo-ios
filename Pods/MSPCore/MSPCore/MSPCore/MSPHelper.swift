@@ -15,6 +15,7 @@ public class MSP {
     }()
     
     public static let shared = MSP()
+    internal static let KEY_MES_USER_SIGNAL_ATTRIBUTION = "key_mes_user_signal_attribution"
     public var numInitWaitingForCallbacks = 0;
     public weak var sdkInitListener: MSPInitListener?
     public var initStartTime: Double?
@@ -32,12 +33,35 @@ public class MSP {
     public var appId: Int64?
     public var org: String?
     public var app: String?
-    public var ppid: String?
+    public var ppid: String? {
+        didSet {
+            DispatchQueue.main.async {
+                self.tryUpdateMSPId()
+            }
+        }
+    }
     public var email: String?
-    public var prebidAPIKey: String?    
-
+    public var prebidAPIKey: String?
+    
     public var isLogSampled = false
     public var logWhiteList: [String]?
+    
+    private init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.appDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.sizeCategoryDidChange), name: UIContentSizeCategory.didChangeNotification, object: nil)
+        
+        guard UIApplication.shared.applicationState == .inactive else { return }
+        DispatchQueue.main.async {
+            self.appWillEnterForeground()
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIContentSizeCategory.didChangeNotification, object: nil)
+    }
     
     public func initMSP(initParams: InitializationParameters, sdkInitListener: MSPInitListener?, adNetworkManagers: [AdNetworkManager]) {
         // This is a temporary solution to replace MSPManager class in kotlin to solve the Kotlin singleton issue
@@ -58,9 +82,7 @@ public class MSP {
                 self.prebidAPIKey = initParams.getPrebidAPIKey()
             }
             
-            if UserDefaults.standard.string(forKey: "msp_user_id") == nil {
-                self.fetchMSPUserId()
-            }
+            self.tryUpdateMSPId()
             
             self.numInitWaitingForCallbacks = 1 //default vaule is 1 for prebid sdk is alwasys in the dependency
             for manager in adNetworkManagers {
@@ -91,6 +113,48 @@ public class MSP {
             UserDefaults.standard.setValue(String(Date().timeIntervalSince1970 * 1000), forKey: "FirstLaunchTime")
             self.blockLatencyInMs = Int32((Date().timeIntervalSince1970 - initStartTime) * 1000)
         }
+    }
+    
+    private func tryUpdateMSPId() {
+        let keyMSPId = MSPConstants.USER_DEFAULTS_KEY_MSP_ID
+        let keyMSPUserId = MSPConstants.USER_DEFAULTS_KEY_MSP_USER_ID
+        
+        let storedMSPUserIdString = UserDefaults.standard.string(forKey: keyMSPUserId)
+        let storedMSPUserId = storedMSPUserIdString.flatMap { Int64($0) }
+        
+        let storedMSPId = UserDefaults.standard.string(forKey: keyMSPId).flatMap{ Int64($0) }
+        
+        if !isValidId(id: storedMSPUserId) {
+            self.fetchMSPUserId()
+        } else if !isValidId(id: storedMSPId) {
+            UserDefaults.standard.setValue(storedMSPUserIdString, forKey: keyMSPId)
+        }
+    }
+    
+    private func isValidId(id: Int64?) -> Bool {
+        guard let id = id else { return false }
+        return id > 0
+    }
+    
+    @objc private func appWillEnterForeground() {
+        MSPLogger.shared.info(message: "App becomes active")
+        MSPDevice.shared.isInForeground = true
+        MSPDevice.shared.fontSize = UIApplication.shared.preferredContentSizeCategory
+        MESMetricReporter.shared.tryLogUserSignal(type: Com_Newsbreak_Mes_Events_UserSignalType.intoForeground)
+        
+        if !UserDefaults.standard.bool(forKey: MSP.KEY_MES_USER_SIGNAL_ATTRIBUTION) {
+            MESMetricReporter.shared.tryLogUserSignal(type: Com_Newsbreak_Mes_Events_UserSignalType.attribution)
+        }
+    }
+    
+    @objc private func appDidEnterBackground() {
+        MSPLogger.shared.info(message: "App enters background")
+        MESMetricReporter.shared.tryLogUserSignal(type: Com_Newsbreak_Mes_Events_UserSignalType.intoBackground)
+        MSPDevice.shared.isInForeground = false
+    }
+    
+    @objc private func sizeCategoryDidChange() {
+        MSPDevice.shared.fontSize = UIApplication.shared.preferredContentSizeCategory
     }
     
     public class MSPAdapterInitListener: NSObject, AdapterInitListener {
@@ -159,7 +223,7 @@ public class MSP {
             "orgID": self.orgId ?? 0,
             "appID": self.appId ?? 0,
             "ppid": self.ppid ?? "",
-            "device_id": ASIdentifierManager.shared().advertisingIdentifier.uuidString ?? "",
+            "device_id": ASIdentifierManager.shared().advertisingIdentifier.uuidString,
             "email": self.email ?? "",
             "token": self.prebidAPIKey ?? ""
         ]
@@ -185,8 +249,10 @@ public class MSP {
                     do {
                         // Handle JSON response
                         if let responseDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                           let id = responseDict["id"] as? Int64 {
-                            UserDefaults.standard.setValue(String(id), forKey: "msp_user_id")
+                           let code = responseDict["code"] as? Int64, code == 0,
+                           let id = responseDict["id"] as? Int64, self.isValidId(id: id) {
+                            UserDefaults.standard.setValue(String(id), forKey: MSPConstants.USER_DEFAULTS_KEY_MSP_USER_ID)
+                            UserDefaults.standard.setValue(String(id), forKey: MSPConstants.USER_DEFAULTS_KEY_MSP_ID)
                         }
                     } catch {
                         print("Error parsing response: \(error)")
@@ -203,10 +269,10 @@ public class MSP {
     
     /// Shows the mediation debugger interface as a modal presentation.
     /// This method automatically finds the top-most view controller and presents the debugger modally.
-    /// 
+    ///
     /// - Note: This method can be called from anywhere in your app, regardless of the current view controller hierarchy.
     /// - Warning: The debugger will be presented modally and can be dismissed by the user.
-    /// 
+    ///
     /// ## Usage Example:
     /// ```swift
     /// MSP.shared.showMediationDebugger()
@@ -223,12 +289,12 @@ public class MSP {
     
     /// Shows the mediation debugger interface by pushing it onto the navigation stack.
     /// This method requires the caller to be embedded in a navigation controller.
-    /// 
-    /// - Parameter rootViewController: The view controller from which to push the debugger. 
+    ///
+    /// - Parameter rootViewController: The view controller from which to push the debugger.
     ///   This view controller must be embedded in a UINavigationController.
     /// - Note: If the rootViewController is not embedded in a navigation controller, this method will have no effect.
     /// - Warning: The debugger will be pushed onto the navigation stack and can be popped back by the user.
-    /// 
+    ///
     /// ## Usage Example:
     /// ```swift
     /// // From within a view controller that's embedded in a navigation controller
@@ -241,7 +307,7 @@ public class MSP {
     
     /// Helper method to find the top-most view controller in the app's view hierarchy.
     /// This method traverses through presented view controllers, navigation controllers, and tab bar controllers.
-    /// 
+    ///
     /// - Returns: The top-most view controller, or nil if no view controller is found.
     private func getTopViewController() -> UIViewController? {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -280,23 +346,23 @@ public class MSP {
         }
         return self.isLogSampled = Double.random(in: 0..<1) < sampleRate
     }
-
     
     static func getMSPVersion() -> String {
         let bundle = Bundle(for: MSP.self)
-        
-        if let url = bundle.url(forResource: "MSPCoreResources", withExtension: "bundle"),
-           let resourceBundle = Bundle(url: url),
-           let plistURL = resourceBundle.url(forResource: "Config", withExtension: "plist"),
-           let data = try? Data(contentsOf: plistURL),
-           let rawlist = (try? PropertyListSerialization.propertyList(from: data, options: [], format: nil)) {
-            if let plist = rawlist as? [String: Any],
-               let version = plist["SDKVersion"] as? String {
-                return version
-            }
+        guard let url = bundle.url(forResource: "MSPCoreResources", withExtension: "bundle"),
+              let resourceBundle = Bundle(url: url),
+              let plistURL = resourceBundle.url(forResource: "Config", withExtension: "plist"),
+              let data = try? Data(contentsOf: plistURL) else {
+            return ""
         }
         
-        return ""
+        guard let plistData = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil),
+              let plist = plistData as? [String: Any],
+              let version = plist["SDKVersion"] as? String else {
+            return ""
+        }
+        
+        return version
     }
 }
 
@@ -350,6 +416,10 @@ public class InitializationParametersImp: InitializationParameters {
     public func getPrebidHostUrl() -> String {
         let host = prebidHostUrl ?? MSP.shared.prebidHost + "/openrtb2/auction"
         return host
+    }
+    
+    public func getAppStoreId() -> String? {
+        return sourceApp
     }
     
     public func getConsentString() -> String {

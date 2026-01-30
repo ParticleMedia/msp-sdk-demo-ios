@@ -35,12 +35,26 @@ public class MSPBidder: MSPiOSCore.Bidder {
             "google": MSP.shared.adNetworkAdapterProvider.getAdNetworkAdapter(adNetwork: .google)?.getSDKVersion() ?? "",
             "facebook": MSP.shared.adNetworkAdapterProvider.getAdNetworkAdapter(adNetwork: .facebook)?.getSDKVersion() ?? "",
             "nova": MSP.shared.adNetworkAdapterProvider.getAdNetworkAdapter(adNetwork: .nova)?.getSDKVersion() ?? "",
+            "moloco": MSP.shared.adNetworkAdapterProvider.getAdNetworkAdapter(adNetwork: .moloco)?.getSDKVersion() ?? "",
+            "liftoff": MSP.shared.adNetworkAdapterProvider.getAdNetworkAdapter(adNetwork: .liftoff)?.getSDKVersion() ?? "",
             "msp": MSP.shared.version
         ]
 
         if let jsonData = try? JSONSerialization.data(withJSONObject: versions, options: []),
            let jsonString = String(data: jsonData, encoding: .utf8) {
             return jsonString
+        }
+        return ""
+    }
+    
+    private func getMSPVersion() -> String {
+        let bundle = Bundle(for: MSPBidder.self)
+        if let url = bundle.url(forResource: "MSPCoreResources", withExtension: "bundle"),
+           let resourceBundle = Bundle(url: url),
+           let plistURL = resourceBundle.url(forResource: "Info", withExtension: "plist"),
+           let dict = NSDictionary(contentsOf: plistURL),
+           let version = dict["CFBundleShortVersionString"] as? String {
+            return version
         }
         return ""
     }

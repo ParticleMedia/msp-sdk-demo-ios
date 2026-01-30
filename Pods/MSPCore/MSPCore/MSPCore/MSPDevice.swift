@@ -6,6 +6,28 @@
 //
 import UIKit
 import Network
+import CoreTelephony
+import AppTrackingTransparency
+import AVFAudio
+import MSPiOSCore
+import PrebidMobile
+
+fileprivate let cellGeneration: [String: Com_Newsbreak_Monetization_Signals_ConnectionType] = [
+    CTRadioAccessTechnologyGPRS:            Com_Newsbreak_Monetization_Signals_ConnectionType.cell2G,
+    CTRadioAccessTechnologyEdge:            Com_Newsbreak_Monetization_Signals_ConnectionType.cell2G,
+    CTRadioAccessTechnologyCDMA1x:          Com_Newsbreak_Monetization_Signals_ConnectionType.cell2G,
+    
+    CTRadioAccessTechnologyWCDMA:           Com_Newsbreak_Monetization_Signals_ConnectionType.cell3G,
+    CTRadioAccessTechnologyHSDPA:           Com_Newsbreak_Monetization_Signals_ConnectionType.cell3G,
+    CTRadioAccessTechnologyHSUPA:           Com_Newsbreak_Monetization_Signals_ConnectionType.cell3G,
+    CTRadioAccessTechnologyCDMAEVDORev0:    Com_Newsbreak_Monetization_Signals_ConnectionType.cell3G,
+    CTRadioAccessTechnologyCDMAEVDORevA:    Com_Newsbreak_Monetization_Signals_ConnectionType.cell3G,
+    CTRadioAccessTechnologyCDMAEVDORevB:    Com_Newsbreak_Monetization_Signals_ConnectionType.cell3G,
+    CTRadioAccessTechnologyeHRPD:           Com_Newsbreak_Monetization_Signals_ConnectionType.cell3G,
+    
+    CTRadioAccessTechnologyLTE:             Com_Newsbreak_Monetization_Signals_ConnectionType.cell4G,
+]
+
 
 public class MSPDevice {
     
@@ -16,13 +38,14 @@ public class MSPDevice {
     }
     
     private(set) var orientation: UIDeviceOrientation?
-    private(set) var isInForeground: Bool?
     private(set) var batteryLevel: Float?
     private(set) var batteryStatus: UIDevice.BatteryState?
     private(set) var isLowPowerMode: Bool?
     private(set) var isLowDataMode: Bool?
-    private(set) var fontSize: UIContentSizeCategory?
     private(set) var availableMemory: Int?
+    
+    var isInForeground: Bool?
+    var fontSize: UIContentSizeCategory?
     
     private let DEIVCE_SIGNAL_ORIENTATION = "orientation"
     private let DEIVCE_SIGNAL_IS_IN_FOREGROUND = "is_in_foreground"
@@ -52,32 +75,47 @@ public class MSPDevice {
     
     public func collectDeviceInfo() {
         self.orientation = UIDevice.current.orientation
-        self.isInForeground = UIApplication.shared.applicationState == .active
         UIDevice.current.isBatteryMonitoringEnabled = true
         self.batteryLevel = UIDevice.current.batteryLevel
         self.batteryStatus = UIDevice.current.batteryState
         self.isLowPowerMode = ProcessInfo.processInfo.isLowPowerModeEnabled
-        fetchLowDataModeStatus { isLowDataMode in
-            self.isLowDataMode = isLowDataMode
+        fetchLowDataModeStatus { path in
+            self.isLowDataMode = path.isConstrained
         }
-        self.fontSize = UIApplication.shared.preferredContentSizeCategory
+
         self.availableMemory = os_proc_available_memory()
     }
     
-    private func fetchLowDataModeStatus(completion: @escaping (Bool) -> Void) {
+    private func getCellGeneration() -> Com_Newsbreak_Monetization_Signals_ConnectionType {
+        let tel = CTTelephonyNetworkInfo()
+        
+        if let techs = tel.serviceCurrentRadioAccessTechnology?.values,
+        let rat = techs.first {
+            if #available(iOS 14.1, *),
+               rat == CTRadioAccessTechnologyNRNSA || rat == CTRadioAccessTechnologyNR {
+                return Com_Newsbreak_Monetization_Signals_ConnectionType.cell5G
+            }
+            
+            return cellGeneration[rat] ?? Com_Newsbreak_Monetization_Signals_ConnectionType.cellUnknown
+        }
+        
+        return Com_Newsbreak_Monetization_Signals_ConnectionType.cellUnknown
+    }
+    
+    private func fetchLowDataModeStatus(completion: @escaping (NWPath) -> Void) {
         let monitor = NWPathMonitor()
         monitor.pathUpdateHandler = { path in
-            completion(path.isConstrained)
+            completion(path)
             monitor.cancel()
         }
         monitor.start(queue: DispatchQueue.global(qos: .background))
     }
     
-    private func getOrientationString(orientation: UIDeviceOrientation?) -> String {
-        guard let orientation = self.orientation else {return "unknown"}
+    internal func getOrientationString(orientation: UIDeviceOrientation?) -> String {
+        guard let orientation = self.orientation else {return ""}
         switch orientation {
         case .unknown:
-            return "unknown"
+            return ""
         case .portrait:
             return "portrait"
         case .portraitUpsideDown:
@@ -91,7 +129,7 @@ public class MSPDevice {
         case .faceDown:
             return "faceDown"
         default:
-            return "unknown"
+            return ""
         }
     }
     
@@ -99,7 +137,7 @@ public class MSPDevice {
         if let state = state {
             return state ? "true" : "false"
         } else {
-            return "unknown"
+            return ""
         }
     }
     
@@ -107,14 +145,14 @@ public class MSPDevice {
         if let batteryLevel = self.batteryLevel {
             return String(batteryLevel)
         }
-        return "unknown"
+        return ""
     }
     
     public func getBatteryStatusString() -> String {
-        guard let batteryStatus = self.batteryStatus else { return "unknown" }
+        guard let batteryStatus = self.batteryStatus else { return "" }
         switch batteryStatus {
         case .unknown:
-            return "unknown"
+            return ""
         case .unplugged:
             return "unplugged"
         case .charging:
@@ -122,12 +160,12 @@ public class MSPDevice {
         case .full:
             return "full"
         default:
-            return "unknown"
+            return ""
         }
     }
     
     public func getFontSizeString() -> String {
-        guard let fontSize = self.fontSize else { return "unknown" }
+        guard let fontSize = self.fontSize else { return "" }
         switch fontSize {
         case .extraSmall: return "xs"
         case .small: return "s"
@@ -141,7 +179,7 @@ public class MSPDevice {
         case .accessibilityExtraLarge: return "a-xl"
         case .accessibilityExtraExtraLarge: return "a-xxl"
         case .accessibilityExtraExtraExtraLarge: return "a-xxxl"
-        default: return "unknown"
+        default: return ""
         }
     }
     
@@ -149,7 +187,7 @@ public class MSPDevice {
         if let availableMemory = self.availableMemory {
             return String(availableMemory)
         } else {
-            return "unknown"
+            return ""
         }
     }
     
@@ -166,4 +204,57 @@ public class MSPDevice {
        return String(format: "%+03d:%02d", hours, minutes)
     }
     
+    internal func getDeviceModel() -> String {
+        var sysInfo = utsname()
+        guard uname(&sysInfo) == 0 else {
+            MSPLogger.shared.info(message: "Failed to get device model via uname")
+            return ""
+        }
+        
+        return withUnsafePointer(to: &sysInfo.machine) {
+            $0.withMemoryRebound(to: CChar.self, capacity: 1) {
+                String(cString: $0)
+            }
+        }
+    }
+    
+    internal func isIDFAAuthorized() -> Bool {
+        if #available(iOS 14, *), case .authorized = ATTrackingManager.trackingAuthorizationStatus {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    internal func getCountry() -> String {
+        if #available(iOS 16, *) {
+            return Locale.current.region?.identifier ?? ""
+        }
+        
+        return Locale.current.regionCode ?? ""
+    }
+    
+    internal func getConnectionType() -> Com_Newsbreak_Monetization_Signals_ConnectionType {
+        switch Reachability.shared.currentReachabilityStatus {
+        case .celluar:
+            return getCellGeneration()
+        case .wifi:
+            return Com_Newsbreak_Monetization_Signals_ConnectionType.wifi
+        case .unknown, .offline:
+            return Com_Newsbreak_Monetization_Signals_ConnectionType.unspecified
+        @unknown default:
+            return Com_Newsbreak_Monetization_Signals_ConnectionType.unspecified
+        }
+    }
+    
+    internal func getVolumeLevel() -> Int32 {
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setActive(true)
+            let volume = audioSession.outputVolume
+            return Int32(volume * 100)
+        } catch {
+            return -1
+        }
+    }
 }

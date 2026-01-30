@@ -13,6 +13,7 @@ public class MSPAdConfigManager {
     public static let shared = MSPAdConfigManager()
     
     public var adConfig: AdConfig?
+    public var externalAdConfigPlacements: [String: Placement] = [:]
     public var MSP_AD_CONFIG_KEY = "map_ad_config"
     public var MSP_LOG_SAMPLE_RATE_KEY = "log_sample_rate"
     public var MSP_LOG_WHITELIST_KEY = "msp_id_whitelist"
@@ -49,6 +50,22 @@ public class MSPAdConfigManager {
             
         } catch {
             
+        }
+    }
+    
+    public func parseExrernalPlacement(string: String) {
+        if let placement = getAdPlacementFromString(string: string) {
+            self.externalAdConfigPlacements[placement.placementId] = placement
+        }
+    }
+    
+    public func getAdPlacementFromString(string: String) -> Placement? {
+        do {
+            let decoder = JSONDecoder()
+            let placement = try decoder.decode(Placement.self, from: Data(string.utf8))
+            return placement
+        } catch {
+            return nil
         }
     }
     

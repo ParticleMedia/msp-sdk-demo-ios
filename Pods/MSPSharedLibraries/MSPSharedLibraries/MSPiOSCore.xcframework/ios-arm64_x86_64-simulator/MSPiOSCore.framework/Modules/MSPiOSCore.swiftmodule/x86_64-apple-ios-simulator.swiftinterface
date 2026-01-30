@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
-// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name MSPiOSCore
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name MSPiOSCore
+// swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
 import Foundation
 @_exported import MSPiOSCore
 import Swift
@@ -9,6 +10,9 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import os
+public protocol LiftoffBidTokenListener : AnyObject {
+  func onComplete(liftoffBidToken: Swift.String)
+}
 public protocol LoadAdParameters : MSPiOSCore.AdapterParameters {
   func getAdUnitId() -> Swift.String
   func getThirdPartyAdPlacementId() -> Swift.String
@@ -25,6 +29,15 @@ open class Bidder {
   open func setAdMetricReporter(adMetricReporter: any MSPiOSCore.AdMetricReporter)
   @objc deinit
 }
+public protocol MSPNativeDisplayContext {
+}
+public struct MSPNativeLabelDisplayContext : MSPiOSCore.MSPNativeDisplayContext {
+  public let attributes: [Foundation.NSAttributedString.Key : Any]
+  public init(attributes: [Foundation.NSAttributedString.Key : Any])
+}
+public protocol MolocoBidTokenProvider : AnyObject {
+  func fetch(completeListener: any MSPiOSCore.MolocoBidTokenListener, context: Any)
+}
 public protocol AuctionListener : AnyObject {
   func onSuccess(winningBid: MSPiOSCore.AuctionBid)
   func onError(error: Swift.String)
@@ -37,8 +50,30 @@ open class BannerAd : MSPiOSCore.MSPAd {
 open class BidLoader {
   public var googleQueryInfoFetcher: any MSPiOSCore.GoogleQueryInfoFetcher
   public var facebookBidTokenProvider: any MSPiOSCore.FacebookBidTokenProvider
-  public init(googleQueryInfoFetcher: any MSPiOSCore.GoogleQueryInfoFetcher, facebookBidTokenProvider: any MSPiOSCore.FacebookBidTokenProvider)
+  public var molocoBidTokenProvider: any MSPiOSCore.MolocoBidTokenProvider
+  public var liftoffBidTokenProvider: any MSPiOSCore.LiftoffBidTokenProvider
+  public init(tokenProviders: MSPiOSCore.BidTokenProviders)
   open func loadBid(placementId: Swift.String, adParams: [Swift.String : Any], bidListener: any MSPiOSCore.BidListener, adRequest: MSPiOSCore.AdRequest)
+  @objc deinit
+}
+public class GoogleQueryInfoFetcherStandalone : MSPiOSCore.GoogleQueryInfoFetcher {
+  public init()
+  public func fetch(completeListener: any MSPiOSCore.GoogleQueryInfoListener, adRequest: MSPiOSCore.AdRequest)
+  @objc deinit
+}
+public class FacebookBidTokenProviderStandalone : MSPiOSCore.FacebookBidTokenProvider {
+  public init()
+  public func fetch(completeListener: any MSPiOSCore.FacebookBidTokenListener, context: Any)
+  @objc deinit
+}
+public class MolocoBidTokenProviderStandalone : MSPiOSCore.MolocoBidTokenProvider {
+  public init()
+  public func fetch(completeListener: any MSPiOSCore.MolocoBidTokenListener, context: Any)
+  @objc deinit
+}
+public class LiftoffBidTokenProviderStandalone : MSPiOSCore.LiftoffBidTokenProvider {
+  public init()
+  public func fetch(completeListener: any MSPiOSCore.LiftoffBidTokenListener, context: Any)
   @objc deinit
 }
 public enum AdapterAdLoadError {
@@ -49,18 +84,26 @@ public enum AdapterAdLoadError {
     get
   }
 }
+public protocol InterstitialAdReportHandling : AnyObject {
+  func startReportFlow(from presentingVC: UIKit.UIViewController?, for ad: MSPiOSCore.InterstitialAd, metadata: [Swift.String : Any]?)
+  func canShowReportButton(for ad: MSPiOSCore.InterstitialAd) -> Swift.Bool
+}
+extension MSPiOSCore.InterstitialAdReportHandling {
+  public func canShowReportButton(for ad: MSPiOSCore.InterstitialAd) -> Swift.Bool
+}
 @_inheritsConvenienceInitializers open class InterstitialAd : MSPiOSCore.MSPAd {
   open func show()
   open func show(rootViewController: UIKit.UIViewController?)
+  open func show(rootViewController: UIKit.UIViewController?, interstitialAdReportHandling: (any MSPiOSCore.InterstitialAdReportHandling)?)
+  open func dismiss(animated: Swift.Bool)
   override public init(adNetworkAdapter: any MSPiOSCore.AdNetworkAdapter)
   @objc deinit
 }
-public protocol MediaListener : AnyObject {
-  func onDurationUpdate(duration: Swift.UInt64)
-  func onProgressUpdate(position: Swift.UInt64, bufferedPosition: Swift.UInt64)
-}
 public protocol GoogleQueryInfoListener : AnyObject {
   func onComplete(queryInfo: Swift.String)
+}
+public protocol LiftoffBidTokenProvider : AnyObject {
+  func fetch(completeListener: any MSPiOSCore.LiftoffBidTokenListener, context: Any)
 }
 public enum AdapterInitStatus : Swift.String {
   case SUCCESS
@@ -90,6 +133,13 @@ public struct AdSize {
   public let isInlineAdaptiveBanner: Swift.Bool
   public let isAnchorAdaptiveBanner: Swift.Bool
   public init(width: Swift.Int, height: Swift.Int, isInlineAdaptiveBanner: Swift.Bool = false, isAnchorAdaptiveBanner: Swift.Bool = false)
+}
+public protocol VideoController : AnyObject {
+  var delegate: (any MSPiOSCore.VideoControllerDelegate)? { get set }
+  var muted: Swift.Bool { get set }
+}
+public protocol VideoControllerDelegate : AnyObject {
+  func videoController(_ controller: (any MSPiOSCore.VideoController)?, loopCount: Swift.Int, didUpdateProgress currentTime: Foundation.TimeInterval, videoLength: Foundation.TimeInterval)
 }
 public protocol FacebookBidTokenListener : AnyObject {
   func onComplete(bidToken: Swift.String)
@@ -121,6 +171,9 @@ public protocol BidListener : AnyObject {
   func onBidResponse(bidResponse: Any, adNetwork: MSPiOSCore.AdNetwork)
   func onError(msg: Swift.String)
 }
+public protocol MolocoBidTokenListener : AnyObject {
+  func onComplete(molocoBidToken: Swift.String)
+}
 public protocol AdapterAdLoadListener : AnyObject {
   func onAdLoadedFailed(error: MSPiOSCore.AdapterAdLoadError)
 }
@@ -143,8 +196,40 @@ public protocol AdNetworkAdapter : AnyObject {
   func sendReportAdEvent(reason: Swift.String, description: Swift.String?, adScreenShot: Foundation.Data?, fullScreenShot: Foundation.Data?)
   func getSDKVersion() -> Swift.String
 }
+public protocol ImageController : AnyObject {
+  var contentMode: UIKit.UIView.ContentMode { get set }
+}
 public protocol GoogleQueryInfoFetcher : AnyObject {
   func fetch(completeListener: any MSPiOSCore.GoogleQueryInfoListener, adRequest: MSPiOSCore.AdRequest)
+}
+public class BidTokenProviders {
+  public var googleQueryInfoFetcher: (any MSPiOSCore.GoogleQueryInfoFetcher)?
+  public var facebookBidTokenProvider: (any MSPiOSCore.FacebookBidTokenProvider)?
+  public var molocoBidTokenProvider: (any MSPiOSCore.MolocoBidTokenProvider)?
+  public var liftoffBidTokenProvider: (any MSPiOSCore.LiftoffBidTokenProvider)?
+  public init()
+  @discardableResult
+  public func with(googleQueryInfoFetcher: any MSPiOSCore.GoogleQueryInfoFetcher) -> Self
+  @discardableResult
+  public func with(facebookBidTokenProvider: any MSPiOSCore.FacebookBidTokenProvider) -> Self
+  @discardableResult
+  public func with(molocoBidTokenProvider: any MSPiOSCore.MolocoBidTokenProvider) -> Self
+  @discardableResult
+  public func with(liftoffBidTokenProvider: any MSPiOSCore.LiftoffBidTokenProvider) -> Self
+  @objc deinit
+}
+public enum PlayableRenderMode {
+  case auto
+  case imageOrVideo
+  case playable
+  public static func == (a: MSPiOSCore.PlayableRenderMode, b: MSPiOSCore.PlayableRenderMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol PlayableController : AnyObject {
+  var renderMode: MSPiOSCore.PlayableRenderMode { get set }
 }
 public protocol AdNetworkAdapterProvider : AnyObject {
   func getAdNetworkAdapter(adNetwork: MSPiOSCore.AdNetwork) -> (any MSPiOSCore.AdNetworkAdapter)?
@@ -167,8 +252,10 @@ open class NativeAd : MSPiOSCore.MSPAd {
   public var optionsView: Any?
   public var mediaView: Any?
   public var icon: Any?
-  public var mediaController: (any MSPiOSCore.MediaController)?
   public var nativeAdView: Any?
+  open var mediaContainer: (any MSPiOSCore.AdMediaContainer)? {
+    get
+  }
   public init(adNetworkAdapter: any MSPiOSCore.AdNetworkAdapter, builder: MSPiOSCore.NativeAd.Builder)
   public init(adNetworkAdapter: any MSPiOSCore.AdNetworkAdapter, title: Swift.String, body: Swift.String, advertiser: Swift.String, callToAction: Swift.String)
   public func prepareViewForInteraction(nativeAdView: Any)
@@ -181,7 +268,7 @@ open class NativeAd : MSPiOSCore.MSPAd {
     public var optionsView: Any?
     public var mediaView: Any?
     public var icon: Any?
-    public var mediaController: (any MSPiOSCore.MediaController)?
+    public var mediaContainer: (any MSPiOSCore.AdMediaContainer)?
     public init(adNetworkAdapter: any MSPiOSCore.AdNetworkAdapter)
     @discardableResult
     public func title(_ title: Swift.String) -> MSPiOSCore.NativeAd.Builder
@@ -197,8 +284,6 @@ open class NativeAd : MSPiOSCore.MSPAd {
     public func mediaView(_ mediaView: Any) -> MSPiOSCore.NativeAd.Builder
     @discardableResult
     public func icon(_ icon: Any) -> MSPiOSCore.NativeAd.Builder
-    @discardableResult
-    public func mediaController(_ mediaController: any MSPiOSCore.MediaController) -> MSPiOSCore.NativeAd.Builder
     public func build() -> MSPiOSCore.NativeAd
     @objc deinit
   }
@@ -212,7 +297,6 @@ public protocol FacebookBidTokenProvider : AnyObject {
   @_Concurrency.MainActor @preconcurrency weak public var rootViewController: UIKit.UIViewController?
   @_Concurrency.MainActor @preconcurrency public var nativeAdViewBinder: MSPiOSCore.NativeAdViewBinder?
   @_Concurrency.MainActor @preconcurrency public var nativeAdContainer: (any MSPiOSCore.MSPNativeAdContainer)?
-  @_Concurrency.MainActor @preconcurrency public var mediaController: (any MSPiOSCore.MediaController)?
   @_Concurrency.MainActor @preconcurrency public init(nativeAd: MSPiOSCore.NativeAd, nativeAdViewBinder: MSPiOSCore.NativeAdViewBinder)
   @_Concurrency.MainActor @preconcurrency public init(nativeAd: MSPiOSCore.NativeAd, nativeAdContainer: any MSPiOSCore.MSPNativeAdContainer)
   @objc deinit
@@ -224,6 +308,8 @@ open class NativeAdViewBinder {
   public var callToActionButton: UIKit.UIButton?
   public var optionView: UIKit.UIView?
   public var mediaView: UIKit.UIView?
+  public var customClickableViews: [UIKit.UIView]?
+  public var displayContext: [MSPiOSCore.MSPNativeElement : any MSPiOSCore.MSPNativeDisplayContext]?
   public init(nativeAd: MSPiOSCore.NativeAd)
   open func setUpViews(parentView: UIKit.UIView)
   @objc deinit
@@ -242,17 +328,30 @@ public enum AdFormat : Swift.CaseIterable {
   case multi_format
   case interstitial
   public static func == (a: MSPiOSCore.AdFormat, b: MSPiOSCore.AdFormat) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public typealias AllCases = [MSPiOSCore.AdFormat]
   nonisolated public static var allCases: [MSPiOSCore.AdFormat] {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
 }
 public protocol MSPInitListener : AnyObject {
   func onComplete(status: MSPiOSCore.MSPInitStatus, message: Swift.String)
+}
+public enum MSPNativeElement : Swift.Equatable {
+  case title
+  case body
+  case advertiser
+  case CTAButton
+  case media
+  case icon
+  public static func == (a: MSPiOSCore.MSPNativeElement, b: MSPiOSCore.MSPNativeElement) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 public protocol MSPNativeAdContainer : UIKit.UIView {
   func getTitle() -> UIKit.UILabel?
@@ -261,6 +360,11 @@ public protocol MSPNativeAdContainer : UIKit.UIView {
   func getCallToAction() -> UIKit.UIButton?
   func getMedia() -> UIKit.UIView?
   func getIcon() -> UIKit.UIImageView?
+  func getCustomClickableViews() -> [UIKit.UIView]?
+  func getDisplayContext() -> [MSPiOSCore.MSPNativeElement : any MSPiOSCore.MSPNativeDisplayContext]?
+}
+extension MSPiOSCore.MSPNativeAdContainer {
+  public func getDisplayContext() -> [MSPiOSCore.MSPNativeElement : any MSPiOSCore.MSPNativeDisplayContext]?
 }
 public protocol MSPInitializationParameters : MSPiOSCore.InitializationParameters {
 }
@@ -275,19 +379,26 @@ open class MSPAd {
   open func isValid() -> Swift.Bool
   @objc deinit
 }
-public protocol MediaController {
-  func addMediaListener(listener: any MSPiOSCore.MediaListener)
-  func removeMediaListener(listener: any MSPiOSCore.MediaListener)
+public protocol AdMediaContainer : AnyObject {
+  var imageController: (any MSPiOSCore.ImageController)? { get }
+  var videoController: (any MSPiOSCore.VideoController)? { get }
+  var playableController: (any MSPiOSCore.PlayableController)? { get }
 }
 public struct MSPConstants {
   public static let GOOGLE_AD_MULTI_CONTENT_URLS: Swift.String
   public static let USER_ID: Swift.String
+  public static let USER_DEFAULTS_KEY_MSP_USER_ID: Swift.String
+  public static let USER_DEFAULTS_KEY_MSP_ID: Swift.String
   public static let AD_INFO_OPENRTB_NURL: Swift.String
   public static let AD_INFO_OPENRTB_BURL: Swift.String
   public static let AD_INFO_PRICE: Swift.String
   public static let AD_INFO_NETWORK_NAME: Swift.String
   public static let AD_INFO_NETWORK_AD_UNIT_ID: Swift.String
   public static let AD_INFO_NETWORK_CREATIVE_ID: Swift.String
+  public static let AD_INFO_NOVA_AD_ID: Swift.String
+  public static let AD_INFO_NOVA_AD_SET_ID: Swift.String
+  public static let AD_INFO_NOVA_AD_REQUEST_ID: Swift.String
+  public static let AD_INFO_NOVA_AD_ENCRYPTED_TOKEN: Swift.String
   public static let USER_SIGNAL_APP_INSTALL_TIME: Swift.String
   public static let USER_SIGNAL_IS_FIRST_INSTALL: Swift.String
   public static let USER_SIGNAL_PPID: Swift.String
@@ -295,6 +406,7 @@ public struct MSPConstants {
 public protocol InitializationParameters : MSPiOSCore.AdapterParameters {
   func getPrebidAPIKey() -> Swift.String
   func getPrebidHostUrl() -> Swift.String
+  func getAppStoreId() -> Swift.String?
 }
 public struct InitializationParametersCustomKeys {
   public static let UNITY_APP_KEY: Swift.String
@@ -304,6 +416,9 @@ public struct InitializationParametersCustomKeys {
   public static let PUBMATIC_PUBLISHER_ID: Swift.String
   public static let PUBMATIC_PROFILE_IDS: Swift.String
   public static let PUBMATIC_STORE_URL: Swift.String
+  public static let AMAZON_APP_KEY: Swift.String
+  public static let MOLOCO_APP_KEY: Swift.String
+  public static let LIFTOFF_APP_ID: Swift.String
 }
 public class AuctionBid {
   public var bidderName: Swift.String
@@ -325,6 +440,9 @@ public enum AdNetwork : Swift.String, Swift.CaseIterable {
   case mintegral
   case mobilefuse
   case inmobi
+  case amazon
+  case moloco
+  case liftoff
   public init?(rawValue: Swift.String)
   public typealias AllCases = [MSPiOSCore.AdNetwork]
   public typealias RawValue = Swift.String
@@ -402,8 +520,11 @@ extension MSPiOSCore.AdapterInitStatus : Swift.RawRepresentable {}
 extension MSPiOSCore.MSPErrorCode : Swift.Equatable {}
 extension MSPiOSCore.MSPErrorCode : Swift.Hashable {}
 extension MSPiOSCore.MSPErrorCode : Swift.RawRepresentable {}
+extension MSPiOSCore.PlayableRenderMode : Swift.Equatable {}
+extension MSPiOSCore.PlayableRenderMode : Swift.Hashable {}
 extension MSPiOSCore.AdFormat : Swift.Equatable {}
 extension MSPiOSCore.AdFormat : Swift.Hashable {}
+extension MSPiOSCore.MSPNativeElement : Swift.Hashable {}
 extension MSPiOSCore.AdNetwork : Swift.Equatable {}
 extension MSPiOSCore.AdNetwork : Swift.Hashable {}
 extension MSPiOSCore.AdNetwork : Swift.RawRepresentable {}

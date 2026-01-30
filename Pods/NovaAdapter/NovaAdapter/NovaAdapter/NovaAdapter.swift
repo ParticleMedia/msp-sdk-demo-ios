@@ -3,18 +3,19 @@ import Foundation
 import MSPiOSCore
 import PrebidMobile
 import NovaCore
+import Kingfisher
 import UIKit
+import SnapKit
 
 public class NovaAdapter: AdNetworkAdapter {
     public func getSDKVersion() -> String {
-        return "2.8.0"
+        return "3.0.0"
     }
     
     public func setAdMetricReporter(adMetricReporter: any MSPiOSCore.AdMetricReporter) {
         self.adMetricReporter = adMetricReporter
     }
-    
-    
+
     public weak var adListener: AdListener?
     public weak var auctionBidListener: AuctionBidListener?
     public var bidderPlacementId: String?
@@ -25,9 +26,9 @@ public class NovaAdapter: AdNetworkAdapter {
     public var nativeAdItem: NovaNativeAdItem?
     
     public weak var interstitialAd: InterstitialAd?
-    
+    public var interstitialAdItem: NovaInterstitialAdItem?
+
     public var nativeAdView: NativeAdView?
-    public var novaNativeAdView: NovaNativeAdView?
     
     private var adRequest: AdRequest?
     private var bidResponse: BidResponse?
@@ -39,6 +40,7 @@ public class NovaAdapter: AdNetworkAdapter {
     }
     
     public func initialize(initParams: any InitializationParameters, adapterInitListener: any AdapterInitListener, context: Any?) {
+        NovaDevice.shared.appStoreId = initParams.getAppStoreId()
         adapterInitListener.onComplete(adNetwork: .nova, adapterInitStatus: .SUCCESS, message: "")
     }
     
@@ -72,111 +74,121 @@ public class NovaAdapter: AdNetworkAdapter {
             }
 
             self.priceInDollar = Double(mBidResponse.winningBid?.price ?? 0)
+            
             self.adUnitId = adUnitId
             let eCPMInDollar = Decimal(self.priceInDollar ?? 0.0)
             let novaAdType: String
             if adRequest.adFormat == .interstitial {
-                novaAdType = "app_open"
+                novaAdType = "interstitial"
             } else {
                 novaAdType = "native"
             }
             self.parseNovaAdString(adString: adString, adType: novaAdType, adUnitId: adUnitId, eCPMInDollar: eCPMInDollar)
         }
     }
-    
+
+    // TODO: lsy, 其实我感觉这种解析逻辑应该全部扔进 nova core 里面
     public func prepareViewForInteraction(nativeAd: MSPiOSCore.NativeAd, nativeAdView: Any) {
-        let adOpenActionHandler = NovaAdOpenActionHandler(viewController: adListener?.getRootViewController())
-        let actionHandlerMaster = ActionHandlerMaster(actionHandlers: [adOpenActionHandler])
-        DispatchQueue.main.async {
-            guard let nativeAdView = nativeAdView as? NativeAdView,
-                  let mediaView = nativeAd.mediaView as? NovaNativeAdMediaView,
-                  let novaNativeAdItem = self.nativeAdItem else {
-                self.adListener?.onError(msg: "fail to render native view")
-                return
+        // "video_use_control": default true, for immersive-video, video will not show controller if set to false
+        let videoUseControl = adRequest?.customParams["video_use_control"] as? Bool ?? true
+        // default false, popup cta will be enabled if set to true
+        let popupCTAEnabled = adRequest?.customParams["popup_cta_enabled"] as? Bool ?? false
+        let mediaElementLayout = createMediaElementLayout(from: adRequest?.customParams)
+        // TODO: lsy, 我看了下调用，这个不是已经在主线程了吗
+        guard let nativeAdView = nativeAdView as? NativeAdView,
+              let novaNativeAd = nativeAd as? NovaNativeAd,
+              let novaNativeAdItem = novaNativeAd.nativeAdItem
+        else {
+            self.adListener?.onError(msg: "fail to render native view")
+            return
+        }
+
+        let novaNativeAdView = NovaNativeAdView()
+        let popupCTAStyle: NovaAdVideoView.Style.PopupCTAStyle = popupCTAEnabled ? .show(
+            safeAreaInsets: mediaElementLayout?.safeAreaInsets ?? .zero,
+            exclusionRects: mediaElementLayout?.exclusionRects ?? []
+        ) : .hide
+        let progressBarStyle: NovaAdVideoView.Style.ProgressBarStyle = novaNativeAdItem.isVideo ? .show(bottomMargin: 0) : .hide
+        let newVideoStyle: NovaAdVideoView.Style = if videoUseControl {
+            .playButtonOnLeftBottom
+        } else if novaNativeAdItem.mediaContent.mediaType == .playable {
+            .clear
+        } else {
+            .playButtonOnCenter(progressBarStyle: progressBarStyle, popupCTAStyle: popupCTAStyle)
+        }
+        novaNativeAdItem.mediaContent.videoController?.style = newVideoStyle
+        novaNativeAdItem.mediaContent.elementLayout = mediaElementLayout
+
+        if let nativeAdViewBinder = nativeAdView.nativeAdViewBinder {
+            novaNativeAdView.titleLabel = nativeAdView.nativeAdViewBinder?.titleLabel
+            novaNativeAdView.bodyLabel = nativeAdView.nativeAdViewBinder?.bodyLabel
+            novaNativeAdView.advertiserLabel = nativeAdView.nativeAdViewBinder?.advertiserLabel
+            novaNativeAdView.callToActionButton = nativeAdView.nativeAdViewBinder?.callToActionButton
+            novaNativeAdView.customClickableViews = nativeAdView.nativeAdViewBinder?.customClickableViews
+
+            var clickableViews: [UIView] = [
+                novaNativeAdView.titleLabel,
+                novaNativeAdView.bodyLabel,
+                novaNativeAdView.advertiserLabel,
+                novaNativeAdView.callToActionButton,
+                novaNativeAdView.icon
+            ].compactMap {
+                $0
             }
-            let novaNativeAdView = NovaNativeAdView(actionHandler: actionHandlerMaster,
-                                                    mediaView: mediaView)
-            
-            if let nativeAdViewBinder = nativeAdView.nativeAdViewBinder {
-                novaNativeAdView.titleLabel = nativeAdView.nativeAdViewBinder?.titleLabel
-                novaNativeAdView.bodyLabel = nativeAdView.nativeAdViewBinder?.bodyLabel
-                novaNativeAdView.advertiserLabel = nativeAdView.nativeAdViewBinder?.advertiserLabel
-                novaNativeAdView.callToActionButton = nativeAdView.nativeAdViewBinder?.callToActionButton
-                novaNativeAdView.prepareViewForInteraction(nativeAd: novaNativeAdItem)
                 
-                let novaSubViews: [UIView?] = [novaNativeAdView.titleLabel, novaNativeAdView.bodyLabel, novaNativeAdView.advertiserLabel, novaNativeAdView.callToActionButton, mediaView]
-                novaNativeAdView.tappableViews = [UIView]()
-                for view in novaSubViews {
-                    if let view = view {
-                        novaNativeAdView.addSubview(view)
-                        novaNativeAdView.tappableViews?.append(view)
-                    }
-                }
-                novaNativeAdView.translatesAutoresizingMaskIntoConstraints = false
-                nativeAdView.nativeAdViewBinder?.setUpViews(parentView: novaNativeAdView)
-            } else if let nativeAdContainer = nativeAdView.nativeAdContainer {
-                novaNativeAdView.titleLabel = nativeAdContainer.getTitle()
-                novaNativeAdView.bodyLabel = nativeAdContainer.getbody()
-                novaNativeAdView.advertiserLabel = nativeAdContainer.getAdvertiser()
-                novaNativeAdView.callToActionButton = nativeAdContainer.getCallToAction()
-                novaNativeAdView.icon = nativeAdContainer.getIcon()
-                novaNativeAdView.prepareViewForInteraction(nativeAd: novaNativeAdItem)
-                
-                if let mediaContainer = nativeAdContainer.getMedia() {
-                    mediaContainer.addSubview(mediaView)
-                    NSLayoutConstraint.activate([
-                        //novaNativeAdView.centerYAnchor.constraint(equalTo: nativeAdView.centerYAnchor),
-                        mediaView.leadingAnchor.constraint(equalTo: mediaContainer.leadingAnchor),
-                        mediaView.trailingAnchor.constraint(equalTo: mediaContainer.trailingAnchor),
-                        mediaView.topAnchor.constraint(equalTo: mediaContainer.topAnchor),
-                        mediaView.bottomAnchor.constraint(equalTo: mediaContainer.bottomAnchor)
-                    ])
-                }
-                
-                if let iconView = nativeAdContainer.getIcon(),
-                   let imageUrlStr = novaNativeAdItem.iconUrlStr,
-                   let url = URL(string: imageUrlStr) {
-                    NovaUIUtils.setImage(from: url, to: iconView) {
-                        
-                    }
-                }
-                
-                nativeAdContainer.translatesAutoresizingMaskIntoConstraints = false
-                
-                novaNativeAdView.addSubview(nativeAdContainer)
-                novaNativeAdView.tappableViews = [UIView]()
-                let novaSubViews = [novaNativeAdView.titleLabel, novaNativeAdView.bodyLabel, novaNativeAdView.advertiserLabel, novaNativeAdView.callToActionButton, novaNativeAdView.icon, mediaView]
-                for view in novaSubViews {
-                    if let view = view {
-                        novaNativeAdView.tappableViews?.append(view)
-                    }
-                }
-                novaNativeAdView.tappableViews?.append(nativeAdContainer)
-                if let button = novaNativeAdView.callToActionButton {
-                    novaNativeAdView.tappableViews?.append(button)
-                }
-                novaNativeAdView.translatesAutoresizingMaskIntoConstraints = false
-                NSLayoutConstraint.activate([
-                    //novaNativeAdView.centerYAnchor.constraint(equalTo: nativeAdView.centerYAnchor),
-                    nativeAdContainer.leadingAnchor.constraint(equalTo: novaNativeAdView.leadingAnchor),
-                    nativeAdContainer.trailingAnchor.constraint(equalTo: novaNativeAdView.trailingAnchor),
-                    nativeAdContainer.topAnchor.constraint(equalTo: novaNativeAdView.topAnchor),
-                    nativeAdContainer.bottomAnchor.constraint(equalTo: novaNativeAdView.bottomAnchor),
-                    nativeAdContainer.widthAnchor.constraint(lessThanOrEqualTo: novaNativeAdView.widthAnchor),
-                    nativeAdContainer.heightAnchor.constraint(lessThanOrEqualTo: novaNativeAdView.heightAnchor),
-                ])
+            novaNativeAdView.setupViews(with: novaNativeAdItem, clickableViews: clickableViews)
+
+            nativeAdView.nativeAdViewBinder?.setUpViews(parentView: novaNativeAdView)
+        } else if let nativeAdContainer = nativeAdView.nativeAdContainer {
+            novaNativeAdView.titleLabel = nativeAdContainer.getTitle()
+            novaNativeAdView.bodyLabel = nativeAdContainer.getbody()
+            novaNativeAdView.advertiserLabel = nativeAdContainer.getAdvertiser()
+            novaNativeAdView.callToActionButton = nativeAdContainer.getCallToAction()
+            novaNativeAdView.icon = nativeAdContainer.getIcon()
+            novaNativeAdView.customClickableViews = nativeAdContainer.getCustomClickableViews()
+
+            var clickableViews: [UIView] = [
+                novaNativeAdView.titleLabel,
+                novaNativeAdView.bodyLabel,
+                novaNativeAdView.advertiserLabel,
+                novaNativeAdView.callToActionButton,
+                novaNativeAdView.icon
+            ].compactMap {
+                $0
             }
+                
+            if let customClickableViews = novaNativeAdView.customClickableViews {
+                clickableViews.append(contentsOf: customClickableViews)
+            }
+                
+            novaNativeAdView.setupViews(with: novaNativeAdItem, clickableViews: clickableViews)
+
+            if let mediaContainer = nativeAdContainer.getMedia() {
+                mediaContainer.subviews.forEach { $0.removeFromSuperview() }
+                mediaContainer.addSubview(novaNativeAdView.mediaView)
+                novaNativeAdView.mediaView.snp.makeConstraints { make in
+                    make.directionalEdges.equalToSuperview()
+                }
+            }
+
+            if let iconView = nativeAdContainer.getIcon(),
+               let iconURL = novaNativeAdItem.iconURL
+            {
+                iconView.kf.setImage(with: iconURL)
+            }
+
+            novaNativeAdView.addSubview(nativeAdContainer)
+            nativeAdContainer.snp.makeConstraints { make in
+                make.directionalEdges.equalToSuperview()
+                make.size.equalToSuperview()
+            }
+        }
             
-            nativeAdView.addSubview(novaNativeAdView)
-            NSLayoutConstraint.activate([
-                //novaNativeAdView.centerYAnchor.constraint(equalTo: nativeAdView.centerYAnchor),
-                novaNativeAdView.leadingAnchor.constraint(equalTo: nativeAdView.leadingAnchor),
-                novaNativeAdView.trailingAnchor.constraint(equalTo: nativeAdView.trailingAnchor),
-                novaNativeAdView.topAnchor.constraint(equalTo: nativeAdView.topAnchor),
-                novaNativeAdView.bottomAnchor.constraint(equalTo: nativeAdView.bottomAnchor),
-                novaNativeAdView.widthAnchor.constraint(lessThanOrEqualTo: nativeAdView.widthAnchor),
-                novaNativeAdView.heightAnchor.constraint(lessThanOrEqualTo: nativeAdView.heightAnchor),
-            ])
+        nativeAdView.addSubview(novaNativeAdView)
+        novaNativeAdView.snp.makeConstraints { make in
+            make.directionalEdges.equalToSuperview()
+            make.width.lessThanOrEqualToSuperview()
+            make.height.lessThanOrEqualToSuperview()
         }
     }
     
@@ -187,14 +199,14 @@ public class NovaAdapter: AdNetworkAdapter {
         do {
             let decodedData = try JSONDecoder().decode(NovaResponseDataModel.self, from: data)
 
-            guard let ads = decodedData.ads, 
+            guard let ads = decodedData.ads,
                     !ads.isEmpty,
                     let adItem = ads.first else {
                 self.adListener?.onError(msg: "no valid response")
                 self.adMetricReporter?.logAdResult(placementId: adRequest?.placementId ?? "", ad: nil, fill: false, isFromCache: false)
                 return
             }
-            
+
             switch adType {
             case "banner":
                 return
@@ -202,27 +214,26 @@ public class NovaAdapter: AdNetworkAdapter {
 
             case "native":
                 MSPLogger.shared.info(message: "[Adapter: Nova] successfully loaded Nova Native ad")
-                let nativeAdItem = NovaAdBuilder.buildNativeAd(adItem: adItem, adUnitId: adUnitId, eCPMInDollar: eCPMInDollar)
+                let nativeAdItem = try NovaAdBuilder.buildNativeAd(
+                    adItem: adItem,
+                    adUnitId: adUnitId,
+                    eCPMInDollar: eCPMInDollar,
+                    abConfig: decodedData.abConfig
+                )
                 let nativeAd = NovaNativeAd(adNetworkAdapter: self,
                                             title: nativeAdItem.headline ?? "",
                                             body: nativeAdItem.body ?? "",
                                             advertiser: nativeAdItem.advertiser ?? "",
                                             callToAction:nativeAdItem.callToAction ?? "")
                 DispatchQueue.main.async{
-                    let mediaView = {
-                        let view = NovaNativeAdMediaView()
-                        view.adClickArea = .media
-                        view.translatesAutoresizingMaskIntoConstraints = false
-                        return view
-                    }()
-                    nativeAd.mediaView = mediaView
-                    nativeAd.icon = nativeAdItem.iconUrlStr
-                    nativeAd.priceInDollar = self.priceInDollar
+                    nativeAd.icon = nativeAdItem.iconURL
+                    nativeAd.setPriceInDollar(self.priceInDollar)
+
                     nativeAd.adInfo[MSPConstants.AD_INFO_PRICE] = self.priceInDollar
-                    nativeAd.adInfo["isVideo"] = (nativeAdItem.creativeType == .nativeVideo)
                     nativeAd.adInfo[MSPConstants.AD_INFO_NETWORK_NAME] = AdNetwork.nova.rawValue
                     nativeAd.adInfo[MSPConstants.AD_INFO_NETWORK_AD_UNIT_ID] = self.adUnitId
                     nativeAd.adInfo[MSPConstants.AD_INFO_NETWORK_CREATIVE_ID] = self.bidResponse?.winningBid?.bid.crid
+
                     nativeAd.nativeAdItem = nativeAdItem
                     self.nativeAdItem = nativeAdItem
                     self.nativeAd = nativeAd
@@ -235,13 +246,18 @@ public class NovaAdapter: AdNetworkAdapter {
                     }
                 }
                 
-            case "app_open":
+            case "interstitial":
                 MSPLogger.shared.info(message: "[Adapter: Nova] successfully loaded Nova Interstitial ad")
-                let appOpenAds = NovaAdBuilder.buildAppOpenAds(adItems: ads, adUnitId: adUnitId)
-                let appOpenAd = appOpenAds.first
-                
-                var novaInterstitialAd = NovaInterstitialAd(adNetworkAdapter: self)
-                novaInterstitialAd.interstitialAdItem = appOpenAd
+                let interstitialAdItems = NovaAdBuilder.buildInterstitialAds(
+                    adItems: ads,
+                    adUnitId: adUnitId,
+                    abConfig: decodedData.abConfig
+                )
+                let interstitialAdItem = interstitialAdItems.first
+
+                let novaInterstitialAd = NovaInterstitialAd(adNetworkAdapter: self)
+                novaInterstitialAd.interstitialAdItem = interstitialAdItem
+                self.interstitialAdItem = interstitialAdItem
                 //ad.fullScreenContentDelegate = self
                 DispatchQueue.main.async {
                     novaInterstitialAd.rootViewController = self.adListener?.getRootViewController()
@@ -251,24 +267,15 @@ public class NovaAdapter: AdNetworkAdapter {
                     novaInterstitialAd.adInfo[MSPConstants.AD_INFO_NETWORK_NAME] = AdNetwork.nova.rawValue
                     novaInterstitialAd.adInfo[MSPConstants.AD_INFO_NETWORK_AD_UNIT_ID] = self.adUnitId
                     novaInterstitialAd.adInfo[MSPConstants.AD_INFO_NETWORK_CREATIVE_ID] = self.bidResponse?.winningBid?.bid.crid
-                    appOpenAd?.delegate = self
+                    interstitialAdItem?.delegate = self
                 
                     if let adListener = self.adListener,
                        let adRequest = self.adRequest,
                        let auctionBidListener = self.auctionBidListener {
-                        if appOpenAd?.creativeType == .nativeImage {
-                            appOpenAd?.preloadAdImage() { image in
-                                DispatchQueue.main.async {
-                                    if let image = image {
-                                       
-                                        self.handleAdLoaded(ad: novaInterstitialAd, auctionBidListener: auctionBidListener, bidderPlacementId: self.bidderPlacementId  ?? adRequest.placementId)
-                                        self.adMetricReporter?.logAdResult(placementId: adRequest.placementId, ad: novaInterstitialAd, fill: true, isFromCache: false)
-                                    } else {
-                                        self.adListener?.onError(msg: "fail to load ad media")
-                                        self.adMetricReporter?.logAdResult(placementId: adRequest.placementId ?? "", ad: nil, fill: false, isFromCache: false)
-                                    }
-                                }
-                            }
+                        if interstitialAdItem?.creativeType == .nativeImage {
+                            // TODO: - GPY check with Huanzhi if preload is needed
+                            self.handleAdLoaded(ad: novaInterstitialAd, auctionBidListener: auctionBidListener, bidderPlacementId: self.bidderPlacementId  ?? adRequest.placementId)
+                            self.adMetricReporter?.logAdResult(placementId: adRequest.placementId, ad: novaInterstitialAd, fill: true, isFromCache: false)
                         } else {
                             DispatchQueue.main.async {
                                 self.handleAdLoaded(ad: novaInterstitialAd, auctionBidListener: auctionBidListener, bidderPlacementId: self.bidderPlacementId  ?? adRequest.placementId)
@@ -287,7 +294,8 @@ public class NovaAdapter: AdNetworkAdapter {
                 }
             }
         } catch {
-            MSPLogger.shared.info(message: "[Adapter: Nova] Fail to load Nova ad")
+            MSPLogger.shared
+                .info(message: "[Adapter: Nova] Fail to load Nova ad with error: \(error.localizedDescription)")
             let errorMessage = "error decode nova ad string"
             self.adListener?.onError(msg: errorMessage)
             self.adMetricReporter?.logAdResult(placementId: adRequest?.placementId ?? "", ad: nil, fill: false, isFromCache: false)
@@ -295,7 +303,6 @@ public class NovaAdapter: AdNetworkAdapter {
                 self.adMetricReporter?.logAdResponse(ad: nil, adRequest: adRequest, errorCode: .ERROR_CODE_INTERNAL_ERROR, errorMessage: errorMessage)
             }
         }
-        
     }
     
     public func SafeAs<T, U>(_ object: T?, _ objectType: U.Type) -> U? {
@@ -311,13 +318,36 @@ public class NovaAdapter: AdNetworkAdapter {
         }
     }
     
+    // MARK: - Element Layout Helper
+    
+    private func createMediaElementLayout(from customParams: [String: Any]?) -> NovaMediaElementLayout? {
+        guard let customParams = customParams else {
+            return nil
+        }
+        
+        let safeAreaInsets = customParams["media_safe_area_insets"] as? UIEdgeInsets ?? .zero
+        let exclusionRects = customParams["media_exclusion_rects"] as? [CGRect] ?? []
+        let showBottomShadow = customParams["media_show_bottom_shadow"] as? Bool ?? false
+        
+        // Only create if at least one value is non-default
+        if safeAreaInsets != .zero || !exclusionRects.isEmpty || showBottomShadow {
+            return NovaMediaElementLayout(
+                safeAreaInsets: safeAreaInsets,
+                exclusionRects: exclusionRects,
+                showBottomShadow: showBottomShadow
+            )
+        }
+        
+        return nil
+    }
+    
     public func loadTestAdCreative(adString: String, adListener: any AdListener, context: Any, adRequest: AdRequest) {
  
         self.adListener = adListener
         self.adRequest = adRequest
 
         let eCPMInDollar = Decimal(priceInDollar ?? 0.0)
-        let adType = adRequest.adFormat == .interstitial ? "app_open" : "native"
+        let adType = adRequest.adFormat == .interstitial ? "interstitial" : "native"
         parseNovaAdString(adString: adString, adType: adType, adUnitId: "dummy_id", eCPMInDollar: eCPMInDollar)
     }
     
@@ -339,18 +369,66 @@ public class NovaAdapter: AdNetworkAdapter {
     public func sendHideAdEvent(reason: String, adScreenShot: Data?, fullScreenShot: Data?)
     {
         DispatchQueue.main.async {
-            if let adRequest = self.adRequest,
-               let ad = self.nativeAd ?? self.interstitialAd {
-                self.adMetricReporter?.logAdHide(ad: ad, adRequest: adRequest, bidResponse: self, reason: reason, adScreenShot: adScreenShot, fullScreenShot: fullScreenShot)
+            guard let adRequest = self.adRequest else {
+                return
+            }
+
+            if let nativeAd = self.nativeAd {
+                self.adMetricReporter?
+                    .logAdHide(
+                        ad: nativeAd,
+                        adRequest: adRequest,
+                        bidResponse: self,
+                        reason: reason,
+                        adScreenShot: adScreenShot,
+                        fullScreenShot: fullScreenShot
+                    )
+                self.nativeAdItem?.logAdHide(reason: reason)
+            } else if let interstitialAd = self.interstitialAd {
+                self.adMetricReporter?
+                    .logAdHide(
+                        ad: interstitialAd,
+                        adRequest: adRequest,
+                        bidResponse: self,
+                        reason: reason,
+                        adScreenShot: adScreenShot,
+                        fullScreenShot: fullScreenShot
+                    )
+                self.interstitialAdItem?.logAdHide(reason: reason)
             }
         }
     }
     
     public func sendReportAdEvent(reason: String, description: String?, adScreenShot: Data?, fullScreenShot: Data?) {
         DispatchQueue.main.async {
-            if let adRequest = self.adRequest,
-               let ad = self.nativeAd ?? self.interstitialAd {
-                self.adMetricReporter?.logAdReport(ad: ad, adRequest: adRequest, bidResponse: self, reason: reason, description: description, adScreenShot: adScreenShot, fullScreenShot: fullScreenShot)
+            guard let adRequest = self.adRequest else {
+                return
+            }
+
+            if let nativeAd = self.nativeAd {
+                self.adMetricReporter?
+                    .logAdReport(
+                        ad: nativeAd,
+                        adRequest: adRequest,
+                        bidResponse: self,
+                        reason: reason,
+                        description: description,
+                        adScreenShot: adScreenShot,
+                        fullScreenShot: fullScreenShot
+                    )
+                self.nativeAdItem?.logAdHide(reason: reason)
+            } else if let interstitialAd = self.interstitialAd {
+                self.adMetricReporter?
+                    .logAdReport(
+                        ad: interstitialAd,
+                        adRequest: adRequest,
+                        bidResponse: self,
+                        reason: reason,
+                        description: description,
+                        adScreenShot: adScreenShot,
+                        fullScreenShot: fullScreenShot
+                    )
+                self.interstitialAdItem?.logAdHide(reason: reason)
             }
         }
     }
@@ -401,14 +479,14 @@ extension NovaAdapter: NovaNativeAdDelegate {
     }
 }
 
-extension NovaAdapter: NovaAppOpenAdDelegate {
-    public func appOpenAdDidDismiss(_ appOpenAd: NovaCore.NovaAppOpenAd) {
+extension NovaAdapter: NovaInterstitialAdDelegate {
+    public func interstitialAdDidDismiss(_ interstitialAd: NovaCore.NovaInterstitialAdItem) {
         if let interstitialAd = self.interstitialAd {
             self.adListener?.onAdDismissed(ad: interstitialAd)
         }
     }
     
-    public func appOpenAdDidDisplay(_ appOpenAd: NovaCore.NovaAppOpenAd) {
+    public func interstitialAdDidDisplay(_ interstitialAd: NovaCore.NovaInterstitialAdItem) {
         DispatchQueue.main.async {
             if let interstitialAd = self.interstitialAd {
                 if let adRequest = self.adRequest,
@@ -420,7 +498,7 @@ extension NovaAdapter: NovaAppOpenAdDelegate {
         }
     }
     
-    public func appOpenAdDidLogClick(_ appOpenAd: NovaCore.NovaAppOpenAd) {
+    public func interstitialAdDidLogClick(_ interstitialAd: NovaCore.NovaInterstitialAdItem) {
         if let interstitialAd = self.interstitialAd {
             self.adListener?.onAdClick(ad: interstitialAd)
             self.sendClickAdEvent(ad: interstitialAd)

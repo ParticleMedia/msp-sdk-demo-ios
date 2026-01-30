@@ -11,6 +11,10 @@ import UIKit
 
 
 public class DemoNativeAdContainer: UIView, MSPNativeAdContainer {
+    public func getCustomClickableViews() -> [UIView]? {
+        return nil
+    }
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
