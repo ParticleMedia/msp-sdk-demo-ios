@@ -31,6 +31,11 @@ public class MSPAdLoader: NSObject {
         
         let bidders: [MSPiOSCore.Bidder]
         let timeout: Double
+        
+        if let placementString = adRequest.customParams["msp_ad_config"] as? String {
+            MSPAdConfigManager.shared.parseExrernalPlacement(string: placementString)
+        }
+        
         if let placement = getPlacement(placementId: placementId) {
             let adConfigBidders = getBidders(placement: placement)
             if adConfigBidders.isEmpty {
@@ -52,6 +57,9 @@ public class MSPAdLoader: NSObject {
     }
     
     public func getPlacement(placementId: String) -> Placement? {
+        if let placement = MSPAdConfigManager.shared.externalAdConfigPlacements[placementId] {
+            return placement
+        }
         if let adConfig = MSPAdConfigManager.shared.adConfig,
            let placements = adConfig.placements {
             for placement in placements {
@@ -104,25 +112,37 @@ public class MSPAdLoader: NSObject {
         switch bidderInfo.name {
         case "msp":
             return MSPBidder(name: "msp", bidderPlacementId: bidderInfo.bidderPlacementId, bidderFormat: bidderFormat)
-        case "unity":
+        case AdNetwork.unity.rawValue:
             //let bidder = MSP.shared.adNetworkAdapterProvider.unityManager?.getAdBidder(bidderPlacementId: bidderInfo.bidderPlacementId, bidderFormat: bidderFormat)
             let bidder = MSP.shared.adNetworkAdapterProvider.adNetworkManagerDict[.unity]?.getAdBidder(bidderPlacementId: bidderInfo.bidderPlacementId, bidderFormat: bidderFormat)
             bidder?.setAdMetricReporter(adMetricReporter: AdMetricReporterImp())
             return bidder
-        case "pubmatic":
+        case AdNetwork.pubmatic.rawValue:
             let bidder = MSP.shared.adNetworkAdapterProvider.adNetworkManagerDict[.pubmatic]?.getAdBidder(bidderPlacementId: bidderInfo.bidderPlacementId, bidderFormat: bidderFormat)
             bidder?.setAdMetricReporter(adMetricReporter: AdMetricReporterImp())
             return bidder
-        case "inmobi":
+        case AdNetwork.inmobi.rawValue:
             let bidder = MSP.shared.adNetworkAdapterProvider.adNetworkManagerDict[.inmobi]?.getAdBidder(bidderPlacementId: bidderInfo.bidderPlacementId, bidderFormat: bidderFormat)
             bidder?.setAdMetricReporter(adMetricReporter: AdMetricReporterImp())
             return bidder
-        case "mobilefuse":
+        case AdNetwork.mobilefuse.rawValue:
             let bidder = MSP.shared.adNetworkAdapterProvider.adNetworkManagerDict[.mobilefuse]?.getAdBidder(bidderPlacementId: bidderInfo.bidderPlacementId, bidderFormat: bidderFormat)
             bidder?.setAdMetricReporter(adMetricReporter: AdMetricReporterImp())
             return bidder
-        case "mintegral":
+        case AdNetwork.mintegral.rawValue:
             let bidder = MSP.shared.adNetworkAdapterProvider.adNetworkManagerDict[.mintegral]?.getAdBidder(bidderPlacementId: bidderInfo.bidderPlacementId, bidderFormat: bidderFormat)
+            bidder?.setAdMetricReporter(adMetricReporter: AdMetricReporterImp())
+            return bidder
+        case AdNetwork.amazon.rawValue:
+            let bidder = MSP.shared.adNetworkAdapterProvider.adNetworkManagerDict[.amazon]?.getAdBidder(bidderPlacementId: bidderInfo.bidderPlacementId, bidderFormat: bidderFormat)
+            bidder?.setAdMetricReporter(adMetricReporter: AdMetricReporterImp())
+            return bidder
+        case AdNetwork.google.rawValue:
+            let bidder = MSP.shared.adNetworkAdapterProvider.adNetworkManagerDict[.google]?.getAdBidder(bidderPlacementId: bidderInfo.bidderPlacementId, bidderFormat: bidderFormat)
+            bidder?.setAdMetricReporter(adMetricReporter: AdMetricReporterImp())
+            return bidder
+        case AdNetwork.moloco.rawValue:
+            let bidder = MSP.shared.adNetworkAdapterProvider.adNetworkManagerDict[.moloco]?.getAdBidder(bidderPlacementId: bidderInfo.bidderPlacementId, bidderFormat: bidderFormat)
             bidder?.setAdMetricReporter(adMetricReporter: AdMetricReporterImp())
             return bidder
         default:
