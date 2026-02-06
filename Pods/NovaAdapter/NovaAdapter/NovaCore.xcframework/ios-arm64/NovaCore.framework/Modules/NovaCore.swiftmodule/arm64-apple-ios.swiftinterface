@@ -330,6 +330,9 @@ public protocol NovaInterstitialAdDelegate : AnyObject {
 extension NovaCore.NovaInterstitialAdDelegate {
   public func interstitialAdDidFailToDisplay(_ interstitialAd: NovaCore.NovaInterstitialAdItem)
 }
+public enum NovaImageLoader {
+  public static func setImage(for imageView: UIKit.UIImageView, with url: Foundation.URL?, placeholder: UIKit.UIImage? = nil)
+}
 extension NovaCore.NovaCreativeType : Swift.Equatable {}
 extension NovaCore.NovaCreativeType : Swift.Hashable {}
 extension NovaCore.NovaCreativeType : Swift.RawRepresentable {}
