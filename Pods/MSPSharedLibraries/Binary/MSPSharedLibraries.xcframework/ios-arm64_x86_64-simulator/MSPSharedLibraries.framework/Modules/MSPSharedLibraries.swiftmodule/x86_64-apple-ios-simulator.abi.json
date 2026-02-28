@@ -1,0 +1,31 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "MSPSharedLibraries",
+    "printedName": "MSPSharedLibraries",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSPSharedLibraries",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MSPiOSCore",
+        "printedName": "MSPiOSCore",
+        "declKind": "Import",
+        "moduleName": "MSPSharedLibraries",
+        "declAttributes": [
+          "Exported"
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}

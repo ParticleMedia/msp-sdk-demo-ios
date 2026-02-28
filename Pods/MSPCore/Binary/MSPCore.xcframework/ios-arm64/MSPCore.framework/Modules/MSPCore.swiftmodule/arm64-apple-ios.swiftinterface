@@ -1,0 +1,242 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name MSPCore
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+import AVFAudio
+import AdSupport
+import AppTrackingTransparency
+import Combine
+import CoreTelephony
+import Foundation
+import MSPiOSCore
+import Network
+import Swift
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers public class AdMetricReporterImp : MSPiOSCore.AdMetricReporter {
+  public func logAdHide(ad: MSPiOSCore.MSPAd, adRequest: MSPiOSCore.AdRequest, bidResponse: Any, reason: Swift.String, adScreenShot: Foundation.Data?, fullScreenShot: Foundation.Data?)
+  public func logAdReport(ad: MSPiOSCore.MSPAd, adRequest: MSPiOSCore.AdRequest, bidResponse: Any, reason: Swift.String, description: Swift.String?, adScreenShot: Foundation.Data?, fullScreenShot: Foundation.Data?)
+  public func logAdImpression(ad: MSPiOSCore.MSPAd, adRequest: MSPiOSCore.AdRequest, bidResponse: Any?)
+  public func logAdClick(ad: MSPiOSCore.MSPAd, adRequest: MSPiOSCore.AdRequest, bidResponse: Any?)
+  public func logGetAdFromCache(cacheKey: Swift.String, fill: Swift.Bool, ad: MSPiOSCore.MSPAd?)
+  public func logAdResult(placementId: Swift.String, ad: MSPiOSCore.MSPAd?, fill: Swift.Bool, isFromCache: Swift.Bool)
+  public func logAdResponse(ad: MSPiOSCore.MSPAd?, adRequest: MSPiOSCore.AdRequest, errorCode: MSPiOSCore.MSPErrorCode, errorMessage: Swift.String?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class MESMetricReporter : ObjectiveC.NSObject {
+  @objc public static let shared: MSPCore.MESMetricReporter
+  public func logSDKInit(totalCompleteTimeInMs: Swift.Int32?, blockLatencyInMs: Swift.Int32?, adNetworkCompleteTimeInMs: [Swift.String : Swift.Int32])
+  public func logGetAdFromCache(cacheKey: Swift.String, fill: Swift.Bool, ad: MSPiOSCore.MSPAd?)
+  public func logAdImpression(ad: MSPiOSCore.MSPAd, adRequest: MSPiOSCore.AdRequest, bidResponse: Any?)
+  public func logAdClick(ad: MSPiOSCore.MSPAd, adRequest: MSPiOSCore.AdRequest, bidResponse: Any?)
+  public func logAdResult(placementId: Swift.String, ad: MSPiOSCore.MSPAd?, fill: Swift.Bool, isFromCache: Swift.Bool)
+  public func logAdResponse(ad: MSPiOSCore.MSPAd?, adRequest: MSPiOSCore.AdRequest, errorCode: MSPiOSCore.MSPErrorCode, errorMessage: Swift.String?)
+  public func logLoadAd(adRequest: MSPiOSCore.AdRequest, ad: MSPiOSCore.MSPAd?, filledFromCache: Swift.Bool, latency: Swift.Double, errorMessage: Swift.String?)
+  public func logGetAd(ad: MSPiOSCore.MSPAd?, placementId: Swift.String, errorMessage: Swift.String? = nil)
+  public func logAdRequest(adRequest: MSPiOSCore.AdRequest)
+  public func logAdHide(ad: MSPiOSCore.MSPAd, adRequest: MSPiOSCore.AdRequest, bidResponse: Any, reason: Swift.String, adScreenshot: Foundation.Data?, fullScreenShot: Foundation.Data?)
+  public func logAdReport(ad: MSPiOSCore.MSPAd, adRequest: MSPiOSCore.AdRequest, bidResponse: Any, reason: Swift.String, description: Swift.String?, adScreenshot: Foundation.Data?, fullScreenShot: Foundation.Data?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class MSPAdConfigManager {
+  public static let shared: MSPCore.MSPAdConfigManager
+  public var adConfig: MSPCore.AdConfig?
+  public var externalAdConfigPlacements: [Swift.String : MSPCore.Placement]
+  public var MSP_AD_CONFIG_KEY: Swift.String
+  public var MSP_LOG_SAMPLE_RATE_KEY: Swift.String
+  public var MSP_LOG_WHITELIST_KEY: Swift.String
+  public func initAdConfig()
+  public func parseAdConfig(string: Swift.String)
+  public func parseExrernalPlacement(string: Swift.String)
+  public func getAdPlacementFromString(string: Swift.String) -> MSPCore.Placement?
+  public func parseLogConfig(data: [Swift.String : Any])
+  @objc deinit
+}
+public struct AdConfig : Swift.Codable {
+  public let orgId: Swift.Int
+  public let appId: Swift.Int
+  public let bundle: Swift.String?
+  public let placements: [MSPCore.Placement]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Placement : Swift.Codable {
+  public let placementId: Swift.String
+  public let auctionTimeout: Swift.Int?
+  public let bidders: [MSPCore.BidderInfo]?
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case placementId
+    case auctionTimeout
+    case bidders
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias RawValue = Swift.String
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BidderInfo : Swift.Codable {
+  public let name: Swift.String
+  public let bidderPlacementId: Swift.String
+  public let bidderFormat: Swift.String?
+  public let params: [Swift.String : Swift.String]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@objc @_inheritsConvenienceInitializers public class MSPAdLoader : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  public func loadAd(placementId: Swift.String, adListener: any MSPiOSCore.AdListener, adRequest: MSPiOSCore.AdRequest)
+  public func getPlacement(placementId: Swift.String) -> MSPCore.Placement?
+  public func getBidders(placement: MSPCore.Placement) -> [MSPiOSCore.Bidder]
+  public func getBidder(bidderInfo: MSPCore.BidderInfo) -> MSPiOSCore.Bidder?
+  public func getAd(placementId: Swift.String) -> MSPiOSCore.MSPAd?
+  @objc deinit
+}
+extension MSPCore.MSPAdLoader : MSPiOSCore.AuctionListener {
+  public func onSuccess(winningBid: MSPiOSCore.AuctionBid, loadInfo: [Swift.String : Any])
+  public func onError(error: Swift.String, loadInfo: [Swift.String : Any])
+}
+public class MSPAdNetworkAdapterProvider : MSPiOSCore.AdNetworkAdapterProvider {
+  public func getAdNetworkAdaptersCount() -> Swift.Int
+  public var rootViewController: UIKit.UIViewController?
+  public var adNetworkManagerDict: [MSPiOSCore.AdNetwork : MSPiOSCore.AdNetworkManager]
+  public init()
+  public func getAdNetworkAdapter(adNetwork: MSPiOSCore.AdNetwork) -> (any MSPiOSCore.AdNetworkAdapter)?
+  public func getAdNetworkAdapterByName(adNetworkName: Swift.String) -> (any MSPiOSCore.AdNetworkAdapter)?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class AdNetworkAdapterStandalone : MSPiOSCore.AdNetworkAdapter {
+  public func getSDKVersion() -> Swift.String
+  public func sendHideAdEvent(reason: Swift.String, adScreenShot: Foundation.Data?, fullScreenShot: Foundation.Data?)
+  public func sendReportAdEvent(reason: Swift.String, description: Swift.String?, adScreenShot: Foundation.Data?, fullScreenShot: Foundation.Data?)
+  public func loadAdCreative(bidResponse: Any, auctionBidListener: any MSPiOSCore.AuctionBidListener, adListener: any MSPiOSCore.AdListener, context: Any, adRequest: MSPiOSCore.AdRequest, bidderPlacementId: Swift.String, bidderFormat: MSPiOSCore.AdFormat?, params: [Swift.String : Swift.String]?)
+  public func setAdMetricReporter(adMetricReporter: any MSPiOSCore.AdMetricReporter)
+  @_Concurrency.MainActor public func prepareViewForInteraction(nativeAd: MSPiOSCore.NativeAd, nativeAdView: Any)
+  public func loadAdCreative(bidResponse: Any, auctionBidListener: any MSPiOSCore.AuctionBidListener, adListener: any MSPiOSCore.AdListener, context: Any, adRequest: MSPiOSCore.AdRequest, bidderPlacementId: Swift.String)
+  public func initialize(initParams: any MSPiOSCore.InitializationParameters, adapterInitListener: any MSPiOSCore.AdapterInitListener, context: Any?)
+  public func destroyAd()
+  public func getAdNetwork() -> MSPiOSCore.AdNetwork
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class MSPAuction : MSPiOSCore.Auction {
+  override public func startAuction(auctionListener: any MSPiOSCore.AuctionListener, adListener: (any MSPiOSCore.AdListener)?)
+  override public init(bidders: [MSPiOSCore.Bidder], adRequest: MSPiOSCore.AdRequest? = nil, cacheOnly: Swift.Bool, timeout: Foundation.TimeInterval)
+  @objc deinit
+}
+extension MSPCore.MSPAuction : MSPiOSCore.AuctionBidListener {
+  public func onSuccess(bid: MSPiOSCore.AuctionBid, loadInfo: [Swift.String : Any])
+  public func onError(error: Swift.String, loadInfo: [Swift.String : Any])
+}
+public class MSPBidLoaderProvider : MSPiOSCore.BidLoaderProvider {
+  public var googleQueryInfoFetcher: (any MSPiOSCore.GoogleQueryInfoFetcher)?
+  public var facebookBidTokenProvider: (any MSPiOSCore.FacebookBidTokenProvider)?
+  public var molocoBidTokenProvider: (any MSPiOSCore.MolocoBidTokenProvider)?
+  public var liftoffBidTokenProvider: (any MSPiOSCore.LiftoffBidTokenProvider)?
+  weak public var bidLoader: MSPiOSCore.BidLoader?
+  public init()
+  public func getBidLoader() -> MSPiOSCore.BidLoader
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class MSPBidder : MSPiOSCore.Bidder {
+  weak public var auctionBidListener: (any MSPiOSCore.AuctionBidListener)?
+  weak public var adListener: (any MSPiOSCore.AdListener)?
+  public var adRequest: MSPiOSCore.AdRequest?
+  public var adNetworkAdapter: (any MSPiOSCore.AdNetworkAdapter)?
+  public var bidLoader: MSPiOSCore.BidLoader?
+  override public func requestBid(adRequest: MSPiOSCore.AdRequest, bidListener: any MSPiOSCore.AuctionBidListener, adListener: any MSPiOSCore.AdListener)
+  override public init(name: Swift.String, bidderPlacementId: Swift.String, bidderFormat: MSPiOSCore.AdFormat?)
+  @objc deinit
+}
+extension MSPCore.MSPBidder : MSPiOSCore.BidListener {
+  public func onBidResponse(bidResponse: Any, adNetwork: MSPiOSCore.AdNetwork)
+  public func onError(msg: Swift.String, loadInfo: [Swift.String : Any])
+}
+public class MSPDevice {
+  public static let shared: MSPCore.MSPDevice
+  public init()
+  public func getDeviceSignalsDictionary() -> [Swift.String : Swift.String]
+  public func collectDeviceInfo()
+  public func getBatteryStatusString() -> Swift.String
+  public func getFontSizeString() -> Swift.String
+  public func getAvailableMemoryString() -> Swift.String
+  public func getTimezoneString() -> Swift.String
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class MSP {
+  final public let version: Swift.String
+  public static let shared: MSPCore.MSP
+  public var numInitWaitingForCallbacks: Swift.Int
+  weak public var sdkInitListener: (any MSPiOSCore.MSPInitListener)?
+  public var initStartTime: Swift.Double?
+  public var adNetworkInitStartTime: [Swift.String : Swift.Double]
+  public var adNetworkInitLatencyInMs: [Swift.String : Swift.Int32]
+  public var blockLatencyInMs: Swift.Int32?
+  public var adNetworkAdapterProvider: MSPCore.MSPAdNetworkAdapterProvider
+  public var bidLoaderProvider: MSPCore.MSPBidLoaderProvider
+  public var prebidHost: Swift.String
+  public var mesHost: Swift.String
+  public var novaEventHost: Swift.String
+  public var orgId: Swift.Int64?
+  public var appId: Swift.Int64?
+  public var org: Swift.String?
+  public var app: Swift.String?
+  public var ppid: Swift.String? {
+    get
+    set
+  }
+  public var email: Swift.String?
+  public var prebidAPIKey: Swift.String?
+  public var isLogSampled: Swift.Bool
+  public var logWhiteList: [Swift.String]?
+  @objc deinit
+  public func initMSP(initParams: any MSPiOSCore.InitializationParameters, sdkInitListener: (any MSPiOSCore.MSPInitListener)?, adNetworkManagers: [MSPiOSCore.AdNetworkManager])
+  @objc @_inheritsConvenienceInitializers public class MSPAdapterInitListener : ObjectiveC.NSObject, MSPiOSCore.AdapterInitListener {
+    public func onComplete(adNetwork: MSPiOSCore.AdNetwork, adapterInitStatus: MSPiOSCore.AdapterInitStatus, message: Swift.String)
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  public func showMediationDebugger()
+  public func showMediationDebugger(from rootViewController: UIKit.UIViewController)
+  public func updateLogSample(sampleRate: Swift.Double)
+  public func notifyLoss(winnerBidderName: Swift.String, winnerPrice: Swift.Float, ad: MSPiOSCore.MSPAd?, requestId: Swift.String?)
+}
+public class InitializationParametersImp : MSPiOSCore.InitializationParameters {
+  public var prebidAPIKey: Swift.String
+  public var prebidHostUrl: Swift.String
+  public var sourceApp: Swift.String?
+  public var orgId: Swift.Int64?
+  public var appId: Swift.Int64?
+  public var params: [Swift.String : Any]?
+  public init(prebidAPIKey: Swift.String, prebidHostUrl: Swift.String, sourceApp: Swift.String? = nil)
+  public init(prebidAPIKey: Swift.String, prebidHostUrl: Swift.String, orgId: Swift.Int64?, appId: Swift.Int64?)
+  public init(prebidAPIKey: Swift.String, sourceApp: Swift.String?, orgId: Swift.Int64?, appId: Swift.Int64?)
+  public init(prebidAPIKey: Swift.String, sourceApp: Swift.String? = nil)
+  public init(prebidAPIKey: Swift.String, orgId: Swift.Int64?, appId: Swift.Int64?)
+  public func getPrebidAPIKey() -> Swift.String
+  public func getPrebidHostUrl() -> Swift.String
+  public func getAppStoreId() -> Swift.String?
+  public func getConsentString() -> Swift.String
+  public func getParameters() -> [Swift.String : Any]?
+  public func hasUserConsent() -> Swift.Bool
+  public func isAgeRestrictedUser() -> Swift.Bool
+  public func isDoNotSell() -> Swift.Bool
+  public func isInTestMode() -> Swift.Bool
+  @objc deinit
+}
+extension MSPCore.Placement.CodingKeys : Swift.Equatable {}
+extension MSPCore.Placement.CodingKeys : Swift.Hashable {}
+extension MSPCore.Placement.CodingKeys : Swift.RawRepresentable {}

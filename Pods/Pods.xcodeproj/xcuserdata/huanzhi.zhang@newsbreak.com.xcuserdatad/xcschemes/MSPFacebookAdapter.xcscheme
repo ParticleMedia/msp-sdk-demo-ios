@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52813023BD517E00DC366A417303B556"
-               BuildableName = "libMSPFacebookAdapter.a"
+               BuildableName = "MSPFacebookAdapter"
                BlueprintName = "MSPFacebookAdapter"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

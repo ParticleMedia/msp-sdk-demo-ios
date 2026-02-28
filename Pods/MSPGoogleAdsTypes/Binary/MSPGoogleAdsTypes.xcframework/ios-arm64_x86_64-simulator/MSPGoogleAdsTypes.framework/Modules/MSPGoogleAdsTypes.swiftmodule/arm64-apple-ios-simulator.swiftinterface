@@ -1,0 +1,40 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name MSPGoogleAdsTypes
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+import GoogleMobileAds
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public typealias MSPGADMediaView = GoogleMobileAds.MediaView
+public typealias MSPGADNativeAdView = GoogleMobileAds.NativeAdView
+public typealias MSPGADBannerView = GoogleMobileAds.BannerView
+public typealias MSPGADNativeAd = GoogleMobileAds.NativeAd
+public typealias MSPGADInterstitialAd = GoogleMobileAds.InterstitialAd
+public typealias MSPGAMBannerView = GoogleMobileAds.AdManagerBannerView
+public typealias MSPGADRequest = GoogleMobileAds.AdManagerRequest
+public typealias MSPGADAdLoader = GoogleMobileAds.AdLoader
+public typealias MSPGADAdLoaderAdType = GoogleMobileAds.AdLoaderAdType
+public typealias MSPGADVideoOptions = GoogleMobileAds.VideoOptions
+public typealias MSPGADExtras = GoogleMobileAds.Extras
+public typealias MSPGADAdSize = GoogleMobileAds.AdSize
+public typealias MSPGADFullScreenPresentingAd = GoogleMobileAds.FullScreenPresentingAd
+public typealias MSPGADBannerViewDelegate = GoogleMobileAds.BannerViewDelegate
+public typealias MSPGADNativeAdLoaderDelegate = GoogleMobileAds.NativeAdLoaderDelegate
+public typealias MSPGADNativeAdDelegate = GoogleMobileAds.NativeAdDelegate
+public typealias MSPGADFullScreenContentDelegate = GoogleMobileAds.FullScreenContentDelegate
+public typealias MSPGAMBannerAdLoaderDelegate = GoogleMobileAds.AdManagerBannerAdLoaderDelegate
+public func MSPGADMobileAdsStart(completionHandler: (((any Swift.Error)?) -> Swift.Void)?)
+public func MSPGADMobileAdsSDKVersion() -> Swift.String
+public func MSPGADInterstitialAdLoad(adUnitID: Swift.String, request: MSPGoogleAdsTypes.MSPGADRequest, completion: @escaping (MSPGoogleAdsTypes.MSPGADInterstitialAd?, (any Swift.Error)?) -> Swift.Void)
+public let MSPGADAdSizeBanner: GoogleMobileAds.AdSize
+public let MSPGADAdSizeMediumRectangle: GoogleMobileAds.AdSize
+public func MSPNSValueFromGADAdSize(_ adSize: MSPGoogleAdsTypes.MSPGADAdSize) -> Foundation.NSValue
+public func MSPGADCurrentOrientationAnchoredAdaptiveBanner(width: CoreFoundation.CGFloat) -> MSPGoogleAdsTypes.MSPGADAdSize
+public func MSPGADInlineAdaptiveBanner(width: CoreFoundation.CGFloat, maxHeight: CoreFoundation.CGFloat) -> MSPGoogleAdsTypes.MSPGADAdSize
+public func MSPGADVideoOptionsSetStartMuted(_ options: MSPGoogleAdsTypes.MSPGADVideoOptions, muted: Swift.Bool)
+public func MSPGADAdLoaderAdTypesForMultiFormat() -> [MSPGoogleAdsTypes.MSPGADAdLoaderAdType]
+public func MSPGADRequestSetAdString(_ request: MSPGoogleAdsTypes.MSPGADRequest, adString: Swift.String?)
+public func MSPGADInterstitialAdPresent(_ ad: MSPGoogleAdsTypes.MSPGADInterstitialAd?, from rootViewController: UIKit.UIViewController?)
