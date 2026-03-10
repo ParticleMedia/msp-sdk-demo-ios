@@ -176,16 +176,28 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPOMSDK/OMSDK_Newsbreak1.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/FBAudienceNetwork/FBAudienceNetwork.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPCore/MSPCore.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPGoogleAdapter/MSPGoogleAdapter.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPGoogleAdsTypes/MSPGoogleAdsTypes.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter/NovaCore.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter/OMSDK_Newsbreak1.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPPrebidAdapter/MSPPrebidAdapter.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/MSPSharedLibraries.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/PrebidMobile.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/MSPiOSCore.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/NovaAdapter/NovaCore.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPiOSCore/MSPiOSCore.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPOMSDK/OMSDK_Newsbreak1.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/FBAudienceNetwork/FBAudienceNetwork.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPCore/MSPCore.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPGoogleAdapter/MSPGoogleAdapter.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPGoogleAdsTypes/MSPGoogleAdsTypes.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter/NovaCore.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter/OMSDK_Newsbreak1.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPPrebidAdapter/MSPPrebidAdapter.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/MSPSharedLibraries.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/PrebidMobile.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/MSPiOSCore.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/NovaAdapter/NovaCore.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPiOSCore/MSPiOSCore.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

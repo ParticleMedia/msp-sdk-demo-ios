@@ -1,1 +1,0 @@
-../../../MSPGoogleAdapter/MSPGoogleAdapter/MSPGoogleAdapter/GoogleAdapter.h

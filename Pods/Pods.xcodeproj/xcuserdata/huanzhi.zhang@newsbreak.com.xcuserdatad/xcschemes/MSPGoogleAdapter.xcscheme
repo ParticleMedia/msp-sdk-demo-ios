@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "175B1A351597FDA4035D9415FA1F68F5"
-               BuildableName = "libMSPGoogleAdapter.a"
+               BuildableName = "MSPGoogleAdapter"
                BlueprintName = "MSPGoogleAdapter"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
