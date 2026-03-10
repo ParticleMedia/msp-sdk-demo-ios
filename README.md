@@ -23,6 +23,18 @@ Please specify the version numbers for the pods in your pod file, in case future
 3. Got notified via `AdListener.onAdLoaded(placementId: String)` when Ad finished loading.
 4. Fetch the loaded Ad from cache using `AdLoader.getAd` API
 
+### notifyLoss API
+Call `MSP.shared.notifyLoss` API when: 
+1. MSP Ad loses the auction, or
+2. MSP SDK does not fill while other bidder wins
+
+`public func notifyLoss(winnerBidderName: String, winnerPrice: Float, ad: MSPAd?, requestId: String?)`
+
+- `winnerBidderName`: name of the winning bidder other than MSP
+- `winnderPrice`: Ad price of the winning bid other than MSP
+- `ad`: MSP Ad that loses the auction.(pass `nil` for the No fill case)
+- `requestId`: Provided by `onSuccess` and `onError` callback parameter `loadInfo["request_id"]`
+
 Please checkout the demo app for [sample code](https://github.com/ParticleMedia/msp-sdk-demo-ios/blob/main/MSPDemoApp/MSPDemoApp/DemoViewControllers/DemoAdViewController.swift)
 
 ## Privacy & CCPA
