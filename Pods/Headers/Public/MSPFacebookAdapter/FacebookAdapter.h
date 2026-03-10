@@ -1,1 +1,0 @@
-../../../MSPFacebookAdapter/MSPFacebookAdapter/MSPFacebookAdapter/FacebookAdapter.h

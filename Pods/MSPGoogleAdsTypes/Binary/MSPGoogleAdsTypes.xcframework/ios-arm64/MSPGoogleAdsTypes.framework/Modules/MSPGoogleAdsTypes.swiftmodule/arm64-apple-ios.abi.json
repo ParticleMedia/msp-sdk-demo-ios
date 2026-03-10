@@ -1,0 +1,512 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "MSPGoogleAdsTypes",
+    "printedName": "MSPGoogleAdsTypes",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "MSPGoogleAdsTypes"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "MSPGoogleAdsTypes"
+      },
+      {
+        "kind": "Function",
+        "name": "MSPGADMobileAdsStart",
+        "printedName": "MSPGADMobileAdsStart(completionHandler:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Optional",
+            "printedName": "(((any Swift.Error)?) -> ())?",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "((any Swift.Error)?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any Swift.Error)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:Sq"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17MSPGoogleAdsTypes012MSPGADMobileB5Start17completionHandleryys5Error_pSgcSg_tF",
+        "mangledName": "$s17MSPGoogleAdsTypes012MSPGADMobileB5Start17completionHandleryys5Error_pSgcSg_tF",
+        "moduleName": "MSPGoogleAdsTypes",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "MSPGADMobileAdsSDKVersion",
+        "printedName": "MSPGADMobileAdsSDKVersion()",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "String",
+            "printedName": "Swift.String",
+            "usr": "s:SS"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17MSPGoogleAdsTypes012MSPGADMobileB10SDKVersionSSyF",
+        "mangledName": "$s17MSPGoogleAdsTypes012MSPGADMobileB10SDKVersionSSyF",
+        "moduleName": "MSPGoogleAdsTypes",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "MSPGADInterstitialAdLoad",
+        "printedName": "MSPGADInterstitialAdLoad(adUnitID:request:completion:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "String",
+            "printedName": "Swift.String",
+            "usr": "s:SS"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "AdManagerRequest",
+            "printedName": "GoogleMobileAds.AdManagerRequest",
+            "usr": "c:objc(cs)GAMRequest"
+          },
+          {
+            "kind": "TypeFunc",
+            "name": "Function",
+            "printedName": "(GoogleMobileAds.InterstitialAd?, (any Swift.Error)?) -> ()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Tuple",
+                "printedName": "(GoogleMobileAds.InterstitialAd?, (any Swift.Error)?)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "GoogleMobileAds.InterstitialAd?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InterstitialAd",
+                        "printedName": "GoogleMobileAds.InterstitialAd",
+                        "usr": "c:objc(cs)GADInterstitialAd"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any Swift.Error)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17MSPGoogleAdsTypes24MSPGADInterstitialAdLoad8adUnitID7request10completionySS_So10GAMRequestCySo015GADInterstitialE0CSg_s5Error_pSgtctF",
+        "mangledName": "$s17MSPGoogleAdsTypes24MSPGADInterstitialAdLoad8adUnitID7request10completionySS_So10GAMRequestCySo015GADInterstitialE0CSg_s5Error_pSgtctF",
+        "moduleName": "MSPGoogleAdsTypes",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Var",
+        "name": "MSPGADAdSizeBanner",
+        "printedName": "MSPGADAdSizeBanner",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "AdSize",
+            "printedName": "GoogleMobileAds.AdSize",
+            "usr": "c:@S@GADAdSize"
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:17MSPGoogleAdsTypes18MSPGADAdSizeBannerSo05GADAdE0Vvp",
+        "mangledName": "$s17MSPGoogleAdsTypes18MSPGADAdSizeBannerSo05GADAdE0Vvp",
+        "moduleName": "MSPGoogleAdsTypes",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "isLet": true,
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdSize",
+                "printedName": "GoogleMobileAds.AdSize",
+                "usr": "c:@S@GADAdSize"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17MSPGoogleAdsTypes18MSPGADAdSizeBannerSo05GADAdE0Vvg",
+            "mangledName": "$s17MSPGoogleAdsTypes18MSPGADAdSizeBannerSo05GADAdE0Vvg",
+            "moduleName": "MSPGoogleAdsTypes",
+            "implicit": true,
+            "accessorKind": "get"
+          }
+        ]
+      },
+      {
+        "kind": "Var",
+        "name": "MSPGADAdSizeMediumRectangle",
+        "printedName": "MSPGADAdSizeMediumRectangle",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "AdSize",
+            "printedName": "GoogleMobileAds.AdSize",
+            "usr": "c:@S@GADAdSize"
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:17MSPGoogleAdsTypes27MSPGADAdSizeMediumRectangleSo05GADAdE0Vvp",
+        "mangledName": "$s17MSPGoogleAdsTypes27MSPGADAdSizeMediumRectangleSo05GADAdE0Vvp",
+        "moduleName": "MSPGoogleAdsTypes",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "isLet": true,
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdSize",
+                "printedName": "GoogleMobileAds.AdSize",
+                "usr": "c:@S@GADAdSize"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17MSPGoogleAdsTypes27MSPGADAdSizeMediumRectangleSo05GADAdE0Vvg",
+            "mangledName": "$s17MSPGoogleAdsTypes27MSPGADAdSizeMediumRectangleSo05GADAdE0Vvg",
+            "moduleName": "MSPGoogleAdsTypes",
+            "implicit": true,
+            "accessorKind": "get"
+          }
+        ]
+      },
+      {
+        "kind": "Function",
+        "name": "MSPNSValueFromGADAdSize",
+        "printedName": "MSPNSValueFromGADAdSize(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "NSValue",
+            "printedName": "Foundation.NSValue",
+            "usr": "c:objc(cs)NSValue"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "AdSize",
+            "printedName": "GoogleMobileAds.AdSize",
+            "usr": "c:@S@GADAdSize"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17MSPGoogleAdsTypes23MSPNSValueFromGADAdSizeySo7NSValueCSo0fG0VF",
+        "mangledName": "$s17MSPGoogleAdsTypes23MSPNSValueFromGADAdSizeySo7NSValueCSo0fG0VF",
+        "moduleName": "MSPGoogleAdsTypes",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "MSPGADCurrentOrientationAnchoredAdaptiveBanner",
+        "printedName": "MSPGADCurrentOrientationAnchoredAdaptiveBanner(width:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "AdSize",
+            "printedName": "GoogleMobileAds.AdSize",
+            "usr": "c:@S@GADAdSize"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "CGFloat",
+            "printedName": "CoreGraphics.CGFloat",
+            "usr": "s:14CoreFoundation7CGFloatV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17MSPGoogleAdsTypes46MSPGADCurrentOrientationAnchoredAdaptiveBanner5widthSo9GADAdSizeV14CoreFoundation7CGFloatV_tF",
+        "mangledName": "$s17MSPGoogleAdsTypes46MSPGADCurrentOrientationAnchoredAdaptiveBanner5widthSo9GADAdSizeV12CoreGraphics7CGFloatV_tF",
+        "moduleName": "MSPGoogleAdsTypes",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "MSPGADInlineAdaptiveBanner",
+        "printedName": "MSPGADInlineAdaptiveBanner(width:maxHeight:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "AdSize",
+            "printedName": "GoogleMobileAds.AdSize",
+            "usr": "c:@S@GADAdSize"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "CGFloat",
+            "printedName": "CoreGraphics.CGFloat",
+            "usr": "s:14CoreFoundation7CGFloatV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "CGFloat",
+            "printedName": "CoreGraphics.CGFloat",
+            "usr": "s:14CoreFoundation7CGFloatV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17MSPGoogleAdsTypes26MSPGADInlineAdaptiveBanner5width9maxHeightSo9GADAdSizeV14CoreFoundation7CGFloatV_AItF",
+        "mangledName": "$s17MSPGoogleAdsTypes26MSPGADInlineAdaptiveBanner5width9maxHeightSo9GADAdSizeV12CoreGraphics7CGFloatV_AItF",
+        "moduleName": "MSPGoogleAdsTypes",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "MSPGADVideoOptionsSetStartMuted",
+        "printedName": "MSPGADVideoOptionsSetStartMuted(_:muted:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "VideoOptions",
+            "printedName": "GoogleMobileAds.VideoOptions",
+            "usr": "c:objc(cs)GADVideoOptions"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Bool",
+            "printedName": "Swift.Bool",
+            "usr": "s:Sb"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17MSPGoogleAdsTypes31MSPGADVideoOptionsSetStartMuted_5mutedySo08GADVideoE0C_SbtF",
+        "mangledName": "$s17MSPGoogleAdsTypes31MSPGADVideoOptionsSetStartMuted_5mutedySo08GADVideoE0C_SbtF",
+        "moduleName": "MSPGoogleAdsTypes",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "MSPGADAdLoaderAdTypesForMultiFormat",
+        "printedName": "MSPGADAdLoaderAdTypesForMultiFormat()",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Array",
+            "printedName": "[GoogleMobileAds.AdLoaderAdType]",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdLoaderAdType",
+                "printedName": "GoogleMobileAds.AdLoaderAdType",
+                "usr": "c:GADAdLoaderAdTypes.h@T@GADAdLoaderAdType"
+              }
+            ],
+            "usr": "s:Sa"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17MSPGoogleAdsTypes016MSPGADAdLoaderAdC14ForMultiFormatSaySo05GADAdeF4TypeaGyF",
+        "mangledName": "$s17MSPGoogleAdsTypes016MSPGADAdLoaderAdC14ForMultiFormatSaySo05GADAdeF4TypeaGyF",
+        "moduleName": "MSPGoogleAdsTypes",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "MSPGADRequestSetAdString",
+        "printedName": "MSPGADRequestSetAdString(_:adString:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "AdManagerRequest",
+            "printedName": "GoogleMobileAds.AdManagerRequest",
+            "usr": "c:objc(cs)GAMRequest"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Optional",
+            "printedName": "Swift.String?",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "usr": "s:Sq"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17MSPGoogleAdsTypes24MSPGADRequestSetAdString_02adG0ySo10GAMRequestC_SSSgtF",
+        "mangledName": "$s17MSPGoogleAdsTypes24MSPGADRequestSetAdString_02adG0ySo10GAMRequestC_SSSgtF",
+        "moduleName": "MSPGoogleAdsTypes",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "MSPGADInterstitialAdPresent",
+        "printedName": "MSPGADInterstitialAdPresent(_:from:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Optional",
+            "printedName": "GoogleMobileAds.InterstitialAd?",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "InterstitialAd",
+                "printedName": "GoogleMobileAds.InterstitialAd",
+                "usr": "c:objc(cs)GADInterstitialAd"
+              }
+            ],
+            "usr": "s:Sq"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Optional",
+            "printedName": "UIKit.UIViewController?",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              }
+            ],
+            "usr": "s:Sq"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17MSPGoogleAdsTypes27MSPGADInterstitialAdPresent_4fromySo015GADInterstitialE0CSg_So16UIViewControllerCSgtF",
+        "mangledName": "$s17MSPGoogleAdsTypes27MSPGADInterstitialAdPresent_4fromySo015GADInterstitialE0CSg_So16UIViewControllerCSgtF",
+        "moduleName": "MSPGoogleAdsTypes",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}

@@ -1,0 +1,4 @@
+framework module MSPPrebidAdapter {
+  export *
+  module * { export * }
+}

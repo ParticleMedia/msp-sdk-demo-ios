@@ -1,7 +1,7 @@
 import UIKit
 import MSPCore
 import MSPGoogleAdapter
-import NovaAdapter
+import MSPNovaAdapter
 import AppTrackingTransparency
 import MSPiOSCore
 

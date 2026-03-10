@@ -1,0 +1,3377 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "MSPNovaAdapter",
+    "printedName": "MSPNovaAdapter",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MSPiOSCore",
+        "printedName": "MSPiOSCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "NovaCore",
+        "printedName": "NovaCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "MSPiOSCore",
+        "printedName": "MSPiOSCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "NovaCore",
+        "printedName": "NovaCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "PrebidMobile",
+        "printedName": "PrebidMobile",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NovaAdapter",
+        "printedName": "NovaAdapter",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "getSDKVersion",
+            "printedName": "getSDKVersion()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C13getSDKVersionSSyF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C13getSDKVersionSSyF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setAdMetricReporter",
+            "printedName": "setAdMetricReporter(adMetricReporter:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdMetricReporter",
+                "printedName": "any MSPiOSCore.AdMetricReporter",
+                "usr": "s:10MSPiOSCore16AdMetricReporterP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C19setAdMetricReporter02adfG0y10MSPiOSCore0efG0_p_tF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C19setAdMetricReporter02adfG0y10MSPiOSCore0efG0_p_tF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "adListener",
+            "printedName": "adListener",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "(any MSPiOSCore.AdListener)?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter04NovaB0C10adListener10MSPiOSCore02AdE0_pSgvp",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C10adListener10MSPiOSCore02AdE0_pSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any MSPiOSCore.AdListener)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AdListener",
+                        "printedName": "any MSPiOSCore.AdListener",
+                        "usr": "s:10MSPiOSCore10AdListenerP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C10adListener10MSPiOSCore02AdE0_pSgvg",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C10adListener10MSPiOSCore02AdE0_pSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any MSPiOSCore.AdListener)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AdListener",
+                        "printedName": "any MSPiOSCore.AdListener",
+                        "usr": "s:10MSPiOSCore10AdListenerP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C10adListener10MSPiOSCore02AdE0_pSgvs",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C10adListener10MSPiOSCore02AdE0_pSgvs",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C10adListener10MSPiOSCore02AdE0_pSgvM",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C10adListener10MSPiOSCore02AdE0_pSgvM",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "auctionBidListener",
+            "printedName": "auctionBidListener",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "(any MSPiOSCore.AuctionBidListener)?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter04NovaB0C18auctionBidListener10MSPiOSCore07AuctioneF0_pSgvp",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C18auctionBidListener10MSPiOSCore07AuctioneF0_pSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any MSPiOSCore.AuctionBidListener)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuctionBidListener",
+                        "printedName": "any MSPiOSCore.AuctionBidListener",
+                        "usr": "s:10MSPiOSCore18AuctionBidListenerP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C18auctionBidListener10MSPiOSCore07AuctioneF0_pSgvg",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C18auctionBidListener10MSPiOSCore07AuctioneF0_pSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any MSPiOSCore.AuctionBidListener)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuctionBidListener",
+                        "printedName": "any MSPiOSCore.AuctionBidListener",
+                        "usr": "s:10MSPiOSCore18AuctionBidListenerP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C18auctionBidListener10MSPiOSCore07AuctioneF0_pSgvs",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C18auctionBidListener10MSPiOSCore07AuctioneF0_pSgvs",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C18auctionBidListener10MSPiOSCore07AuctioneF0_pSgvM",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C18auctionBidListener10MSPiOSCore07AuctioneF0_pSgvM",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "bidderPlacementId",
+            "printedName": "bidderPlacementId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter04NovaB0C17bidderPlacementIdSSSgvp",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C17bidderPlacementIdSSSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C17bidderPlacementIdSSSgvg",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C17bidderPlacementIdSSSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C17bidderPlacementIdSSSgvs",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C17bidderPlacementIdSSSgvs",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C17bidderPlacementIdSSSgvM",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C17bidderPlacementIdSSSgvM",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "priceInDollar",
+            "printedName": "priceInDollar",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Double?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter04NovaB0C13priceInDollarSdSgvp",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C13priceInDollarSdSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Double?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Double",
+                        "printedName": "Swift.Double",
+                        "usr": "s:Sd"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C13priceInDollarSdSgvg",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C13priceInDollarSdSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Double?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Double",
+                        "printedName": "Swift.Double",
+                        "usr": "s:Sd"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C13priceInDollarSdSgvs",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C13priceInDollarSdSgvs",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C13priceInDollarSdSgvM",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C13priceInDollarSdSgvM",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "adUnitId",
+            "printedName": "adUnitId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter04NovaB0C8adUnitIdSSSgvp",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C8adUnitIdSSSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C8adUnitIdSSSgvg",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C8adUnitIdSSSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C8adUnitIdSSSgvs",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C8adUnitIdSSSgvs",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C8adUnitIdSSSgvM",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C8adUnitIdSSSgvM",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nativeAd",
+            "printedName": "nativeAd",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "MSPiOSCore.MSPAd?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter04NovaB0C8nativeAd10MSPiOSCore5MSPAdCSgvp",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C8nativeAd10MSPiOSCore5MSPAdCSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MSPiOSCore.MSPAd?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MSPAd",
+                        "printedName": "MSPiOSCore.MSPAd",
+                        "usr": "s:10MSPiOSCore5MSPAdC"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C8nativeAd10MSPiOSCore5MSPAdCSgvg",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C8nativeAd10MSPiOSCore5MSPAdCSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MSPiOSCore.MSPAd?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MSPAd",
+                        "printedName": "MSPiOSCore.MSPAd",
+                        "usr": "s:10MSPiOSCore5MSPAdC"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C8nativeAd10MSPiOSCore5MSPAdCSgvs",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C8nativeAd10MSPiOSCore5MSPAdCSgvs",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C8nativeAd10MSPiOSCore5MSPAdCSgvM",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C8nativeAd10MSPiOSCore5MSPAdCSgvM",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nativeAdItem",
+            "printedName": "nativeAdItem",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "NovaCore.NovaNativeAdItem?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NovaNativeAdItem",
+                    "printedName": "NovaCore.NovaNativeAdItem",
+                    "usr": "c:@M@NovaCore@objc(cs)NovaNativeAdItem"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter04NovaB0C12nativeAdItem0C4Core0c6NativeeF0CSgvp",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C12nativeAdItem0C4Core0c6NativeeF0CSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "NovaCore.NovaNativeAdItem?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NovaNativeAdItem",
+                        "printedName": "NovaCore.NovaNativeAdItem",
+                        "usr": "c:@M@NovaCore@objc(cs)NovaNativeAdItem"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C12nativeAdItem0C4Core0c6NativeeF0CSgvg",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C12nativeAdItem0C4Core0c6NativeeF0CSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "NovaCore.NovaNativeAdItem?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NovaNativeAdItem",
+                        "printedName": "NovaCore.NovaNativeAdItem",
+                        "usr": "c:@M@NovaCore@objc(cs)NovaNativeAdItem"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C12nativeAdItem0C4Core0c6NativeeF0CSgvs",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C12nativeAdItem0C4Core0c6NativeeF0CSgvs",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C12nativeAdItem0C4Core0c6NativeeF0CSgvM",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C12nativeAdItem0C4Core0c6NativeeF0CSgvM",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "interstitialAd",
+            "printedName": "interstitialAd",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "MSPiOSCore.InterstitialAd?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter04NovaB0C14interstitialAd10MSPiOSCore012InterstitialE0CSgvp",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C14interstitialAd10MSPiOSCore012InterstitialE0CSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MSPiOSCore.InterstitialAd?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InterstitialAd",
+                        "printedName": "MSPiOSCore.InterstitialAd",
+                        "usr": "s:10MSPiOSCore14InterstitialAdC"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C14interstitialAd10MSPiOSCore012InterstitialE0CSgvg",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C14interstitialAd10MSPiOSCore012InterstitialE0CSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MSPiOSCore.InterstitialAd?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InterstitialAd",
+                        "printedName": "MSPiOSCore.InterstitialAd",
+                        "usr": "s:10MSPiOSCore14InterstitialAdC"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C14interstitialAd10MSPiOSCore012InterstitialE0CSgvs",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C14interstitialAd10MSPiOSCore012InterstitialE0CSgvs",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C14interstitialAd10MSPiOSCore012InterstitialE0CSgvM",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C14interstitialAd10MSPiOSCore012InterstitialE0CSgvM",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "interstitialAdItem",
+            "printedName": "interstitialAdItem",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "NovaCore.NovaInterstitialAdItem?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NovaInterstitialAdItem",
+                    "printedName": "NovaCore.NovaInterstitialAdItem",
+                    "usr": "c:@M@NovaCore@objc(cs)NovaInterstitialAdItem"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter04NovaB0C18interstitialAdItem0C4Core0c12InterstitialeF0CSgvp",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C18interstitialAdItem0C4Core0c12InterstitialeF0CSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "NovaCore.NovaInterstitialAdItem?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NovaInterstitialAdItem",
+                        "printedName": "NovaCore.NovaInterstitialAdItem",
+                        "usr": "c:@M@NovaCore@objc(cs)NovaInterstitialAdItem"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C18interstitialAdItem0C4Core0c12InterstitialeF0CSgvg",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C18interstitialAdItem0C4Core0c12InterstitialeF0CSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "NovaCore.NovaInterstitialAdItem?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NovaInterstitialAdItem",
+                        "printedName": "NovaCore.NovaInterstitialAdItem",
+                        "usr": "c:@M@NovaCore@objc(cs)NovaInterstitialAdItem"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C18interstitialAdItem0C4Core0c12InterstitialeF0CSgvs",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C18interstitialAdItem0C4Core0c12InterstitialeF0CSgvs",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C18interstitialAdItem0C4Core0c12InterstitialeF0CSgvM",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C18interstitialAdItem0C4Core0c12InterstitialeF0CSgvM",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nativeAdView",
+            "printedName": "nativeAdView",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "MSPiOSCore.NativeAdView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NativeAdView",
+                    "printedName": "MSPiOSCore.NativeAdView",
+                    "usr": "c:@M@MSPiOSCore@objc(cs)NativeAdView"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter04NovaB0C12nativeAdView10MSPiOSCore06NativeeF0CSgvp",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C12nativeAdView10MSPiOSCore06NativeeF0CSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MSPiOSCore.NativeAdView?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NativeAdView",
+                        "printedName": "MSPiOSCore.NativeAdView",
+                        "usr": "c:@M@MSPiOSCore@objc(cs)NativeAdView"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C12nativeAdView10MSPiOSCore06NativeeF0CSgvg",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C12nativeAdView10MSPiOSCore06NativeeF0CSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MSPiOSCore.NativeAdView?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NativeAdView",
+                        "printedName": "MSPiOSCore.NativeAdView",
+                        "usr": "c:@M@MSPiOSCore@objc(cs)NativeAdView"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C12nativeAdView10MSPiOSCore06NativeeF0CSgvs",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C12nativeAdView10MSPiOSCore06NativeeF0CSgvs",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter04NovaB0C12nativeAdView10MSPiOSCore06NativeeF0CSgvM",
+                "mangledName": "$s14MSPNovaAdapter04NovaB0C12nativeAdView10MSPiOSCore06NativeeF0CSgvM",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "destroyAd",
+            "printedName": "destroyAd()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C9destroyAdyyF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C9destroyAdyyF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initialize",
+            "printedName": "initialize(initParams:adapterInitListener:context:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "InitializationParameters",
+                "printedName": "any MSPiOSCore.InitializationParameters",
+                "usr": "s:10MSPiOSCore24InitializationParametersP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdapterInitListener",
+                "printedName": "any MSPiOSCore.AdapterInitListener",
+                "usr": "s:10MSPiOSCore19AdapterInitListenerP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C10initialize10initParams19adapterInitListener7contexty10MSPiOSCore24InitializationParameters_p_AH0bhI0_pypSgtF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C10initialize10initParams19adapterInitListener7contexty10MSPiOSCore24InitializationParameters_p_AH0bhI0_pypSgtF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadAdCreative",
+            "printedName": "loadAdCreative(bidResponse:auctionBidListener:adListener:context:adRequest:bidderPlacementId:bidderFormat:params:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AuctionBidListener",
+                "printedName": "any MSPiOSCore.AuctionBidListener",
+                "usr": "s:10MSPiOSCore18AuctionBidListenerP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdListener",
+                "printedName": "any MSPiOSCore.AdListener",
+                "usr": "s:10MSPiOSCore10AdListenerP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdRequest",
+                "printedName": "MSPiOSCore.AdRequest",
+                "usr": "s:10MSPiOSCore9AdRequestC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "MSPiOSCore.AdFormat?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdFormat",
+                    "printedName": "MSPiOSCore.AdFormat",
+                    "usr": "s:10MSPiOSCore8AdFormatO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C14loadAdCreative11bidResponse18auctionBidListener02adK07context0L7Request17bidderPlacementId0O6Format6paramsyyp_10MSPiOSCore07AuctionjK0_pAM0eK0_pypAM0eN0CSSAM0eR0OSgSDyS2SGSgtF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C14loadAdCreative11bidResponse18auctionBidListener02adK07context0L7Request17bidderPlacementId0O6Format6paramsyyp_10MSPiOSCore07AuctionjK0_pAM0eK0_pypAM0eN0CSSAM0eR0OSgSDyS2SGSgtF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "prepareViewForInteraction",
+            "printedName": "prepareViewForInteraction(nativeAd:nativeAdView:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NativeAd",
+                "printedName": "MSPiOSCore.NativeAd",
+                "usr": "s:10MSPiOSCore8NativeAdC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C25prepareViewForInteraction8nativeAd0hiE0y10MSPiOSCore06NativeI0C_yptF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C25prepareViewForInteraction8nativeAd0hiE0y10MSPiOSCore06NativeI0C_yptF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "SafeAs",
+            "printedName": "SafeAs(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_0_1?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_1"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_0_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_0_1.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_1"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C6SafeAsyq_SgxSg_q_mtr0_lF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C6SafeAsyq_SgxSg_q_mtr0_lF",
+            "moduleName": "MSPNovaAdapter",
+            "genericSig": "<τ_0_0, τ_0_1>",
+            "sugared_genericSig": "<T, U>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadTestAdCreative",
+            "printedName": "loadTestAdCreative(adString:adListener:context:adRequest:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdListener",
+                "printedName": "any MSPiOSCore.AdListener",
+                "usr": "s:10MSPiOSCore10AdListenerP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdRequest",
+                "printedName": "MSPiOSCore.AdRequest",
+                "usr": "s:10MSPiOSCore9AdRequestC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C18loadTestAdCreative8adString0H8Listener7context0H7RequestySS_10MSPiOSCore0fJ0_pypAI0fL0CtF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C18loadTestAdCreative8adString0H8Listener7context0H7RequestySS_10MSPiOSCore0fJ0_pypAI0fL0CtF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handleAdLoaded",
+            "printedName": "handleAdLoaded(ad:auctionBidListener:bidderPlacementId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MSPAd",
+                "printedName": "MSPiOSCore.MSPAd",
+                "usr": "s:10MSPiOSCore5MSPAdC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AuctionBidListener",
+                "printedName": "any MSPiOSCore.AuctionBidListener",
+                "usr": "s:10MSPiOSCore18AuctionBidListenerP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C14handleAdLoaded2ad18auctionBidListener17bidderPlacementIdy10MSPiOSCore5MSPAdC_AH07AuctioniJ0_pSStF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C14handleAdLoaded2ad18auctionBidListener17bidderPlacementIdy10MSPiOSCore5MSPAdC_AH07AuctioniJ0_pSStF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getAdNetwork",
+            "printedName": "getAdNetwork()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdNetwork",
+                "printedName": "MSPiOSCore.AdNetwork",
+                "usr": "s:10MSPiOSCore9AdNetworkO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C12getAdNetwork10MSPiOSCore0eF0OyF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C12getAdNetwork10MSPiOSCore0eF0OyF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "sendHideAdEvent",
+            "printedName": "sendHideAdEvent(reason:adScreenShot:fullScreenShot:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Data?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Data?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C15sendHideAdEvent6reason12adScreenShot04fulljK0ySS_10Foundation4DataVSgAKtF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C15sendHideAdEvent6reason12adScreenShot04fulljK0ySS_10Foundation4DataVSgAKtF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "sendReportAdEvent",
+            "printedName": "sendReportAdEvent(reason:description:adScreenShot:fullScreenShot:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Data?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Data?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C17sendReportAdEvent6reason11description12adScreenShot04fullkL0ySS_SSSg10Foundation4DataVSgAMtF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C17sendReportAdEvent6reason11description12adScreenShot04fullkL0ySS_SSSg10Foundation4DataVSgAMtF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "nativeAdDidLogImpression",
+            "printedName": "nativeAdDidLogImpression(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NovaNativeAdItem",
+                "printedName": "NovaCore.NovaNativeAdItem",
+                "usr": "c:@M@NovaCore@objc(cs)NovaNativeAdItem"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C24nativeAdDidLogImpressionyy0C4Core0c6NativeE4ItemCF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C24nativeAdDidLogImpressionyy0C4Core0c6NativeE4ItemCF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "nativeAdDidLogClick",
+            "printedName": "nativeAdDidLogClick(_:clickAreaName:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NovaNativeAdItem",
+                "printedName": "NovaCore.NovaNativeAdItem",
+                "usr": "c:@M@NovaCore@objc(cs)NovaNativeAdItem"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C19nativeAdDidLogClick_13clickAreaNamey0C4Core0c6NativeE4ItemC_SStF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C19nativeAdDidLogClick_13clickAreaNamey0C4Core0c6NativeE4ItemC_SStF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "nativeAdDidFinishRender",
+            "printedName": "nativeAdDidFinishRender(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NovaNativeAdItem",
+                "printedName": "NovaCore.NovaNativeAdItem",
+                "usr": "c:@M@NovaCore@objc(cs)NovaNativeAdItem"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C23nativeAdDidFinishRenderyy0C4Core0c6NativeE4ItemCF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C23nativeAdDidFinishRenderyy0C4Core0c6NativeE4ItemCF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "nativeAdRootViewController",
+            "printedName": "nativeAdRootViewController()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIViewController?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIViewController",
+                    "printedName": "UIKit.UIViewController",
+                    "usr": "c:objc(cs)UIViewController"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C26nativeAdRootViewControllerSo06UIViewH0CSgyF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C26nativeAdRootViewControllerSo06UIViewH0CSgyF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "interstitialAdDidDismiss",
+            "printedName": "interstitialAdDidDismiss(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NovaInterstitialAdItem",
+                "printedName": "NovaCore.NovaInterstitialAdItem",
+                "usr": "c:@M@NovaCore@objc(cs)NovaInterstitialAdItem"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C24interstitialAdDidDismissyy0C4Core0c12InterstitialE4ItemCF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C24interstitialAdDidDismissyy0C4Core0c12InterstitialE4ItemCF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "interstitialAdDidDisplay",
+            "printedName": "interstitialAdDidDisplay(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NovaInterstitialAdItem",
+                "printedName": "NovaCore.NovaInterstitialAdItem",
+                "usr": "c:@M@NovaCore@objc(cs)NovaInterstitialAdItem"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C24interstitialAdDidDisplayyy0C4Core0c12InterstitialE4ItemCF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C24interstitialAdDidDisplayyy0C4Core0c12InterstitialE4ItemCF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "interstitialAdDidLogClick",
+            "printedName": "interstitialAdDidLogClick(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NovaInterstitialAdItem",
+                "printedName": "NovaCore.NovaInterstitialAdItem",
+                "usr": "c:@M@NovaCore@objc(cs)NovaInterstitialAdItem"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter04NovaB0C25interstitialAdDidLogClickyy0C4Core0c12InterstitialE4ItemCF",
+            "mangledName": "$s14MSPNovaAdapter04NovaB0C25interstitialAdDidLogClickyy0C4Core0c12InterstitialE4ItemCF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:14MSPNovaAdapter04NovaB0C",
+        "mangledName": "$s14MSPNovaAdapter04NovaB0C",
+        "moduleName": "MSPNovaAdapter",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AdNetworkAdapter",
+            "printedName": "AdNetworkAdapter",
+            "usr": "s:10MSPiOSCore16AdNetworkAdapterP",
+            "mangledName": "$s10MSPiOSCore16AdNetworkAdapterP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "NovaNativeAdDelegate",
+            "printedName": "NovaNativeAdDelegate",
+            "usr": "s:8NovaCore0A16NativeAdDelegateP",
+            "mangledName": "$s8NovaCore0A16NativeAdDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "NovaInterstitialAdDelegate",
+            "printedName": "NovaInterstitialAdDelegate",
+            "usr": "s:8NovaCore0A22InterstitialAdDelegateP",
+            "mangledName": "$s8NovaCore0A22InterstitialAdDelegateP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MSPiOSCore",
+        "printedName": "MSPiOSCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "NovaCore",
+        "printedName": "NovaCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NovaInterstitialAd",
+        "printedName": "NovaInterstitialAd",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "rootViewController",
+            "printedName": "rootViewController",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "UIKit.UIViewController?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC18rootViewControllerSo06UIViewH0CSgvp",
+            "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC18rootViewControllerSo06UIViewH0CSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "UIKit.UIViewController?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UIViewController",
+                        "printedName": "UIKit.UIViewController",
+                        "usr": "c:objc(cs)UIViewController"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC18rootViewControllerSo06UIViewH0CSgvg",
+                "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC18rootViewControllerSo06UIViewH0CSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "UIKit.UIViewController?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UIViewController",
+                        "printedName": "UIKit.UIViewController",
+                        "usr": "c:objc(cs)UIViewController"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC18rootViewControllerSo06UIViewH0CSgvs",
+                "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC18rootViewControllerSo06UIViewH0CSgvs",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC18rootViewControllerSo06UIViewH0CSgvM",
+                "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC18rootViewControllerSo06UIViewH0CSgvM",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "interstitialAdItem",
+            "printedName": "interstitialAdItem",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "NovaCore.NovaInterstitialAdItem?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NovaInterstitialAdItem",
+                    "printedName": "NovaCore.NovaInterstitialAdItem",
+                    "usr": "c:@M@NovaCore@objc(cs)NovaInterstitialAdItem"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC012interstitialE4Item0C4Core0cdeG0CSgvp",
+            "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC012interstitialE4Item0C4Core0cdeG0CSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "NovaCore.NovaInterstitialAdItem?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NovaInterstitialAdItem",
+                        "printedName": "NovaCore.NovaInterstitialAdItem",
+                        "usr": "c:@M@NovaCore@objc(cs)NovaInterstitialAdItem"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC012interstitialE4Item0C4Core0cdeG0CSgvg",
+                "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC012interstitialE4Item0C4Core0cdeG0CSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "NovaCore.NovaInterstitialAdItem?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NovaInterstitialAdItem",
+                        "printedName": "NovaCore.NovaInterstitialAdItem",
+                        "usr": "c:@M@NovaCore@objc(cs)NovaInterstitialAdItem"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC012interstitialE4Item0C4Core0cdeG0CSgvs",
+                "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC012interstitialE4Item0C4Core0cdeG0CSgvs",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC012interstitialE4Item0C4Core0cdeG0CSgvM",
+                "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC012interstitialE4Item0C4Core0cdeG0CSgvM",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "show",
+            "printedName": "show()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC4showyyF",
+            "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC4showyyF",
+            "moduleName": "MSPNovaAdapter",
+            "overriding": true,
+            "declAttributes": [
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "show",
+            "printedName": "show(rootViewController:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIViewController?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIViewController",
+                    "printedName": "UIKit.UIViewController",
+                    "usr": "c:objc(cs)UIViewController"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC4show18rootViewControllerySo06UIViewI0CSg_tF",
+            "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC4show18rootViewControllerySo06UIViewI0CSg_tF",
+            "moduleName": "MSPNovaAdapter",
+            "overriding": true,
+            "declAttributes": [
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "show",
+            "printedName": "show(rootViewController:interstitialAdReportHandling:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIViewController?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIViewController",
+                    "printedName": "UIKit.UIViewController",
+                    "usr": "c:objc(cs)UIViewController"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any MSPiOSCore.InterstitialAdReportHandling)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InterstitialAdReportHandling",
+                    "printedName": "any MSPiOSCore.InterstitialAdReportHandling",
+                    "usr": "s:10MSPiOSCore28InterstitialAdReportHandlingP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC4show18rootViewController012interstitialE14ReportHandlingySo06UIViewI0CSg_10MSPiOSCore0dekL0_pSgtF",
+            "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC4show18rootViewController012interstitialE14ReportHandlingySo06UIViewI0CSg_10MSPiOSCore0dekL0_pSgtF",
+            "moduleName": "MSPNovaAdapter",
+            "overriding": true,
+            "declAttributes": [
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isValid",
+            "printedName": "isValid()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC7isValidSbyF",
+            "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC7isValidSbyF",
+            "moduleName": "MSPNovaAdapter",
+            "overriding": true,
+            "declAttributes": [
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "dismiss",
+            "printedName": "dismiss(animated:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC7dismiss8animatedySb_tF",
+            "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC7dismiss8animatedySb_tF",
+            "moduleName": "MSPNovaAdapter",
+            "overriding": true,
+            "declAttributes": [
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(adNetworkAdapter:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NovaInterstitialAd",
+                "printedName": "MSPNovaAdapter.NovaInterstitialAd",
+                "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdNetworkAdapter",
+                "printedName": "any MSPiOSCore.AdNetworkAdapter",
+                "usr": "s:10MSPiOSCore16AdNetworkAdapterP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC09adNetworkB0AC10MSPiOSCore0egB0_p_tcfc",
+            "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC09adNetworkB0AC10MSPiOSCore0egB0_p_tcfc",
+            "moduleName": "MSPNovaAdapter",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:14MSPNovaAdapter18NovaInterstitialAdC",
+        "mangledName": "$s14MSPNovaAdapter18NovaInterstitialAdC",
+        "moduleName": "MSPNovaAdapter",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "superclassUsr": "s:10MSPiOSCore14InterstitialAdC",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "MSPiOSCore.InterstitialAd",
+          "MSPiOSCore.MSPAd"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MSPiOSCore",
+        "printedName": "MSPiOSCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NovaManager",
+        "printedName": "NovaManager",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "getAdNetworkAdapter",
+            "printedName": "getAdNetworkAdapter()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any MSPiOSCore.AdNetworkAdapter)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdNetworkAdapter",
+                    "printedName": "any MSPiOSCore.AdNetworkAdapter",
+                    "usr": "s:10MSPiOSCore16AdNetworkAdapterP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter11NovaManagerC012getAdNetworkB010MSPiOSCore0fgB0_pSgyF",
+            "mangledName": "$s14MSPNovaAdapter11NovaManagerC012getAdNetworkB010MSPiOSCore0fgB0_pSgyF",
+            "moduleName": "MSPNovaAdapter",
+            "overriding": true,
+            "declAttributes": [
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NovaManager",
+                "printedName": "MSPNovaAdapter.NovaManager",
+                "usr": "s:14MSPNovaAdapter11NovaManagerC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:14MSPNovaAdapter11NovaManagerCACycfc",
+            "mangledName": "$s14MSPNovaAdapter11NovaManagerCACycfc",
+            "moduleName": "MSPNovaAdapter",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:14MSPNovaAdapter11NovaManagerC",
+        "mangledName": "$s14MSPNovaAdapter11NovaManagerC",
+        "moduleName": "MSPNovaAdapter",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "superclassUsr": "s:10MSPiOSCore16AdNetworkManagerC",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "MSPiOSCore.AdNetworkManager"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MSPiOSCore",
+        "printedName": "MSPiOSCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "NovaCore",
+        "printedName": "NovaCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "StoreKit",
+        "printedName": "StoreKit",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NovaNativeAd",
+        "printedName": "NovaNativeAd",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "mediaContainer",
+            "printedName": "mediaContainer",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any MSPiOSCore.AdMediaContainer)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdMediaContainer",
+                    "printedName": "any MSPiOSCore.AdMediaContainer",
+                    "usr": "s:10MSPiOSCore16AdMediaContainerP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter12NovaNativeAdC14mediaContainer10MSPiOSCore0e5MediaG0_pSgvp",
+            "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC14mediaContainer10MSPiOSCore0e5MediaG0_pSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "overriding": true,
+            "declAttributes": [
+              "AccessControl",
+              "Override",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any MSPiOSCore.AdMediaContainer)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AdMediaContainer",
+                        "printedName": "any MSPiOSCore.AdMediaContainer",
+                        "usr": "s:10MSPiOSCore16AdMediaContainerP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter12NovaNativeAdC14mediaContainer10MSPiOSCore0e5MediaG0_pSgvg",
+                "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC14mediaContainer10MSPiOSCore0e5MediaG0_pSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "overriding": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isSKOverlayShowing",
+            "printedName": "isSKOverlayShowing",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter12NovaNativeAdC18isSKOverlayShowingSbvp",
+            "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC18isSKOverlayShowingSbvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter12NovaNativeAdC18isSKOverlayShowingSbvg",
+                "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC18isSKOverlayShowingSbvg",
+                "moduleName": "MSPNovaAdapter",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "canAutoShowSKOverlayOnVideoPlayback",
+            "printedName": "canAutoShowSKOverlayOnVideoPlayback",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter12NovaNativeAdC35canAutoShowSKOverlayOnVideoPlaybackSbvp",
+            "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC35canAutoShowSKOverlayOnVideoPlaybackSbvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter12NovaNativeAdC35canAutoShowSKOverlayOnVideoPlaybackSbvg",
+                "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC35canAutoShowSKOverlayOnVideoPlaybackSbvg",
+                "moduleName": "MSPNovaAdapter",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "priceInDollar",
+            "printedName": "priceInDollar",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Double?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter12NovaNativeAdC13priceInDollarSdSgvp",
+            "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC13priceInDollarSdSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "SetterAccess",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Double?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Double",
+                        "printedName": "Swift.Double",
+                        "usr": "s:Sd"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter12NovaNativeAdC13priceInDollarSdSgvg",
+                "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC13priceInDollarSdSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "isValid",
+            "printedName": "isValid()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter12NovaNativeAdC7isValidSbyF",
+            "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC7isValidSbyF",
+            "moduleName": "MSPNovaAdapter",
+            "overriding": true,
+            "declAttributes": [
+              "AccessControl",
+              "Override"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "showSKOverlayIfPossible",
+            "printedName": "showSKOverlayIfPossible(scene:position:userDismissible:overlayDelegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIWindowScene?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIWindowScene",
+                    "printedName": "UIKit.UIWindowScene",
+                    "usr": "c:objc(cs)UIWindowScene"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Position",
+                "printedName": "StoreKit.SKOverlay.Position",
+                "hasDefaultArg": true,
+                "usr": "c:@E@SKOverlayPosition"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any StoreKit.SKOverlayDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SKOverlayDelegate",
+                    "printedName": "any StoreKit.SKOverlayDelegate",
+                    "usr": "c:objc(pl)SKOverlayDelegate"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter12NovaNativeAdC23showSKOverlayIfPossible5scene8position15userDismissible15overlayDelegateySo13UIWindowSceneCSg_So0G8PositionVSbSo0gO0_pSgtF",
+            "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC23showSKOverlayIfPossible5scene8position15userDismissible15overlayDelegateySo13UIWindowSceneCSg_So0G8PositionVSbSo0gO0_pSgtF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "dismissSKOverlay",
+            "printedName": "dismissSKOverlay()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14MSPNovaAdapter12NovaNativeAdC16dismissSKOverlayyyF",
+            "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC16dismissSKOverlayyyF",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(adNetworkAdapter:builder:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NovaNativeAd",
+                "printedName": "MSPNovaAdapter.NovaNativeAd",
+                "usr": "s:14MSPNovaAdapter12NovaNativeAdC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdNetworkAdapter",
+                "printedName": "any MSPiOSCore.AdNetworkAdapter",
+                "usr": "s:10MSPiOSCore16AdNetworkAdapterP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Builder",
+                "printedName": "MSPiOSCore.NativeAd.Builder",
+                "usr": "s:10MSPiOSCore8NativeAdC7BuilderC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:14MSPNovaAdapter12NovaNativeAdC09adNetworkB07builderAC10MSPiOSCore0egB0_p_AF0dE0C7BuilderCtcfc",
+            "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC09adNetworkB07builderAC10MSPiOSCore0egB0_p_AF0dE0C7BuilderCtcfc",
+            "moduleName": "MSPNovaAdapter",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(adNetworkAdapter:title:body:advertiser:callToAction:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NovaNativeAd",
+                "printedName": "MSPNovaAdapter.NovaNativeAd",
+                "usr": "s:14MSPNovaAdapter12NovaNativeAdC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdNetworkAdapter",
+                "printedName": "any MSPiOSCore.AdNetworkAdapter",
+                "usr": "s:10MSPiOSCore16AdNetworkAdapterP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:14MSPNovaAdapter12NovaNativeAdC09adNetworkB05title4body10advertiser12callToActionAC10MSPiOSCore0egB0_p_S4Stcfc",
+            "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC09adNetworkB05title4body10advertiser12callToActionAC10MSPiOSCore0egB0_p_S4Stcfc",
+            "moduleName": "MSPNovaAdapter",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:14MSPNovaAdapter12NovaNativeAdC",
+        "mangledName": "$s14MSPNovaAdapter12NovaNativeAdC",
+        "moduleName": "MSPNovaAdapter",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "superclassUsr": "s:10MSPiOSCore8NativeAdC",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "MSPiOSCore.NativeAd",
+          "MSPiOSCore.MSPAd"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "NativeAdSKOverlayControllable",
+            "printedName": "NativeAdSKOverlayControllable",
+            "usr": "s:10MSPiOSCore29NativeAdSKOverlayControllableP",
+            "mangledName": "$s10MSPiOSCore29NativeAdSKOverlayControllableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "NovaNativeAdLayoutProviding",
+            "printedName": "NovaNativeAdLayoutProviding",
+            "usr": "s:14MSPNovaAdapter27NovaNativeAdLayoutProvidingP",
+            "mangledName": "$s14MSPNovaAdapter27NovaNativeAdLayoutProvidingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "NovaNativeAdMediaTypeProviding",
+            "printedName": "NovaNativeAdMediaTypeProviding",
+            "usr": "s:14MSPNovaAdapter30NovaNativeAdMediaTypeProvidingP",
+            "mangledName": "$s14MSPNovaAdapter30NovaNativeAdMediaTypeProvidingP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MSPiOSCore",
+        "printedName": "MSPiOSCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "NovaCore",
+        "printedName": "NovaCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NovaNativeAdLayoutProviding",
+        "printedName": "NovaNativeAdLayoutProviding",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "layout",
+            "printedName": "layout",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "NovaCore.NovaNativeLayoutStyle?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NovaNativeLayoutStyle",
+                    "printedName": "NovaCore.NovaNativeLayoutStyle",
+                    "usr": "s:8NovaCore0A17NativeLayoutStyleO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter27NovaNativeAdLayoutProvidingP6layout0C4Core0cdF5StyleOSgvp",
+            "mangledName": "$s14MSPNovaAdapter27NovaNativeAdLayoutProvidingP6layout0C4Core0cdF5StyleOSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "NovaCore.NovaNativeLayoutStyle?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NovaNativeLayoutStyle",
+                        "printedName": "NovaCore.NovaNativeLayoutStyle",
+                        "usr": "s:8NovaCore0A17NativeLayoutStyleO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter27NovaNativeAdLayoutProvidingP6layout0C4Core0cdF5StyleOSgvg",
+                "mangledName": "$s14MSPNovaAdapter27NovaNativeAdLayoutProvidingP6layout0C4Core0cdF5StyleOSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "genericSig": "<τ_0_0 where τ_0_0 : MSPNovaAdapter.NovaNativeAdLayoutProviding>",
+                "sugared_genericSig": "<Self where Self : MSPNovaAdapter.NovaNativeAdLayoutProviding>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:14MSPNovaAdapter27NovaNativeAdLayoutProvidingP",
+        "mangledName": "$s14MSPNovaAdapter27NovaNativeAdLayoutProvidingP",
+        "moduleName": "MSPNovaAdapter",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MSPiOSCore",
+        "printedName": "MSPiOSCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "NovaCore",
+        "printedName": "NovaCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NovaNativeAdMediaTypeProviding",
+        "printedName": "NovaNativeAdMediaTypeProviding",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "mediaType",
+            "printedName": "mediaType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "NovaCore.NovaAdMediaType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NovaAdMediaType",
+                    "printedName": "NovaCore.NovaAdMediaType",
+                    "usr": "s:8NovaCore0A11AdMediaTypeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14MSPNovaAdapter30NovaNativeAdMediaTypeProvidingP05mediaG00C4Core0cefG0OSgvp",
+            "mangledName": "$s14MSPNovaAdapter30NovaNativeAdMediaTypeProvidingP05mediaG00C4Core0cefG0OSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "NovaCore.NovaAdMediaType?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NovaAdMediaType",
+                        "printedName": "NovaCore.NovaAdMediaType",
+                        "usr": "s:8NovaCore0A11AdMediaTypeO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14MSPNovaAdapter30NovaNativeAdMediaTypeProvidingP05mediaG00C4Core0cefG0OSgvg",
+                "mangledName": "$s14MSPNovaAdapter30NovaNativeAdMediaTypeProvidingP05mediaG00C4Core0cefG0OSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "genericSig": "<τ_0_0 where τ_0_0 : MSPNovaAdapter.NovaNativeAdMediaTypeProviding>",
+                "sugared_genericSig": "<Self where Self : MSPNovaAdapter.NovaNativeAdMediaTypeProviding>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:14MSPNovaAdapter30NovaNativeAdMediaTypeProvidingP",
+        "mangledName": "$s14MSPNovaAdapter30NovaNativeAdMediaTypeProvidingP",
+        "moduleName": "MSPNovaAdapter",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MSPiOSCore",
+        "printedName": "MSPiOSCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "NovaCore",
+        "printedName": "NovaCore",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "MSPNovaAdapter"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NativeAd",
+        "printedName": "NativeAd",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "layout",
+            "printedName": "layout",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "NovaCore.NovaNativeLayoutStyle?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NovaNativeLayoutStyle",
+                    "printedName": "NovaCore.NovaNativeLayoutStyle",
+                    "usr": "s:8NovaCore0A17NativeLayoutStyleO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10MSPiOSCore8NativeAdC14MSPNovaAdapterE6layout8NovaCore0hC11LayoutStyleOSgvp",
+            "mangledName": "$s10MSPiOSCore8NativeAdC14MSPNovaAdapterE6layout8NovaCore0hC11LayoutStyleOSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "NovaCore.NovaNativeLayoutStyle?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NovaNativeLayoutStyle",
+                        "printedName": "NovaCore.NovaNativeLayoutStyle",
+                        "usr": "s:8NovaCore0A17NativeLayoutStyleO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10MSPiOSCore8NativeAdC14MSPNovaAdapterE6layout8NovaCore0hC11LayoutStyleOSgvg",
+                "mangledName": "$s10MSPiOSCore8NativeAdC14MSPNovaAdapterE6layout8NovaCore0hC11LayoutStyleOSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "mediaType",
+            "printedName": "mediaType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "NovaCore.NovaAdMediaType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NovaAdMediaType",
+                    "printedName": "NovaCore.NovaAdMediaType",
+                    "usr": "s:8NovaCore0A11AdMediaTypeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10MSPiOSCore8NativeAdC14MSPNovaAdapterE9mediaType8NovaCore0id5MediaH0OSgvp",
+            "mangledName": "$s10MSPiOSCore8NativeAdC14MSPNovaAdapterE9mediaType8NovaCore0id5MediaH0OSgvp",
+            "moduleName": "MSPNovaAdapter",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "NovaCore.NovaAdMediaType?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NovaAdMediaType",
+                        "printedName": "NovaCore.NovaAdMediaType",
+                        "usr": "s:8NovaCore0A11AdMediaTypeO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10MSPiOSCore8NativeAdC14MSPNovaAdapterE9mediaType8NovaCore0id5MediaH0OSgvg",
+                "mangledName": "$s10MSPiOSCore8NativeAdC14MSPNovaAdapterE9mediaType8NovaCore0id5MediaH0OSgvg",
+                "moduleName": "MSPNovaAdapter",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:10MSPiOSCore8NativeAdC",
+        "mangledName": "$s10MSPiOSCore8NativeAdC",
+        "moduleName": "MSPiOSCore",
+        "isOpen": true,
+        "superclassUsr": "s:10MSPiOSCore5MSPAdC",
+        "isExternal": true,
+        "superclassNames": [
+          "MSPiOSCore.MSPAd"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "NovaNativeAdLayoutProviding",
+            "printedName": "NovaNativeAdLayoutProviding",
+            "usr": "s:14MSPNovaAdapter27NovaNativeAdLayoutProvidingP",
+            "mangledName": "$s14MSPNovaAdapter27NovaNativeAdLayoutProvidingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "NovaNativeAdMediaTypeProviding",
+            "printedName": "NovaNativeAdMediaTypeProviding",
+            "usr": "s:14MSPNovaAdapter30NovaNativeAdMediaTypeProvidingP",
+            "mangledName": "$s14MSPNovaAdapter30NovaNativeAdMediaTypeProvidingP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}
