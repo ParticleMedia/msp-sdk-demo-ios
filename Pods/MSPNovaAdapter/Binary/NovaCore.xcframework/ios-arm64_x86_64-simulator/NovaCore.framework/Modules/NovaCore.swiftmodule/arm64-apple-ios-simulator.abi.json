@@ -4290,23 +4290,13 @@
       },
       {
         "kind": "Import",
-        "name": "Lottie",
-        "printedName": "Lottie",
-        "declKind": "Import",
-        "moduleName": "NovaCore",
-        "declAttributes": [
-          "AccessControl",
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "MSPSnapKit",
         "printedName": "MSPSnapKit",
         "declKind": "Import",
         "moduleName": "NovaCore",
         "declAttributes": [
-          "ImplementationOnly"
+          "ImplementationOnly",
+          "RawDocComment"
         ]
       },
       {
@@ -4775,6 +4765,16 @@
         "printedName": "UIKit",
         "declKind": "Import",
         "moduleName": "NovaCore"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "NovaCore",
+        "declAttributes": [
+          "RawDocComment"
+        ]
       },
       {
         "kind": "Import",
@@ -15530,28 +15530,28 @@
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Media\/Html\/NovaAdHtmlView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3497,
+      "offset": 3536,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Media\/Html\/NovaAdHtmlView.swift",
       "kind": "FloatLiteral",
-      "offset": 3595,
+      "offset": 3634,
       "length": 3,
       "value": "0.3"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Media\/Html\/NovaAdHtmlView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3637,
+      "offset": 3676,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Media\/Html\/NovaAdHtmlView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3854,
+      "offset": 3893,
       "length": 5,
       "value": "false"
     },
@@ -15760,36 +15760,15 @@
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Media\/NovaAdMediaView.swift",
-      "kind": "StringLiteral",
-      "offset": 2095,
-      "length": 12,
-      "value": "\"tap_to_try\""
-    },
-    {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Media\/NovaAdMediaView.swift",
-      "kind": "StringLiteral",
-      "offset": 2151,
-      "length": 26,
-      "value": "\"load lottie file success\""
-    },
-    {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Media\/NovaAdMediaView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2223,
+      "offset": 2062,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Media\/NovaAdMediaView.swift",
-      "kind": "StringLiteral",
-      "offset": 2449,
-      "length": 26,
-      "value": "\"can not load lottie file\""
-    },
-    {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Media\/NovaAdMediaView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2675,
+      "offset": 2290,
       "length": 5,
       "value": "false"
     },
@@ -16492,6 +16471,41 @@
       "offset": 11518,
       "length": 3,
       "value": "0.8"
+    },
+    {
+      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/UIUtils\/NovaAdTapToTryAnimationView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1041,
+      "length": 4,
+      "value": "1.83"
+    },
+    {
+      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/UIUtils\/NovaAdTapToTryAnimationView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1099,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/UIUtils\/NovaAdTapToTryAnimationView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1357,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/UIUtils\/NovaAdTapToTryAnimationView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1601,
+      "length": 3,
+      "value": "2.7"
+    },
+    {
+      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/UIUtils\/NovaAdTapToTryAnimationView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1654,
+      "length": 1,
+      "value": "0"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Internal\/NovaAdUrlTransformer.swift",

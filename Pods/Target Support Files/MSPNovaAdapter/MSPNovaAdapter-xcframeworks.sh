@@ -29,18 +29,6 @@ variant_for_slice()
   "NovaCore.xcframework/ios-arm64_x86_64-simulator")
     echo "simulator"
     ;;
-  "OMSDK_Newsbreak1.xcframework/ios-arm64")
-    echo ""
-    ;;
-  "OMSDK_Newsbreak1.xcframework/ios-arm64_x86_64-simulator")
-    echo "simulator"
-    ;;
-  "OMSDK_Newsbreak1.xcframework/tvos-arm64")
-    echo ""
-    ;;
-  "OMSDK_Newsbreak1.xcframework/tvos-arm64_x86_64-simulator")
-    echo "simulator"
-    ;;
   esac
 }
 
@@ -57,18 +45,6 @@ archs_for_slice()
     echo "arm64"
     ;;
   "NovaCore.xcframework/ios-arm64_x86_64-simulator")
-    echo "arm64 x86_64"
-    ;;
-  "OMSDK_Newsbreak1.xcframework/ios-arm64")
-    echo "arm64"
-    ;;
-  "OMSDK_Newsbreak1.xcframework/ios-arm64_x86_64-simulator")
-    echo "arm64 x86_64"
-    ;;
-  "OMSDK_Newsbreak1.xcframework/tvos-arm64")
-    echo "arm64"
-    ;;
-  "OMSDK_Newsbreak1.xcframework/tvos-arm64_x86_64-simulator")
     echo "arm64 x86_64"
     ;;
   esac
@@ -155,5 +131,4 @@ install_xcframework() {
 
 install_xcframework "${PODS_ROOT}/MSPNovaAdapter/Binary/MSPNovaAdapter.xcframework" "MSPNovaAdapter" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
 install_xcframework "${PODS_ROOT}/MSPNovaAdapter/Binary/NovaCore.xcframework" "MSPNovaAdapter" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
-install_xcframework "${PODS_ROOT}/MSPNovaAdapter/Binary/OMSDK_Newsbreak1.xcframework" "MSPNovaAdapter" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
 

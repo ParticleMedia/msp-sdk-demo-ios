@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		664F334B2C49B2970014E1BA /* DemoNativeAdViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664F334A2C49B2970014E1BA /* DemoNativeAdViewBinder.swift */; };
 		668480632BE03D7D0025018B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668480622BE03D7D0025018B /* AppDelegate.swift */; };
 		668480652BE03D7D0025018B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668480642BE03D7D0025018B /* SceneDelegate.swift */; };
 		668480672BE03D7D0025018B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668480662BE03D7D0025018B /* ViewController.swift */; };
@@ -41,7 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		664F334A2C49B2970014E1BA /* DemoNativeAdViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoNativeAdViewBinder.swift; sourceTree = "<group>"; };
 		6684805F2BE03D7D0025018B /* MSPDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSPDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		668480622BE03D7D0025018B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		668480642BE03D7D0025018B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 		66E5334A2C1BA8AD00255D15 /* Native */ = {
 			isa = PBXGroup;
 			children = (
-				664F334A2C49B2970014E1BA /* DemoNativeAdViewBinder.swift */,
 				668ACA912CD58A8800F45803 /* DemoNativeAdContainer.swift */,
 			);
 			path = Native;
@@ -350,9 +347,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -367,9 +368,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -389,7 +394,6 @@
 				668480632BE03D7D0025018B /* AppDelegate.swift in Sources */,
 				668480652BE03D7D0025018B /* SceneDelegate.swift in Sources */,
 				668ACA922CD58A8800F45803 /* DemoNativeAdContainer.swift in Sources */,
-				664F334B2C49B2970014E1BA /* DemoNativeAdViewBinder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

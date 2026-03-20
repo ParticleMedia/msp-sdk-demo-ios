@@ -4,8 +4,8 @@ ${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPCore/MSPCore.framework/MSPCore
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPGoogleAdapter/MSPGoogleAdapter.framework/MSPGoogleAdapter
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPGoogleAdsTypes/MSPGoogleAdsTypes.framework/MSPGoogleAdsTypes
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter/NovaCore.framework/NovaCore
-${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter/OMSDK_Newsbreak1.framework/OMSDK_Newsbreak1
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPPrebidAdapter/MSPPrebidAdapter.framework/MSPPrebidAdapter
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/MSPSharedLibraries.framework/MSPSharedLibraries
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/PrebidMobile.framework/PrebidMobile
+${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/OMSDK_Newsbreak1.framework/OMSDK_Newsbreak1
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPiOSCore/MSPiOSCore.framework/MSPiOSCore

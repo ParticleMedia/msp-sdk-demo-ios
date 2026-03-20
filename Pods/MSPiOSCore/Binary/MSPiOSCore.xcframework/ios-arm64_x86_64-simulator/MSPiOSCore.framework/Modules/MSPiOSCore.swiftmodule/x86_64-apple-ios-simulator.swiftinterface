@@ -610,23 +610,8 @@ public protocol NativeAdSKOverlayControllable : AnyObject {
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class NativeAdView : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency weak public var nativeAd: MSPiOSCore.NativeAd?
   @_Concurrency.MainActor @preconcurrency weak public var rootViewController: UIKit.UIViewController?
-  @_Concurrency.MainActor @preconcurrency public var nativeAdViewBinder: MSPiOSCore.NativeAdViewBinder?
   @_Concurrency.MainActor @preconcurrency public var nativeAdContainer: (any MSPiOSCore.MSPNativeAdContainer)?
-  @_Concurrency.MainActor @preconcurrency public init(nativeAd: MSPiOSCore.NativeAd, nativeAdViewBinder: MSPiOSCore.NativeAdViewBinder)
   @_Concurrency.MainActor @preconcurrency public init(nativeAd: MSPiOSCore.NativeAd, nativeAdContainer: any MSPiOSCore.MSPNativeAdContainer)
-  @objc deinit
-}
-open class NativeAdViewBinder {
-  public var titleLabel: UIKit.UILabel?
-  public var bodyLabel: UIKit.UILabel?
-  public var advertiserLabel: UIKit.UILabel?
-  public var callToActionButton: UIKit.UIButton?
-  public var optionView: UIKit.UIView?
-  public var mediaView: UIKit.UIView?
-  public var customClickableViews: [UIKit.UIView]?
-  public var displayContext: [MSPiOSCore.MSPNativeElement : any MSPiOSCore.MSPNativeDisplayContext]?
-  public init(nativeAd: MSPiOSCore.NativeAd)
-  open func setUpViews(parentView: UIKit.UIView)
   @objc deinit
 }
 public enum PlayableRenderMode {

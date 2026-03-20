@@ -118,21 +118,12 @@ extension MSPGoogleAdapter.GoogleAdapter : MSPGoogleAdsTypes.MSPGAMBannerAdLoade
   @_Concurrency.MainActor @preconcurrency final public let gadMediaView: MSPGoogleAdsTypes.MSPGADMediaView
   @_Concurrency.MainActor @preconcurrency final public let nativeAdView: MSPGoogleAdsTypes.MSPGADNativeAdView
   @_Concurrency.MainActor @preconcurrency open func setUpView()
-  @_Concurrency.MainActor @preconcurrency public func bindViewWithNativeViewBinder(binder: MSPGoogleAdapter.GoogleNativeAdViewBinder, nativeAd: MSPGoogleAdsTypes.MSPGADNativeAd)
   @_Concurrency.MainActor @preconcurrency public func bindView(nativeAd: MSPGoogleAdsTypes.MSPGADNativeAd)
   @_Concurrency.MainActor @preconcurrency open func setUpView(nativeAd: MSPGoogleAdsTypes.MSPGADNativeAd)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
   #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   #endif
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class GoogleNativeAdViewBinder {
-  public var titleLabelTag: Swift.Int?
-  public var bodyLabelTag: Swift.Int?
-  public var advertiserLabelTag: Swift.Int?
-  public var callToActionButtonTag: Swift.Int?
-  public var mediaViewTag: Swift.Int?
   @objc deinit
 }
 public class GoogleQueryInfoFetcherHelper : MSPiOSCore.GoogleQueryInfoFetcher {

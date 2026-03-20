@@ -488,7 +488,6 @@
 		093EEE379304255F01705D655EACDB2E /* MSPiOSCore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MSPiOSCore.xcframework; path = Binary/MSPiOSCore.xcframework; sourceTree = "<group>"; };
 		09E016705F120DCCD2530B551F9A2F44 /* StringUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringUtils.swift; path = Sources/SwiftProtobuf/StringUtils.swift; sourceTree = "<group>"; };
 		09FD6657677844E6B18E4A51203832FA /* JSONEncodingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodingError.swift; path = Sources/SwiftProtobuf/JSONEncodingError.swift; sourceTree = "<group>"; };
-		0A8CC35510649F05F11AD8B9137D316E /* MSPSharedLibraries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSPSharedLibraries.debug.xcconfig; sourceTree = "<group>"; };
 		0CCA46723F73F29CBD5A3D4083210642 /* ProtoNameProviding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProtoNameProviding.swift; path = Sources/SwiftProtobuf/ProtoNameProviding.swift; sourceTree = "<group>"; };
 		0D80F84D192396BCE6E9453DBD94EA0A /* FBDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBDefines.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBDefines.h"; sourceTree = "<group>"; };
 		0FB955198A95249801D8C99C9C8EBFF1 /* ExtensionFieldValueSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionFieldValueSet.swift; path = Sources/SwiftProtobuf/ExtensionFieldValueSet.swift; sourceTree = "<group>"; };
@@ -507,8 +506,8 @@
 		1CFFCA6F59831CA4445A2E4AE9626FB2 /* TextFormatEncodingOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatEncodingOptions.swift; path = Sources/SwiftProtobuf/TextFormatEncodingOptions.swift; sourceTree = "<group>"; };
 		1DE1C0FB352D7204D4F287EA76CEE0C0 /* Pods-MSPDemoApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MSPDemoApp.modulemap"; sourceTree = "<group>"; };
 		258CE3EEB0E8BAE4A95FF2FA67C0B9B8 /* MSPGoogleAdsTypes-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "MSPGoogleAdsTypes-xcframeworks.sh"; sourceTree = "<group>"; };
+		25DAB8A1B6416B3390AFC017450B5D08 /* MSPSnapKit.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MSPSnapKit.xcframework; path = ThirdParty/MSPSnapKit/MSPSnapKit.xcframework; sourceTree = "<group>"; };
 		266077EE83F8ADE9251B19F4E7AAAC40 /* FBNativeAdBaseView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeAdBaseView.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBNativeAdBaseView.h"; sourceTree = "<group>"; };
-		283F79575D3E037E9D0062CDB5D88885 /* MSPSharedLibraries.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MSPSharedLibraries.xcframework; path = Binary/MSPSharedLibraries.xcframework; sourceTree = "<group>"; };
 		2879CFC637072EF90D140D27B7456F62 /* FBInterstitialAdBridge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBInterstitialAdBridge.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBInterstitialAdBridge.h"; sourceTree = "<group>"; };
 		29ABE109A5AA84110F33E280BD107523 /* FBAdChoicesView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBAdChoicesView.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBAdChoicesView.h"; sourceTree = "<group>"; };
 		2AEA0E26A57C7EFA6FE9A152ED2B55E1 /* FBNativeAdScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeAdScrollView.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBNativeAdScrollView.h"; sourceTree = "<group>"; };
@@ -526,7 +525,6 @@
 		33D5D0C30ED98FD487E001FC1B15719F /* lang.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = lang.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/lang.h"; sourceTree = "<group>"; };
 		348E7C22A3856639E7DDBA4B22B94945 /* Message.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Sources/SwiftProtobuf/Message.swift; sourceTree = "<group>"; };
 		34D1AEEBCEEA68EFE165044C8B3BD74E /* MSPGoogleAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSPGoogleAdapter.release.xcconfig; sourceTree = "<group>"; };
-		350636A5AD0019AD30FD751639FFA8B5 /* MSPSnapKit.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MSPSnapKit.xcframework; path = ThirdParty/MSPSnapKit/MSPSnapKit.xcframework; sourceTree = "<group>"; };
 		35BBA07EE03F4C158B01CED21606F9B7 /* Message+JSONArrayAdditions_Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Message+JSONArrayAdditions_Data.swift"; path = "Sources/SwiftProtobuf/Message+JSONArrayAdditions_Data.swift"; sourceTree = "<group>"; };
 		36C3C0140931543A1620F7C3EB630C0F /* SwiftProtobuf-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftProtobuf-dummy.m"; sourceTree = "<group>"; };
 		38DFD12C0DE83AD51C78858605BBA299 /* SwiftProtobuf-SwiftProtobuf */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "SwiftProtobuf-SwiftProtobuf"; path = SwiftProtobuf.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -540,6 +538,7 @@
 		3DECB960420E7121E1BF10B5487710EA /* Pods-MSPDemoApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MSPDemoApp-resources.sh"; sourceTree = "<group>"; };
 		3E52047A0AE1C65F362AC6BA7AE363F6 /* SwiftProtobuf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftProtobuf.release.xcconfig; sourceTree = "<group>"; };
 		3FF25A468711AA4CEBCDAADC2AFB7820 /* Version.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Sources/SwiftProtobuf/Version.swift; sourceTree = "<group>"; };
+		40247E8CB2328344E6495D4582CB157F /* MSPSharedLibraries-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "MSPSharedLibraries-xcframeworks.sh"; sourceTree = "<group>"; };
 		40525A2A368E4235E45F9EB2A23A381A /* FBInterstitialAdBridge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBInterstitialAdBridge.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBInterstitialAdBridge.h"; sourceTree = "<group>"; };
 		42A31A08F0F7D554089BDB6AE821DF19 /* timestamp.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = timestamp.pb.swift; path = Sources/SwiftProtobuf/timestamp.pb.swift; sourceTree = "<group>"; };
 		42F25B23723908B114ACE11BC24B48E9 /* wrappers.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = wrappers.pb.swift; path = Sources/SwiftProtobuf/wrappers.pb.swift; sourceTree = "<group>"; };
@@ -550,7 +549,6 @@
 		455FA10BA64B0671C801C9C10B1EF4A8 /* FieldTag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldTag.swift; path = Sources/SwiftProtobuf/FieldTag.swift; sourceTree = "<group>"; };
 		46DBF92AF50D8A9A09EA55573FCC1C7D /* Google-Mobile-Ads-SDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Google-Mobile-Ads-SDK.modulemap"; sourceTree = "<group>"; };
 		4740DE7755C7ED564D66C8EC87EF99B0 /* Decoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Decoder.swift; path = Sources/SwiftProtobuf/Decoder.swift; sourceTree = "<group>"; };
-		48BF7DBCFDBD1CDFE77E577EA7AF1D74 /* MSPSharedLibraries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSPSharedLibraries.release.xcconfig; sourceTree = "<group>"; };
 		49620EFE543E55CDD0C31C8D26E4AEC2 /* FBAdExtraHint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBAdExtraHint.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBAdExtraHint.h"; sourceTree = "<group>"; };
 		4A151BA636C0D4A198E5EA55E1FA6F63 /* BinaryDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryDecoder.swift; path = Sources/SwiftProtobuf/BinaryDecoder.swift; sourceTree = "<group>"; };
 		4B763787A82561C44F867D344DC99928 /* UnsafeRawPointer+Shims.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UnsafeRawPointer+Shims.swift"; path = "Sources/SwiftProtobuf/UnsafeRawPointer+Shims.swift"; sourceTree = "<group>"; };
@@ -568,7 +566,6 @@
 		55E608CB8926EE1D8339D014B8E68404 /* FBAudienceNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FBAudienceNetwork.debug.xcconfig; sourceTree = "<group>"; };
 		5739327116A47763D9812873B8FDD9A9 /* Google-Mobile-Ads-SDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Google-Mobile-Ads-SDK.release.xcconfig"; sourceTree = "<group>"; };
 		589C0E0CD1571ADFAE0C7F875EF36C37 /* JSONDecodingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONDecodingError.swift; path = Sources/SwiftProtobuf/JSONDecodingError.swift; sourceTree = "<group>"; };
-		5A208982D4D1D02C4579FC0A994DB1F9 /* PrebidMobile.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = PrebidMobile.xcframework; path = ThirdParty/PrebidMobile/PrebidMobile.xcframework; sourceTree = "<group>"; };
 		5A6303FC06EDC7A40A1F2D26559E8479 /* FBAdOptionsView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBAdOptionsView.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBAdOptionsView.h"; sourceTree = "<group>"; };
 		5AA1CC85568C8C864F624C0F25CD48BB /* TextFormatScanner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatScanner.swift; path = Sources/SwiftProtobuf/TextFormatScanner.swift; sourceTree = "<group>"; };
 		5BE11604A8C33CD3C2A10F9CE0D28A54 /* SwiftProtobuf-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftProtobuf-prefix.pch"; sourceTree = "<group>"; };
@@ -584,10 +581,12 @@
 		62E19E891CB54527577F3530D39F051E /* Message+JSONArrayAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Message+JSONArrayAdditions.swift"; path = "Sources/SwiftProtobuf/Message+JSONArrayAdditions.swift"; sourceTree = "<group>"; };
 		63FD806CE23822AAE5A89A8B152B965D /* MSPPrebidAdapter.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MSPPrebidAdapter.xcframework; path = Binary/MSPPrebidAdapter.xcframework; sourceTree = "<group>"; };
 		64600EE62A4A27E452230D57CC011629 /* Google_Protobuf_Any+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_Any+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_Any+Extensions.swift"; sourceTree = "<group>"; };
+		652888C1D9482CA716717398C8205C76 /* MSPNovaAdapter-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "MSPNovaAdapter-xcframeworks.sh"; sourceTree = "<group>"; };
 		656E865AEE7463C8C0B4DE5498E400F0 /* FBAudienceNetwork-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "FBAudienceNetwork-xcframeworks.sh"; sourceTree = "<group>"; };
 		659FD925469C0F467A877988BDE081B5 /* GoogleMobileAdsPlaceholder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GoogleMobileAdsPlaceholder.swift; path = Sources/GoogleMobileAdsPlaceholder.swift; sourceTree = "<group>"; };
 		65E6EFF94753B48FDE9F15BA7632745F /* Pods-MSPDemoApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MSPDemoApp-frameworks.sh"; sourceTree = "<group>"; };
 		66089F5576FF9AF787414CC4B13A1015 /* field_mask.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = field_mask.pb.swift; path = Sources/SwiftProtobuf/field_mask.pb.swift; sourceTree = "<group>"; };
+		661369BF301B6F83BE1DDA8A46707E7E /* MSPSharedLibraries.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MSPSharedLibraries.xcframework; path = Binary/MSPSharedLibraries.xcframework; sourceTree = "<group>"; };
 		662533F038B8996EBB9862CAEEA75FC5 /* Google_Protobuf_Timestamp+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_Timestamp+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_Timestamp+Extensions.swift"; sourceTree = "<group>"; };
 		66E02D33AF89F4639D795C06E4FCAD7D /* MSPiOSCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSPiOSCore.release.xcconfig; sourceTree = "<group>"; };
 		677A148CFB3DDCF0B2BC6D7C8675986B /* Google_Protobuf_ListValue+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_ListValue+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_ListValue+Extensions.swift"; sourceTree = "<group>"; };
@@ -596,7 +595,6 @@
 		69800C70596D255759B8831CA8BE012A /* MessageExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageExtension.swift; path = Sources/SwiftProtobuf/MessageExtension.swift; sourceTree = "<group>"; };
 		6A10D3D69568DE655DD6A21FE3A7826E /* Google_Protobuf_Duration+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_Duration+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_Duration+Extensions.swift"; sourceTree = "<group>"; };
 		6C701721178DB0B2C3DD5816CE56F767 /* FBNativeAdTableViewAdProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeAdTableViewAdProvider.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBNativeAdTableViewAdProvider.h"; sourceTree = "<group>"; };
-		6DA2DB2ABEAF0AEE28FAB92DFE4FCD28 /* MSPSharedLibraries-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "MSPSharedLibraries-xcframeworks.sh"; sourceTree = "<group>"; };
 		6E1338349FD89E00E2C3C6DC86CF46E8 /* SwiftProtobufError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftProtobufError.swift; path = Sources/SwiftProtobuf/SwiftProtobufError.swift; sourceTree = "<group>"; };
 		6EEDA15B84C5934D37FF4AEC6B734E6F /* ExtensionMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionMap.swift; path = Sources/SwiftProtobuf/ExtensionMap.swift; sourceTree = "<group>"; };
 		6F160592CF8612B70E3A3AEDD60AA80C /* FBAudienceNetworkAds.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBAudienceNetworkAds.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBAudienceNetworkAds.h"; sourceTree = "<group>"; };
@@ -610,12 +608,10 @@
 		7A90D6D06327C3C0FEADB4895FE16088 /* MSPGoogleAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSPGoogleAdapter.debug.xcconfig; sourceTree = "<group>"; };
 		7BE230F8A19C245D8AEABE929845D37A /* FBMediaViewVideoRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBMediaViewVideoRenderer.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBMediaViewVideoRenderer.h"; sourceTree = "<group>"; };
 		7D2E18359B47032F56E73AFCCCFC7A38 /* FBNativeAdsManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeAdsManager.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBNativeAdsManager.h"; sourceTree = "<group>"; };
-		7DAF29C1F0178D06BA36936332301EAA /* MSPNovaAdapter.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MSPNovaAdapter.xcframework; path = Binary/MSPNovaAdapter.xcframework; sourceTree = "<group>"; };
 		7DCE56CCD46638C8014F642C5AA96984 /* FBInterstitialAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBInterstitialAd.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBInterstitialAd.h"; sourceTree = "<group>"; };
 		7DFE6CAFA2CC4E5C0EC0374957C6AB52 /* FBNativeBannerAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeBannerAd.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBNativeBannerAd.h"; sourceTree = "<group>"; };
 		7EA390A440018E822AFC7053B22ADD05 /* BinaryEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryEncoder.swift; path = Sources/SwiftProtobuf/BinaryEncoder.swift; sourceTree = "<group>"; };
 		7EA5D0BEE5587F592872D4BEF6791B97 /* Enum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Enum.swift; path = Sources/SwiftProtobuf/Enum.swift; sourceTree = "<group>"; };
-		7F5C3613AF3B1264A3AE6C5BC6F3C8DC /* MSPNovaAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSPNovaAdapter.debug.xcconfig; sourceTree = "<group>"; };
 		80ADF53D4914C23705D2FAF04843A3C8 /* ResourceBundle-FBAudienceNetwork-FBAudienceNetwork-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FBAudienceNetwork-FBAudienceNetwork-Info.plist"; sourceTree = "<group>"; };
 		816A81B27D188BE4CBE88B32FEB051A4 /* ExtensionFields.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionFields.swift; path = Sources/SwiftProtobuf/ExtensionFields.swift; sourceTree = "<group>"; };
 		81B404A4EFA60597B4F31F09D6E36148 /* FBAdUtilityBridge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBAdUtilityBridge.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBAdUtilityBridge.h"; sourceTree = "<group>"; };
@@ -643,7 +639,6 @@
 		96C1A401EF8C58D2227AE18D2A9D43C7 /* FBNativeAdView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeAdView.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBNativeAdView.h"; sourceTree = "<group>"; };
 		96E4C34DA92FD82335D247F5D7EC76E4 /* PikaOptimizationsMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PikaOptimizationsMacros.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/PikaOptimizationsMacros.h"; sourceTree = "<group>"; };
 		975F96C1796308F896E789DA264E55DE /* FBDynamicBannerAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBDynamicBannerAd.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBDynamicBannerAd.h"; sourceTree = "<group>"; };
-		9A622D7C490ABAF6BE4E414655794E97 /* OMSDK_Newsbreak1.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = OMSDK_Newsbreak1.xcframework; path = Binary/OMSDK_Newsbreak1.xcframework; sourceTree = "<group>"; };
 		9B1E6E5ECF8EFA2CC53E3C19D653BA4A /* FBNativeAdCollectionViewCellProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeAdCollectionViewCellProvider.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBNativeAdCollectionViewCellProvider.h"; sourceTree = "<group>"; };
 		9BC127E5592C5AE3BD8F83C87A4E9785 /* BinaryDecodingOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryDecodingOptions.swift; path = Sources/SwiftProtobuf/BinaryDecodingOptions.swift; sourceTree = "<group>"; };
 		9C864E259357774584850A0269EC648C /* TextFormatEncodingVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatEncodingVisitor.swift; path = Sources/SwiftProtobuf/TextFormatEncodingVisitor.swift; sourceTree = "<group>"; };
@@ -652,11 +647,12 @@
 		9D92672A3B7A021CC9649525CEA4AEBC /* FBNativeAdCollectionViewAdProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeAdCollectionViewAdProvider.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBNativeAdCollectionViewAdProvider.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E6782799D9C6EF9AB7D4FB639F8641B /* Visitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Visitor.swift; path = Sources/SwiftProtobuf/Visitor.swift; sourceTree = "<group>"; };
-		9EDC92E4D0021573B4DA993275FD5683 /* MSPNovaAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSPNovaAdapter.release.xcconfig; sourceTree = "<group>"; };
+		A1A9B1B4F8DD0261932E0BF2D4C29EFB /* MSPNovaAdapter.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MSPNovaAdapter.xcframework; path = Binary/MSPNovaAdapter.xcframework; sourceTree = "<group>"; };
 		A262123C179FDCED49AF35D3592D4DB1 /* FBNativeAdTableViewCellProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeAdTableViewCellProvider.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBNativeAdTableViewCellProvider.h"; sourceTree = "<group>"; };
 		A29A1307F515B1C81F3E24954F146130 /* FBAdBridgeCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBAdBridgeCommon.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBAdBridgeCommon.h"; sourceTree = "<group>"; };
 		A2AA3B25FDE15B33B65B0E70EEDBDF29 /* MSPPrebidAdapter-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "MSPPrebidAdapter-xcframeworks.sh"; sourceTree = "<group>"; };
 		A2E19BF4A00AC65B453CE6813F02F37C /* FBAdBridgeContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBAdBridgeContainer.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBAdBridgeContainer.h"; sourceTree = "<group>"; };
+		A3CD27D3B9BE0B95A927A0363279310D /* OMSDK_Newsbreak1.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = OMSDK_Newsbreak1.xcframework; path = ThirdParty/OMSDK/OMSDK_Newsbreak1.xcframework; sourceTree = "<group>"; };
 		A4B1E7437229F245F3DCDC1EE8313249 /* SwiftProtobuf-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftProtobuf-umbrella.h"; sourceTree = "<group>"; };
 		A5C189412FF7034FC1FDE3FC6370C496 /* MathUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MathUtils.swift; path = Sources/SwiftProtobuf/MathUtils.swift; sourceTree = "<group>"; };
 		A5DCC968F908B24AA48ABB6A7ECB0A21 /* FBAdSize.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBAdSize.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBAdSize.h"; sourceTree = "<group>"; };
@@ -664,6 +660,7 @@
 		A7E32EDEEF759F0417A33B4EA95EB666 /* WireFormat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WireFormat.swift; path = Sources/SwiftProtobuf/WireFormat.swift; sourceTree = "<group>"; };
 		A8E130083A4827938775DFF22EB1EE55 /* FBNativeAdViewAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeAdViewAttributes.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBNativeAdViewAttributes.h"; sourceTree = "<group>"; };
 		AA5B4858B0DA2AF63B57BEFA23112751 /* struct.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = struct.pb.swift; path = Sources/SwiftProtobuf/struct.pb.swift; sourceTree = "<group>"; };
+		AC8652B2CA51E231BB716CC8AD21CB49 /* MSPNovaAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSPNovaAdapter.debug.xcconfig; sourceTree = "<group>"; };
 		ACF011E906CF9DA48E1218370160F967 /* MSPGoogleAdsTypes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSPGoogleAdsTypes.release.xcconfig; sourceTree = "<group>"; };
 		ADD19727495DFEA2491D9D7646F7F6DC /* Google-Mobile-Ads-SDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Google-Mobile-Ads-SDK-prefix.pch"; sourceTree = "<group>"; };
 		AEC991254140D587B78FAF2E11A559D4 /* MSPCore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MSPCore.xcframework; path = Binary/MSPCore.xcframework; sourceTree = "<group>"; };
@@ -671,14 +668,17 @@
 		B15CCA2CA062B4637C6E6AFC807C1398 /* FBNativeBannerAdView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeBannerAdView.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBNativeBannerAdView.h"; sourceTree = "<group>"; };
 		B36AAA9920B9DDFE65E0B0504C9C0E60 /* MSPCore-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "MSPCore-xcframeworks.sh"; sourceTree = "<group>"; };
 		B57E31430B82ED98707F2E24D7A00D7F /* FBRewardedVideoAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBRewardedVideoAd.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBRewardedVideoAd.h"; sourceTree = "<group>"; };
+		B73C6E3CD833EA374AD8A0D5A8688C6A /* MSPSharedLibraries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSPSharedLibraries.release.xcconfig; sourceTree = "<group>"; };
 		B80B6BC9632AFB3139D562BA26ABA84F /* empty.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = empty.pb.swift; path = Sources/SwiftProtobuf/empty.pb.swift; sourceTree = "<group>"; };
 		B9721BEEF98C81CB93A5FDFABE8C2C1C /* FBNativeAdCollectionViewCellProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeAdCollectionViewCellProvider.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBNativeAdCollectionViewCellProvider.h"; sourceTree = "<group>"; };
+		B9A58FA840A473BFDA825B2AA9F07595 /* MSPSharedLibraries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSPSharedLibraries.debug.xcconfig; sourceTree = "<group>"; };
 		BA6235972F643769B6C5F019954F636A /* ExtensibleMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensibleMessage.swift; path = Sources/SwiftProtobuf/ExtensibleMessage.swift; sourceTree = "<group>"; };
 		BA88635600E4B2544A38CB8BE6505957 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/SwiftProtobuf/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		BB32E6EE34C903CE49E2C2541F8FE729 /* Pods-MSPDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MSPDemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		BC61177E72F63A60F69073449D3D2CC9 /* FBAdBridgeCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBAdBridgeCommon.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBAdBridgeCommon.h"; sourceTree = "<group>"; };
 		BD55D89DA44D1A04F7E3F712E13E3D10 /* UnknownStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnknownStorage.swift; path = Sources/SwiftProtobuf/UnknownStorage.swift; sourceTree = "<group>"; };
 		BDAA701287AF0138A5FA544285C0B842 /* BinaryDecodingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryDecodingError.swift; path = Sources/SwiftProtobuf/BinaryDecodingError.swift; sourceTree = "<group>"; };
+		BDC2FAEDEAD665467B848D0C16BBF97A /* PrebidMobile.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = PrebidMobile.xcframework; path = ThirdParty/PrebidMobile/PrebidMobile.xcframework; sourceTree = "<group>"; };
 		C00A4E188A0E98DC6A4EAE0629E56D85 /* HashVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashVisitor.swift; path = Sources/SwiftProtobuf/HashVisitor.swift; sourceTree = "<group>"; };
 		C05F7B9B83F4EB2C2C113EFBCEEA796D /* Message+JSONAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Message+JSONAdditions.swift"; path = "Sources/SwiftProtobuf/Message+JSONAdditions.swift"; sourceTree = "<group>"; };
 		C066B8F28BB98CF0ECBF475285EBF2D2 /* TextFormatDecodingOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatDecodingOptions.swift; path = Sources/SwiftProtobuf/TextFormatDecodingOptions.swift; sourceTree = "<group>"; };
@@ -693,7 +693,6 @@
 		C6C058D384FBDF713CD09E70CBE8D413 /* FBAdSDKNotificationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBAdSDKNotificationManager.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBAdSDKNotificationManager.h"; sourceTree = "<group>"; };
 		C78E56C43A18CB93B032B7A9C84632A8 /* BinaryEncodingVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryEncodingVisitor.swift; path = Sources/SwiftProtobuf/BinaryEncodingVisitor.swift; sourceTree = "<group>"; };
 		C80BDA0D249EDAD804F8894EFE309C25 /* MSPFacebookAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSPFacebookAdapter.debug.xcconfig; sourceTree = "<group>"; };
-		C8C3ECCB8A27DCD270C232948CE1555D /* MSPNovaAdapter-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "MSPNovaAdapter-xcframeworks.sh"; sourceTree = "<group>"; };
 		CAB2C85D5D1DB4D4FCB7D6C7F96B7372 /* Google_Protobuf_FieldMask+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_FieldMask+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_FieldMask+Extensions.swift"; sourceTree = "<group>"; };
 		CAF98A9CED26AC4B089DFB30A78DAA41 /* Google_Protobuf_NullValue+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_NullValue+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_NullValue+Extensions.swift"; sourceTree = "<group>"; };
 		CBAAFE1B3FCEC489A41CF179C05AC266 /* FBNativeAdTableViewCellProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeAdTableViewCellProvider.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBNativeAdTableViewCellProvider.h"; sourceTree = "<group>"; };
@@ -716,7 +715,6 @@
 		D78F26A48F4205C25D0397BFF2846FB0 /* BinaryEncodingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryEncodingError.swift; path = Sources/SwiftProtobuf/BinaryEncodingError.swift; sourceTree = "<group>"; };
 		D9CEEF15851A899B3DE293A5B5E1577D /* FBRewardedInterstitialAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBRewardedInterstitialAd.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBRewardedInterstitialAd.h"; sourceTree = "<group>"; };
 		DACED87B7503C97680527523B6184000 /* Message+JSONAdditions_Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Message+JSONAdditions_Data.swift"; path = "Sources/SwiftProtobuf/Message+JSONAdditions_Data.swift"; sourceTree = "<group>"; };
-		E02235331FDB0AD41E3676302E3552F8 /* NovaCore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = NovaCore.xcframework; path = Binary/NovaCore.xcframework; sourceTree = "<group>"; };
 		E04EFA88E03AC421F7B80FAF877B43BE /* FBAdOptionsView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBAdOptionsView.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBAdOptionsView.h"; sourceTree = "<group>"; };
 		E0D13F1A3F6AA2147E1DCBC66797E1F5 /* JSONEncodingVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodingVisitor.swift; path = Sources/SwiftProtobuf/JSONEncodingVisitor.swift; sourceTree = "<group>"; };
 		E0E3FA6D9A4FC97F022BE644DC924AAB /* AnyUnpackError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyUnpackError.swift; path = Sources/SwiftProtobuf/AnyUnpackError.swift; sourceTree = "<group>"; };
@@ -728,6 +726,7 @@
 		E7D22911C61F4ECEA1485FE1307E3ECC /* PathDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PathDecoder.swift; path = Sources/SwiftProtobuf/PathDecoder.swift; sourceTree = "<group>"; };
 		E8494B94EDDE3D5B8D90DC03A5A60C7A /* ZigZag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZigZag.swift; path = Sources/SwiftProtobuf/ZigZag.swift; sourceTree = "<group>"; };
 		E912FFFB5B6379B57CC43BB62AC42943 /* lang.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = lang.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/lang.h"; sourceTree = "<group>"; };
+		E92EFEA22F7580D519FF49EA6800FF1F /* NovaCore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = NovaCore.xcframework; path = Binary/NovaCore.xcframework; sourceTree = "<group>"; };
 		E9CB1A3A3725997F0C94E7470DB229DB /* Pods-MSPDemoApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MSPDemoApp-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E9E5FF111065BC53B8956C3C254277D5 /* Message+BinaryAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Message+BinaryAdditions.swift"; path = "Sources/SwiftProtobuf/Message+BinaryAdditions.swift"; sourceTree = "<group>"; };
 		EA34275D23B643194B13FB90B42AB1F8 /* FBAdExperienceConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBAdExperienceConfig.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework/Headers/FBAdExperienceConfig.h"; sourceTree = "<group>"; };
@@ -750,6 +749,7 @@
 		FD264CBDFE4C21CB2687EA9C22D4CD3D /* MSPCore-MSPCoreResources */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "MSPCore-MSPCoreResources"; path = MSPCoreResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE20D7DD4615B2D32C87D817817F27E4 /* FBNativeAdTableViewAdProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBNativeAdTableViewAdProvider.h; path = "Dynamic/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Headers/FBNativeAdTableViewAdProvider.h"; sourceTree = "<group>"; };
 		FE56B7AD16A527E954E20AE9D20EA30B /* MSPFacebookAdapter-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "MSPFacebookAdapter-xcframeworks.sh"; sourceTree = "<group>"; };
+		FFBCC49FDFEBF48A923E1A94699CAF72 /* MSPNovaAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSPNovaAdapter.release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -818,27 +818,6 @@
 				BA88635600E4B2544A38CB8BE6505957 /* PrivacyInfo.xcprivacy */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		05A05EFAFA31AE10B8AC9C7A2FC363AD /* MSPNovaAdapter */ = {
-			isa = PBXGroup;
-			children = (
-				DDAEE82FE640302690CC41383C214662 /* Frameworks */,
-				0A0F09C838CCEA4AAF2DD6823E88C716 /* Support Files */,
-			);
-			name = MSPNovaAdapter;
-			path = MSPNovaAdapter;
-			sourceTree = "<group>";
-		};
-		0A0F09C838CCEA4AAF2DD6823E88C716 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C8C3ECCB8A27DCD270C232948CE1555D /* MSPNovaAdapter-xcframeworks.sh */,
-				7F5C3613AF3B1264A3AE6C5BC6F3C8DC /* MSPNovaAdapter.debug.xcconfig */,
-				9EDC92E4D0021573B4DA993275FD5683 /* MSPNovaAdapter.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/MSPNovaAdapter";
 			sourceTree = "<group>";
 		};
 		0A57B8139B06295FEEBB86777F9BED8D /* SwiftProtobuf */ = {
@@ -1026,6 +1005,15 @@
 			path = MSPPrebidAdapter;
 			sourceTree = "<group>";
 		};
+		41AFEAEAFCBB9B0D6B22C812DE54B293 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A1A9B1B4F8DD0261932E0BF2D4C29EFB /* MSPNovaAdapter.xcframework */,
+				E92EFEA22F7580D519FF49EA6800FF1F /* NovaCore.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5096FE67A04C7A2F7BE5BC444B91FA8B /* FBAudienceNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -1131,17 +1119,6 @@
 			path = FBAudienceNetwork;
 			sourceTree = "<group>";
 		};
-		51FDCFAECA0F91528FC79763CCCEB7CE /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				6DA2DB2ABEAF0AEE28FAB92DFE4FCD28 /* MSPSharedLibraries-xcframeworks.sh */,
-				0A8CC35510649F05F11AD8B9137D316E /* MSPSharedLibraries.debug.xcconfig */,
-				48BF7DBCFDBD1CDFE77E577EA7AF1D74 /* MSPSharedLibraries.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/MSPSharedLibraries";
-			sourceTree = "<group>";
-		};
 		628BF3692B2E2AA821D90DD532095075 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1192,6 +1169,17 @@
 			);
 			name = MSPFacebookAdapter;
 			path = MSPFacebookAdapter;
+			sourceTree = "<group>";
+		};
+		73413DAA6CDFE994432C98EE45F92F84 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				40247E8CB2328344E6495D4582CB157F /* MSPSharedLibraries-xcframeworks.sh */,
+				B9A58FA840A473BFDA825B2AA9F07595 /* MSPSharedLibraries.debug.xcconfig */,
+				B73C6E3CD833EA374AD8A0D5A8688C6A /* MSPSharedLibraries.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MSPSharedLibraries";
 			sourceTree = "<group>";
 		};
 		76EFA7BB742C3D22BFD0B4F6B16ECF54 /* Support Files */ = {
@@ -1265,12 +1253,23 @@
 				2BA163D6A611920DA144666DDD7E1FBF /* MSPGoogleAdapter */,
 				CB75CA4C325B81605D0F933817202368 /* MSPGoogleAdsTypes */,
 				ABD1899A10CA6F0118F8292737CC177E /* MSPiOSCore */,
-				05A05EFAFA31AE10B8AC9C7A2FC363AD /* MSPNovaAdapter */,
+				DBFC7552DD23EDAAF6C6B34D70C4B9F7 /* MSPNovaAdapter */,
 				380895AB743DDEC9A9B9681B42314FF5 /* MSPPrebidAdapter */,
-				B95FE5AEFAF59B618BD38FBCF4978BC9 /* MSPSharedLibraries */,
+				ABF31CBD1892095E1223EA2210C1EFF1 /* MSPSharedLibraries */,
 				0A57B8139B06295FEEBB86777F9BED8D /* SwiftProtobuf */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AB35050E5EFC65FC9328F7672B990D3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				661369BF301B6F83BE1DDA8A46707E7E /* MSPSharedLibraries.xcframework */,
+				25DAB8A1B6416B3390AFC017450B5D08 /* MSPSnapKit.xcframework */,
+				A3CD27D3B9BE0B95A927A0363279310D /* OMSDK_Newsbreak1.xcframework */,
+				BDC2FAEDEAD665467B848D0C16BBF97A /* PrebidMobile.xcframework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		ABD1899A10CA6F0118F8292737CC177E /* MSPiOSCore */ = {
@@ -1281,6 +1280,16 @@
 			);
 			name = MSPiOSCore;
 			path = MSPiOSCore;
+			sourceTree = "<group>";
+		};
+		ABF31CBD1892095E1223EA2210C1EFF1 /* MSPSharedLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				AB35050E5EFC65FC9328F7672B990D3B /* Frameworks */,
+				73413DAA6CDFE994432C98EE45F92F84 /* Support Files */,
+			);
+			name = MSPSharedLibraries;
+			path = MSPSharedLibraries;
 			sourceTree = "<group>";
 		};
 		AE165B64B145060615CC67BD2957D2EF /* Resources */ = {
@@ -1310,32 +1319,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B95FE5AEFAF59B618BD38FBCF4978BC9 /* MSPSharedLibraries */ = {
-			isa = PBXGroup;
-			children = (
-				C223F863BC37CB564840305E42EEA523 /* Frameworks */,
-				51FDCFAECA0F91528FC79763CCCEB7CE /* Support Files */,
-			);
-			name = MSPSharedLibraries;
-			path = MSPSharedLibraries;
-			sourceTree = "<group>";
-		};
 		BE93086352107C079EC16FCD469A0046 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
 				7774F8D124CE278E3B9937BF69CD0A6D /* Pods-MSPDemoApp */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		C223F863BC37CB564840305E42EEA523 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				283F79575D3E037E9D0062CDB5D88885 /* MSPSharedLibraries.xcframework */,
-				350636A5AD0019AD30FD751639FFA8B5 /* MSPSnapKit.xcframework */,
-				5A208982D4D1D02C4579FC0A994DB1F9 /* PrebidMobile.xcframework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C7B3E6E7704C0188E7F95CA8546D6EEF /* Frameworks */ = {
@@ -1409,6 +1398,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA329497BE2CAD4E7D664AE2FA89C319 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				652888C1D9482CA716717398C8205C76 /* MSPNovaAdapter-xcframeworks.sh */,
+				AC8652B2CA51E231BB716CC8AD21CB49 /* MSPNovaAdapter.debug.xcconfig */,
+				FFBCC49FDFEBF48A923E1A94699CAF72 /* MSPNovaAdapter.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MSPNovaAdapter";
+			sourceTree = "<group>";
+		};
 		DB3FFF7A7C30FF4A7AECE8A9789EFFB0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1420,14 +1420,14 @@
 			path = "../Target Support Files/MSPFacebookAdapter";
 			sourceTree = "<group>";
 		};
-		DDAEE82FE640302690CC41383C214662 /* Frameworks */ = {
+		DBFC7552DD23EDAAF6C6B34D70C4B9F7 /* MSPNovaAdapter */ = {
 			isa = PBXGroup;
 			children = (
-				7DAF29C1F0178D06BA36936332301EAA /* MSPNovaAdapter.xcframework */,
-				E02235331FDB0AD41E3676302E3552F8 /* NovaCore.xcframework */,
-				9A622D7C490ABAF6BE4E414655794E97 /* OMSDK_Newsbreak1.xcframework */,
+				41AFEAEAFCBB9B0D6B22C812DE54B293 /* Frameworks */,
+				DA329497BE2CAD4E7D664AE2FA89C319 /* Support Files */,
 			);
-			name = Frameworks;
+			name = MSPNovaAdapter;
+			path = MSPNovaAdapter;
 			sourceTree = "<group>";
 		};
 		E852EDBB91EDFE3D24563F2065A0995A /* MSPCore */ = {
@@ -2445,7 +2445,7 @@
 		};
 		1EF3F5FAD5BDBBB78EFF9F34D67E2D3F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48BF7DBCFDBD1CDFE77E577EA7AF1D74 /* MSPSharedLibraries.release.xcconfig */;
+			baseConfigurationReference = B73C6E3CD833EA374AD8A0D5A8688C6A /* MSPSharedLibraries.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2710,7 +2710,7 @@
 		};
 		7578CF998271894F6DA8BF2C2192726C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F5C3613AF3B1264A3AE6C5BC6F3C8DC /* MSPNovaAdapter.debug.xcconfig */;
+			baseConfigurationReference = AC8652B2CA51E231BB716CC8AD21CB49 /* MSPNovaAdapter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2747,7 +2747,7 @@
 		};
 		77E67D09596937041CE143BE63697E42 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A8CC35510649F05F11AD8B9137D316E /* MSPSharedLibraries.debug.xcconfig */;
+			baseConfigurationReference = B9A58FA840A473BFDA825B2AA9F07595 /* MSPSharedLibraries.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2785,7 +2785,7 @@
 		};
 		83137BC4DA85C7F9F671F21E3D57B170 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EDC92E4D0021573B4DA993275FD5683 /* MSPNovaAdapter.release.xcconfig */;
+			baseConfigurationReference = FFBCC49FDFEBF48A923E1A94699CAF72 /* MSPNovaAdapter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
