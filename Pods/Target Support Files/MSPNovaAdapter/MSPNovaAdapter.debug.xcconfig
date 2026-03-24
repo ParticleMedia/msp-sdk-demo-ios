@@ -1,7 +1,7 @@
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/MSPNovaAdapter
 DEFINES_MODULE = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/MSPNovaAdapter/Binary" "${PODS_ROOT}/MSPSharedLibraries/Binary" "${PODS_ROOT}/MSPSharedLibraries/ThirdParty/MSPSnapKit" "${PODS_ROOT}/MSPSharedLibraries/ThirdParty/PrebidMobile" "${PODS_ROOT}/MSPiOSCore/Binary" "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter" "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries" "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPiOSCore"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/MSPNovaAdapter/Binary" "${PODS_ROOT}/MSPSharedLibraries/Binary" "${PODS_ROOT}/MSPSharedLibraries/ThirdParty/MSPSnapKit" "${PODS_ROOT}/MSPSharedLibraries/ThirdParty/OMSDK" "${PODS_ROOT}/MSPSharedLibraries/ThirdParty/PrebidMobile" "${PODS_ROOT}/MSPiOSCore/Binary" "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter" "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries" "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPiOSCore"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS -import-underlying-module -Xcc -fmodule-map-file="${SRCROOT}/${MODULEMAP_FILE}"
 PODS_BUILD_DIR = ${BUILD_DIR}

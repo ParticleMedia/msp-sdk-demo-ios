@@ -1,3 +1,2 @@
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter/MSPNovaAdapter.framework
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter/NovaCore.framework
-${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter/OMSDK_Newsbreak1.framework

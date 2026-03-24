@@ -181,10 +181,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPGoogleAdapter/MSPGoogleAdapter.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPGoogleAdsTypes/MSPGoogleAdsTypes.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter/NovaCore.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter/OMSDK_Newsbreak1.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPPrebidAdapter/MSPPrebidAdapter.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/MSPSharedLibraries.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/PrebidMobile.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/OMSDK_Newsbreak1.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPiOSCore/MSPiOSCore.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -193,10 +193,10 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPGoogleAdapter/MSPGoogleAdapter.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPGoogleAdsTypes/MSPGoogleAdsTypes.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter/NovaCore.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPNovaAdapter/OMSDK_Newsbreak1.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPPrebidAdapter/MSPPrebidAdapter.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/MSPSharedLibraries.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/PrebidMobile.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPSharedLibraries/OMSDK_Newsbreak1.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MSPiOSCore/MSPiOSCore.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
