@@ -3,37 +3,37 @@ PODS:
   - Google-Mobile-Ads-SDK (12.14.0):
     - GoogleUserMessagingPlatform (>= 1.1)
   - GoogleUserMessagingPlatform (3.1.0)
-  - MSPCore (3.5.0):
-    - MSPPrebidAdapter (= 3.5.0)
-    - MSPSharedLibraries (= 3.5.0)
+  - MSPCore (3.5.1):
+    - MSPPrebidAdapter (= 3.5.1)
+    - MSPSharedLibraries (= 3.5.1)
     - SwiftProtobuf
-  - MSPFacebookAdapter (3.5.0):
+  - MSPFacebookAdapter (3.5.1):
     - FBAudienceNetwork (~> 6.15)
-    - MSPiOSCore (= 3.5.0)
-    - MSPSharedLibraries (= 3.5.0)
-  - MSPGoogleAdapter (3.5.0):
+    - MSPiOSCore (= 3.5.1)
+    - MSPSharedLibraries (= 3.5.1)
+  - MSPGoogleAdapter (3.5.1):
     - Google-Mobile-Ads-SDK (~> 12.0)
-    - MSPGoogleAdsTypes (= 3.5.0)
-    - MSPiOSCore (= 3.5.0)
-    - MSPSharedLibraries (= 3.5.0)
-  - MSPGoogleAdsTypes (3.5.0):
+    - MSPGoogleAdsTypes (= 3.5.1)
+    - MSPiOSCore (= 3.5.1)
+    - MSPSharedLibraries (= 3.5.1)
+  - MSPGoogleAdsTypes (3.5.1):
     - Google-Mobile-Ads-SDK (~> 12.0)
-  - MSPiOSCore (3.5.0)
-  - MSPNovaAdapter (3.5.0):
-    - MSPiOSCore (= 3.5.0)
-    - MSPSharedLibraries (= 3.5.0)
-  - MSPPrebidAdapter (3.5.0):
-    - MSPiOSCore (= 3.5.0)
-    - MSPSharedLibraries (= 3.5.0)
-  - MSPSharedLibraries (3.5.0):
-    - MSPiOSCore (= 3.5.0)
+  - MSPiOSCore (3.5.1)
+  - MSPNovaAdapter (3.5.1):
+    - MSPiOSCore (= 3.5.1)
+    - MSPSharedLibraries (= 3.5.1)
+  - MSPPrebidAdapter (3.5.1):
+    - MSPiOSCore (= 3.5.1)
+    - MSPSharedLibraries (= 3.5.1)
+  - MSPSharedLibraries (3.5.1):
+    - MSPiOSCore (= 3.5.1)
   - SwiftProtobuf (1.30.0)
 
 DEPENDENCIES:
-  - MSPCore (= 3.5.0)
-  - MSPFacebookAdapter (= 3.5.0)
-  - MSPGoogleAdapter (= 3.5.0)
-  - MSPNovaAdapter (= 3.5.0)
+  - MSPCore (= 3.5.1)
+  - MSPFacebookAdapter (= 3.5.1)
+  - MSPGoogleAdapter (= 3.5.1)
+  - MSPNovaAdapter (= 3.5.1)
   - SwiftProtobuf (= 1.30.0)
 
 SPEC REPOS:
@@ -55,16 +55,16 @@ SPEC CHECKSUMS:
   FBAudienceNetwork: 85d18a65c9e35bc426bd4664cf3ae2a1172d7b60
   Google-Mobile-Ads-SDK: 4534fd2dfcd3f705c5485a6633c5188d03d4eed2
   GoogleUserMessagingPlatform: befe603da6501006420c206222acd449bba45a9c
-  MSPCore: 57f0a712191b667c448484a9bfd3fb8c85ecb32e
-  MSPFacebookAdapter: 99ee27b344611ed8a6b18a0e14a45140ba092432
-  MSPGoogleAdapter: c453def1988baf12df90eafb54ad3923baa36da1
-  MSPGoogleAdsTypes: d9e43a91f1324a8d004d1b024458639f627eb425
-  MSPiOSCore: d895ee544adc358e15392677b84900ba2a58580e
-  MSPNovaAdapter: 68b3c6ed40f6e18c03f8697e808837b8c9d911c8
-  MSPPrebidAdapter: 4f2cdec78c698c10cb9c15bfd045e1a2af16b2f9
-  MSPSharedLibraries: 7ca725a9575b0375d9485d160d2814c5ec7f4600
+  MSPCore: 7cbe6760229b2ce408fc55eb8df887a16d8b2259
+  MSPFacebookAdapter: 0cdc2fda08a3894b4c62bc42eff148d9390d66ea
+  MSPGoogleAdapter: 20c3de76df227fae4ee695d88956019a572b0767
+  MSPGoogleAdsTypes: 4d22cab5db7a407cd6a0201e4a48bead5b8ee160
+  MSPiOSCore: 803f0abe885893be07ece7ef75e44308f2217b32
+  MSPNovaAdapter: e9c955ecb69242ed4a7c1435d0238be69f65804c
+  MSPPrebidAdapter: a80256842f1745b38dcbe9193e99ddd7cd2e9185
+  MSPSharedLibraries: ba5f85067d8e79d67db7f5e69583f5f5f2c47047
   SwiftProtobuf: 3697407f0d5b23bedeba9c2eaaf3ec6fdff69349
 
-PODFILE CHECKSUM: 1791d84d723f3a53a7859c7dbb8b66153efeba35
+PODFILE CHECKSUM: fe2aae7cb9a394dd1d0150c8b4d16f78351bbb5a
 
 COCOAPODS: 1.16.2
