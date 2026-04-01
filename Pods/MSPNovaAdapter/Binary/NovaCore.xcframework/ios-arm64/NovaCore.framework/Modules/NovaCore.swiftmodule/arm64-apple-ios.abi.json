@@ -8355,6 +8355,102 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "shouldAutoDismiss",
+            "printedName": "shouldAutoDismiss",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:8NovaCore0A18InterstitialAdItemC17shouldAutoDismissSbvp",
+            "mangledName": "$s8NovaCore0A18InterstitialAdItemC17shouldAutoDismissSbvp",
+            "moduleName": "NovaCore",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:8NovaCore0A18InterstitialAdItemC17shouldAutoDismissSbvg",
+                "mangledName": "$s8NovaCore0A18InterstitialAdItemC17shouldAutoDismissSbvg",
+                "moduleName": "NovaCore",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:8NovaCore0A18InterstitialAdItemC17shouldAutoDismissSbvs",
+                "mangledName": "$s8NovaCore0A18InterstitialAdItemC17shouldAutoDismissSbvs",
+                "moduleName": "NovaCore",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:8NovaCore0A18InterstitialAdItemC17shouldAutoDismissSbvM",
+                "mangledName": "$s8NovaCore0A18InterstitialAdItemC17shouldAutoDismissSbvM",
+                "moduleName": "NovaCore",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "encode",
             "printedName": "encode(to:)",
@@ -15642,21 +15738,21 @@
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Landing\/NovaAdLandingWebCoordinatorViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1903,
+      "offset": 1793,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Landing\/NovaAdLandingWebCoordinatorViewController.swift",
       "kind": "StringLiteral",
-      "offset": 2426,
+      "offset": 2316,
       "length": 58,
       "value": "\"media view will only be used in half screen detent style\""
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Landing\/NovaAdLandingWebCoordinatorViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2966,
+      "offset": 2856,
       "length": 4,
       "value": "true"
     },
@@ -18694,196 +18790,203 @@
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 7422,
+      "offset": 9045,
       "length": 2,
       "value": "48"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 7642,
+      "offset": 9265,
       "length": 3,
       "value": "0.6"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 7709,
+      "offset": 9332,
       "length": 3,
       "value": "0.6"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 7745,
+      "offset": 9368,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 7786,
+      "offset": 9409,
       "length": 16,
       "value": "\"Advertisement \""
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 7813,
+      "offset": 9436,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 8011,
+      "offset": 9634,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 8289,
+      "offset": 9912,
       "length": 3,
       "value": "0.6"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 8356,
+      "offset": 9979,
       "length": 3,
       "value": "0.6"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 8392,
+      "offset": 10015,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 9141,
+      "offset": 10764,
       "length": 4,
       "value": "0.85"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 9209,
+      "offset": 10832,
       "length": 3,
       "value": "0.9"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 9245,
+      "offset": 10868,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 9565,
+      "offset": 11188,
       "length": 3,
       "value": "0.6"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 9632,
+      "offset": 11255,
       "length": 3,
       "value": "0.6"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 9714,
+      "offset": 11337,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 10040,
+      "offset": 11663,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 10073,
+      "offset": 11696,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 10386,
+      "offset": 12009,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 10498,
+      "offset": 12121,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 10531,
+      "offset": 12154,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 10703,
+      "offset": 12326,
       "length": 4,
       "value": "0.85"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 10775,
+      "offset": 12398,
       "length": 3,
       "value": "0.9"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 11063,
+      "offset": 12686,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 11262,
+      "offset": 12885,
       "length": 3,
       "value": "1.5"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 11302,
+      "offset": 12925,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 11487,
+      "offset": 13110,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Handlers\/NovaInterstitialAdHorizontalSubviewHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 11764,
+      "offset": 13387,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/Models\/NovaInterstitialAdItem.swift",
+      "kind": "BooleanLiteral",
+      "offset": 736,
       "length": 5,
       "value": "false"
     },
@@ -19912,21 +20015,21 @@
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/NovaInterstitialAdViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 6670,
+      "offset": 7751,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/NovaInterstitialAdViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 6860,
+      "offset": 7941,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Core\/NovaCore\/NovaCore\/Interstitial\/NovaInterstitialAdViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 6890,
+      "offset": 7971,
       "length": 5,
       "value": "false"
     },

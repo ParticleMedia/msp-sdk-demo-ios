@@ -302,6 +302,7 @@ extension NovaCore.NovaInterstitialAdDelegate {
 @objc @_hasMissingDesignatedInitializers final public class NovaInterstitialAdItem : NovaCore.NovaNativeBaseAd {
   weak final public var delegate: (any NovaCore.NovaInterstitialAdDelegate)?
   final public var shouldPreloadHtml: Swift.Bool
+  final public var shouldAutoDismiss: Swift.Bool
   override final public func encode(to encoder: any Swift.Encoder) throws
   final public func present(rootViewController: UIKit.UIViewController, reportHandling: any NovaCore.NovaInterstitialAdReportHandling)
   final public func dismiss(animated: Swift.Bool)
