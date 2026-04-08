@@ -1,4 +1,0 @@
-framework module MSPGoogleAdapter {
-  export *
-  module * { export * }
-}
