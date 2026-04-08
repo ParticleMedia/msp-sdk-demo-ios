@@ -1,5 +1,0 @@
-${PODS_ROOT}/Target Support Files/MSPSharedLibraries/MSPSharedLibraries-xcframeworks.sh
-${PODS_ROOT}/MSPSharedLibraries/Binary/MSPSharedLibraries.xcframework
-${PODS_ROOT}/MSPSharedLibraries/ThirdParty/PrebidMobile/PrebidMobile.xcframework
-${PODS_ROOT}/MSPSharedLibraries/ThirdParty/MSPSnapKit/MSPSnapKit.xcframework
-${PODS_ROOT}/MSPSharedLibraries/ThirdParty/OMSDK/OMSDK_Newsbreak1.xcframework

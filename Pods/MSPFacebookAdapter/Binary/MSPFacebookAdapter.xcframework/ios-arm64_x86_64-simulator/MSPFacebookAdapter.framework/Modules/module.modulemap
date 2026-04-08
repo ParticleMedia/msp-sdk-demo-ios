@@ -1,4 +1,0 @@
-framework module MSPFacebookAdapter {
-  export *
-  module * { export * }
-}

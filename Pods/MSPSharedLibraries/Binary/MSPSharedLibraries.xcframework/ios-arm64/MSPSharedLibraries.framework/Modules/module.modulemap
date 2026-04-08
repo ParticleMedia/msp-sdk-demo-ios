@@ -1,4 +1,0 @@
-framework module MSPSharedLibraries {
-  export *
-  module * { export * }
-}
