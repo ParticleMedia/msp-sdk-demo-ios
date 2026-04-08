@@ -1,4 +1,0 @@
-framework module MSPSnapKit {
-  export *
-  module * { export * }
-}

@@ -1,5 +1,0 @@
-framework module MSPCore {
-  umbrella header "MSPCore-Swift.h"
-  export *
-  module * { export * }
-}
