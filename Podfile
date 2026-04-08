@@ -12,10 +12,10 @@ project 'MSPDemoApp/MSPDemoApp'
 target 'MSPDemoApp' do
   project 'MSPDemoApp/MSPDemoApp'
   #use_frameworks!
-  pod 'MSPCore', '3.5.1', :modular_headers => true
-  pod 'MSPNovaAdapter', '3.5.1', :modular_headers => true
-  pod 'MSPGoogleAdapter', '3.5.1', :modular_headers => true
-  pod 'MSPFacebookAdapter', '3.5.1', :modular_headers => true
+  pod 'MSPCore', '3.5.2', :modular_headers => true
+  pod 'MSPNovaAdapter', '3.5.2', :modular_headers => true
+  pod 'MSPGoogleAdapter', '3.5.2', :modular_headers => true
+  pod 'MSPFacebookAdapter', '3.5.2', :modular_headers => true
   pod 'SwiftProtobuf', '1.30.0', :modular_headers => true
  
 end

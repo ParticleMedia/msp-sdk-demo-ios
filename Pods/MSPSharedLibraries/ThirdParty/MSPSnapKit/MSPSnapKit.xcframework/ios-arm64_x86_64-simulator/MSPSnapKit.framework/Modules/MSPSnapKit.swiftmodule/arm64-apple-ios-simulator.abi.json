@@ -14100,539 +14100,539 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Constraint.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Constraint.swift",
       "kind": "BooleanLiteral",
       "offset": 11804,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2251,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2332,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2338,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2419,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2425,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2508,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2514,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2598,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2604,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2689,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2695,
       "length": 1,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2781,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2787,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2870,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2876,
       "length": 1,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2960,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 2966,
       "length": 1,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3051,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3057,
       "length": 1,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3142,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3148,
       "length": 1,
       "value": "9"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3238,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3244,
       "length": 2,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3375,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3381,
       "length": 2,
       "value": "11"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3498,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3504,
       "length": 2,
       "value": "12"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3622,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3628,
       "length": 2,
       "value": "13"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3744,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3750,
       "length": 2,
       "value": "14"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3869,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3875,
       "length": 2,
       "value": "15"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 3995,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 4001,
       "length": 2,
       "value": "16"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 4122,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 4128,
       "length": 2,
       "value": "17"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 4255,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 4261,
       "length": 2,
       "value": "18"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 4388,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintAttributes.swift",
       "kind": "IntegerLiteral",
       "offset": 4394,
       "length": 2,
       "value": "19"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintDSL.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintDSL.swift",
       "kind": "IntegerLiteral",
       "offset": 1719,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintDescription.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintDescription.swift",
       "kind": "FloatLiteral",
       "offset": 1636,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintDescription.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintDescription.swift",
       "kind": "FloatLiteral",
       "offset": 1694,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintDescription.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintDescription.swift",
       "kind": "FloatLiteral",
       "offset": 1752,
       "length": 6,
       "value": "1000.0"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintMaker.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintMaker.swift",
       "kind": "Array",
       "offset": 5578,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintRelation.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintRelation.swift",
       "kind": "IntegerLiteral",
       "offset": 1310,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintRelation.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintRelation.swift",
       "kind": "IntegerLiteral",
       "offset": 1321,
       "length": 15,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintRelation.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/ConstraintRelation.swift",
       "kind": "IntegerLiteral",
       "offset": 1346,
       "length": 18,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 1353,
       "length": 3,
       "value": "\"<\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 1507,
       "length": 37,
       "value": "\" \""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 1543,
       "length": 1,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 1635,
       "length": 50,
       "value": "\".\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 1684,
       "length": 1,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 1720,
       "length": 43,
       "value": "\" \""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 1762,
       "length": 1,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 1838,
       "length": 38,
       "value": "\" \""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 1875,
       "length": 1,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 1968,
       "length": 51,
       "value": "\".\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 2018,
       "length": 1,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "FloatLiteral",
       "offset": 2061,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 2094,
       "length": 23,
       "value": "\" * \""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 2116,
       "length": 1,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 2209,
       "length": 19,
       "value": "\" \""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 2227,
       "length": 1,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "FloatLiteral",
       "offset": 2277,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 2314,
       "length": 21,
       "value": "\" + \""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 2334,
       "length": 1,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "FloatLiteral",
       "offset": 2374,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 2411,
       "length": 26,
       "value": "\" - \""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 2436,
       "length": 1,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "FloatLiteral",
       "offset": 2500,
       "length": 6,
       "value": "1000.0"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 2536,
       "length": 20,
       "value": "\" ^\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 2555,
       "length": 1,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/Debugging.swift",
       "kind": "StringLiteral",
       "offset": 2591,
       "length": 3,
       "value": "\">\""
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/LayoutConstraintItem.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/ThirdParty\/MSPSnapKit\/Sources\/LayoutConstraintItem.swift",
       "kind": "IntegerLiteral",
       "offset": 2940,
       "length": 1,

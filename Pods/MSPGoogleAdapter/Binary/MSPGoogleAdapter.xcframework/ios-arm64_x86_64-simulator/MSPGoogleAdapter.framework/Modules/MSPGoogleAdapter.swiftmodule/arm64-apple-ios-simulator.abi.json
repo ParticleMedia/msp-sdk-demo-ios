@@ -4375,14 +4375,14 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Adapters\/MSPGoogleAdapter\/MSPGoogleAdapter\/Native\/GoogleNativeAdView.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/Sources\/Adapters\/MSPGoogleAdapter\/MSPGoogleAdapter\/Native\/GoogleNativeAdView.swift",
       "kind": "BooleanLiteral",
       "offset": 534,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Adapters\/MSPGoogleAdapter\/MSPGoogleAdapter\/Native\/GoogleNativeAdView.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/Sources\/Adapters\/MSPGoogleAdapter\/MSPGoogleAdapter\/Native\/GoogleNativeAdView.swift",
       "kind": "BooleanLiteral",
       "offset": 772,
       "length": 5,

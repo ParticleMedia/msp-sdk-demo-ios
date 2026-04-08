@@ -3277,14 +3277,14 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Adapters\/MSPFacebookAdapter\/MSPFacebookAdapter\/Native\/FacebookNativeAdView.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/Sources\/Adapters\/MSPFacebookAdapter\/MSPFacebookAdapter\/Native\/FacebookNativeAdView.swift",
       "kind": "BooleanLiteral",
       "offset": 437,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/huanzhi.zhang@newsbreak.com\/Huanzhi\/msp-ios-sdk\/Sources\/Adapters\/MSPFacebookAdapter\/MSPFacebookAdapter\/Native\/FacebookNativeAdView.swift",
+      "filePath": "\/Users\/macrofox\/NewsBreak\/msp-ios-sdk\/Sources\/Adapters\/MSPFacebookAdapter\/MSPFacebookAdapter\/Native\/FacebookNativeAdView.swift",
       "kind": "BooleanLiteral",
       "offset": 668,
       "length": 5,
