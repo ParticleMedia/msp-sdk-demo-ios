@@ -21,6 +21,7 @@ Please specify the version numbers for the pods in your pod file, in case future
 Initialize MSP SDK once before loading any ads:
 
 ```swift
+import MSPCore
 import MSPiOSCore
 import MSPNovaAdapter
 import MSPGoogleAdapter
@@ -74,7 +75,7 @@ Interstitial ads are full-screen ads displayed at natural transition points. Bel
 
 ### 1. Create the AdLoader and load an interstitial ad
 ```swift
-import MSPiOSCore
+import MSPCore
 
 class MyViewController: UIViewController {
     var adLoader: MSPAdLoader?
