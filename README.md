@@ -224,9 +224,9 @@ See [DemoNativeAdContainer.swift](https://github.com/ParticleMedia/msp-sdk-demo-
 - **Initialize once:** Call `MSP.shared.initMSP` once in `AppDelegate`. Do not re-initialize per ad request.
 - **One AdLoader per request:** Create a new `MSPAdLoader()` instance for each ad load. Do not reuse a single loader across multiple concurrent requests.
 - **UI updates on main thread:** All ad display operations (adding views, calling `show()`) must be dispatched to `DispatchQueue.main`.
+- **Pre-load ads, display later:** Call `adLoader.loadAd` to start loading in advance. Once `onAdLoaded` fires, the ad is cached and you can retrieve it at any time with `adLoader.getAd(placementId:)` to display when ready.
 - **Call `notifyLoss` when MSP loses:** Always call `MSP.shared.notifyLoss` when another bidder wins or MSP does not fill. This is critical for accurate auction reporting.
 - **Disable debug logging in production:** Remove or set `MSPLogger.shared.setLogLevel(level: MSPLogger.NONE)` before releasing to the App Store.
-- **Pin SDK versions:** Always specify exact version numbers in your Podfile to prevent unexpected breaking changes from updates.
 
 ## API usage 
 1. Init SDK using ` MSP.shared.initMSP`
