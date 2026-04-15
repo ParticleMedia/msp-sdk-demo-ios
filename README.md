@@ -30,13 +30,13 @@ target 'YourApp' do
   use_frameworks!
 
   # Core SDK (required)
-  pod 'MSPiOSCore'
+  pod 'MSPCore', '{LATEST_VERSION}', :modular_headers => true
 
   # Ad network adapters (add only those you need)
-  pod 'MSPGoogleAdapter'
-  pod 'MSPFacebookAdapter'
-  pod 'MSPNovaAdapter'
-  pod 'MSPMolocoAdapter'
+  pod 'MSPGoogleAdapter', '{LATEST_VERSION}', :modular_headers => true
+  pod 'MSPFacebookAdapter', '{LATEST_VERSION}', :modular_headers => true
+  pod 'MSPNovaAdapter', '{LATEST_VERSION}', :modular_headers => true
+  pod 'MSPMolocoAdapter', '{LATEST_VERSION}', :modular_headers => true
 end
 ```
 
