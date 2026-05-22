@@ -173,7 +173,7 @@ Call `MSP.shared.notifyLoss` API when:
 - `winnerBidderName`: name of the winning bidder other than MSP
 - `winnderPrice`: Ad price of the winning bid other than MSP
 - `ad`: MSP Ad that loses the auction.(pass `nil` for the No fill case)
-- `requestId`: Provided by `onSuccess` and `onError` callback parameter `loadInfo["request_id"]`
+- `requestId`: Provided by `onSuccess` and `onError` callback parameter `loadInfo[MSPConstants.LOAD_INFO_KEY_REQUEST_ID]`
 
 ```swift
 extension YourViewController: AdListener {
@@ -195,7 +195,7 @@ extension YourViewController: AdListener {
     // Case 2: MSP SDK returned no fill and another bidder wins.
     // Pass nil for ad and supply the requestId from loadInfo.
     func onError(msg: String, loadInfo: [String: Any]) {
-        let requestId = loadInfo["request_id"] as? String
+        let requestId = loadInfo[MSPConstants.LOAD_INFO_KEY_REQUEST_ID] as? String
 
         MSP.shared.notifyLoss(
             winnerBidderName: "other_bidder_name",
