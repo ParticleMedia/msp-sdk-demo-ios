@@ -37,6 +37,7 @@ target 'YourApp' do
   pod 'MSPFacebookAdapter', '{LATEST_VERSION}', :modular_headers => true
   pod 'MSPNovaAdapter', '{LATEST_VERSION}', :modular_headers => true
   pod 'MSPMolocoAdapter', '{LATEST_VERSION}', :modular_headers => true
+  pod 'MSPApplovinMaxAdapter', '{LATEST_VERSION}', :modular_headers => true
 end
 ```
 
@@ -88,6 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FacebookManager(),
         NovaManager(),
         MolocoManager(),
+        ApplovinMaxManager(),
     ]
 
     func application(
@@ -118,6 +120,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             appId: 67890    // Your app ID from the MSP dashboard
         )
 
+        // Additional network-specific init parameters
+        initParams.params = [
+            InitializationParametersCustomKeys.MOLOCO_APP_KEY: "xxxxx-v9C8uNYV5riG7Vwu",
+            InitializationParametersCustomKeys.APPLOVIN_SDK_KEY: "6KrA5SQHFTBpGDUU4FeLIZG...",
+        ]
+
         // Initialize
         MSP.shared.initMSP(
             initParams: initParams,
@@ -143,6 +151,7 @@ extension AppDelegate: MSPInitListener {
 | `sourceApp` | `String` | App bundle identifier or source tag |
 | `orgId` | `Int64` | Organization ID provisioned from Particle inc. |
 | `appId` | `Int64` | App ID provisioned from Particle inc. |
+| `params` | `[String: Any]?` | Additional network-specific initialization parameters |
 
 **Optional MSP.shared properties**
 
@@ -173,39 +182,8 @@ Call `MSP.shared.notifyLoss` API when:
 - `winnerBidderName`: name of the winning bidder other than MSP
 - `winnderPrice`: Ad price of the winning bid other than MSP
 - `ad`: MSP Ad that loses the auction.(pass `nil` for the No fill case)
-- `requestId`: Provided by `onSuccess` and `onError` callback parameter `loadInfo[MSPConstants.LOAD_INFO_KEY_REQUEST_ID]`
+- `requestId`: Provided by `onAdLoaded` and `onError` callback parameter `loadInfo[MSPConstants.LOAD_INFO_KEY_REQUEST_ID]` of `loadAd` API
 
-```swift
-extension YourViewController: AdListener {
-
-    // Case 1: MSP ad was loaded but lost the in-app auction to another bidder.
-    // Pass the MSP ad object; requestId is not needed here.
-    func onAdLoaded(placementId: String, loadInfo: [String: Any]) {
-        let mspAd = loader.getAd(placementId: placementId)
-
-        // If another bidder wins the in-app auction:
-        MSP.shared.notifyLoss(
-            winnerBidderName: "other_bidder_name",
-            winnerPrice: 1.5,       // winning bid price in USD
-            ad: mspAd,
-            requestId: nil
-        )
-    }
-
-    // Case 2: MSP SDK returned no fill and another bidder wins.
-    // Pass nil for ad and supply the requestId from loadInfo.
-    func onError(msg: String, loadInfo: [String: Any]) {
-        let requestId = loadInfo[MSPConstants.LOAD_INFO_KEY_REQUEST_ID] as? String
-
-        MSP.shared.notifyLoss(
-            winnerBidderName: "other_bidder_name",
-            winnerPrice: 1.5,       // winning bid price in USD
-            ad: nil,
-            requestId: requestId
-        )
-    }
-}
-```
 ---
 
 ## Ad Formats
@@ -528,8 +506,9 @@ Network-specific `Info.plist` entries required for each adapter are listed below
 |---|---|---|
 | `MSPGoogleAdapter` | Google Ad Manager / AdMob | Banner, Interstitial, Rewarded, Native |
 | `MSPFacebookAdapter` | Meta Audience Network | Banner, Interstitial, Rewarded, Native |
-| `MSPNovaAdapter` | Nova | Banner, Interstitial, Native |
-| `MSPMolocoAdapter` | Moloco | Banner, Interstitial, Rewarded |
+| `MSPNovaAdapter` | Nova | Banner, Interstitial, Native, Rewarded |
+| `MSPMolocoAdapter` | Moloco | Banner, Native, Interstitial, Rewarded |
+| `MSPApplovinMaxAdapter` | AppLovin/Max | Banner, Native, Interstitial, Rewarded |
 
 ---
 
@@ -568,6 +547,28 @@ Add your app's GAD identifier from the Google AdMob dashboard:
   <key>SKAdNetworkIdentifier</key>
   <string>n38lu8286q.skadnetwork</string>
 </dict>
+```
+
+---
+
+### Moloco
+
+Pass your Moloco App Key via `params` during initialization:
+
+```swift
+initParams.params = [
+    InitializationParametersCustomKeys.MOLOCO_APP_KEY: "YOUR_MOLOCO_APP_KEY"
+]
+```
+
+### AppLovin
+
+Pass your AppLovin SDK Key via `params` during initialization:
+
+```swift
+initParams.params = [
+    InitializationParametersCustomKeys.APPLOVIN_SDK_KEY: "6KrA5SQHFTBpGDUU4FeLIZG..."
+]
 ```
 
 ---
@@ -620,5 +621,12 @@ Keep a strong reference to your `MSPAdLoader` instance for the lifetime of the p
 
 `onAdRewardReceived` fires only if the user watches the ad to completion. Do not grant rewards based on `onAdDismissed` alone.
 
-## Privacy & CCPA
-Please follow Prebid's documentation to set user's IAB US Privacy signal: https://docs.prebid.org/prebid-mobile/prebid-mobile-privacy-regulation.html#notice-and-opt-out-signal 
+## Privacy
+### CCPA
+Prebid SDK which is introduced by by MSP SDK will read `UserDefaults` (iOS) or `SharedPreferences` (Android) key `IABUSPrivacy_String` for US Privacy signal. [Prebid SDK CCPA doc](https://docs.prebid.org/prebid-mobile/prebid-mobile-privacy-regulation.html#notice-and-opt-out-signal)
+
+### GDPR
+Prebid SDK which is introduced by by MSP SDK will read `UserDefaults` (iOS) or `SharedPreferences` (Android) keys `IABTCF_gdprApplies` and `IABTCF_TCString` for GDPR privacy signals. [Predbid SDK GDPR doc](https://docs.prebid.org/prebid-mobile/prebid-mobile-privacy-regulation.html#framework-apis)
+
+### COPPA
+Set your COPPA signal through init parameter `isAgeRestrictedUser`
