@@ -170,6 +170,26 @@ The pattern for every ad format is the same:
 3. In `onAdLoaded`, call `loader.getAd(placementId:)` to retrieve the ad object.
 4. Present the Ad(for interstitial Ad) or attach the ad to the App view hierarchy.
 
+### Set a Bid Floor (optional)
+
+To set a minimum price for a request, add the `bid_floor` custom parameter: the eCPM floor in USD, **as a String** (`"1.25"` means $1.25 per 1,000 impressions). It applies to that request only and replaces the placement's configured floor. Leave the key out to use the configured floor.
+
+```swift
+let request = AdRequest(
+    customParams: ["bid_floor": String(format: "%.2f", 1.25)], // "1.25"
+    geo: nil,
+    context: nil,
+    adaptiveBannerSize: nil,
+    adSize: nil,
+    placementId: "YOUR_PLACEMENT_ID",
+    adFormat: .native
+)
+loader.loadAd(placementId: "YOUR_PLACEMENT_ID", adListener: self, adRequest: request)
+```
+
+- The value must be a `String`. The SDK only forwards String custom params to the ad server, so a `Double` such as `1.25` is silently dropped.
+- The floor applies to server-side (MSP) bidding. Client-side-only placements do not use it.
+
 ---
 
 ## Call NotifyLoss API
