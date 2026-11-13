@@ -41,13 +41,13 @@ class DemoAdViewController: UIViewController {
         case .prebidInterstitial:
             return "demo-ios-launch-fullscreen"
         case .googleBanner:
-            return "demo-ios-article-top"
+            return "demo-ios-article-top-google-c2s"
         case .googleNative:
-            return "demo-ios-foryou-large"
+            return "demo-ios-foryou-large-google-c2s"
         case .novaNative:
             return "demo-ios-foryou-large"
         case .googleInterstitial:
-            return "demo-ios-article-top"
+            return "demo-ios-launch-fullscreen-google-c2s"
         case .novaInterstitialHorizontalImage, .novaInterstitialVerticalImage, .novaInterstitialHorizontalVideo, .novaInterstitialVerticalVideo, .novaInterstitialHighEngagement, .novaInterstitialEndCard:
             return "demo-ios-launch-fullscreen"
         case .facebookNative:
@@ -85,7 +85,7 @@ class DemoAdViewController: UIViewController {
         var adLoader = MSPAdLoader()
         self.adLoader = adLoader
         var customParams = [String: Any]()
-        var testParams = [String: String]()
+        var testParams = [String: Any]()
         if adType == .novaNative {
             testParams["test"] = "{\"ad_network\":\"msp_nova\",\"test_ad\":true,\"creative_type\":\"video\",\"is_vertical\":true}"
         } else if adType == .novaInterstitialHorizontalImage {
@@ -108,6 +108,11 @@ class DemoAdViewController: UIViewController {
             testParams["test"] = "{\"ad_network\":\"msp_fb\",\"test_ad\":true}"
         }  else if adType == .prebidInterstitial {
             testParams["test"] = "{\"ad_network\":\"pubmatic\",\"test_ad\":true}"
+        }
+        if let wrapped = testParams.removeValue(forKey: "test") as? String,
+           let data = wrapped.data(using: .utf8),
+           let json = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] {
+            testParams.merge(json) { _, new in new }
         }
         testParams["mobilefuse"] = "true"
         customParams[MSPConstants.GOOGLE_AD_MULTI_CONTENT_URLS] = ["https://www.google.com", "https://newsbreak.com"]
@@ -199,7 +204,7 @@ extension DemoAdViewController: AdListener {
         } else if ad is InterstitialAd,
                   let interstitialAd = ad as? InterstitialAd {
             DispatchQueue.main.async {
-                interstitialAd.show()
+                interstitialAd.show(rootViewController: self)
             }
         }
     }
