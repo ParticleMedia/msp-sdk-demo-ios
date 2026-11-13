@@ -79,7 +79,7 @@ When the hosted package is available, remove the local package and add the packa
 ### Notes for apps moving from CocoaPods
 
 - Remove the MSP pods (`MSPCore`, `MSPSharedLibraries`, `MSPPrebidAdapter`, the adapter pods) and the `SwiftProtobuf` pod you added for MSP, then run `pod install` (or `pod deintegrate` if MSP was your only pod). Keep both installs out of the same app: it would link two copies of the SDK.
-- Do not add `SwiftProtobuf`, `Kingfisher` or `SnapKit` for MSP: the SDK binaries already contain the code they need under private names.
+- Do not add `SwiftProtobuf`, `Kingfisher` or `SnapKit` for MSP: the SDK binaries already contain what they need (`MSPCore` embeds SwiftProtobuf, `NovaCore` embeds Kingfisher, and both use a private, renamed copy of SnapKit). Your app can still use its own copies of these libraries.
 - `use_frameworks!` and `:modular_headers => true` have no SPM equivalent and are not needed.
 - Do not add `PrebidMobile` through SPM in the same app. MSP ships its own build of Prebid under the module name `PrebidMobile`, so a second copy clashes.
 - Your app code does not change: the module names (`MSPCore`, `MSPiOSCore`, `MSPNovaAdapter`, `MSPGoogleAdapter`, `MSPFacebookAdapter`) are the same as with CocoaPods.
