@@ -1,5 +1,21 @@
 # MSP SDK — iOS Integration Guide
 
+> **Branch `spm_3.5.2`: the demo app uses MSP SDK 3.5.2 via Swift Package Manager, not CocoaPods.**
+>
+> The SDK comes from a local Swift package in [`MSPSDK/`](MSPSDK/Package.swift). It wraps the
+> unmodified xcframeworks from the [3.5.2 release](https://github.com/ParticleMedia/msp-ios-sdk-public/releases/tag/3.5.2);
+> Google Mobile Ads and Facebook Audience Network come from their own Swift packages.
+>
+> To run the demo:
+>
+> 1. `./MSPSDK/fetch-binaries.sh` (downloads and checksum-verifies the 3.5.2 release zips into `MSPSDK/Binaries/`)
+> 2. Open `MSPDemoApp/MSPDemoApp.xcodeproj` (there is no `.xcworkspace` or `Podfile` on this branch) and run the `MSPDemoApp` scheme.
+>
+> Products: `MSPCore`, `MSPNovaAdapter`, `MSPGoogleAdapter`, `MSPFacebookAdapter`. The app code and
+> `import` statements are the same as with CocoaPods. The local package is temporary: once MSP
+> publishes a hosted Swift package, the project will point at that package's URL at version 3.5.2.
+> The CocoaPods instructions below are unchanged on this branch.
+
 ## Overview
 
 This guide covers how to add the MSP iOS SDK to your app, including how to initialize SDK, load Ad and display ads. 

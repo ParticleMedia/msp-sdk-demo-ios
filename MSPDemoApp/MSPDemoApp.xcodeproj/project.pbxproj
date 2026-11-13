@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		133457460594E2AD472E4901 /* MSPFacebookAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = D89CF1062DFED6367621AD26 /* MSPFacebookAdapter */; };
+		5598568BA7AA24BEB36B94E9 /* MSPGoogleAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = E23D98603F45645164546EB8 /* MSPGoogleAdapter */; };
 		668480632BE03D7D0025018B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668480622BE03D7D0025018B /* AppDelegate.swift */; };
 		668480652BE03D7D0025018B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668480642BE03D7D0025018B /* SceneDelegate.swift */; };
 		668480672BE03D7D0025018B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668480662BE03D7D0025018B /* ViewController.swift */; };
@@ -19,7 +21,8 @@
 		66C79B942DDD36C90012F57F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66C79B932DDD36C90012F57F /* Assets.xcassets */; };
 		66CC4E562C8FB6AE0005CCF6 /* DemoAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC4E552C8FB6AE0005CCF6 /* DemoAdViewController.swift */; };
 		66E5334E2C1BC1E700255D15 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5334D2C1BC1E700255D15 /* Colors.swift */; };
-		E0D4098C6B103253761A220B /* libPods-MSPDemoApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 865DA71BB2BB723F7DC9E210 /* libPods-MSPDemoApp.a */; };
+		D0D70F9C83FD8097F2096C6E /* MSPCore in Frameworks */ = {isa = PBXBuildFile; productRef = CE24A511A067E37085F2F7AE /* MSPCore */; };
+		F56861DD214ADE7CDA118C0E /* MSPNovaAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = 7CB390CBB3F1F511523C5FB5 /* MSPNovaAdapter */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,9 +64,6 @@
 		66F4F0C72BE0550E0026CAB8 /* PrebidAdapter.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PrebidAdapter.xcframework; path = ../output/xcframework/PrebidAdapter.xcframework; sourceTree = "<group>"; };
 		66F4F0CA2BE055360026CAB8 /* PrebidMobile.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PrebidMobile.xcframework; path = ../MSPUtility/PrebidMobile.xcframework; sourceTree = "<group>"; };
 		66F4F0CE2BE0569C0026CAB8 /* shared.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = shared.xcframework; path = ../PrebidAdapter/shared.xcframework; sourceTree = "<group>"; };
-		7D28AF188F67939620E30F42 /* Pods-MSPDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSPDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
-		865DA71BB2BB723F7DC9E210 /* libPods-MSPDemoApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MSPDemoApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E28AB29591E557D754243851 /* Pods-MSPDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSPDemoApp.release.xcconfig"; path = "Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0D4098C6B103253761A220B /* libPods-MSPDemoApp.a in Frameworks */,
+				D0D70F9C83FD8097F2096C6E /* MSPCore in Frameworks */,
+				F56861DD214ADE7CDA118C0E /* MSPNovaAdapter in Frameworks */,
+				5598568BA7AA24BEB36B94E9 /* MSPGoogleAdapter in Frameworks */,
+				133457460594E2AD472E4901 /* MSPFacebookAdapter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,8 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				6684806B2BE03D800025018B /* Assets.xcassets */,
-				7D28AF188F67939620E30F42 /* Pods-MSPDemoApp.debug.xcconfig */,
-				E28AB29591E557D754243851 /* Pods-MSPDemoApp.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -182,7 +183,6 @@
 				66F4F0CA2BE055360026CAB8 /* PrebidMobile.xcframework */,
 				66F4F0C72BE0550E0026CAB8 /* PrebidAdapter.xcframework */,
 				66F4F0C22BE054800026CAB8 /* MSPUtility.xcframework */,
-				865DA71BB2BB723F7DC9E210 /* libPods-MSPDemoApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,18 +194,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 668480892BE03D800025018B /* Build configuration list for PBXNativeTarget "MSPDemoApp" */;
 			buildPhases = (
-				73572960A518AB9766EA2250 /* [CP] Check Pods Manifest.lock */,
 				6684805B2BE03D7D0025018B /* Sources */,
 				6684805C2BE03D7D0025018B /* Frameworks */,
 				6684805D2BE03D7D0025018B /* Resources */,
-				EA3FA77C9BFF509C8562FCED /* [CP] Embed Pods Frameworks */,
-				86CDF00B2340694C8D2BC517 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MSPDemoApp;
+			packageProductDependencies = (
+				CE24A511A067E37085F2F7AE /* MSPCore */,
+				7CB390CBB3F1F511523C5FB5 /* MSPNovaAdapter */,
+				E23D98603F45645164546EB8 /* MSPGoogleAdapter */,
+				D89CF1062DFED6367621AD26 /* MSPFacebookAdapter */,
+			);
 			productName = MSPDemoApp;
 			productReference = 6684805F2BE03D7D0025018B /* MSPDemoApp.app */;
 			productType = "com.apple.product-type.application";
@@ -278,6 +281,9 @@
 				Base,
 			);
 			mainGroup = 668480562BE03D7D0025018B;
+			packageReferences = (
+				3B0AE6F066662BF7EC6DA362 /* XCLocalSwiftPackageReference "MSPSDK" */,
+			);
 			productRefGroup = 668480602BE03D7D0025018B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -315,65 +321,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		73572960A518AB9766EA2250 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MSPDemoApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		86CDF00B2340694C8D2BC517 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EA3FA77C9BFF509C8562FCED /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MSPDemoApp/Pods-MSPDemoApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6684805B2BE03D7D0025018B /* Sources */ = {
@@ -554,7 +501,6 @@
 		};
 		6684808A2BE03D800025018B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D28AF188F67939620E30F42 /* Pods-MSPDemoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -585,7 +531,6 @@
 		};
 		6684808B2BE03D800025018B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E28AB29591E557D754243851 /* Pods-MSPDemoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -729,6 +674,36 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		3B0AE6F066662BF7EC6DA362 /* XCLocalSwiftPackageReference "MSPSDK" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../MSPSDK;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7CB390CBB3F1F511523C5FB5 /* MSPNovaAdapter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B0AE6F066662BF7EC6DA362 /* XCLocalSwiftPackageReference "MSPSDK" */;
+			productName = MSPNovaAdapter;
+		};
+		CE24A511A067E37085F2F7AE /* MSPCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B0AE6F066662BF7EC6DA362 /* XCLocalSwiftPackageReference "MSPSDK" */;
+			productName = MSPCore;
+		};
+		D89CF1062DFED6367621AD26 /* MSPFacebookAdapter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B0AE6F066662BF7EC6DA362 /* XCLocalSwiftPackageReference "MSPSDK" */;
+			productName = MSPFacebookAdapter;
+		};
+		E23D98603F45645164546EB8 /* MSPGoogleAdapter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B0AE6F066662BF7EC6DA362 /* XCLocalSwiftPackageReference "MSPSDK" */;
+			productName = MSPGoogleAdapter;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 668480572BE03D7D0025018B /* Project object */;
 }
