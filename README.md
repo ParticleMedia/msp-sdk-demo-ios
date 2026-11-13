@@ -1,69 +1,93 @@
-# MSP SDK — iOS Integration Guide
+# MSP SDK — iOS Integration Guide (Swift Package Manager, SDK 3.5.2)
 
-> **Branch `spm_3.5.2`: the demo app uses MSP SDK 3.5.2 via Swift Package Manager, not CocoaPods.**
->
-> The SDK comes from a local Swift package in [`MSPSDK/`](MSPSDK/Package.swift). It wraps the
-> unmodified xcframeworks from the [3.5.2 release](https://github.com/ParticleMedia/msp-ios-sdk-public/releases/tag/3.5.2);
-> Google Mobile Ads and Facebook Audience Network come from their own Swift packages.
->
-> To run the demo:
->
-> 1. `./MSPSDK/fetch-binaries.sh` (downloads and checksum-verifies the 3.5.2 release zips into `MSPSDK/Binaries/`)
-> 2. Open `MSPDemoApp/MSPDemoApp.xcodeproj` (there is no `.xcworkspace` or `Podfile` on this branch) and run the `MSPDemoApp` scheme.
->
-> Products: `MSPCore`, `MSPNovaAdapter`, `MSPGoogleAdapter`, `MSPFacebookAdapter`. The app code and
-> `import` statements are the same as with CocoaPods. The local package is temporary: once MSP
-> publishes a hosted Swift package, the project will point at that package's URL at version 3.5.2.
-> The CocoaPods instructions below are unchanged on this branch.
+> **This is the `spm_3.5.2` branch.** The demo app and this guide use **MSP SDK 3.5.2 installed with
+> Swift Package Manager (SPM)**, not CocoaPods. For the CocoaPods guide for the latest SDK, see the
+> [`main` branch](https://github.com/ParticleMedia/msp-sdk-demo-ios/tree/main).
 
 ## Overview
 
-This guide covers how to add the MSP iOS SDK to your app, including how to initialize SDK, load Ad and display ads. 
+This guide covers how to add the MSP iOS SDK 3.5.2 to your app with Swift Package Manager, initialize the SDK, and load and display ads.
 
-The guide also provides some best pratices which helps you avoid common pitfalls and achieve best performance.
+The guide also provides some best practices which help you avoid common pitfalls and achieve the best performance.
 
 **System requirements**
 
 | Requirement | Version |
 |---|---|
 | iOS deployment target | 15.0+ |
-| Xcode | 15.0+ |
+| Xcode | 26.1+ (the 3.5.2 binaries were built with Swift 6.2.1; older Xcode versions cannot read their module interfaces) |
 | Swift | 5.0+ |
-| CocoaPods | 1.12+ |
+| Swift Package Manager | swift-tools-version 5.9+ (bundled with Xcode) |
 
 ---
 
-## Installation
+## Installation (Swift Package Manager)
 
-The MSP SDK is distributed via CocoaPods. Add the core pod and any adapter pods for the ad networks you want to monetize with.
+The MSP SDK is a binary Swift package. It wraps the unmodified xcframeworks published in the
+[3.5.2 release of `msp-ios-sdk-public`](https://github.com/ParticleMedia/msp-ios-sdk-public/releases/tag/3.5.2),
+the same binaries CocoaPods installs for `pod 'MSPCore', '3.5.2'`.
 
-**Podfile**
+### Package products
 
-```ruby
-platform :ios, '15.0'
+Add `MSPCore` and the adapter products for the ad networks you want to monetize with.
 
-target 'YourApp' do
-  use_frameworks!
+| Product | Required | Contains | Pulls in automatically |
+|---|---|---|---|
+| `MSPCore` | Yes | MSP core, Prebid demand (`MSPPrebidAdapter`, `PrebidMobile`), Open Measurement | — |
+| `MSPNovaAdapter` | No | Nova adapter and `NovaCore` | — |
+| `MSPGoogleAdapter` | No | Google Ad Manager / AdMob adapter | [Google Mobile Ads](https://github.com/googleads/swift-package-manager-google-mobile-ads) 12.x |
+| `MSPFacebookAdapter` | No | Meta Audience Network adapter | [FBAudienceNetwork](https://github.com/facebook/FBAudienceNetwork) 6.x |
 
-  # Core SDK (required)
-  pod 'MSPCore', '{LATEST_VERSION}', :modular_headers => true
+Not available as SPM products for 3.5.2: the Moloco, Liftoff and Amazon adapters. The AppLovin MAX adapter does not exist in 3.5.2 (it was added in 3.7.0).
 
-  # Ad network adapters (add only those you need)
-  pod 'MSPGoogleAdapter', '{LATEST_VERSION}', :modular_headers => true
-  pod 'MSPFacebookAdapter', '{LATEST_VERSION}', :modular_headers => true
-  pod 'MSPNovaAdapter', '{LATEST_VERSION}', :modular_headers => true
-  pod 'MSPMolocoAdapter', '{LATEST_VERSION}', :modular_headers => true
-  pod 'MSPApplovinMaxAdapter', '{LATEST_VERSION}', :modular_headers => true
-end
+### Add the package
+
+Until MSP publishes a hosted Swift package, the package lives in this repository as a local package in [`MSPSDK/`](MSPSDK/Package.swift):
+
+1. Copy the `MSPSDK/` folder (`Package.swift`, `Sources/` and `fetch-binaries.sh`) into your repository.
+2. Download the 3.5.2 binaries. The script downloads the release zips, verifies their SHA-256 checksums and unpacks the xcframeworks into `MSPSDK/Binaries/`:
+
+   ```bash
+   ./MSPSDK/fetch-binaries.sh
+   ```
+
+   `Binaries/` is git-ignored. Run the script on every fresh checkout and in CI before building.
+3. In Xcode, choose **File → Add Package Dependencies… → Add Local…**, select the `MSPSDK` folder, and add the products you need to your app target.
+
+If your app is itself described by a `Package.swift`, depend on the local package instead:
+
+```swift
+dependencies: [
+    .package(path: "MSPSDK"),
+],
+targets: [
+    .target(
+        name: "YourApp",
+        dependencies: [
+            .product(name: "MSPCore", package: "MSPSDK"),
+            .product(name: "MSPNovaAdapter", package: "MSPSDK"),
+            .product(name: "MSPGoogleAdapter", package: "MSPSDK"),
+            .product(name: "MSPFacebookAdapter", package: "MSPSDK"),
+        ]
+    ),
+]
 ```
 
-Run the install command:
+When the hosted package is available, remove the local package and add the package URL with the
+**Exact Version** rule `3.5.2`. Product names and `import` statements stay the same.
 
-```bash
-pod install
-```
+### Notes for apps moving from CocoaPods
 
-Open the generated `.xcworkspace` file — do not use the `.xcodeproj` directly.
+- Remove the MSP pods (`MSPCore`, `MSPSharedLibraries`, `MSPPrebidAdapter`, the adapter pods) and the `SwiftProtobuf` pod you added for MSP, then run `pod install` (or `pod deintegrate` if MSP was your only pod). Keep both installs out of the same app: it would link two copies of the SDK.
+- Do not add `SwiftProtobuf`, `Kingfisher` or `SnapKit` for MSP: the SDK binaries already contain the code they need under private names.
+- `use_frameworks!` and `:modular_headers => true` have no SPM equivalent and are not needed.
+- Do not add `PrebidMobile` through SPM in the same app. MSP ships its own build of Prebid under the module name `PrebidMobile`, so a second copy clashes.
+- Your app code does not change: the module names (`MSPCore`, `MSPiOSCore`, `MSPNovaAdapter`, `MSPGoogleAdapter`, `MSPFacebookAdapter`) are the same as with CocoaPods.
+
+### Run this demo app
+
+1. `./MSPSDK/fetch-binaries.sh`
+2. Open `MSPDemoApp/MSPDemoApp.xcodeproj` (there is no `.xcworkspace` or `Podfile` on this branch) and run the `MSPDemoApp` scheme.
 
 ---
 
@@ -78,7 +102,7 @@ Add the usage description key. The system displays this string in the ATT permis
 <string>This identifier will be used to deliver personalized ads to you.</string>
 ```
 
-Network-specific `Info.plist` entries (GAD identifier, SKAdNetwork IDs) are covered per-network in the [Mediation Networks Guide](#mediation-networks-guide).
+Network-specific `Info.plist` entries (GAD identifier, SKAdNetwork IDs) are covered per network in the [Mediation Networks Guide](#mediation-networks-guide).
 
 ---
 
@@ -92,8 +116,9 @@ Initialize the MSP SDK as early as possible — ideally in `application(_:didFin
 import AppTrackingTransparency
 import MSPCore
 import MSPiOSCore
-
-// Import adapter modules — see Mediation Networks Guide for each network's import name
+import MSPNovaAdapter
+import MSPGoogleAdapter
+import MSPFacebookAdapter
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -101,11 +126,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Declare adapter managers for the networks you want to activate
     private let adNetworkManagers: [AdNetworkManager] = [
+        NovaManager(),
         GoogleManager(),
         FacebookManager(),
-        NovaManager(),
-        MolocoManager(),
-        ApplovinMaxManager(),
     ]
 
     func application(
@@ -128,19 +151,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Optional: pass a publisher-provided user identifier for frequency capping
         MSP.shared.ppid = "your-user-id"
 
+        // Required for Google client-side bidding and for Facebook bidding.
+        // Without the Facebook bid token provider, Facebook never bids.
+        MSP.shared.bidLoaderProvider.googleQueryInfoFetcher = GoogleQueryInfoFetcherHelper()
+        MSP.shared.bidLoaderProvider.facebookBidTokenProvider = FacebookBidTokenProviderHelper()
+
         // Build initialization parameters
         let initParams = InitializationParametersImp(
             prebidAPIKey: "YOUR_PREBID_API_KEY",
-            sourceApp: "YOUR_SOURCE_APP",
-            orgId: 12345,   // Your org ID from the MSP dashboard
-            appId: 67890    // Your app ID from the MSP dashboard
+            sourceApp: "YOUR_APP_STORE_ID", // Your app's numeric App Store ID
+            orgId: 12345,                   // Your org ID provisioned by Particle Inc.
+            appId: 67890                    // Your app ID provisioned by Particle Inc.
         )
-
-        // Additional network-specific init parameters
-        initParams.params = [
-            InitializationParametersCustomKeys.MOLOCO_APP_KEY: "xxxxx-v9C8uNYV5riG7Vwu",
-            InitializationParametersCustomKeys.APPLOVIN_SDK_KEY: "6KrA5SQHFTBpGDUU4FeLIZG...",
-        ]
+        initParams.params = [:]
 
         // Initialize
         MSP.shared.initMSP(
@@ -163,17 +186,19 @@ extension AppDelegate: MSPInitListener {
 
 | Parameter | Type | Description |
 |---|---|---|
-| `prebidAPIKey` | `String` | API key issued by Particle inc. for your app |
-| `sourceApp` | `String` | App bundle identifier or source tag |
-| `orgId` | `Int64` | Organization ID provisioned from Particle inc. |
-| `appId` | `Int64` | App ID provisioned from Particle inc. |
-| `params` | `[String: Any]?` | Additional network-specific initialization parameters |
+| `prebidAPIKey` | `String` | API key issued by Particle Inc. for your app |
+| `sourceApp` | `String?` | Your app's numeric App Store ID |
+| `orgId` | `Int64?` | Organization ID provisioned by Particle Inc. |
+| `appId` | `Int64?` | App ID provisioned by Particle Inc. |
+| `params` | `[String: Any]?` | Additional network-specific initialization parameters (none needed for Nova, Google or Facebook) |
 
-**Optional MSP.shared properties**
+**MSP.shared properties used above**
 
 | Property | Default | Description |
 |---|---|---|
 | `ppid` | `nil` | Publisher-provided user ID |
+| `bidLoaderProvider.googleQueryInfoFetcher` | `nil` | Set to `GoogleQueryInfoFetcherHelper()` (from `MSPGoogleAdapter`) |
+| `bidLoaderProvider.facebookBidTokenProvider` | `nil` | Set to `FacebookBidTokenProviderHelper()` (from `MSPFacebookAdapter`) |
 
 ---
 
@@ -216,9 +241,9 @@ Call `MSP.shared.notifyLoss` API when:
 `public func notifyLoss(winnerBidderName: String, winnerPrice: Float, ad: MSPAd?, requestId: String?)`
 
 - `winnerBidderName`: name of the winning bidder other than MSP
-- `winnderPrice`: Ad price of the winning bid other than MSP
+- `winnerPrice`: Ad price of the winning bid other than MSP
 - `ad`: MSP Ad that loses the auction.(pass `nil` for the No fill case)
-- `requestId`: Provided by `onAdLoaded` and `onError` callback parameter `loadInfo[MSPConstants.LOAD_INFO_KEY_REQUEST_ID]` of `loadAd` API
+- `requestId`: The `"request_id"` entry of the `loadInfo` dictionary passed to `onAdLoaded(placementId:loadInfo:)` and `onError(msg:loadInfo:)`, for example `loadInfo["request_id"] as? String`. (SDK 3.5.2 has no `MSPConstants` key for it.)
 
 ---
 
@@ -273,7 +298,7 @@ extension BannerViewController: AdListener {
 
     func onAdImpression(ad: MSPAd) {}
     func onAdClick(ad: MSPAd) {}
-    func onAdDismissed(ad: MSPAd) {}
+    func onAdDismissed(ad: InterstitialAd) {}
 
     func getRootViewController() -> UIViewController? { self }
 }
@@ -290,6 +315,8 @@ extension BannerViewController: AdListener {
 ### Interstitial Ads
 
 Load the interstitial before you need to show it. Display it at a natural transition point — level completion, article end, etc.
+
+Always call `show(rootViewController:)` with the view controller to present from. In SDK 3.5.2, calling `show()` without a view controller crashes when the winning ad is a Facebook interstitial.
 
 ```swift
 import MSPCore
@@ -332,8 +359,9 @@ extension InterstitialViewController: AdListener {
         print("[MSP] Interstitial error: \(msg)")
     }
 
-    func onAdDismissed(ad: MSPAd) {
-        print("[MSP] Interstitial Ads is dismissed: \(msg)")
+    func onAdDismissed(ad: InterstitialAd) {
+        print("[MSP] Interstitial ad dismissed")
+        loadInterstitial() // preload the next one
     }
 
     func onAdImpression(ad: MSPAd) {}
@@ -345,57 +373,7 @@ extension InterstitialViewController: AdListener {
 
 ### Rewarded Ads
 
-Rewarded ads are full-screen placements that grant a reward — coins, lives, premium content access — after the user completes the ad experience. The reward is delivered via `onAdRewardReceived`.
-
-```swift
-import MSPCore
-import MSPiOSCore
-
-class RewardedViewController: UIViewController {
-
-    private let loader = MSPAdLoader()
-
-    private func loadRewardedAd() {
-        let request = AdRequest(
-            customParams: [:],
-            geo: nil,
-            context: nil,
-            adaptiveBannerSize: nil,
-            adSize: nil,
-            placementId: "YOUR_REWARDED_PLACEMENT_ID",
-            adFormat: .rewarded
-        )
-        loader.loadAd(placementId: "YOUR_REWARDED_PLACEMENT_ID", adListener: self, adRequest: request)
-    }
-
-    @IBAction func userTappedWatchAd(_ sender: UIButton) {
-        guard let rewardedAd = loader.getAd(placementId: "YOUR_REWARDED_PLACEMENT_ID") as? RewardedAd else {
-            print("[MSP] Rewarded ad not ready yet")
-            return
-        }
-        rewardedAd.show(rootViewController: self)
-    }
-}
-
-extension RewardedViewController: AdListener {
-
-    // Override this to grant the reward to the user
-    func onAdRewardReceived(ad: MSPAd) {
-        guard let rewardedAd = ad as? RewardedAd else { return }
-        let reward = rewardedAd.reward
-        print("[MSP] Reward: \(reward.amount) \(reward.type)")
-        // Grant the reward to the user here
-    }
-
-    func onAdLoaded(placementId: String, loadInfo: [String: Any]) {}
-    func onError(msg: String, loadInfo: [String: Any]) {}
-    func onAdDismissed(ad: MSPAd) {}
-    func onAdImpression(ad: MSPAd) {}
-    func onAdClick(ad: MSPAd) {}
-
-    func getRootViewController() -> UIViewController? { self }
-}
-```
+Rewarded ads are not available in SDK 3.5.2. They were added in SDK 4.5.0 (`AdFormat.rewarded`, `RewardedAd`, `onAdRewardReceived`).
 
 ### Native Ads
 
@@ -443,7 +421,7 @@ extension NativeViewController: AdListener {
     func onError(msg: String, loadInfo: [String: Any]) {}
     func onAdImpression(ad: MSPAd) {}
     func onAdClick(ad: MSPAd) {}
-    func onAdDismissed(ad: MSPAd) {}
+    func onAdDismissed(ad: InterstitialAd) {}
 
     func getRootViewController() -> UIViewController? { self }
 }
@@ -528,7 +506,7 @@ extension MultiFormatViewController: AdListener {
     func onError(msg: String, loadInfo: [String: Any]) {}
     func onAdImpression(ad: MSPAd) {}
     func onAdClick(ad: MSPAd) {}
-    func onAdDismissed(ad: MSPAd) {}
+    func onAdDismissed(ad: InterstitialAd) {}
 
     func getRootViewController() -> UIViewController? { self }
 }
@@ -536,15 +514,14 @@ extension MultiFormatViewController: AdListener {
 
 ## Mediation Networks Guide
 
-Network-specific `Info.plist` entries required for each adapter are listed below.
+Network-specific `Info.plist` entries required for each adapter are listed below. Formats are those supported by the SDK 3.5.2 adapters.
 
-| Pod | Ad Network | Formats |
+| Product | Ad Network | Formats |
 |---|---|---|
-| `MSPGoogleAdapter` | Google Ad Manager / AdMob | Banner, Interstitial, Rewarded, Native |
-| `MSPFacebookAdapter` | Meta Audience Network | Banner, Interstitial, Rewarded, Native |
-| `MSPNovaAdapter` | Nova | Banner, Interstitial, Native, Rewarded |
-| `MSPMolocoAdapter` | Moloco | Banner, Native, Interstitial, Rewarded |
-| `MSPApplovinMaxAdapter` | AppLovin/Max | Banner, Native, Interstitial, Rewarded |
+| `MSPCore` (Prebid) | Prebid demand (PubMatic and other server-side bidders) | Banner, Interstitial |
+| `MSPGoogleAdapter` | Google Ad Manager / AdMob | Banner, Interstitial, Native |
+| `MSPFacebookAdapter` | Meta Audience Network | Interstitial, Native |
+| `MSPNovaAdapter` | Nova | Interstitial, Native |
 
 ---
 
@@ -587,25 +564,9 @@ Add your app's GAD identifier from the Google AdMob dashboard:
 
 ---
 
-### Moloco
+### Meta (Facebook): bidding setup
 
-Pass your Moloco App Key via `params` during initialization:
-
-```swift
-initParams.params = [
-    InitializationParametersCustomKeys.MOLOCO_APP_KEY: "YOUR_MOLOCO_APP_KEY"
-]
-```
-
-### AppLovin
-
-Pass your AppLovin SDK Key via `params` during initialization:
-
-```swift
-initParams.params = [
-    InitializationParametersCustomKeys.APPLOVIN_SDK_KEY: "6KrA5SQHFTBpGDUU4FeLIZG..."
-]
-```
+Facebook only bids when `MSP.shared.bidLoaderProvider.facebookBidTokenProvider` is set before `initMSP` (see [Initialize the SDK](#initialize-the-sdk)). In our testing, Facebook also returned no bids while App Tracking Transparency was denied, and filled once tracking was allowed.
 
 ---
 
@@ -617,7 +578,6 @@ The auction takes time. Suggest Call `loadAd` before the moment you need to show
 
 - **Banners**: Load when the view controller loads (`viewDidLoad`).
 - **Interstitials**: Load at app launch or immediately after the previous interstitial is dismissed.
-- **Rewarded**: Load at app launch and again in `onAdDismissed`.
 
 ### Destroying Ads
 
@@ -641,7 +601,7 @@ Keep a strong reference to your `MSPAdLoader` instance for the lifetime of the p
 
 **No ads filling**
 
-- Verify the placement IDs match what is Provisioned by Particles inc.
+- Verify the placement IDs match what is provisioned by Particle Inc.
 - Confirm `initMSP` completes before `loadAd` is called.
 - Enable verbose logging during development: `MSPLogger.shared.setLogLevel(level: MSPLogger.DEBUG)`.
 
@@ -653,16 +613,28 @@ Keep a strong reference to your `MSPAdLoader` instance for the lifetime of the p
 
 `ATTrackingManager.requestTrackingAuthorization` must be called from the main thread after your root view controller is visible. The 1-second delay in the sample above handles the most common case; adjust as needed for your presentation flow.
 
-**Rewarded ad shows but reward is never granted**
+**Package resolution fails: binary target not found in `Binaries/`**
 
-`onAdRewardReceived` fires only if the user watches the ad to completion. Do not grant rewards based on `onAdDismissed` alone.
+`MSPSDK/Binaries/` is empty. Run `./MSPSDK/fetch-binaries.sh`, then in Xcode choose **File → Packages → Reset Package Caches**.
+
+**"compiled module was created by a newer version of the compiler"**
+
+The 3.5.2 binaries were built with Swift 6.2.1. Use Xcode 26.1 or later.
+
+**Facebook never fills**
+
+Set `facebookBidTokenProvider` (and `googleQueryInfoFetcher`) before `initMSP`, and check the App Tracking Transparency status.
+
+**Console warnings: `Class _TtC10MSPSnapKit… is implemented in both MSPCore and NovaCore`**
+
+Known and harmless in 3.5.2: both binaries carry the SDK's private copy of SnapKit. CocoaPods installs of 3.5.2 log the same warning.
 
 ## Privacy
 ### CCPA
-Prebid SDK which is introduced by by MSP SDK will read `UserDefaults` (iOS) or `SharedPreferences` (Android) key `IABUSPrivacy_String` for US Privacy signal. [Prebid SDK CCPA doc](https://docs.prebid.org/prebid-mobile/prebid-mobile-privacy-regulation.html#notice-and-opt-out-signal)
+Prebid SDK which is included in the MSP SDK will read `UserDefaults` (iOS) or `SharedPreferences` (Android) key `IABUSPrivacy_String` for US Privacy signal. [Prebid SDK CCPA doc](https://docs.prebid.org/prebid-mobile/prebid-mobile-privacy-regulation.html#notice-and-opt-out-signal)
 
 ### GDPR
-Prebid SDK which is introduced by by MSP SDK will read `UserDefaults` (iOS) or `SharedPreferences` (Android) keys `IABTCF_gdprApplies` and `IABTCF_TCString` for GDPR privacy signals. [Predbid SDK GDPR doc](https://docs.prebid.org/prebid-mobile/prebid-mobile-privacy-regulation.html#framework-apis)
+Prebid SDK which is included in the MSP SDK will read `UserDefaults` (iOS) or `SharedPreferences` (Android) keys `IABTCF_gdprApplies` and `IABTCF_TCString` for GDPR privacy signals. [Prebid SDK GDPR doc](https://docs.prebid.org/prebid-mobile/prebid-mobile-privacy-regulation.html#framework-apis)
 
 ### COPPA
-Set your COPPA signal through init parameter `isAgeRestrictedUser`
+SDK 3.5.2 does not let you set a COPPA signal: `InitializationParametersImp.isAgeRestrictedUser()` always returns `false`. Later SDK versions add consent APIs for it.
