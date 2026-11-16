@@ -42,39 +42,43 @@ Not available as SPM products for 3.5.2: the Moloco, Liftoff and Amazon adapters
 
 ### Add the package
 
-Until MSP publishes a hosted Swift package, the package lives in this repository as a local package in [`MSPSDK/`](MSPSDK/Package.swift):
+The package is hosted at [`ParticleMedia/msp-ios-sdk-spm`](https://github.com/ParticleMedia/msp-ios-sdk-spm). SwiftPM downloads the binaries from the 3.5.2 release and verifies each one against the checksum in the package manifest.
 
-1. Copy the `MSPSDK/` folder (`Package.swift`, `Sources/` and `fetch-binaries.sh`) into your repository.
-2. Download the 3.5.2 binaries. The script downloads the release zips, verifies their SHA-256 checksums and unpacks the xcframeworks into `MSPSDK/Binaries/`:
+1. In Xcode, choose **File → Add Package Dependencies…** and enter:
 
-   ```bash
-   ./MSPSDK/fetch-binaries.sh
+   ```
+   https://github.com/ParticleMedia/msp-ios-sdk-spm
    ```
 
-   `Binaries/` is git-ignored. Run the script on every fresh checkout and in CI before building.
-3. In Xcode, choose **File → Add Package Dependencies… → Add Local…**, select the `MSPSDK` folder, and add the products you need to your app target.
+2. Choose the dependency rule **Exact Version** `3.5.2`.
+3. Add the products you need to your app target.
+4. Commit `Package.resolved` (in your `.xcodeproj` or `.xcworkspace`) so every machine and CI build uses the same version.
 
-If your app is itself described by a `Package.swift`, depend on the local package instead:
+If your app is itself described by a `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(path: "MSPSDK"),
+    .package(url: "https://github.com/ParticleMedia/msp-ios-sdk-spm", exact: "3.5.2"),
 ],
 targets: [
     .target(
         name: "YourApp",
         dependencies: [
-            .product(name: "MSPCore", package: "MSPSDK"),
-            .product(name: "MSPNovaAdapter", package: "MSPSDK"),
-            .product(name: "MSPGoogleAdapter", package: "MSPSDK"),
-            .product(name: "MSPFacebookAdapter", package: "MSPSDK"),
+            .product(name: "MSPCore", package: "msp-ios-sdk-spm"),
+            .product(name: "MSPNovaAdapter", package: "msp-ios-sdk-spm"),
+            .product(name: "MSPGoogleAdapter", package: "msp-ios-sdk-spm"),
+            .product(name: "MSPFacebookAdapter", package: "msp-ios-sdk-spm"),
         ]
     ),
 ]
 ```
 
-When the hosted package is available, remove the local package and add the package URL with the
-**Exact Version** rule `3.5.2`. Product names and `import` statements stay the same.
+#### Already using the local `MSPSDK/` package?
+
+The hosted package contains the same xcframeworks, byte for byte, with the same products and dependency ranges, so no code changes are needed:
+
+1. Remove the local `MSPSDK` package from your project and delete the `MSPSDK/` folder and the `fetch-binaries.sh` step from CI.
+2. Add the package URL at **Exact Version** `3.5.2` as above, with the same products.
 
 ### Notes for apps moving from CocoaPods
 
@@ -86,8 +90,7 @@ When the hosted package is available, remove the local package and add the packa
 
 ### Run this demo app
 
-1. `./MSPSDK/fetch-binaries.sh`
-2. Open `MSPDemoApp/MSPDemoApp.xcodeproj` (there is no `.xcworkspace` or `Podfile` on this branch) and run the `MSPDemoApp` scheme.
+Open `MSPDemoApp/MSPDemoApp.xcodeproj` (there is no `.xcworkspace` or `Podfile` on this branch) and run the `MSPDemoApp` scheme. Xcode resolves the package on first open.
 
 ---
 
@@ -613,9 +616,9 @@ Keep a strong reference to your `MSPAdLoader` instance for the lifetime of the p
 
 `ATTrackingManager.requestTrackingAuthorization` must be called from the main thread after your root view controller is visible. The 1-second delay in the sample above handles the most common case; adjust as needed for your presentation flow.
 
-**Package resolution fails: binary target not found in `Binaries/`**
+**Package resolution fails or reports a checksum mismatch**
 
-`MSPSDK/Binaries/` is empty. Run `./MSPSDK/fetch-binaries.sh`, then in Xcode choose **File → Packages → Reset Package Caches**.
+Make sure the machine can download from `github.com` (proxies included), then in Xcode choose **File → Packages → Reset Package Caches** and build again.
 
 **"compiled module was created by a newer version of the compiler"**
 

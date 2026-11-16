@@ -282,7 +282,7 @@
 			);
 			mainGroup = 668480562BE03D7D0025018B;
 			packageReferences = (
-				3B0AE6F066662BF7EC6DA362 /* XCLocalSwiftPackageReference "MSPSDK" */,
+				6A6906B3AC74633C799FCC59 /* XCRemoteSwiftPackageReference "msp-ios-sdk-spm" */,
 			);
 			productRefGroup = 668480602BE03D7D0025018B /* Products */;
 			projectDirPath = "";
@@ -675,32 +675,36 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		3B0AE6F066662BF7EC6DA362 /* XCLocalSwiftPackageReference "MSPSDK" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../MSPSDK;
+/* Begin XCRemoteSwiftPackageReference section */
+		6A6906B3AC74633C799FCC59 /* XCRemoteSwiftPackageReference "msp-ios-sdk-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ParticleMedia/msp-ios-sdk-spm";
+			requirement = {
+				kind = exactVersion;
+				version = 3.5.2;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		7CB390CBB3F1F511523C5FB5 /* MSPNovaAdapter */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3B0AE6F066662BF7EC6DA362 /* XCLocalSwiftPackageReference "MSPSDK" */;
+			package = 6A6906B3AC74633C799FCC59 /* XCRemoteSwiftPackageReference "msp-ios-sdk-spm" */;
 			productName = MSPNovaAdapter;
 		};
 		CE24A511A067E37085F2F7AE /* MSPCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3B0AE6F066662BF7EC6DA362 /* XCLocalSwiftPackageReference "MSPSDK" */;
+			package = 6A6906B3AC74633C799FCC59 /* XCRemoteSwiftPackageReference "msp-ios-sdk-spm" */;
 			productName = MSPCore;
 		};
 		D89CF1062DFED6367621AD26 /* MSPFacebookAdapter */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3B0AE6F066662BF7EC6DA362 /* XCLocalSwiftPackageReference "MSPSDK" */;
+			package = 6A6906B3AC74633C799FCC59 /* XCRemoteSwiftPackageReference "msp-ios-sdk-spm" */;
 			productName = MSPFacebookAdapter;
 		};
 		E23D98603F45645164546EB8 /* MSPGoogleAdapter */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3B0AE6F066662BF7EC6DA362 /* XCLocalSwiftPackageReference "MSPSDK" */;
+			package = 6A6906B3AC74633C799FCC59 /* XCRemoteSwiftPackageReference "msp-ios-sdk-spm" */;
 			productName = MSPGoogleAdapter;
 		};
 /* End XCSwiftPackageProductDependency section */
