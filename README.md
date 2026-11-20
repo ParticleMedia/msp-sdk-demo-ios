@@ -35,14 +35,16 @@ Add `MSPCore` and the adapter products for the ad networks you want to monetize 
 |---|---|---|---|
 | `MSPCore` | Yes | MSP core, Prebid demand (`MSPPrebidAdapter`, `PrebidMobile`), Open Measurement | — |
 | `MSPNovaAdapter` | No | Nova adapter and `NovaCore` | — |
-| `MSPGoogleAdapter` | No | Google Ad Manager / AdMob adapter | [Google Mobile Ads](https://github.com/googleads/swift-package-manager-google-mobile-ads) 12.x |
+| `MSPGoogleAdapter` | No | Google Ad Manager / AdMob adapter | **None — add it yourself:** [Google Mobile Ads](https://github.com/googleads/swift-package-manager-google-mobile-ads) 12.x, product `GoogleMobileAds` (see below) |
 | `MSPFacebookAdapter` | No | Meta Audience Network adapter | [FBAudienceNetwork](https://github.com/facebook/FBAudienceNetwork) 6.x |
+
+If you use `MSPGoogleAdapter`, also add the [Google Mobile Ads package](https://github.com/googleads/swift-package-manager-google-mobile-ads) (version 12.x) and its `GoogleMobileAds` product to your app target. The MSP package does not declare it, so that apps that don't use `MSPGoogleAdapter` can use any Google Mobile Ads version (for example GMA 13 via AppLovin MAX). Without it the build fails with `Unable to find module dependency: 'GoogleMobileAds'`.
 
 Not available as SPM products for 3.5.2: the Moloco, Liftoff and Amazon adapters. The AppLovin MAX adapter does not exist in 3.5.2 (it was added in 3.7.0).
 
 ### Add the package
 
-The package is hosted at [`ParticleMedia/msp-ios-sdk-spm`](https://github.com/ParticleMedia/msp-ios-sdk-spm). SwiftPM downloads the binaries from the 3.5.2 release and verifies each one against the checksum in the package manifest.
+The package is hosted at [`ParticleMedia/msp-ios-sdk-spm`](https://github.com/ParticleMedia/msp-ios-sdk-spm). Use package version **3.5.3**: it contains the SDK 3.5.2 binaries (`MSP.getSDKVersion()` reports 3.5.2) and fixes the package manifest. Package version 3.5.2 is superseded: it declares Google Mobile Ads 12.x, which blocks apps that get GMA 13 elsewhere. SwiftPM downloads the binaries from the 3.5.2 release and verifies each one against the checksum in the package manifest.
 
 1. In Xcode, choose **File → Add Package Dependencies…** and enter:
 
@@ -50,7 +52,7 @@ The package is hosted at [`ParticleMedia/msp-ios-sdk-spm`](https://github.com/Pa
    https://github.com/ParticleMedia/msp-ios-sdk-spm
    ```
 
-2. Choose the dependency rule **Exact Version** `3.5.2`.
+2. Choose the dependency rule **Exact Version** `3.5.3`.
 3. Add the products you need to your app target.
 4. Commit `Package.resolved` (in your `.xcodeproj` or `.xcworkspace`) so every machine and CI build uses the same version.
 
@@ -58,7 +60,9 @@ If your app is itself described by a `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/ParticleMedia/msp-ios-sdk-spm", exact: "3.5.2"),
+    .package(url: "https://github.com/ParticleMedia/msp-ios-sdk-spm", exact: "3.5.3"),
+    // Only if you use MSPGoogleAdapter:
+    .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git", "12.0.0"..<"13.0.0"),
 ],
 targets: [
     .target(
@@ -68,6 +72,8 @@ targets: [
             .product(name: "MSPNovaAdapter", package: "msp-ios-sdk-spm"),
             .product(name: "MSPGoogleAdapter", package: "msp-ios-sdk-spm"),
             .product(name: "MSPFacebookAdapter", package: "msp-ios-sdk-spm"),
+            // Only if you use MSPGoogleAdapter:
+            .product(name: "GoogleMobileAds", package: "swift-package-manager-google-mobile-ads"),
         ]
     ),
 ]
@@ -75,10 +81,10 @@ targets: [
 
 #### Already using the local `MSPSDK/` package?
 
-The hosted package contains the same xcframeworks, byte for byte, with the same products and dependency ranges, so no code changes are needed:
+The hosted package contains the same xcframeworks, byte for byte, with the same products, so no code changes are needed:
 
 1. Remove the local `MSPSDK` package from your project and delete the `MSPSDK/` folder and the `fetch-binaries.sh` step from CI.
-2. Add the package URL at **Exact Version** `3.5.2` as above, with the same products.
+2. Add the package URL at **Exact Version** `3.5.3` as above, with the same products (plus the Google Mobile Ads package if you use `MSPGoogleAdapter`).
 
 ### Notes for apps moving from CocoaPods
 
