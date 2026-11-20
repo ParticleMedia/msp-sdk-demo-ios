@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB00000000000000000000B1 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = AB00000000000000000000B2 /* GoogleMobileAds */; };
 		133457460594E2AD472E4901 /* MSPFacebookAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = D89CF1062DFED6367621AD26 /* MSPFacebookAdapter */; };
 		5598568BA7AA24BEB36B94E9 /* MSPGoogleAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = E23D98603F45645164546EB8 /* MSPGoogleAdapter */; };
 		668480632BE03D7D0025018B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668480622BE03D7D0025018B /* AppDelegate.swift */; };
@@ -75,6 +76,7 @@
 				F56861DD214ADE7CDA118C0E /* MSPNovaAdapter in Frameworks */,
 				5598568BA7AA24BEB36B94E9 /* MSPGoogleAdapter in Frameworks */,
 				133457460594E2AD472E4901 /* MSPFacebookAdapter in Frameworks */,
+				AB00000000000000000000B1 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +210,7 @@
 				7CB390CBB3F1F511523C5FB5 /* MSPNovaAdapter */,
 				E23D98603F45645164546EB8 /* MSPGoogleAdapter */,
 				D89CF1062DFED6367621AD26 /* MSPFacebookAdapter */,
+				AB00000000000000000000B2 /* GoogleMobileAds */,
 			);
 			productName = MSPDemoApp;
 			productReference = 6684805F2BE03D7D0025018B /* MSPDemoApp.app */;
@@ -283,6 +286,7 @@
 			mainGroup = 668480562BE03D7D0025018B;
 			packageReferences = (
 				6A6906B3AC74633C799FCC59 /* XCRemoteSwiftPackageReference "msp-ios-sdk-spm" */,
+				AB00000000000000000000B3 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 668480602BE03D7D0025018B /* Products */;
 			projectDirPath = "";
@@ -681,7 +685,16 @@
 			repositoryURL = "https://github.com/ParticleMedia/msp-ios-sdk-spm";
 			requirement = {
 				kind = exactVersion;
-				version = 3.5.2;
+				version = 3.5.3;
+			};
+		};
+		AB00000000000000000000B3 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = versionRange;
+				maximumVersion = 13.0.0;
+				minimumVersion = 12.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -706,6 +719,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6A6906B3AC74633C799FCC59 /* XCRemoteSwiftPackageReference "msp-ios-sdk-spm" */;
 			productName = MSPGoogleAdapter;
+		};
+		AB00000000000000000000B2 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB00000000000000000000B3 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
